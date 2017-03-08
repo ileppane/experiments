@@ -5,13 +5,6 @@ from .models import Constants
 from decimal import Decimal, ROUND_HALF_UP
 
 
-
-class WelcomeWaitPage(WaitPage):
-
-    def after_all_players_arrive(self):
-        self.group.set_margin()
-
-
 class WelcomePage(Page):
 
     def is_displayed(self):
@@ -22,7 +15,7 @@ class WelcomePage(Page):
 
     def vars_for_template(self):
 
-        if (self.player.margin == 'low'):
+        if (Constants.margin == 'low'):
             marginlow = True
 
         else:
@@ -30,7 +23,7 @@ class WelcomePage(Page):
 
         return {
             'marginlow': marginlow,
-            'margin': safe_json(self.player.margin),
+            'margin': safe_json(Constants.margin),
             'label1l': 'If your order quantity is 600 and the demand realization is 700, what is your profit?',
             'label2l': 'If your order quantity is 600, what is the probability that your profit will be 936?',
             'label3l': 'If your order quantity is 750, what is the probability that your profit will be 806?',
@@ -42,12 +35,6 @@ class WelcomePage(Page):
         }
 
 
-class DecideWaitPage(WaitPage):
-
-    def after_all_players_arrive(self):
-        self.group.start_timer()
-
-
 class DecideOrderQuantity(Page):
 
     form_model = models.Player
@@ -57,14 +44,10 @@ class DecideOrderQuantity(Page):
 
         return {
             'round': self.player.round_number,
-            'margin': safe_json(self.player.margin)
+            'margin': safe_json(Constants.margin)
         }
 
-
-class ResultsWaitPage(WaitPage):
-
-    def after_all_players_arrive(self):
-
+    def before_next_page(self):
         self.group.set_payoffs()
         self.group.end_timer()
 
@@ -73,7 +56,7 @@ class Results(Page):
 
     def vars_for_template(self):
 
-        if (self.player.margin == 'low'):
+        if (Constants.margin == 'low'):
             demand = self.session.vars['demand'][self.round_number-1]
             demandindex = (demand-500)/50
 
@@ -90,13 +73,16 @@ class Results(Page):
 
         return {
             'round': self.player.round_number,
-            'margin': safe_json(self.player.margin),
+            'margin': safe_json(Constants.margin),
             'orderqindex': safe_json(self.player.orderquantity),
             'demand': demand,
             'demandindex': safe_json(demandindex),
             'player_in_all_rounds': self.player.in_all_rounds(),
             'demandtext': demandtext
         }
+
+    def before_next_page(self):
+        self.group.start_timer()
 
 
 class FinalPage(Page):
@@ -117,11 +103,8 @@ class FinalPage(Page):
 
 
 page_sequence = [
-    WelcomeWaitPage,
     WelcomePage,
-    DecideWaitPage,
     DecideOrderQuantity,
-    ResultsWaitPage,
     Results,
     FinalPage
 ]

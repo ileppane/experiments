@@ -144,7 +144,7 @@ SESSION_CONFIGS = [
         'name': 'newsvendor',
         'display_name': "Newsvendor",
         'num_demo_participants': 1,
-        'app_sequence': ['svo', 'newsvendor', 'payment_info'],
+        'app_sequence': ['svo','newsvendor', 'payment_info'],
     },
     {
         'name': 'public_goods',

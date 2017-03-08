@@ -21,16 +21,15 @@ class Constants(BaseConstants):
 
     name_in_url = 'newsvendor'
     players_per_group = None
-    num_rounds = 4
+    num_rounds = 7
     endowment = None
+    margin = 'low'
 
 
 class Subsession(BaseSubsession):
 
     def before_session_starts(self):
 
-        margin = random.sample(['low','high'], 1)
-        self.session.vars['margin'] = margin[0]
         demandlow = [0]*int(Constants.num_rounds)
         demandhigh = [0]*int(Constants.num_rounds)
 
@@ -40,10 +39,10 @@ class Subsession(BaseSubsession):
             demandhigh[t] = random.randrange(300, 900, 100)
             t += 1
 
-        if (margin[0] == 'low'):
+        if (Constants.margin == 'low'):
             self.session.vars['demand'] = demandlow
 
-        if (margin[0] == 'high'):
+        if (Constants.margin == 'high'):
             self.session.vars['demand'] = demandhigh
 
 
@@ -55,7 +54,7 @@ class Group(BaseGroup):
 
             p.demand = self.session.vars['demand'][self.round_number - 1]
 
-            if (p.margin == 'low'):
+            if (Constants.margin == 'low'):
 
                 p.trueorderquantity = 500 + p.orderquantity * 50
 
@@ -83,15 +82,9 @@ class Group(BaseGroup):
         for p in self.get_players():
             p.endtime = timer()
 
-    def set_margin(self):
-
-        for p in self.get_players():
-            p.margin = self.session.vars['margin']
-
 
 class Player(BasePlayer):
 
-    margin = models.CharField()
     starttime = models.FloatField()
     endtime = models.FloatField()
 

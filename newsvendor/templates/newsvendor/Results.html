@@ -25,8 +25,39 @@
 
 <center>
 
-    {% block scripts %}
+<div id="tabledata"></div>
+
+<br>
+
+{% next_button %}
+
+</center><h2>History</h2>
+
+<center>
+
+    <table width=300>
+        <tr valign="bottom" align="center">
+            <td>Round</td><td>Order<br>quantity</td><td>Customer<br>demand</td><td>Profit</td>
+        </tr>
+        {% for p in player_in_all_rounds %}
+            <tr align="center">
+                <td>{{ p.round_number }}</td>
+                <td>{{ p.trueorderquantity }}</td>
+                <td>{{ p.demand }}</td>
+                <td>{{ p.payoff }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+</center>
+
+{% endblock %}
+
+{% block scripts %}
+
     <script>
+    function createTable() {
+
         var margin = {{ margin }};
         var orderqindex = {{ orderqindex }};
         var demandindex = {{ demandindex }};
@@ -103,35 +134,27 @@
         }
         code += "</table>";
 
-        document.write(code);
+        return code;
+    }
+
+    function insertHTML(id, html) {
+        var el = document.getElementById(id);
+
+        if(!el) {
+            alert('Element with id ' + id + ' not found.');
+        }
+
+        el.innerHTML = html;
+    }
+
+    function run() {
+        var html = createTable();
+
+        insertHTML('tabledata', html);
+    }
+
+    window.onload = run;
+
     </script>
-
-    {% endblock %}
-
-<br>
-
-{{ form.orderquantity.errors }}
-
-{% next_button %}
-
-</center><h2>History</h2>
-
-<center>
-
-    <table width=300>
-        <tr valign="bottom" align="center">
-            <td>Round</td><td>Order<br>quantity</td><td>Customer<br>demand</td><td>Profit</td>
-        </tr>
-        {% for p in player_in_all_rounds %}
-            <tr align="center">
-                <td>{{ p.round_number }}</td>
-                <td>{{ p.trueorderquantity }}</td>
-                <td>{{ p.demand }}</td>
-                <td>{{ p.payoff }}</td>
-            </tr>
-        {% endfor %}
-    </table>
-
-</center>
 
 {% endblock %}
