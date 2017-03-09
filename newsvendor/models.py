@@ -17,6 +17,35 @@ Two subsessions: high and low margin treatments
 """
 
 
+def set_trueorderquantity(orderquantity, margin):
+
+    if (margin == 'low'):
+        trueorderquantity = 500 + orderquantity * 50
+    else:
+        trueorderquantity = 300 + orderquantity * 100
+
+    return trueorderquantity
+
+
+def profit(demand, orderquantity, margin):
+
+    if (margin == 'low'):
+        trueorderquantity = 500 + orderquantity * 50
+        if (demand >= trueorderquantity):
+            prof = 7.28 * trueorderquantity - 5.72 * trueorderquantity
+        else:
+            prof = 7.28 * demand - 5.72 * trueorderquantity
+
+    else:
+        trueorderquantity = 300 + orderquantity * 100
+        if (demand >= trueorderquantity):
+            prof = 1.78 * trueorderquantity - 0.38 * trueorderquantity
+        else:
+            prof = 1.78 * demand - 0.38 * trueorderquantity
+
+    return prof
+
+
 class Constants(BaseConstants):
 
     name_in_url = 'newsvendor'
@@ -47,30 +76,6 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-
-    def set_payoffs(self):
-
-        for p in self.get_players():
-
-            p.demand = self.session.vars['demand'][self.round_number - 1]
-
-            if (Constants.margin == 'low'):
-
-                p.trueorderquantity = 500 + p.orderquantity * 50
-
-                if (self.session.vars['demand'][self.round_number-1] >= (500+p.orderquantity*50)):
-                    p.payoff = 7.28*(500+p.orderquantity*50) - 5.72*(500+p.orderquantity*50)
-                else:
-                    p.payoff = 7.28*self.session.vars['demand'][self.round_number-1] - 5.72*(500+p.orderquantity*50)
-
-            else:
-
-                p.trueorderquantity = 300 + p.orderquantity * 100
-
-                if (self.session.vars['demand'][self.round_number-1] >= (300+p.orderquantity*100)):
-                    p.payoff = 1.78*(300+p.orderquantity*100) - 0.38*(300+p.orderquantity*100)
-                else:
-                    p.payoff = 1.78*self.session.vars['demand'][self.round_number-1] - 0.38*(300+p.orderquantity*100)
 
     def start_timer(self):
 
@@ -117,3 +122,26 @@ class Player(BasePlayer):
         choices=[[1, '1 = Not at all'], [2, '2'], [3, '3'], [4, '4'], [5, '5'], [6, '6'], [7, '7'], [8, '8'], [9, '9 = As much as possible']], widget=widgets.RadioSelect())
     conflict = models.PositiveIntegerField(
         choices=[[1, '1 = Least conflicted'], [2, '2'], [3, '3'], [4, '4'], [5, '5'], [6, '6'], [7, '7'], [8, '8'], [9, '9 = Most conflicted']], widget=widgets.RadioSelect())
+
+
+
+    '''
+    def set_payoffs(self):
+
+        p = self.get_player_by_id(1)
+        p.demand = self.session.vars['demand'][self.round_number - 1]
+
+        if (Constants.margin == 'low'):
+            p.trueorderquantity = 500 + p.orderquantity * 50
+            if (self.session.vars['demand'][self.round_number-1] >= (500+p.orderquantity*50)):
+                p.payoff = 7.28*(500+p.orderquantity*50) - 5.72*(500+p.orderquantity*50)
+            else:
+                p.payoff = 7.28*self.session.vars['demand'][self.round_number-1] - 5.72*(500+p.orderquantity*50)
+
+        else:
+            p.trueorderquantity = 300 + p.orderquantity * 100
+            if (self.session.vars['demand'][self.round_number-1] >= (300+p.orderquantity*100)):
+                p.payoff = 1.78*(300+p.orderquantity*100) - 0.38*(300+p.orderquantity*100)
+            else:
+                p.payoff = 1.78*self.session.vars['demand'][self.round_number-1] - 0.38*(300+p.orderquantity*100)
+    '''

@@ -1,7 +1,7 @@
 from otree.api import Currency as c, currency_range, safe_json
 from . import models
 from ._builtin import Page, WaitPage
-from .models import Constants
+from .models import Constants, profit, set_trueorderquantity
 from decimal import Decimal, ROUND_HALF_UP
 
 
@@ -48,8 +48,10 @@ class DecideOrderQuantity(Page):
         }
 
     def before_next_page(self):
-        self.group.set_payoffs()
         self.group.end_timer()
+        self.player.demand = self.session.vars['demand'][self.round_number - 1]
+        self.player.trueorderquantity = set_trueorderquantity(self.player.orderquantity, Constants.margin)
+        self.player.payoff = profit(self.player.demand, self.player.orderquantity, Constants.margin)
 
 
 class Results(Page):
