@@ -4,10 +4,9 @@
     <list default="true" id="cb384ad2-a81f-4c45-8ca2-1861e63764d5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../db.sqlite3" afterPath="$PROJECT_DIR$/../db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models.py" afterPath="$PROJECT_DIR$/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/newsvendor/FinalPage.html" afterPath="$PROJECT_DIR$/templates/newsvendor/FinalPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/newsvendor/WelcomePage.html" afterPath="$PROJECT_DIR$/templates/newsvendor/WelcomePage.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views.py" afterPath="$PROJECT_DIR$/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../settings.py" afterPath="$PROJECT_DIR$/../settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,11 +24,21 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+            <state relative-caret-position="445">
+              <caret line="113" column="0" lean-forward="true" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
               <folding>
                 <element signature="e#0#62#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WelcomePage.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/newsvendor/WelcomePage.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="406">
+              <caret line="142" column="0" lean-forward="true" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -59,8 +68,8 @@
       <file leaf-file-name="FinalPage.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/newsvendor/FinalPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+            <state relative-caret-position="90">
+              <caret line="6" column="331" lean-forward="false" selection-start-line="6" selection-start-column="331" selection-end-line="6" selection-end-column="331" />
               <folding />
             </state>
           </provider>
@@ -86,6 +95,7 @@
       <find>OTREE_PRO</find>
       <find>ster</find>
       <find>margin</find>
+      <find>reward</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -103,13 +113,13 @@
         <option value="$PROJECT_DIR$/../svo/templates/svo/Results.html" />
         <option value="$PROJECT_DIR$/../svo/templates/svo/ElicitSVO.html" />
         <option value="$PROJECT_DIR$/templates/newsvendor/DecideOrderQuantity.html" />
-        <option value="$PROJECT_DIR$/templates/newsvendor/WelcomePage.html" />
         <option value="$PROJECT_DIR$/templates/newsvendor/Results.html" />
         <option value="$PROJECT_DIR$/templates/newsvendor/PageAfterFinalPage.html" />
         <option value="$PROJECT_DIR$/../settings.py" />
-        <option value="$PROJECT_DIR$/templates/newsvendor/FinalPage.html" />
         <option value="$PROJECT_DIR$/models.py" />
+        <option value="$PROJECT_DIR$/templates/newsvendor/WelcomePage.html" />
         <option value="$PROJECT_DIR$/views.py" />
+        <option value="$PROJECT_DIR$/templates/newsvendor/FinalPage.html" />
       </list>
     </option>
   </component>
@@ -339,6 +349,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1875">
           <caret line="125" column="10" lean-forward="false" selection-start-line="125" selection-start-column="10" selection-end-line="125" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -389,6 +400,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -432,6 +444,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -489,6 +502,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1890">
           <caret line="126" column="295" lean-forward="false" selection-start-line="126" selection-start-column="295" selection-end-line="126" selection-end-column="295" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -575,13 +589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/newsvendor/WelcomePage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -672,6 +679,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/newsvendor/Results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/newsvendor/WelcomePage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="142" column="0" lean-forward="true" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="565">
@@ -684,26 +707,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+        <state relative-caret-position="445">
+          <caret line="113" column="0" lean-forward="true" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
           <folding>
             <element signature="e#0#62#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/newsvendor/Results.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/newsvendor/FinalPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+        <state relative-caret-position="90">
+          <caret line="6" column="331" lean-forward="false" selection-start-line="6" selection-start-column="331" selection-end-line="6" selection-end-column="331" />
           <folding />
         </state>
       </provider>

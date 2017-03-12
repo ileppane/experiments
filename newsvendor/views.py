@@ -17,18 +17,21 @@ class WelcomePage(Page):
 
         if (Constants.margin == 'low'):
             marginlow = True
+            baselinereward = '0.12'
 
         else:
             marginlow = False
+            baselinereward = '0.20'
 
         return {
+            'baselinereward': baselinereward,
             'marginlow': marginlow,
             'margin': safe_json(Constants.margin),
             'label1l': 'If your order quantity is 600 and the demand realization is 700, what is your profit?',
             'label2l': 'If your order quantity is 600, what is the probability that your profit will be 936?',
             'label3l': 'If your order quantity is 750, what is the probability that your profit will be 806?',
             'label4': 'What happens if the demand is higher than your order quantity?',
-            'label5': 'If your average profit over all the rounds is 1130, what is your monetary reward from Part 2?',
+            'label5': 'If your average profit over all the rounds is 1130, what is your monetary reward from Part 2 (without the baseline reward)?',
             'label1h': 'If your order quantity is 400 and the demand realization is 500, what is your profit?',
             'label2h': 'If your order quantity is 500, what is the probability that your profit will be 700?',
             'label3h': 'If your order quantity is 800, what is the probability that your profit will be 942?'
@@ -96,10 +99,17 @@ class FinalPage(Page):
 
     def vars_for_template(self):
 
+        if (Constants.margin == 'low'):
+            baselinereward = '0.12'
+
+        else:
+            baselinereward = '0.20'
+
         reward = Decimal(float(self.participant.payoff)/(1000*Constants.num_rounds)).quantize(Decimal('.01'), rounding=ROUND_HALF_UP)
         return {
             'averagepay': self.participant.payoff/Constants.num_rounds,
-            'reward': reward
+            'reward': reward,
+            'baselinereward': baselinereward
         }
 
 
