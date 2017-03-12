@@ -2,7 +2,7 @@ from otree.api import (
     models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
     Currency as c, currency_range
 )
-import random, time
+import random, time, csv
 from timeit import default_timer as timer
 
 
@@ -17,33 +17,40 @@ Two subsessions: high and low margin treatments
 """
 
 
-def set_trueorderquantity(orderquantity, margin):
+def trueorderquantity(orderquantity, margin):
 
     if (margin == 'low'):
-        trueorderquantity = 500 + orderquantity * 50
+        toq = 500 + orderquantity * 50
     else:
-        trueorderquantity = 300 + orderquantity * 100
+        toq = 300 + orderquantity * 100
 
-    return trueorderquantity
+    return toq
 
 
 def profit(demand, orderquantity, margin):
 
+    toq = trueorderquantity(orderquantity, margin)
+
     if (margin == 'low'):
-        trueorderquantity = 500 + orderquantity * 50
-        if (demand >= trueorderquantity):
-            prof = 7.28 * trueorderquantity - 5.72 * trueorderquantity
+        if (demand >= toq):
+            prof = 7.28 * toq - 5.72 * toq
         else:
-            prof = 7.28 * demand - 5.72 * trueorderquantity
+            prof = 7.28 * demand - 5.72 * toq
 
     else:
-        trueorderquantity = 300 + orderquantity * 100
-        if (demand >= trueorderquantity):
-            prof = 1.78 * trueorderquantity - 0.38 * trueorderquantity
+        if (demand >= toq):
+            prof = 1.78 * toq - 0.38 * toq
         else:
-            prof = 1.78 * demand - 0.38 * trueorderquantity
+            prof = 1.78 * demand - 0.38 * toq
 
     return prof
+
+
+def set_time():
+
+    timme = timer()
+
+    return timme
 
 
 class Constants(BaseConstants):
@@ -52,52 +59,40 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 7
     endowment = None
-    margin = 'low'
+    margin = 'high'
 
 
 class Subsession(BaseSubsession):
 
     def before_session_starts(self):
 
-        demandlow = [0]*int(Constants.num_rounds)
-        demandhigh = [0]*int(Constants.num_rounds)
-
-        t = 0
-        while t < Constants.num_rounds:
-            demandlow[t] = random.randrange(500, 800, 50)
-            demandhigh[t] = random.randrange(300, 900, 100)
-            t += 1
+        ifile = open('randomdemand.csv', 'rt')
+        dema = []
+        try:
+            reader = csv.reader(ifile)
+            for row in reader:
+                dema.append(list(map(int,row)))
+        finally:
+            ifile.close()
 
         if (Constants.margin == 'low'):
-            self.session.vars['demand'] = demandlow
+            self.session.vars['demand'] = dema[0]
 
-        if (Constants.margin == 'high'):
-            self.session.vars['demand'] = demandhigh
+        else:
+            self.session.vars['demand'] = dema[1]
 
 
 class Group(BaseGroup):
-
-    def start_timer(self):
-
-        for p in self.get_players():
-            p.starttime = timer()
-
-    def end_timer(self):
-
-        for p in self.get_players():
-            p.endtime = timer()
+    pass
 
 
 class Player(BasePlayer):
 
     starttime = models.FloatField()
     endtime = models.FloatField()
-
-    orderquantity = models.PositiveIntegerField(
-        choices=[0, 1, 2, 3, 4, 5, 6], widget=widgets.RadioSelect())
+    orderquantity = models.PositiveIntegerField(choices=[0, 1, 2, 3, 4, 5, 6], widget=widgets.RadioSelect())
     trueorderquantity = models.PositiveIntegerField()
     demand = models.PositiveIntegerField()
-
     check1low = models.PositiveIntegerField(
         choices=[[1, '936'], [2, '364'], [3, '858']], widget=widgets.RadioSelect(), blank=True)
     check2low = models.PositiveIntegerField(
@@ -110,38 +105,13 @@ class Player(BasePlayer):
         choices=[[1, '0'], [2, '1/7'], [3, '5/7']], widget=widgets.RadioSelect(), blank=True)
     check3high = models.PositiveIntegerField(
         choices=[[1, '5/7'], [2, '1/7'], [3, '2/7']], widget=widgets.RadioSelect(), blank=True)
-
     check4 = models.PositiveIntegerField(
         choices=[[1, 'Not all customers can be satisfied'], [2, 'Nothing'], [3, 'Not all items can be sold']], widget=widgets.RadioSelect(), blank=True)
     check5 = models.PositiveIntegerField(
         choices=[[1, '£0.11'], [2, '£11.30'], [3, '£1.13']], widget=widgets.RadioSelect(), blank=True)
-
     pecu = models.PositiveIntegerField(
         choices=[[1, '1 = Not at all'], [2, '2'], [3, '3'], [4, '4'], [5, '5'], [6, '6'], [7, '7'], [8, '8'], [9, '9 = As much as possible']], widget=widgets.RadioSelect())
     nonpecu = models.PositiveIntegerField(
         choices=[[1, '1 = Not at all'], [2, '2'], [3, '3'], [4, '4'], [5, '5'], [6, '6'], [7, '7'], [8, '8'], [9, '9 = As much as possible']], widget=widgets.RadioSelect())
     conflict = models.PositiveIntegerField(
         choices=[[1, '1 = Least conflicted'], [2, '2'], [3, '3'], [4, '4'], [5, '5'], [6, '6'], [7, '7'], [8, '8'], [9, '9 = Most conflicted']], widget=widgets.RadioSelect())
-
-
-
-    '''
-    def set_payoffs(self):
-
-        p = self.get_player_by_id(1)
-        p.demand = self.session.vars['demand'][self.round_number - 1]
-
-        if (Constants.margin == 'low'):
-            p.trueorderquantity = 500 + p.orderquantity * 50
-            if (self.session.vars['demand'][self.round_number-1] >= (500+p.orderquantity*50)):
-                p.payoff = 7.28*(500+p.orderquantity*50) - 5.72*(500+p.orderquantity*50)
-            else:
-                p.payoff = 7.28*self.session.vars['demand'][self.round_number-1] - 5.72*(500+p.orderquantity*50)
-
-        else:
-            p.trueorderquantity = 300 + p.orderquantity * 100
-            if (self.session.vars['demand'][self.round_number-1] >= (300+p.orderquantity*100)):
-                p.payoff = 1.78*(300+p.orderquantity*100) - 0.38*(300+p.orderquantity*100)
-            else:
-                p.payoff = 1.78*self.session.vars['demand'][self.round_number-1] - 0.38*(300+p.orderquantity*100)
-    '''
