@@ -34,7 +34,7 @@ class WelcomePage(Page):
             'label5': 'If your average profit over all the rounds is 1130, what is your monetary reward from Part 2 (without the baseline reward)?',
             'label1h': 'If your order quantity is 400 and the demand realization is 500, what is your profit?',
             'label2h': 'If your order quantity is 500, what is the probability that your profit will be 700?',
-            'label3h': 'If your order quantity is 800, what is the probability that your profit will be 942?'
+            'label3h': 'If your order quantity is 800, what is the probability that your profit will be 942?',
         }
 
 

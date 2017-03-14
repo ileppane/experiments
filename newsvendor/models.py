@@ -57,9 +57,9 @@ class Constants(BaseConstants):
 
     name_in_url = 'newsvendor'
     players_per_group = None
-    num_rounds = 7
+    num_rounds = 25
     endowment = None
-    margin = 'high'
+    margin = 'low'
 
 
 class Subsession(BaseSubsession):
@@ -71,7 +71,7 @@ class Subsession(BaseSubsession):
         try:
             reader = csv.reader(ifile)
             for row in reader:
-                dema.append(list(map(int,row)))
+                dema.append(list(map(int, row)))
         finally:
             ifile.close()
 
