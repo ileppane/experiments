@@ -26,6 +26,8 @@ SECRET_KEY = 'g#^90ip)&$$q-q!4@sv90@r%if&a5*%zhye*@s75t7s&80z@2q'
 # postgres://USER:PASSWORD@HOST:PORT/NAME
 # mysql://USER:PASSWORD@HOST:PORT/NAME
 
+SENTRY_DSN = 'http://7bba1340f6ba4cdea4a43db7cdede209:e1ce95d7ef444299bbac99164877f292@sentry.otree.org/140'
+
 DATABASES = {
     'default': dj_database_url.config(
         default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
