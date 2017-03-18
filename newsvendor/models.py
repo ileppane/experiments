@@ -59,7 +59,7 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 25
     endowment = None
-    margin = 'low'
+    margin = 'high'
 
 
 class Subsession(BaseSubsession):
