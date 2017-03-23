@@ -143,6 +143,12 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
+        'name': 'neutralvendor',
+        'display_name': "Neutralvendor",
+        'num_demo_participants': 1,
+        'app_sequence': ['neutralvendor'],
+    },
+    {
         'name': 'newsvendor',
         'display_name': "Newsvendor",
         'num_demo_participants': 1,
