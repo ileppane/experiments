@@ -20,7 +20,7 @@ def profit(state, decision):
     if (state >= decision):
         prof = 7.28 * (decision*50+500) - 5.72 * (decision*50+500)
     else:
-        prof = 7.28 * state - 5.72 * (decision*50+500)
+        prof = 7.28 * (state*50+500) - 5.72 * (decision*50+500)
 
     return prof
 
