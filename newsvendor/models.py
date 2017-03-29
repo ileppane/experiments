@@ -9,11 +9,9 @@ from timeit import default_timer as timer
 author = 'IL'
 
 doc = """
-Newsvendor game, 30 rounds with low/high margin treatments
-Demand distribution should be the same for players!
-Treatments randomized
+Newsvendor game
 Payoffs given in a payoff table
-Two subsessions: high and low margin treatments
+High and low margin treatments
 """
 
 
@@ -59,7 +57,6 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 25
     endowment = None
-    margin = 'high'
 
 
 class Subsession(BaseSubsession):
@@ -75,7 +72,7 @@ class Subsession(BaseSubsession):
         finally:
             ifile.close()
 
-        if (Constants.margin == 'low'):
+        if (self.session.config['margin'] == 'low'):
             self.session.vars['demand'] = dema[0]
 
         else:

@@ -147,12 +147,15 @@ SESSION_CONFIGS = [
         'display_name': "Neutralvendor",
         'num_demo_participants': 1,
         'app_sequence': ['svo', 'neutralvendor'],
+	'prolificurl': 'http://www.google.com',
     },
     {
         'name': 'newsvendor',
         'display_name': "Newsvendor",
         'num_demo_participants': 1,
         'app_sequence': ['svo', 'newsvendor'],
+	'prolificurl': 'http://www.google.com',
+	'margin': 'low',
     },
     {
         'name': 'public_goods',

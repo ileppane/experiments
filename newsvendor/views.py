@@ -15,7 +15,7 @@ class WelcomePage(Page):
 
     def vars_for_template(self):
 
-        if (Constants.margin == 'low'):
+        if (self.session.config['margin'] == 'low'):
             marginlow = True
             baselinereward = '0.12'
 
@@ -26,7 +26,7 @@ class WelcomePage(Page):
         return {
             'baselinereward': baselinereward,
             'marginlow': marginlow,
-            'margin': safe_json(Constants.margin),
+            'margin': safe_json(self.session.config['margin']),
             'label1l': 'If your order quantity is 600 and the demand realization is 700, what is your profit?',
             'label2l': 'If your order quantity is 600, what is the probability that your profit will be 936?',
             'label3l': 'If your order quantity is 750, what is the probability that your profit will be 806?',
@@ -47,21 +47,21 @@ class DecideOrderQuantity(Page):
 
         return {
             'round': self.player.round_number,
-            'margin': safe_json(Constants.margin)
+            'margin': safe_json(self.session.config['margin'])
         }
 
     def before_next_page(self):
         self.player.endtime = set_time()
         self.player.demand = self.session.vars['demand'][self.round_number - 1]
-        self.player.trueorderquantity = trueorderquantity(self.player.orderquantity, Constants.margin)
-        self.player.payoff = profit(self.player.demand, self.player.orderquantity, Constants.margin)
+        self.player.trueorderquantity = trueorderquantity(self.player.orderquantity, self.session.config['margin'])
+        self.player.payoff = profit(self.player.demand, self.player.orderquantity, self.session.config['margin'])
 
 
 class Results(Page):
 
     def vars_for_template(self):
 
-        if (Constants.margin == 'low'):
+        if (self.session.config['margin'] == 'low'):
             demand = self.session.vars['demand'][self.round_number-1]
             demandindex = (demand-500)/50
         else:
@@ -77,7 +77,7 @@ class Results(Page):
 
         return {
             'round': self.player.round_number,
-            'margin': safe_json(Constants.margin),
+            'margin': safe_json(self.session.config['margin']),
             'orderqindex': safe_json(self.player.orderquantity),
             'demand': demand,
             'demandindex': safe_json(demandindex),
@@ -99,7 +99,7 @@ class FinalPage(Page):
 
     def vars_for_template(self):
 
-        if (Constants.margin == 'low'):
+        if (self.session.config['margin'] == 'low'):
             baselinereward = '0.12'
 
         else:
@@ -117,6 +117,12 @@ class PageAfterFinalPage(Page):
 
     def is_displayed(self):
         return self.round_number == Constants.num_rounds
+
+    def vars_for_template(self):
+
+        return {
+            'prolificurl': self.session.config['prolificurl']
+        }
 
 
 page_sequence = [

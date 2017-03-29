@@ -95,6 +95,12 @@ class PageAfterFinalPage(Page):
     def is_displayed(self):
         return self.round_number == Constants.num_rounds
 
+    def vars_for_template(self):
+
+        return {
+            'prolificurl': self.session.config['prolificurl']
+        }
+
 
 page_sequence = [
     WelcomePage,
