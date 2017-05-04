@@ -143,6 +143,18 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
+        'name': 'allport',
+        'display_name': "Allport",
+        'num_demo_participants': 1,
+        'app_sequence': ['allport'],
+    },
+    {
+        'name': 'REI',
+        'display_name': "REI",
+        'num_demo_participants': 1,
+        'app_sequence': ['REI'],
+    },
+    {
         'name': 'neutralvendor',
         'display_name': "Neutralvendor",
         'num_demo_participants': 1,
