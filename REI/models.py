@@ -26,8 +26,6 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    name = models.CharField()
-    email = models.CharField()
     q1 = models.PositiveIntegerField(
         choices = [[1,'1 = definitely not true'],[2, '2 = somewhat not true'],[3,'3 = neither true nor untrue'],[4,'4 = somewhat true'],[5,'5 = definitely true']], widget=widgets.RadioSelect())
     q2 = models.PositiveIntegerField(
