@@ -143,6 +143,12 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
+        'name': 'linkstudy',
+        'display_name': "linkstudy",
+        'num_demo_participants': 1,
+        'app_sequence': ['linkstudy'],
+    },
+    {
         'name': 'LAFsurvey',
         'display_name': "LAFsurvey",
         'num_demo_participants': 1,

@@ -1,0 +1,90 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+Instructions
+{% endblock %}
+
+{% block content %}
+
+<p>This is a simple survey on the use of causal maps. We will show you parts of a causal map that we have created using a separate subject pool and then ask you questions about the map.
+Please read the instructions on this page carefully. You will be rewarded according to your performance in the task in the manner described in this page. The task will start from the next page.</p>
+
+<h3>Background</h3>
+
+<p>A causal map is a visualisation tool that can be used to assist managers in decision making. A causal map consists of several statments that can be means or ends, and links that connect the statements together. The links run from means to ends. Below is an example of two statements and a link. </p><br>
+
+<center>
+<table style="color:#0000cc" border=0 width="400px">
+    <td align="center"><b>Increase spending</b></td><td  align="center" style="font-size:22px">&rarr;</td><td align="center"><b>Provide high quality</b></td>
+</table>
+</center>
+
+<br>
+<p>You can see from the example above how the link establishes a causal relationship between a mean and an end. To the left of the link is the mean, "Increase spending", that ensures the fulfilment of the end, "Provide high quality".
+Statements can also be combined to form networks of several statements and links. Below is an example of how one end can be fulfilled by two means.</p>
+<br>
+<center>
+<table style="color:#0000cc" border=0 width="400px">
+    <tr>
+    <td align="center"><b>Increase spending</b></td><td align="center" style="font-size:22px">&rarr;</td><td align="center"><b>Provide high quality</b></td>
+    </tr>
+    <tr>
+    <td align="center"> </td><td> </td><td align="center" style="font-size:22px">&uarr;</td>
+    </tr>
+    <tr>
+    <td align="center"> </td><td> </td><td align="center"><b>Hire competent people</b></td>
+    </tr>
+</table>
+</center>
+<br>
+<p>In other words, providing high quality can be accomplished either by increasing spending or by hiring competent people. We could also have one mean leading to two different ends, as in the example below.</p>
+<br>
+<center>
+<table style="color:#0000cc" border=0 width="400px">
+    <tr>
+    <td align="center"><b>Increase spending</b></td><td align="center" style="font-size:22px">&rarr;</td><td align="center"><b>Provide high quality</b></td>
+    </tr>
+    <tr>
+    <td align="center" style="font-size:22px">&darr;</td><td> </td><td> </td>
+    </tr>
+    <tr>
+    <td align="center"><b>Pay more bonuses</b></td><td> </td><td> </td>
+    </tr>
+</table>
+</center>
+<br>
+
+<p>And below is an example of how means and ends can be chained together.</p>
+<br>
+<center>
+<table style="color:#0000cc" border=0 width="600px">
+<td align="center"><b>Increase spending</b></td><td  align="center" style="font-size:22px">&rarr;</td><td align="center"><b>Expand production capacity</b></td><td  align="center" style="font-size:22px">&rarr;</td><td align="center"><b>Provide high quality</b></td>
+</table>
+</center>
+<br>
+<p>In this chain of statements, expanding production capacity is an intermediate step to providing high quality.</p>
+
+<h3>How causal maps are created</h3>
+
+<p>Typically causal maps are created in a workshop that consists of two steps. In the first step the participants are asked to enter statements using post-it notes or networked computers in a brainstorming fashion. In the second step they are asked to create links between the statements created by themselves and others.</p>
+
+<p>While the first step is crucial for the final causal map to be as comprehensive as possible, the second step is likewise crucial to know which ends can actually be accomplished by which means. In our research we are interested in this second step and therefore ask for your help.</p>
+
+<h3>Your task</h3>
+
+<p>We have created a causal map in a workshop that took place at our university in the UK. The participants in the workshop consisted of doctoral research students and their task was to brainstorm issues that the university should focus on in order to provide the students with the best overall academic and life experience.</p>
+
+<p>In the page that follows we will show you parts of the causal map that we created in the workshop. We then ask you to state whether the means-ends relationships are correct. This is Part 1 of the study. In Part 2 we will ask you to choose between several competing means or ends according to your own personal preference.</p>
+
+<h3>Reward</h3>
+
+<p>Your baseline reward is £1 (one pound) to which we will add rewards for each answer in the following fashion. There are in total 21 questions in Part 1 and for each correct answer you will receive £0.10 (or 10 pence) that will be added to your baseline reward. There are 6 questions in Part 2 and for each answer you will likewise receive £0.10. For example, if you get 15 correct answers in Part 1 and complete Part 2, you will receive a total reward of £1 + £1.50 + £0.60 = £3.10. The maximum possible reward from the study is £3.70.
+</p>
+
+<br>
+
+<center>{% next_button %}</center>
+
+
+{% endblock %}

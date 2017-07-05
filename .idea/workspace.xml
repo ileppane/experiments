@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="30cca780-da37-49f0-baa0-0055d83607e7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/REI/models.py" afterPath="$PROJECT_DIR$/REI/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/REI/templates/REI/MyPage.html" afterPath="$PROJECT_DIR$/REI/templates/REI/MyPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/REI/views.py" afterPath="$PROJECT_DIR$/REI/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/allport/templates/allport/MyPage.html" afterPath="$PROJECT_DIR$/allport/templates/allport/MyPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.py" afterPath="$PROJECT_DIR$/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,11 +19,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LAFsurvey/views.py">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/linkstudy/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="-519">
+              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/linkstudy/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="156" column="75" lean-forward="false" selection-start-line="156" selection-start-column="75" selection-end-line="156" selection-end-column="75" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -34,74 +41,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="firstpage.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/firstpage.html">
+      <file leaf-file-name="Results.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/Results.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+            <state relative-caret-position="165">
+              <caret line="11" column="77" lean-forward="false" selection-start-line="11" selection-start-column="77" selection-end-line="11" selection-end-column="77" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="allportpage.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/allportpage.html">
+      <file leaf-file-name="Instructions.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/Instructions.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1350">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="90">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding>
-                <element signature="e#1042#1048#1" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#center#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#table#0;n#center#0;n#!!top" expanded="true" />
+                <element signature="e#1007#1013#0" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#center#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#center#1;n#!!top" expanded="true" />
+                <element signature="e#1651#1657#0" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#1;n#table#0;n#center#1;n#!!top" expanded="true" />
+                <element signature="e#1814#1820#0" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#center#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#center#2;n#!!top" expanded="true" />
+                <element signature="e#2352#2358#0" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#center#2;n#!!top" expanded="true" />
+                <element signature="e#2480#2486#0" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#center#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#table#0;n#center#3;n#!!top" expanded="true" />
+                <element signature="e#2874#2880#0" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#table#0;n#center#3;n#!!top" expanded="true" />
+                <element signature="e#2985#2991#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="REIpage31.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/REIpage31.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="REIpage.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/REIpage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LAFsurvey/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="148" column="36" lean-forward="false" selection-start-line="148" selection-start-column="36" selection-end-line="148" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Results.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/Results.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -112,6 +86,7 @@
     <findStrings>
       <find>order</find>
       <find>dema</find>
+      <find>profit</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -133,7 +108,6 @@
         <option value="$PROJECT_DIR$/REI/views.py" />
         <option value="$PROJECT_DIR$/allport/templates/allport/MyPage.html" />
         <option value="$PROJECT_DIR$/allport/models.py" />
-        <option value="$PROJECT_DIR$/settings.py" />
         <option value="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/allportpage.html" />
         <option value="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/REIpage.html" />
         <option value="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/REIpage31.html" />
@@ -141,14 +115,32 @@
         <option value="$PROJECT_DIR$/LAFsurvey/models.py" />
         <option value="$PROJECT_DIR$/LAFsurvey/views.py" />
         <option value="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/Results.html" />
+        <option value="$PROJECT_DIR$/settings.py" />
+        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/LinkPage.html" />
+        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage1.html" />
+        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage1.html" />
+        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage2.html" />
+        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage2.html" />
+        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage3.html" />
+        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage3.html" />
+        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage4.html" />
+        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage4.html" />
+        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage5.html" />
+        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage5.html" />
+        <option value="$PROJECT_DIR$/linkstudy/models.py" />
+        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage6.html" />
+        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage6.html" />
+        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/Instructions.html" />
+        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/Results.html" />
+        <option value="$PROJECT_DIR$/linkstudy/views.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="122" />
-    <option name="y" value="43" />
-    <option name="width" value="1298" />
-    <option name="height" value="767" />
+    <option name="x" value="439" />
+    <option name="y" value="122" />
+    <option name="width" value="981" />
+    <option name="height" value="688" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -406,7 +398,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="122" y="43" width="1298" height="767" extended-state="0" />
+    <frame x="439" y="122" width="981" height="688" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24577573" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -436,39 +428,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/neutralvendor/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#134#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/neutralvendor/templates/neutralvendor/PageAfterFinalPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/neutralvendor/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#62#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/neutralvendor/templates/neutralvendor/DecideOrderQuantity.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1350">
           <caret line="90" column="27" lean-forward="false" selection-start-line="90" selection-start-column="27" selection-end-line="90" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -484,7 +447,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
           <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -492,7 +454,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -500,7 +461,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="30" column="17" lean-forward="true" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -508,9 +468,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="41" column="20" lean-forward="true" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#134#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -518,7 +475,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="14" lean-forward="false" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -526,9 +482,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#62#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -536,7 +489,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
           <caret line="90" column="27" lean-forward="false" selection-start-line="90" selection-start-column="27" selection-end-line="90" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -544,7 +496,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
           <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -552,7 +503,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -560,7 +510,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="30" column="17" lean-forward="false" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -568,7 +517,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -576,7 +524,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="23" lean-forward="true" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -584,7 +531,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -592,7 +538,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -600,9 +545,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="29" column="34" lean-forward="true" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#51#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -610,54 +552,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#1216#1222#1" expanded="true" />
-            <element signature="e#1463#1469#1" expanded="true" />
-            <element signature="e#1790#1796#1" expanded="true" />
-            <element signature="e#2083#2089#1" expanded="true" />
-            <element signature="e#2320#2326#1" expanded="true" />
-            <element signature="e#2614#2620#1" expanded="true" />
-            <element signature="e#2882#2888#1" expanded="true" />
-            <element signature="e#3227#3233#1" expanded="true" />
-            <element signature="e#3586#3592#1" expanded="true" />
-            <element signature="e#3854#3860#1" expanded="true" />
-            <element signature="e#4122#4128#1" expanded="true" />
-            <element signature="e#4501#4507#1" expanded="true" />
-            <element signature="e#4767#4773#1" expanded="true" />
-            <element signature="e#5086#5092#1" expanded="true" />
-            <element signature="e#5401#5407#1" expanded="true" />
-            <element signature="e#5692#5698#1" expanded="true" />
-            <element signature="e#6013#6019#1" expanded="true" />
-            <element signature="e#6349#6355#1" expanded="true" />
-            <element signature="e#6649#6655#1" expanded="true" />
-            <element signature="e#6976#6982#1" expanded="true" />
-            <element signature="e#7363#7369#1" expanded="true" />
-            <element signature="e#7705#7711#1" expanded="true" />
-            <element signature="e#8025#8031#1" expanded="true" />
-            <element signature="e#8349#8355#1" expanded="true" />
-            <element signature="e#8639#8645#1" expanded="true" />
-            <element signature="e#8940#8946#1" expanded="true" />
-            <element signature="e#9247#9253#1" expanded="true" />
-            <element signature="e#9531#9537#1" expanded="true" />
-            <element signature="e#9965#9971#1" expanded="true" />
-            <element signature="e#10295#10301#1" expanded="true" />
-            <element signature="e#10537#10543#1" expanded="true" />
-            <element signature="e#12229#12235#1" expanded="true" />
-            <element signature="e#12889#12895#1" expanded="true" />
-            <element signature="e#13619#13625#1" expanded="true" />
-            <element signature="e#14297#14303#1" expanded="true" />
-            <element signature="e#15010#15016#1" expanded="true" />
-            <element signature="e#15658#15664#1" expanded="true" />
-            <element signature="e#16285#16291#1" expanded="true" />
-            <element signature="e#16944#16950#1" expanded="true" />
-            <element signature="e#17514#17520#1" expanded="true" />
-            <element signature="e#18273#18279#1" expanded="true" />
-            <element signature="e#19100#19106#1" expanded="true" />
-            <element signature="e#19677#19683#1" expanded="true" />
-            <element signature="e#20184#20190#1" expanded="true" />
-            <element signature="e#20827#20833#1" expanded="true" />
-            <element signature="e#21533#21539#1" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -665,87 +559,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/svo/views.py">
+    <entry file="file://$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/REIpage31.html" />
+    <entry file="file://$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/Results.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="39" column="12" lean-forward="true" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#62#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/REIpage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="148" column="36" lean-forward="false" selection-start-line="148" selection-start-column="36" selection-end-line="148" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newsvendor/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newsvendor/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="54" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#62#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/REIpage31.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/allportpage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1350">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="e#1042#1048#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LAFsurvey/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LAFsurvey/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -753,15 +574,246 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LAFsurvey/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2290">
+          <caret line="158" column="44" lean-forward="false" selection-start-line="158" selection-start-column="44" selection-end-line="158" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LAFsurvey/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="745">
+          <caret line="50" column="35" lean-forward="true" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/REIpage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/allportpage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2160">
+          <caret line="150" column="5" lean-forward="false" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/Results.html">
+    <entry file="file://$PROJECT_DIR$/newsvendor/templates/newsvendor/DecideOrderQuantity.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="150">
+          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/LinkPage2.html" />
+    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/svo/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/svo/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/svo/templates/svo/Results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/LinkPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="64" column="143" lean-forward="false" selection-start-line="64" selection-start-column="143" selection-end-line="64" selection-end-column="143" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage5.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage5.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage6.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage6.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="78" lean-forward="false" selection-start-line="9" selection-start-column="78" selection-end-line="9" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newsvendor/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-759">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newsvendor/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-519">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/Instructions.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#table#0;n#center#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#table#0;n#center#0;n#!!top" expanded="true" />
+            <element signature="e#1007#1013#0" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#center#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#center#1;n#!!top" expanded="true" />
+            <element signature="e#1651#1657#0" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#1;n#table#0;n#center#1;n#!!top" expanded="true" />
+            <element signature="e#1814#1820#0" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#center#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#center#2;n#!!top" expanded="true" />
+            <element signature="e#2352#2358#0" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#center#2;n#!!top" expanded="true" />
+            <element signature="e#2480#2486#0" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#center#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#table#0;n#center#3;n#!!top" expanded="true" />
+            <element signature="e#2874#2880#0" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#table#0;n#center#3;n#!!top" expanded="true" />
+            <element signature="e#2985#2991#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/Results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="77" lean-forward="false" selection-start-line="11" selection-start-column="77" selection-end-line="11" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="156" column="75" lean-forward="false" selection-start-line="156" selection-start-column="75" selection-end-line="156" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
