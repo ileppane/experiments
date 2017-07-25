@@ -2,22 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30cca780-da37-49f0-baa0-0055d83607e7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/REIpage.html" afterPath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/REIpage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/REIpage2.html" afterPath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/REIpage2.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/Results.html" afterPath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/Results.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/allportpage.html" afterPath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/allportpage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/allportpage3.html" afterPath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/allportpage3.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LAFsurvey/views.py" afterPath="$PROJECT_DIR$/LAFsurvey/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage1.html" afterPath="$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage1.html" afterPath="$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/linkstudy/templates/linkstudy/Instructions.html" afterPath="$PROJECT_DIR$/linkstudy/templates/linkstudy/Instructions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/linkstudy/templates/linkstudy/LinkPage.html" afterPath="$PROJECT_DIR$/linkstudy/templates/linkstudy/LinkPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/linkstudy/templates/linkstudy/Results.html" afterPath="$PROJECT_DIR$/linkstudy/templates/linkstudy/Results.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/linkstudy/views.py" afterPath="$PROJECT_DIR$/linkstudy/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newsvendor/.idea/workspace.xml" afterPath="$PROJECT_DIR$/newsvendor/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.py" afterPath="$PROJECT_DIR$/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,7 +32,7 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
+            <state relative-caret-position="276">
               <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
               <folding />
             </state>
@@ -759,7 +743,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
+        <state relative-caret-position="276">
           <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
           <folding />
         </state>
