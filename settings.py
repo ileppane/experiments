@@ -161,7 +161,6 @@ SESSION_CONFIGS = [
         'display_name': "LAFsurvey",
         'num_demo_participants': 1,
         'app_sequence': ['LAFsurvey'],
-        'prolificurl': 'https://prolific.ac/submissions/complete?cc=S8MVKC2I',
     },
     {
         'name': 'neutralvendor',
