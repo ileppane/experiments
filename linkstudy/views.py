@@ -2,7 +2,6 @@ from otree.api import Currency as c, currency_range
 from . import models
 from ._builtin import Page, WaitPage
 from .models import Constants
-from decimal import Decimal, ROUND_HALF_UP
 
 
 class FirstPage(Page):
@@ -146,20 +145,11 @@ class ConflictPage6(Page):
 
     def before_next_page(self):
 
-        self.player.payoff = self.player.q1 + self.player.q2 + self.player.q3 + self.player.q4 + self.player.q5 + self.player.q6 + self.player.q7 + self.player.q8 + self.player.q9 + self.player.q10 + self.player.q11 + self.player.q12 + self.player.q13 + self.player.q14 + self.player.q15 + self.player.q16 + self.player.q17 + self.player.q18 + self.player.q19 + self.player.q20 + self.player.q21
+        self.participant.vars['payoff'] = 2*(self.player.q1 + self.player.q2 + self.player.q3 + self.player.q4 + self.player.q5 + self.player.q6 + self.player.q7 + self.player.q8 + self.player.q9 + self.player.q10 + self.player.q11 + self.player.q12 + self.player.q13 + self.player.q14 + self.player.q15 + self.player.q16 + self.player.q17 + self.player.q18 + self.player.q19 + self.player.q20 + self.player.q21)
 
 
 class Results(Page):
-
-    def vars_for_template(self):
-
-
-        payoff = Decimal(float(self.player.payoff)/10).quantize(Decimal('.01'),rounding=ROUND_HALF_UP)
-        total = Decimal(float(self.player.payoff)/10 + 0.60 + 1.00).quantize(Decimal('.01'),rounding=ROUND_HALF_UP)
-        return {
-            'payoff': payoff,
-            'total': total
-        }
+    pass
 
 
 page_sequence = [
@@ -177,7 +167,6 @@ page_sequence = [
     ChoicePage5,
     ConflictPage5,
     ChoicePage6,
-    ConflictPage6,
-    Results
+    ConflictPage6
 ]
 

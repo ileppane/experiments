@@ -3,7 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="30cca780-da37-49f0-baa0-0055d83607e7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/REIpage.html" afterPath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/REIpage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/REIpage2.html" afterPath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/REIpage2.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/Results.html" afterPath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/Results.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/allportpage.html" afterPath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/allportpage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/allportpage3.html" afterPath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/allportpage3.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LAFsurvey/views.py" afterPath="$PROJECT_DIR$/LAFsurvey/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage1.html" afterPath="$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage1.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage1.html" afterPath="$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage1.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/linkstudy/templates/linkstudy/Instructions.html" afterPath="$PROJECT_DIR$/linkstudy/templates/linkstudy/Instructions.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/linkstudy/templates/linkstudy/LinkPage.html" afterPath="$PROJECT_DIR$/linkstudy/templates/linkstudy/LinkPage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/linkstudy/templates/linkstudy/Results.html" afterPath="$PROJECT_DIR$/linkstudy/templates/linkstudy/Results.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/linkstudy/views.py" afterPath="$PROJECT_DIR$/linkstudy/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/newsvendor/.idea/workspace.xml" afterPath="$PROJECT_DIR$/newsvendor/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.py" afterPath="$PROJECT_DIR$/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,22 +32,12 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/linkstudy/models.py">
+    <leaf>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/LAFsurvey/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-519">
-              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/linkstudy/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="156" column="75" lean-forward="false" selection-start-line="156" selection-start-column="75" selection-end-line="156" selection-end-column="75" />
+            <state relative-caret-position="306">
+              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -41,41 +45,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Results.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/Results.html">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="77" lean-forward="false" selection-start-line="11" selection-start-column="77" selection-end-line="11" selection-end-column="77" />
+            <state relative-caret-position="231">
+              <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Instructions.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/Instructions.html">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/newsvendor/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#table#0;n#center#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#table#0;n#center#0;n#!!top" expanded="true" />
-                <element signature="e#1007#1013#0" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#center#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#center#1;n#!!top" expanded="true" />
-                <element signature="e#1651#1657#0" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#tr#1;n#table#0;n#center#1;n#!!top" expanded="true" />
-                <element signature="e#1814#1820#0" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#center#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#center#2;n#!!top" expanded="true" />
-                <element signature="e#2352#2358#0" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#center#2;n#!!top" expanded="true" />
-                <element signature="e#2480#2486#0" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#center#3;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#table#0;n#center#3;n#!!top" expanded="true" />
-                <element signature="e#2874#2880#0" expanded="true" />
-                <element signature="n#style#0;n#td#3;n#table#0;n#center#3;n#!!top" expanded="true" />
-                <element signature="e#2985#2991#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="366">
+              <caret line="125" column="0" lean-forward="true" selection-start-line="120" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -113,12 +98,7 @@
         <option value="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/REIpage31.html" />
         <option value="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/firstpage.html" />
         <option value="$PROJECT_DIR$/LAFsurvey/models.py" />
-        <option value="$PROJECT_DIR$/LAFsurvey/views.py" />
         <option value="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/Results.html" />
-        <option value="$PROJECT_DIR$/settings.py" />
-        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/LinkPage.html" />
-        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage1.html" />
-        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage1.html" />
         <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage2.html" />
         <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage2.html" />
         <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage3.html" />
@@ -130,16 +110,23 @@
         <option value="$PROJECT_DIR$/linkstudy/models.py" />
         <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage6.html" />
         <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage6.html" />
-        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/Instructions.html" />
         <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/Results.html" />
+        <option value="$PROJECT_DIR$/twopartynewsvendor/models.py" />
+        <option value="$PROJECT_DIR$/twopartynewsvendor/templates/twopartynewsvendor/WelcomePage.html" />
+        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage1.html" />
+        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage1.html" />
+        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/LinkPage.html" />
+        <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/Instructions.html" />
         <option value="$PROJECT_DIR$/linkstudy/views.py" />
+        <option value="$PROJECT_DIR$/LAFsurvey/views.py" />
+        <option value="$PROJECT_DIR$/settings.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="439" />
+    <option name="x" value="163" />
     <option name="y" value="122" />
-    <option name="width" value="981" />
+    <option name="width" value="1257" />
     <option name="height" value="688" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -398,7 +385,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="439" y="122" width="981" height="688" extended-state="0" />
+    <frame x="163" y="122" width="1257" height="688" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24577573" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -428,28 +415,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/neutralvendor/templates/neutralvendor/DecideOrderQuantity.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="90" column="27" lean-forward="false" selection-start-line="90" selection-start-column="27" selection-end-line="90" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newsvendor/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1185">
-          <caret line="84" column="0" lean-forward="true" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/neutralvendor/templates/neutralvendor/WelcomePage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/neutralvendor/templates/neutralvendor/FinalPage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -584,13 +549,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LAFsurvey/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="745">
-          <caret line="50" column="35" lean-forward="true" selection-start-line="50" selection-start-column="35" selection-end-line="50" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/REIpage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -605,14 +563,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2160">
-          <caret line="150" column="5" lean-forward="false" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/newsvendor/templates/newsvendor/DecideOrderQuantity.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -621,14 +571,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/LinkPage2.html" />
-    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/svo/tests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -636,33 +578,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/svo/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/svo/templates/svo/Results.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -670,15 +589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/LinkPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="64" column="143" lean-forward="false" selection-start-line="64" selection-start-column="143" selection-end-line="64" selection-end-column="143" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -686,7 +596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -694,7 +603,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -702,7 +610,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -710,7 +617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -718,7 +624,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -726,7 +631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -734,7 +638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -742,7 +645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="78" lean-forward="false" selection-start-line="9" selection-start-column="78" selection-end-line="9" selection-end-column="78" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -750,52 +652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-759">
           <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newsvendor/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/linkstudy/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-519">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/Instructions.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#table#0;n#center#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#table#0;n#center#0;n#!!top" expanded="true" />
-            <element signature="e#1007#1013#0" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#center#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#center#1;n#!!top" expanded="true" />
-            <element signature="e#1651#1657#0" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#1;n#table#0;n#center#1;n#!!top" expanded="true" />
-            <element signature="e#1814#1820#0" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#center#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#center#2;n#!!top" expanded="true" />
-            <element signature="e#2352#2358#0" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#center#2;n#!!top" expanded="true" />
-            <element signature="e#2480#2486#0" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#center#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#table#0;n#center#3;n#!!top" expanded="true" />
-            <element signature="e#2874#2880#0" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#table#0;n#center#3;n#!!top" expanded="true" />
-            <element signature="e#2985#2991#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -803,17 +659,109 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="77" lean-forward="false" selection-start-line="11" selection-start-column="77" selection-end-line="11" selection-end-column="77" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/twopartynewsvendor/templates/twopartynewsvendor/WelcomePage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/twopartynewsvendor/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1239">
+          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/twopartynewsvendor/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="63" column="36" lean-forward="true" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/LinkPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="61" column="24" lean-forward="true" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="119" lean-forward="false" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/Instructions.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/svo/templates/svo/Results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/svo/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="56" column="1" lean-forward="true" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/linkstudy/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="156" column="75" lean-forward="false" selection-start-line="156" selection-start-column="75" selection-end-line="156" selection-end-column="75" />
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newsvendor/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="125" column="0" lean-forward="true" selection-start-line="120" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LAFsurvey/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

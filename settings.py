@@ -143,31 +143,40 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
+        'name': 'twopartynewsvendor',
+        'display_name': "Two party newsvendor",
+        'num_demo_participants': 1,
+        'app_sequence': ['twopartynewsvendor'],
+        'prolificurl': 'http://www.google.com',
+        'margin': 'low',
+    },
+    {
         'name': 'linkstudy',
         'display_name': "linkstudy",
         'num_demo_participants': 1,
-        'app_sequence': ['linkstudy'],
+        'app_sequence': ['linkstudy','LAFsurvey'],
     },
     {
         'name': 'LAFsurvey',
         'display_name': "LAFsurvey",
         'num_demo_participants': 1,
         'app_sequence': ['LAFsurvey'],
+        'prolificurl': 'http://www.google.com',
     },
     {
         'name': 'neutralvendor',
         'display_name': "Neutralvendor",
         'num_demo_participants': 1,
         'app_sequence': ['svo', 'neutralvendor'],
-	'prolificurl': 'http://www.google.com',
+    	'prolificurl': 'http://www.google.com',
     },
     {
         'name': 'newsvendor',
         'display_name': "Newsvendor",
         'num_demo_participants': 1,
         'app_sequence': ['svo', 'newsvendor'],
-	'prolificurl': 'http://www.google.com',
-	'margin': 'low',
+    	'prolificurl': 'http://www.google.com',
+    	'margin': 'low',
     },
     {
         'name': 'public_goods',

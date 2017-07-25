@@ -2,6 +2,7 @@ from otree.api import Currency as c, currency_range
 from . import models
 from ._builtin import Page, WaitPage
 from .models import Constants
+from decimal import Decimal, ROUND_HALF_UP
 
 
 class firstpage(Page):
@@ -35,6 +36,8 @@ class Results(Page):
 
     def vars_for_template(self):
 
+        payoff = Decimal(float(self.participant.vars['payoff'])/10).quantize(Decimal('.01'),rounding=ROUND_HALF_UP)
+        total = Decimal(float(self.participant.vars['payoff'])/10 + 1.2 + 3.00).quantize(Decimal('.01'),rounding=ROUND_HALF_UP)
         nfcscore = self.player.nfcscore
         fiscore = self.player.fiscore
         allportth = self.player.allportth
@@ -45,6 +48,9 @@ class Results(Page):
         allportre = self.player.allportre
 
         return {
+            'prolificurl': self.session.config['prolificurl'],
+            'payoff': payoff,
+            'total': total,
             'nfcscore': nfcscore,
             'fiscore': fiscore,
             'allportth': allportth,
@@ -57,7 +63,6 @@ class Results(Page):
 
 
 page_sequence = [
-    firstpage,
     allportpage,
     REIpage,
     Results

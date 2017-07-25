@@ -4,7 +4,7 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="48">
+          <list size="94">
             <item index="0" class="java.lang.String" itemvalue="schema" />
             <item index="1" class="java.lang.String" itemvalue="pbr" />
             <item index="2" class="java.lang.String" itemvalue="honcho" />
@@ -53,6 +53,52 @@
             <item index="45" class="java.lang.String" itemvalue="pytz" />
             <item index="46" class="java.lang.String" itemvalue="unicodecsv" />
             <item index="47" class="java.lang.String" itemvalue="Twisted" />
+            <item index="48" class="java.lang.String" itemvalue="traitlets" />
+            <item index="49" class="java.lang.String" itemvalue="bs4" />
+            <item index="50" class="java.lang.String" itemvalue="decorator" />
+            <item index="51" class="java.lang.String" itemvalue="jupyter-core" />
+            <item index="52" class="java.lang.String" itemvalue="html5lib" />
+            <item index="53" class="java.lang.String" itemvalue="ptyprocess" />
+            <item index="54" class="java.lang.String" itemvalue="testpath" />
+            <item index="55" class="java.lang.String" itemvalue="pickleshare" />
+            <item index="56" class="java.lang.String" itemvalue="python-dateutil" />
+            <item index="57" class="java.lang.String" itemvalue="pandocfilters" />
+            <item index="58" class="java.lang.String" itemvalue="wcwidth" />
+            <item index="59" class="java.lang.String" itemvalue="cycler" />
+            <item index="60" class="java.lang.String" itemvalue="MarkupSafe" />
+            <item index="61" class="java.lang.String" itemvalue="numpy" />
+            <item index="62" class="java.lang.String" itemvalue="Jinja2" />
+            <item index="63" class="java.lang.String" itemvalue="simplegeneric" />
+            <item index="64" class="java.lang.String" itemvalue="PuLP" />
+            <item index="65" class="java.lang.String" itemvalue="ipython-genutils" />
+            <item index="66" class="java.lang.String" itemvalue="jupyter" />
+            <item index="67" class="java.lang.String" itemvalue="Pygments" />
+            <item index="68" class="java.lang.String" itemvalue="pyzmq" />
+            <item index="69" class="java.lang.String" itemvalue="bleach" />
+            <item index="70" class="java.lang.String" itemvalue="prompt-toolkit" />
+            <item index="71" class="java.lang.String" itemvalue="entrypoints" />
+            <item index="72" class="java.lang.String" itemvalue="jsonschema" />
+            <item index="73" class="java.lang.String" itemvalue="ipywidgets" />
+            <item index="74" class="java.lang.String" itemvalue="notebook" />
+            <item index="75" class="java.lang.String" itemvalue="beautifulsoup4" />
+            <item index="76" class="java.lang.String" itemvalue="nose" />
+            <item index="77" class="java.lang.String" itemvalue="qtconsole" />
+            <item index="78" class="java.lang.String" itemvalue="terminado" />
+            <item index="79" class="java.lang.String" itemvalue="tornado" />
+            <item index="80" class="java.lang.String" itemvalue="nbformat" />
+            <item index="81" class="java.lang.String" itemvalue="ipython" />
+            <item index="82" class="java.lang.String" itemvalue="jupyter-client" />
+            <item index="83" class="java.lang.String" itemvalue="pexpect" />
+            <item index="84" class="java.lang.String" itemvalue="scopus" />
+            <item index="85" class="java.lang.String" itemvalue="ipykernel" />
+            <item index="86" class="java.lang.String" itemvalue="nbconvert" />
+            <item index="87" class="java.lang.String" itemvalue="appnope" />
+            <item index="88" class="java.lang.String" itemvalue="mistune" />
+            <item index="89" class="java.lang.String" itemvalue="widgetsnbextension" />
+            <item index="90" class="java.lang.String" itemvalue="jupyter-console" />
+            <item index="91" class="java.lang.String" itemvalue="matplotlib" />
+            <item index="92" class="java.lang.String" itemvalue="virtualenv" />
+            <item index="93" class="java.lang.String" itemvalue="webencodings" />
           </list>
         </value>
       </option>
