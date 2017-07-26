@@ -48,7 +48,7 @@ class Results(Page):
         allportre = self.player.allportre
 
         return {
-            'prolificurl': 'https://prolific.ac/submissions/complete?cc=S8MVKC2I',
+            'prolificurl': 'https://prolific.ac/submissions/complete?cc=IBXCRP2Z',
             'payoff': payoff,
             'total': total,
             'nfcscore': nfcscore,
