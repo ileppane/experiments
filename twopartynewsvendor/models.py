@@ -50,15 +50,15 @@ def custprofit(demand, orderquantity, margin):
 
     if (margin == 'low'):
         if (demand >= toq):
-            custprof = round((1.208 * 7.28 - 7.28) * toq, 0)
+            custprof = round((1.204 * 7.28 - 7.28) * toq, 0)
         else:
-            custprof = round((1.208 * 7.28 - 7.28) * demand, 0)
+            custprof = round((1.204 * 7.28 - 7.28) * demand, 0)
 
     else:
         if (demand >= toq):
-            custprof = round((1.71 * 1.78 - 1.78) * toq, 0)
+            custprof = round((1.709 * 1.78 - 1.78) * toq, 0)
         else:
-            custprof = round((1.71 * 1.78 - 1.78) * demand, 0)
+            custprof = round((1.709 * 1.78 - 1.78) * demand, 0)
 
     return custprof
 
