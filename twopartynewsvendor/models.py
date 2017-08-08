@@ -44,6 +44,25 @@ def profit(demand, orderquantity, margin):
     return prof
 
 
+def custprofit(demand, orderquantity, margin):
+
+    toq = trueorderquantity(orderquantity, margin)
+
+    if (margin == 'low'):
+        if (demand >= toq):
+            custprof = round((1.208 * 7.28 - 7.28) * toq, 0)
+        else:
+            custprof = round((1.208 * 7.28 - 7.28) * demand, 0)
+
+    else:
+        if (demand >= toq):
+            custprof = round((1.71 * 1.78 - 1.78) * toq, 0)
+        else:
+            custprof = round((1.71 * 1.78 - 1.78) * demand, 0)
+
+    return custprof
+
+
 def set_time():
 
     timme = timer()
@@ -90,6 +109,7 @@ class Player(BasePlayer):
     orderquantity = models.PositiveIntegerField(choices=[0, 1, 2, 3, 4, 5, 6], widget=widgets.RadioSelect())
     trueorderquantity = models.PositiveIntegerField()
     demand = models.PositiveIntegerField()
+    custpay = models.PositiveIntegerField()
     check1low = models.PositiveIntegerField(
         choices=[[1, '936'], [2, '364'], [3, '858']], widget=widgets.RadioSelect(), blank=True)
     check2low = models.PositiveIntegerField(

@@ -20,18 +20,10 @@
 {% block content %}
 
 <h2>Task description</h2>
-<p>Your task in this part of the study is to make a number of decisions under
-uncertainty in a simple inventory management setting.</p>
-<p>You are a retailer who sells a single (fictional) item at a specic market price to customers.
-You order these items to an inventory before you can sell them. You order the items from the
-supplier at a specic unit cost and your customers will pay a specic unit price for them. You
-must make the order decision before you know how many items your customers will demand.</p>
-<p>Even though you do not know the demand at the time of making your decision, you known
-what are the possible demand values. You also know that each demand value will occur equally
-likely.</p>
-<p>This situation repeats in the same manner over many selling rounds. The nature of the
-items is such that you cannot carry them over to the next round.</p>
-
+<p>Your task in this part of the study is to make a number of decisions under uncertainty in a simple inventory management setting.</p>
+<p>You are a retailer who sells a single (fictional) item at a specic market price to customers. You order these items to an inventory before you can sell them. You order the items from the supplier at a specific unit cost and your customers will pay a specific unit price for them. You must make the order decision before you know how many items your customers will demand.</p>
+<p>Even though you do not know the demand at the time of making your decision, you known what are the possible demand values. You also know that each demand value will occur equally likely.</p>
+<p>This situation repeats in the same manner over many selling rounds. The nature of the items is such that you cannot carry them over to the next round.</p>
 
 <p>The profit from your chosen order quantity depends on the realization of the random demand. Unless the realized demand exactly matches your order quantity, there are two possibilities:
 <ul>
@@ -45,7 +37,7 @@ items is such that you cannot carry them over to the next round.</p>
 <div id="tabledata"></div>
 
 <h2>Experimental protocol</h2>
-<p>You will first answer to some test questions at the end of this page. Then you have to make order decisions in a number of rounds. In each round, you have the choice among a set of possible order quantities, and you make these decisions in the decision matrix as given above. After each decision, the computer randomly determines a demand realization. The profit resulting from your order quantity and the realized demand is displayed. Then the computer guides you to the next decision round.</p><p>As in Part 1, you should make sound decisions, because you will be rewarded according to them.</p>
+<p>You will first answer to some test questions at the end of this page. Then you have to make order decisions in a number of rounds. In each round, you have the choice among a set of possible order quantities, and you make these decisions in the decision matrix as given above. After each decision, the computer randomly determines a demand realization. The profits to you and your customer resulting from your order quantity and the realized demand is displayed. Then the computer guides you to the next decision round.</p><p>As in Part 1, you should make sound decisions, because you will be rewarded according to them.</p>
 
 <h2>Reward determination</h2>
 <p>You will either receive the reward from your inventory profits as determined below in Option 1, or the reward from customer profits determined by another subject's choices who participates in this study at the same time, as described in Option 2 below. The computer will randomly decide which one of these options will take place, and both have equal probability to occur.</p>
@@ -150,11 +142,11 @@ items is such that you cannot carry them over to the next round.</p>
                     var pay = price*dem - cost*quant;
                     var custpay = Math.round((rr*price-price)*dem);
                 }
-                code += "<td>" + pay + " / " + custpay + "</td>";
+                code += "<td>" + pay + " | " + custpay + "</td>";
             }
             code += "</tr>";
         }
-        code += "</table></center><br><p>In the decision matrix, you indicate your order quantity decision by selecting a radio button from the left hand side column. The demand can be any value from the top row of the matrix. Then, your profit will be indicated by the intersection of the row you selected (your order quantity) and the column (demand value) that the computer draws randomly. There are two numbers in each profit cell of the decision matrix separated by \"/\". The first number is your profit and the second number is your customer's profit. </p> <p>The fractions below the demand values are the probabilities of each demand value. They indicate that there is a 1/7 probability that each demand will realize after you have made your order quantity decision. The demand in any round is independent of the demand in previous or later rounds. This means that if demand is high (low) in one round, it does not affect in any way whether the demand is high (low) in the next round.</p>";
+        code += "</table></center><br><p>In the decision matrix, you indicate your order quantity decision by selecting a radio button from the left hand side column. The demand can be any value from the top row of the matrix. Then, your profit will be indicated by the intersection of the row you selected (your order quantity) and the column (demand value) that the computer draws randomly. There are two numbers in each profit cell of the decision matrix separated by \"|\". The first number is your profit and the second number is your customer's profit.</p> <p>The fractions below the demand values are the probabilities of each demand value. They indicate that there is a 1/7 probability that each demand will realize after you have made your order quantity decision. The demand in any round is independent of the demand in previous or later rounds. This means that if demand is high (low) in one round, it does not affect in any way whether the demand is high (low) in the next round.</p>";
 
         if (margin == 'low') {
             code += "<p>The possible demand realizations are 500, 550, 600, 650, 700, 750, or 800 units, each with equal probability. For example, if you order 600 units, your realized profits will be 208 (with probability 1/7), 572 (with probability 1/7), or 936 (with probability 1/7 + 1/7 + 1/7 + 1/7 + 1/7 = 5/7). If the realized demand is 550, your profit is 780 if you ordered 500 units, or 572 if you ordered 600 units.</p><p>If you realized a loss (a negative profit) in a round, this loss will be deducted from your reward (see determination of monetary reward below). Note that each decision situation you will face contains at least one alternative that avoids losses.</p>";

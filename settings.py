@@ -146,8 +146,8 @@ SESSION_CONFIGS = [
         'name': 'twopartynewsvendor',
         'display_name': "Two party newsvendor",
         'num_demo_participants': 1,
-        'app_sequence': ['twopartynewsvendor'],
-        'prolificurl': 'http://www.google.com',
+        'app_sequence': ['svo', 'twopartynewsvendor'],
+        'prolificurl': 'https://prolific.ac/submissions/complete?cc=5A8RZ4J9',
         'margin': 'low',
     },
     {
