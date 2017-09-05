@@ -143,6 +143,20 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
+        'name': 'dsraq',
+        'display_name': "DSR and AQ",
+        'num_demo_participants': 1,
+        'app_sequence': ['dsraq'],
+    },
+    {
+        'name': 'dreber',
+        'display_name': "Repeated PD",
+        'num_demo_participants': 2,
+        'app_sequence': ['dreber'],
+        'prolificurl': 'http://www.google.com',
+        'treatment': 'p1',
+    },
+    {
         'name': 'twopartynewsvendor',
         'display_name': "Two party newsvendor",
         'num_demo_participants': 1,
