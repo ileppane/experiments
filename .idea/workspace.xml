@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30cca780-da37-49f0-baa0-0055d83607e7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/Results.html" afterPath="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/Results.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LAFsurvey/views.py" afterPath="$PROJECT_DIR$/LAFsurvey/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.py" afterPath="$PROJECT_DIR$/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/svo/templates/svo/ElicitSVO.html" afterPath="$PROJECT_DIR$/svo/templates/svo/ElicitSVO.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/svo/templates/svo/Results.html" afterPath="$PROJECT_DIR$/svo/templates/svo/Results.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/svo/templates/svo/WelcomePage.html" afterPath="$PROJECT_DIR$/svo/templates/svo/WelcomePage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/twopartynewsvendor/.idea/workspace.xml" afterPath="$PROJECT_DIR$/twopartynewsvendor/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,8 +31,8 @@
       <file leaf-file-name="Results.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/Results.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+            <state relative-caret-position="165">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -57,8 +51,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LAFsurvey/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-369">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="231">
+              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -95,7 +89,6 @@
         <option value="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/REIpage31.html" />
         <option value="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/firstpage.html" />
         <option value="$PROJECT_DIR$/LAFsurvey/models.py" />
-        <option value="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/Results.html" />
         <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage2.html" />
         <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ConflictPage2.html" />
         <option value="$PROJECT_DIR$/linkstudy/templates/linkstudy/ChoicePage3.html" />
@@ -129,6 +122,7 @@
         <option value="$PROJECT_DIR$/dreber/templates/dreber/Results.html" />
         <option value="$PROJECT_DIR$/dreber/templates/dreber/Decision.html" />
         <option value="$PROJECT_DIR$/dreber/models.py" />
+        <option value="$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/Results.html" />
         <option value="$PROJECT_DIR$/LAFsurvey/views.py" />
       </list>
     </option>
@@ -563,13 +557,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/Results.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="77" lean-forward="false" selection-start-line="11" selection-start-column="77" selection-end-line="11" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/twopartynewsvendor/templates/twopartynewsvendor/WelcomePage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -715,7 +702,7 @@
         <state relative-caret-position="180">
           <caret line="64" column="42" lean-forward="false" selection-start-line="64" selection-start-column="42" selection-end-line="64" selection-end-column="42" />
           <folding>
-            <element signature="e#0#134#0" expanded="true" />
+            <element signature="e#0#134#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -749,7 +736,7 @@
         <state relative-caret-position="255">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="e#0#20#0" expanded="true" />
+            <element signature="e#0#20#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -762,14 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/Results.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/firstpage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -778,10 +757,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/linkstudy/templates/linkstudy/Results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LAFsurvey/templates/LAFsurvey/Results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/LAFsurvey/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-369">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="231">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding />
         </state>
       </provider>
