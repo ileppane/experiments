@@ -169,6 +169,7 @@ SESSION_CONFIGS = [
         'display_name': "linkstudy",
         'num_demo_participants': 1,
         'app_sequence': ['linkstudy','LAFsurvey'],
+        'prolificurl': 'http://www.google.com',
     },
     {
         'name': 'LAFsurvey',
