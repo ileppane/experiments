@@ -1,6 +1,8 @@
 import os
 from os import environ
 
+import random
+
 import dj_database_url
 from boto.mturk import qualification
 
@@ -142,6 +144,13 @@ SESSION_CONFIG_DEFAULTS = {
 }
 
 SESSION_CONFIGS = [
+    {
+        'name': 'OMNV',
+        'display_name': "Newsvendor game for OM participants",
+        'num_demo_participants': 1,
+        'app_sequence': ['OMNV'],
+        'margin': random.choice(['low','high']),
+    },
     {
         'name': 'dsraq',
         'display_name': "DSR and AQ",
