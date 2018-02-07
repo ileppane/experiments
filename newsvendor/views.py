@@ -69,7 +69,7 @@ class Results(Page):
             demandindex = (demand-300)/100
 
         if (demandindex < self.player.orderquantity):
-            demandtext = "Because demand was lower than your inventory level, you have excess units in your inventory that you could not sell to the customers."
+            demandtext = "Because demand was lower than your inventory level, you have leftover units in your inventory that you could not profit from."
         elif (demandindex > self.player.orderquantity):
             demandtext = "Because demand was higher than your inventory level, you could not satisfy all the customer demand."
         else:

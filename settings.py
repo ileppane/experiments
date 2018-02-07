@@ -145,6 +145,27 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
+        'name': 'ERQ',
+        'display_name': 'ERQ',
+        'num_demo_participants': 1,
+        'app_sequence': ['ERQ']
+    },
+    {
+        'name': 'DOSPERT',
+        'display_name': 'DOSPERT',
+        'num_demo_participants': 1,
+        'app_sequence': ['DOSPERT']
+    },
+    {
+        'name': 'neuronewsvendor',
+        'display_name': "Neuronewsvendor",
+        'num_demo_participants': 1,
+        'app_sequence': ['neuronewsvendor'],
+        'prolificurl': 'http://www.google.com',
+        'margin': 'low',
+        'blocks': ['reap','att','att','reap','att','reap','reap','att']
+    },
+    {
         'name': 'OMNV',
         'display_name': "Newsvendor game for OM participants",
         'num_demo_participants': 1,
@@ -218,12 +239,6 @@ SESSION_CONFIGS = [
         'display_name': "Guess 2/3 of the Average",
         'num_demo_participants': 3,
         'app_sequence': ['guess_two_thirds', 'payment_info'],
-    },
-    {
-        'name': 'survey',
-        'display_name': "Survey",
-        'num_demo_participants': 1,
-        'app_sequence': ['survey', 'payment_info'],
     },
     {
         'name': 'quiz',
@@ -360,7 +375,7 @@ SESSION_CONFIGS = [
         'name': 'public_goods_simple',
         'display_name': "Public Goods (simple version from tutorial)",
         'num_demo_participants': 3,
-        'app_sequence': ['public_goods_simple', 'survey', 'payment_info'],
+        'app_sequence': ['public_goods_simple', 'payment_info'],
     },
     {
         'name': 'trust_simple',

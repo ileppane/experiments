@@ -16,11 +16,10 @@
 {% block content %}
 
 <p>
-    You ordered {{ player.trueorderquantity }} items into the inventory.
-    The customer demand in this selling round was {{ demand }}.
+    You ordered {{ player.trueorderquantity }} items.
+    Demand was {{ demand }}.
     {{ demandtext }}
     Your profit is {{ player.payoff }}.
-    Proceed to the next round by clicking the Next button.
 </p>
 
 <center>
