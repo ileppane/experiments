@@ -4,7 +4,7 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="94">
+          <list size="95">
             <item index="0" class="java.lang.String" itemvalue="schema" />
             <item index="1" class="java.lang.String" itemvalue="pbr" />
             <item index="2" class="java.lang.String" itemvalue="honcho" />
@@ -99,6 +99,7 @@
             <item index="91" class="java.lang.String" itemvalue="matplotlib" />
             <item index="92" class="java.lang.String" itemvalue="virtualenv" />
             <item index="93" class="java.lang.String" itemvalue="webencodings" />
+            <item index="94" class="java.lang.String" itemvalue="otree" />
           </list>
         </value>
       </option>
