@@ -217,6 +217,5 @@ page_sequence = [
     DecideOrderQuantity,
     Results,
     BlockResults,
-    FinalPage,
-    PageAfterFinalPage,
+    FinalPage
 ]

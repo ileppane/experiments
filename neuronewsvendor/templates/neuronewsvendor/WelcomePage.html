@@ -1,7 +1,7 @@
 {% extends "global/Base.html" %}
 {% load staticfiles otree_tags %}
 
-{% block title %} Part 2 {% endblock %}
+{% block title %} Part II {% endblock %}
 
 {% block styles %}
 
@@ -36,18 +36,17 @@
 <div id="tabledata"></div>
 
 <h2>Experimental protocol</h2>
-<p>You will first answer to some test questions at the end of this page. Then you have to make order decisions in a number of rounds. After each decision, the computer randomly determines a demand realization.</p><p>As in Part 1, you should make sound decisions, because you will be rewarded according to them.</p>
-    <p><b>The decisions that you make are grouped in blocks</b>. The first five decision rounds are practice rounds that do not count towards your final monetary reward. After the practice rounds, there are two kinds of blocks: <b>Reappraise</b> blocks and <b>Attend</b> blocks. These 5-round blocks will appear to you in a random order, and there will be 4 blocks of each. Thus, you will complete a total of 40 decision rounds after the practice rounds.
-    </p>
-    <p>Below you see the instruction for the two kinds of blocks. These instructions are repeated again before the start of each block, i.e. after every 5 rounds.</p>
-    <h3>Attend block</h3>
-    <ul><i>{{ blockatt|safe }}</i></ul>
-    <h3>Reappraise block</h3>
-    <ul><i>{{ blockreap|safe }}</i></ul>
+<p>You will first answer to some test questions at the end of this page. Then you have to make order decisions in a number of rounds. After each decision, the computer randomly determines a demand realization.</p><p>As in Part I, you should make sound decisions, because you will be rewarded according to them.</p>
+<p><b>The decisions that you make are grouped in blocks</b>. The first five decision rounds are practice rounds that do not count towards your final monetary reward. After the practice rounds, there are two kinds of blocks: <b>Reappraise</b> blocks and <b>Attend</b> blocks. These 5-round blocks will appear to you in a random order, and there will be 4 blocks of each. Thus, you will complete a total of 40 decision rounds after the 5 practice rounds.</p>
+<p>Below you see the instruction for the two kinds of blocks. These instructions are repeated again before the start of each block, i.e. after every 5 rounds.</p>
+<h3>Attend block</h3>
+<ul><i>{{ blockatt|safe }}</i></ul>
+<h3>Reappraise block</h3>
+<ul><i>{{ blockreap|safe }}</i></ul>
 
 <h2>Reward determination</h2>
-<p>At the end of the experiment the computer will calculate your average profit during the decision rounds (excluding the practice rounds). This average profit will then be divided by 10. This will be your monetary reward from Part 2 in pence (i.e. in £ 1/100). For example, if your average profit is 855, your monetary reward from this part is 855/10 pence = £0.86 (rounded to the nearest whole pence).</p>
-<p>In addition to your rewards from the tasks in Parts 1 and 2, you will receive a baseline reward of £{{ baselinereward }}.</p>
+<p>At the end of the experiment the computer will calculate your average profit during the decision rounds (excluding the first 5 practice rounds). This average profit will then be divided by 10. This will be your monetary reward from Part II in pence (i.e. in £ 1/100). For example, if your average profit is 855, your monetary reward from this part is 855/10 pence = £0.86 (rounded to the nearest whole pence).</p>
+<p>In addition to your rewards from the tasks in Parts I and II, you will receive a baseline reward of £{{ baselinereward }}.</p>
 <h2>Test questions</h2>
 <p>Please answer the following questions concerning the task. We want to make sure that you have understood the above instructions correctly.</p>
 
@@ -63,9 +62,7 @@
 
 {% formfield player.check4 with label=label4 %}
 
-<h2>Begin Part 2</h2>
-
-<p>When you click the Next button below, the first round will start. Please note that every selling round, starting from the one that begins at the next page, can possibly count for your monetary reward.</p>
+<h2>Begin Part II</h2>
 
 <center>
 {% next_button %}
@@ -148,7 +145,7 @@
         code += "</table></center><br><p>In the decision matrix, you indicate your order quantity decision by selecting a radio button from the left hand side column. The demand can be any value from the top row of the matrix. Then, your profit will be indicated by the intersection of the row you selected (your order quantity) and the column (demand value) that the computer draws randomly.</p> <p>The fractions below the demand values are the probabilities of each demand value. They indicate that there is a 1/7 probability that each demand will realize after you have made your order quantity decision. The demand in any round is independent of the demand in previous or later rounds. This means that if demand is high (low) in one round, it does not affect in any way whether the demand is high (low) in the next round.</p>";
 
         if (margin == 'low') {
-            code += "<p>The possible demand realizations are 500, 550, 600, 650, 700, 750, or 800 units, each with equal probability. For example, if you order 600 units, your realized profits will be 208 (with probability 1/7), 572 (with probability 1/7), or 936 (with probability 1/7 + 1/7 + 1/7 + 1/7 + 1/7 = 5/7). If the realized demand is 550, your profit is 780 if you ordered 500 units, or 572 if you ordered 600 units.</p><p>If you realized a loss (a negative profit) in a round, this loss will be deducted from your reward (see determination of monetary reward below). Note that each decision situation you will face contains at least one alternative that avoids losses.</p>";
+            code += "<p>The possible demand realizations are 500, 550, 600, 650, 700, 750, or 800 units, each with equal probability. For example, if you order 600 units, your realized profits will be 208 (with probability 1/7), 572 (with probability 1/7), or 936 (with probability 1/7 + 1/7 + 1/7 + 1/7 + 1/7 = 5/7). If the realized demand is 550, your profit is 780 if you ordered 500 units, or 572 if you ordered 600 units.</p><p>If you realized a negative profit in a round, this will be deducted from your reward (see reward determination below). Note that each decision situation you will face contains at least one alternative that avoids negative profits.</p>";
         }
 
         if (margin == 'high') {

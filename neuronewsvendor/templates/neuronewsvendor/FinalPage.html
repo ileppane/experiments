@@ -1,13 +1,13 @@
 {% extends "global/Base.html" %}
 {% load staticfiles otree_tags %}
 
-{% block title %} End of Part 2 {% endblock %}
+{% block title %} End of Part II {% endblock %}
 
 {% block content %}
 
-    <p>Your average payoff over all the rounds is {{ averagepay }} and therefore your monetary reward from Part 2 is £{{ reward }}. Your monetary reward from Part 1 will be computed after a sufficient number of participants have completed the experiment. In addition, you will receive your baseline reward of £{{ baselinereward}}. You will be rewarded through Prolific Academic within 24 hours.</p>
+    <p>Your average payoff over all the rounds is {{ averagepay }} and therefore your monetary reward from Part II is £{{ reward }}. Your monetary reward from Part I will be computed after a sufficient number of participants have completed the experiment. In addition, you will receive your baseline reward of £{{ baselinereward}}. You will be rewarded through Prolific Academic within 24 hours.</p>
 
-    <p>Please answer three more questions concerning the inventory management task, then you are done with the experiment. In the questions we ask you to reflect upon your motivations and feelings during the decision making.</p>
+    <p>Please answer the following questions concerning the inventory management task. After these you will answer some questions in the next page, then you are done with the experiment.</p>
 
     {% formfield player.pecu with label="How much did you care about maximizing your profit?" %}
     {% formfield player.nonpecu with label="How much did you care about satisfying customer demand?" %}

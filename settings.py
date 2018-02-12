@@ -154,14 +154,15 @@ SESSION_CONFIGS = [
         'name': 'DOSPERT',
         'display_name': 'DOSPERT',
         'num_demo_participants': 1,
+        'prolificurl': 'https://www.prolific.ac/submissions/complete?cc=0U1AUVC9',
         'app_sequence': ['DOSPERT']
     },
     {
         'name': 'neuronewsvendor',
         'display_name': "Neuronewsvendor",
         'num_demo_participants': 1,
-        'app_sequence': ['neuronewsvendor'],
-        'prolificurl': 'http://www.google.com',
+        'app_sequence': ['svo','neuronewsvendor', 'DOSPERT'],
+        'prolificurl': 'https://www.prolific.ac/submissions/complete?cc=0U1AUVC9',
         'margin': 'low',
         'blocks': ['reap','att','att','reap','att','reap','reap','att']
     },
