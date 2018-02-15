@@ -154,7 +154,7 @@ SESSION_CONFIGS = [
         'name': 'DOSPERT',
         'display_name': 'DOSPERT',
         'num_demo_participants': 1,
-        'prolificurl': 'https://www.prolific.ac/submissions/complete?cc=0U1AUVC9',
+        'prolificurl': 'https://www.prolific.ac',
         'app_sequence': ['DOSPERT']
     },
     {
@@ -162,9 +162,10 @@ SESSION_CONFIGS = [
         'display_name': "Neuronewsvendor",
         'num_demo_participants': 1,
         'app_sequence': ['svo','neuronewsvendor', 'DOSPERT'],
-        'prolificurl': 'https://www.prolific.ac/submissions/complete?cc=0U1AUVC9',
+        'prolificurl': 'https://www.prolific.ac',
         'margin': 'low',
-        'blocks': ['reap','att','att','reap','att','reap','reap','att']
+        #'blocks': ['reap','att','att','reap','att','reap','reap','att']
+        'blocks': ['att', 'reap', 'reap', 'att', 'reap', 'att', 'att', 'reap']
     },
     {
         'name': 'OMNV',
