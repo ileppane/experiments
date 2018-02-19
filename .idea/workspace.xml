@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30cca780-da37-49f0-baa0-0055d83607e7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/WelcomePage.html" afterPath="$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/WelcomePage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/neuronewsvendor/views.py" afterPath="$PROJECT_DIR$/neuronewsvendor/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.py" afterPath="$PROJECT_DIR$/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,7 +41,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WelcomePage.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WelcomePage.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/WelcomePage.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
@@ -55,13 +51,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="161" column="42" lean-forward="true" selection-start-line="161" selection-start-column="42" selection-end-line="161" selection-end-column="42" />
+            <state relative-caret-position="180">
+              <caret line="163" column="32" lean-forward="false" selection-start-line="163" selection-start-column="32" selection-end-line="163" selection-end-column="32" />
               <folding>
-                <marker date="1518870248338" expanded="true" signature="4637:4655" ph="..." />
+                <marker date="1519031823126" expanded="true" signature="4637:4655" ph="..." />
               </folding>
             </state>
           </provider>
@@ -141,10 +137,10 @@
         <option value="$PROJECT_DIR$/DOSPERT/templates/DOSPERT/Questions.html" />
         <option value="$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/BlockResults.html" />
         <option value="$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/WelcomePage.html" />
-        <option value="$PROJECT_DIR$/settings.py" />
         <option value="$PROJECT_DIR$/neuronewsvendor/models.py" />
         <option value="$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/PreDecision.html" />
         <option value="$PROJECT_DIR$/neuronewsvendor/views.py" />
+        <option value="$PROJECT_DIR$/settings.py" />
       </list>
     </option>
   </component>
@@ -780,16 +776,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="161" column="42" lean-forward="true" selection-start-line="161" selection-start-column="42" selection-end-line="161" selection-end-column="42" />
-          <folding>
-            <marker date="1518870248338" expanded="true" signature="4637:4655" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/neuronewsvendor/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -823,6 +809,16 @@
         <state relative-caret-position="240">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="163" column="32" lean-forward="false" selection-start-line="163" selection-start-column="32" selection-end-line="163" selection-end-column="32" />
+          <folding>
+            <marker date="1519031823126" expanded="true" signature="4637:4655" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -161,7 +161,7 @@ SESSION_CONFIGS = [
         'name': 'neuronewsvendor',
         'display_name': "Neuronewsvendor",
         'num_demo_participants': 1,
-        'app_sequence': ['neuronewsvendor', 'DOSPERT'],
+        'app_sequence': ['svo', 'neuronewsvendor', 'DOSPERT'],
         'prolificurl': 'https://www.prolific.ac',
         'margin': 'high',
         'blocks1': ['reap', 'att', 'att', 'reap', 'att', 'reap', 'reap', 'att'],
