@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="30cca780-da37-49f0-baa0-0055d83607e7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/WelcomePage.html" afterPath="$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/WelcomePage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/neuronewsvendor/views.py" afterPath="$PROJECT_DIR$/neuronewsvendor/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.py" afterPath="$PROJECT_DIR$/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +24,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/neuronewsvendor/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="49" column="200" lean-forward="false" selection-start-line="49" selection-start-column="200" selection-end-line="49" selection-end-column="200" />
+            <state relative-caret-position="153">
+              <caret line="129" column="32" lean-forward="true" selection-start-line="129" selection-start-column="32" selection-end-line="129" selection-end-column="32" />
               <folding>
                 <element signature="e#0#134#0" expanded="true" />
               </folding>
@@ -30,33 +33,45 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WelcomePage.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/WelcomePage.html">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/neuronewsvendor/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="172" column="35" lean-forward="true" selection-start-line="172" selection-start-column="35" selection-end-line="172" selection-end-column="35" />
+            <state relative-caret-position="304">
+              <caret line="117" column="0" lean-forward="true" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
               <folding>
-                <marker date="1518636734510" expanded="true" signature="4637:4655" ph="..." />
+                <element signature="e#0#62#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WelcomePage.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/svo/templates/svo/WelcomePage.html">
+      <file leaf-file-name="WelcomePage.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/WelcomePage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+            <state relative-caret-position="240">
+              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="161" column="42" lean-forward="true" selection-start-line="161" selection-start-column="42" selection-end-line="161" selection-end-column="42" />
+              <folding>
+                <marker date="1518870248338" expanded="true" signature="4637:4655" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PreDecision.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/PreDecision.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -69,6 +84,8 @@
       <find>order</find>
       <find>dema</find>
       <find>profit</find>
+      <find>self.session.config['bl</find>
+      <find>blockseq</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -115,27 +132,27 @@
         <option value="$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/DecideOrderQuantity.html" />
         <option value="$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/Page.html" />
         <option value="$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/Results.html" />
-        <option value="$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/PreDecision.html" />
         <option value="$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/BlockInstructionPage.html" />
         <option value="$PROJECT_DIR$/ERQ/templates/ERQ/Questions.html" />
         <option value="$PROJECT_DIR$/DOSPERT/views.py" />
-        <option value="$PROJECT_DIR$/neuronewsvendor/views.py" />
         <option value="$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/PageAfterFinalPage.html" />
         <option value="$PROJECT_DIR$/svo/templates/svo/WelcomePage.html" />
         <option value="$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/FinalPage.html" />
         <option value="$PROJECT_DIR$/DOSPERT/templates/DOSPERT/Questions.html" />
-        <option value="$PROJECT_DIR$/neuronewsvendor/models.py" />
         <option value="$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/BlockResults.html" />
         <option value="$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/WelcomePage.html" />
         <option value="$PROJECT_DIR$/settings.py" />
+        <option value="$PROJECT_DIR$/neuronewsvendor/models.py" />
+        <option value="$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/PreDecision.html" />
+        <option value="$PROJECT_DIR$/neuronewsvendor/views.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="29" />
     <option name="y" value="84" />
-    <option name="width" value="1213" />
-    <option name="height" value="688" />
+    <option name="width" value="940" />
+    <option name="height" value="685" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -396,7 +413,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="29" y="84" width="1213" height="688" extended-state="0" />
+    <frame x="29" y="84" width="940" height="685" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24577573" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -689,14 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/PreDecision.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DOSPERT/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -771,41 +780,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/neuronewsvendor/views.py">
+    <entry file="file://$PROJECT_DIR$/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3180">
-          <caret line="212" column="17" lean-forward="true" selection-start-line="212" selection-start-column="17" selection-end-line="212" selection-end-column="17" />
+        <state relative-caret-position="150">
+          <caret line="161" column="42" lean-forward="true" selection-start-line="161" selection-start-column="42" selection-end-line="161" selection-end-column="42" />
           <folding>
-            <element signature="e#0#62#0" expanded="false" />
+            <marker date="1518870248338" expanded="true" signature="4637:4655" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/WelcomePage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/neuronewsvendor/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="49" column="200" lean-forward="false" selection-start-line="49" selection-start-column="200" selection-end-line="49" selection-end-column="200" />
+        <state relative-caret-position="153">
+          <caret line="129" column="32" lean-forward="true" selection-start-line="129" selection-start-column="32" selection-end-line="129" selection-end-column="32" />
           <folding>
             <element signature="e#0#134#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
+    <entry file="file://$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/PreDecision.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="172" column="35" lean-forward="true" selection-start-line="172" selection-start-column="35" selection-end-line="172" selection-end-column="35" />
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/neuronewsvendor/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="117" column="0" lean-forward="true" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
           <folding>
-            <marker date="1518636734510" expanded="true" signature="4637:4655" ph="..." />
+            <element signature="e#0#62#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/neuronewsvendor/templates/neuronewsvendor/WelcomePage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

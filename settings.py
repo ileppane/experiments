@@ -161,11 +161,11 @@ SESSION_CONFIGS = [
         'name': 'neuronewsvendor',
         'display_name': "Neuronewsvendor",
         'num_demo_participants': 1,
-        'app_sequence': ['svo','neuronewsvendor', 'DOSPERT'],
+        'app_sequence': ['neuronewsvendor', 'DOSPERT'],
         'prolificurl': 'https://www.prolific.ac',
-        'margin': 'low',
-        #'blocks': ['reap','att','att','reap','att','reap','reap','att']
-        'blocks': ['att', 'reap', 'reap', 'att', 'reap', 'att', 'att', 'reap']
+        'margin': 'high',
+        'blocks1': ['reap', 'att', 'att', 'reap', 'att', 'reap', 'reap', 'att'],
+        'blocks2': ['att',  'reap', 'reap', 'att', 'reap', 'att', 'att', 'reap']
     },
     {
         'name': 'OMNV',

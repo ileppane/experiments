@@ -56,7 +56,18 @@ class BlockInstructionPage(Page):
 
     def vars_for_template(self):
 
-        blocktitlee = blocktitle(self.round_number, self.session.config['blocks'])
+        if self.player.id_in_group % 2 == 1:
+            blockseq = 'blocks1'
+
+        else:
+            blockseq = 'blocks2'
+
+        if blockseq == 'blocks1':
+            blocktitlee = blocktitle(self.round_number, self.session.config['blocks1'])
+
+        else:
+            blocktitlee = blocktitle(self.round_number, self.session.config['blocks2'])
+
         blockinstruct = blockinstruction(blocktitlee)
 
         return {
@@ -71,7 +82,17 @@ class PreDecision(Page):
 
     def vars_for_template(self):
 
-        blocktitlee = blocktitle(self.round_number, self.session.config['blocks'])
+        if self.player.id_in_group % 2 == 1:
+            blockseq = 'blocks1'
+
+        else:
+            blockseq = 'blocks2'
+
+        if blockseq == 'blocks1':
+            blocktitlee = blocktitle(self.round_number, self.session.config['blocks1'])
+
+        else:
+            blocktitlee = blocktitle(self.round_number, self.session.config['blocks2'])
 
         return {
             'blocktitle': blocktitlee
@@ -88,17 +109,24 @@ class DecideOrderQuantity(Page):
 
     def vars_for_template(self):
 
-        blocktitlee = blocktitle(self.round_number, self.session.config['blocks'])
-
         return {
             'round': self.player.round_number,
-            'blocktitle': blocktitlee,
             'margin': safe_json(self.session.config['margin'])
         }
 
     def before_next_page(self):
 
-        blocktitlee = blocktitle(self.round_number, self.session.config['blocks'])
+        if self.player.id_in_group % 2 == 1:
+            blockseq = 'blocks1'
+
+        else:
+            blockseq = 'blocks2'
+
+        if blockseq == 'blocks1':
+            blocktitlee = blocktitle(self.round_number, self.session.config['blocks1'])
+
+        else:
+            blocktitlee = blocktitle(self.round_number, self.session.config['blocks2'])
 
         self.player.endtime = set_time()
         self.player.demand = self.session.vars['demand'][self.round_number - 1]
@@ -125,7 +153,7 @@ class Results(Page):
         else:
             demandtext = "inventory matched demand"
 
-        profitt = profit(demand,self.player.orderquantity,self.session.config['margin'])
+        profitt = profit(demand, self.player.orderquantity, self.session.config['margin'])
 
         return {
             'round': self.player.round_number,
@@ -161,7 +189,17 @@ class BlockResults(Page):
             demand = self.session.vars['demand'][self.round_number - 1]
             demandindex = (demand-300)/100
 
-        blocktitlee = blocktitle(self.round_number, self.session.config['blocks'])
+        if self.player.id_in_group % 2 == 1:
+            blockseq = 'blocks1'
+
+        else:
+            blockseq = 'blocks2'
+
+        if blockseq == 'blocks1':
+            blocktitlee = blocktitle(self.round_number, self.session.config['blocks1'])
+
+        else:
+            blocktitlee = blocktitle(self.round_number, self.session.config['blocks2'])
 
         return {
             'blockk': blocktitlee,
