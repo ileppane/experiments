@@ -1,7 +1,6 @@
-from otree.api import Currency as c, currency_range, safe_json
 from . import models
 from ._builtin import Page, WaitPage
-from .models import Constants
+from .models import Constants, svoscorecalc
 import csv
 
 
@@ -25,7 +24,7 @@ class ElicitSVO(Page):
             ifile.close()
 
         return {
-            'alloc': safe_json(alloc)
+            'alloc': alloc
         }
 
 
@@ -45,9 +44,19 @@ class Results(Page):
             ifile.close()
 
         return {
-            'alloc': safe_json(alloc),
-            'alloc2': safe_json(self.player.allocation2)
+            'alloc': alloc,
+            'alloc2': self.player.allocation2
         }
+
+    def before_next_page(self):
+        al1 = self.player.allocation1
+        al2 = self.player.allocation2
+        al3 = self.player.allocation3
+        al4 = self.player.allocation4
+        al5 = self.player.allocation5
+        al6 = self.player.allocation6
+
+        self.player.svoscore = svoscorecalc(al1,al2,al3,al4,al5,al6)
 
 
 page_sequence = [

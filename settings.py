@@ -64,7 +64,7 @@ REAL_WORLD_CURRENCY_CODE = ''
 USE_POINTS = True
 REAL_WORLD_CURRENCY_DECIMAL_PLACES = 5
 POINTS_CUSTOM_NAME = ''
-
+POINTS_DECIMAL_PLACES = 2
 
 # e.g. en, de, fr, it, ja, zh-hans
 # see: https://docs.djangoproject.com/en/1.9/topics/i18n/#term-language-code
@@ -144,6 +144,39 @@ SESSION_CONFIG_DEFAULTS = {
 }
 
 SESSION_CONFIGS = [
+    {
+        'name': 'prolificgame',
+        'display_name': 'prolificgame',
+        'num_demo_participants': 2,
+        'app_sequence': ['svo','nvsingle','nvcompnoniid'],
+        'prolificurl': 'https://www.prolific.ac'
+    },
+    {
+        'name': 'svo',
+        'display_name': 'svo',
+        'num_demo_participants': 1,
+        'app_sequence': ['svo']
+    },
+    {
+        'name': 'nvsingle',
+        'display_name': 'nvsingle',
+        'num_demo_participants': 1,
+        'app_sequence': ['nvsingle']
+    },
+    {
+        'name': 'nvcompnoniid',
+        'display_name': 'nvcompnoniid',
+        'num_demo_participants': 2,
+        'app_sequence': ['nvcompnoniid'],
+    	'prolificurl': 'https://www.prolific.ac'
+    },
+    {
+        'name': 'nvcomp',
+        'display_name': 'nvcomp',
+        'num_demo_participants': 2,
+        'app_sequence': ['nvcomp'],
+	'prolificurl': 'https://www.prolific.ac'
+    },
     {
         'name': 'ERQ',
         'display_name': 'ERQ',
