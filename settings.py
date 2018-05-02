@@ -164,6 +164,13 @@ SESSION_CONFIGS = [
         'app_sequence': ['nvsingle']
     },
     {
+        'name': 'nvcompnoniid2',
+        'display_name': 'nvcompnoniid2',
+        'num_demo_participants': 2,
+        'app_sequence': ['nvcompnoniid2'],
+    	'prolificurl': 'https://www.prolific.ac'
+    },
+    {
         'name': 'nvcompnoniid',
         'display_name': 'nvcompnoniid',
         'num_demo_participants': 2,
