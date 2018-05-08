@@ -4,7 +4,10 @@
     <list default="true" id="30cca780-da37-49f0-baa0-0055d83607e7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.py" afterPath="$PROJECT_DIR$/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvcompnoniid2/models.py" afterPath="$PROJECT_DIR$/nvcompnoniid2/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/Introduction.html" afterPath="$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/Introduction.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/Marketinformation.html" afterPath="$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/Marketinformation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/PreDecision.html" afterPath="$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/PreDecision.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,7 +21,52 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nvcompnoniid2/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="630">
+              <caret line="49" column="16" lean-forward="false" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+              <folding>
+                <element signature="e#0#134#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PreDecision.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/PreDecision.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Marketinformation.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/Marketinformation.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="94">
+              <caret line="13" column="51" lean-forward="true" selection-start-line="13" selection-start-column="51" selection-end-line="13" selection-end-column="51" />
+              <folding>
+                <element signature="e#753#759#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Introduction.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/Introduction.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" column="8" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -81,8 +129,8 @@
         <option value="$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/FinalPage.html" />
         <option value="$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/Instructions.html" />
         <option value="$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/Decide.html" />
-        <option value="$PROJECT_DIR$/nvcompnoniid2/models.py" />
         <option value="$PROJECT_DIR$/nvcompnoniid2/views.py" />
+        <option value="$PROJECT_DIR$/nvcompnoniid2/models.py" />
         <option value="$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/Introduction.html" />
         <option value="$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/PreDecision.html" />
         <option value="$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/Marketinformation.html" />
@@ -93,7 +141,7 @@
     <option name="x" value="364" />
     <option name="y" value="95" />
     <option name="width" value="1052" />
-    <option name="height" value="430" />
+    <option name="height" value="635" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -287,8 +335,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="364" y="95" width="1052" height="430" extended-state="0" />
-    <editor active="false" />
+    <frame x="364" y="95" width="1052" height="635" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24574468" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -554,7 +602,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="43" column="12" lean-forward="false" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -562,10 +609,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#table#0;n#center#0;n#!!top" expanded="false" />
-            <element signature="e#256#262#1" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -573,7 +616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -581,7 +623,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -589,7 +630,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -597,7 +637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -605,15 +644,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nvcompnoniid/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="134" column="16" lean-forward="true" selection-start-line="134" selection-start-column="16" selection-end-line="134" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -621,39 +651,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="63" lean-forward="false" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/WelcomePage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/WelcomePage.html" />
     <entry file="file://$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/FinalPage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="10" column="37" lean-forward="true" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/Introduction.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/PreDecision.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="102" lean-forward="false" selection-start-line="11" selection-start-column="102" selection-end-line="11" selection-end-column="102" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -661,7 +666,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -669,17 +673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="82" lean-forward="false" selection-start-line="11" selection-start-column="82" selection-end-line="11" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/Marketinformation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="18" column="17" lean-forward="true" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
-          <folding>
-            <element signature="e#756#762#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -687,18 +680,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvcompnoniid/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/Introduction.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="8" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nvcompnoniid2/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        <state relative-caret-position="630">
+          <caret line="49" column="16" lean-forward="false" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
           <folding>
             <element signature="e#0#134#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/PreDecision.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvcompnoniid2/templates/nvcompnoniid2/Marketinformation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="13" column="51" lean-forward="true" selection-start-line="13" selection-start-column="51" selection-end-line="13" selection-end-column="51" />
+          <folding>
+            <element signature="e#753#759#0" expanded="true" />
           </folding>
         </state>
       </provider>

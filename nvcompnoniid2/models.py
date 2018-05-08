@@ -15,7 +15,7 @@ Continuation for those players who have already played nvcompnoniid, no test que
 
 def marketinfo():
     allq = []
-    with open('marketdata.csv') as csvfile:
+    with open('marketdata2.csv') as csvfile:
         readCSV = csv.reader(csvfile, delimiter=',')
         for row in readCSV:
             allq.append(int(row[2]))
@@ -24,7 +24,7 @@ def marketinfo():
 
 
 def owninfo(prolificcode):
-    with open('marketdata.csv') as csvfile:
+    with open('marketdata2.csv') as csvfile:
         readCSV = csv.reader(csvfile, delimiter=',')
         for row in readCSV:
             if row[0] == prolificcode:
@@ -49,7 +49,7 @@ def codenotexist(prolificcode):
 
     notexist = 1
 
-    with open('marketdata.csv') as csvfile:
+    with open('marketdata2.csv') as csvfile:
         readCSV = csv.reader(csvfile, delimiter=',')
         for row in readCSV:
             if row[0] == prolificcode:
