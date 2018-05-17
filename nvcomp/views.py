@@ -21,7 +21,7 @@ class PreDecision(Page):
         else:
             qu1res = 'incorrect'
 
-        if self.player.qu2 == 85:
+        if self.player.qu2 == 82:
             qu2res = 'correct'
         else:
             qu2res = 'incorrect'
@@ -53,55 +53,55 @@ class Decide(Page):
         self.player.demand = set_demand()
 
 
-class ResultsWaitPage(WaitPage):
-    body_text = "Waiting for the other participant to decide."
+#class ResultsWaitPage(WaitPage):
+#    body_text = "Waiting for the other participant to decide."
 
-    def after_all_players_arrive(self):
-        for p in self.group.get_players():
-            p.set_payoff()
+#    def after_all_players_arrive(self):
+#        for p in self.group.get_players():
+#            p.set_payoff()
 
 
-class Results(Page):
+#class Results(Page):
 
-    def vars_for_template(self):
+#    def vars_for_template(self):
 
-        if (self.player.other_player().units < self.player.other_player().demand):
-            overflowd = self.player.other_player().demand - self.player.other_player().units
-        else:
-            overflowd = 0
+#        if (self.player.other_player().units < self.player.other_player().demand):
+#            overflowd = self.player.other_player().demand - self.player.other_player().units
+#        else:
+#            overflowd = 0
 
-        if (self.player.units < self.player.demand):
-            overflowd2 = self.player.demand - self.player.units
-        else:
-            overflowd2 = 0
+#        if (self.player.units < self.player.demand):
+#            overflowd2 = self.player.demand - self.player.units
+#       else:
+#            overflowd2 = 0
 
-        efd1 = self.player.demand + int(round(0.8*overflowd))
-        efd2 = self.player.other_player().demand + int(round(0.8*overflowd2))
+#        efd1 = self.player.demand + int(round(0.8*overflowd))
+#        efd2 = self.player.other_player().demand + int(round(0.8*overflowd2))
 
-        revenue = 4*min(efd1,self.player.units)
-        othrevenue = 4*min(efd2,self.player.other_player().units)
-        cost = 2*self.player.units
-        othcost = 2*self.player.other_player().units
+#        revenue = 4*min(efd1,self.player.units)
+#        othrevenue = 4*min(efd2,self.player.other_player().units)
+#        cost = 2*self.player.units
+#        othcost = 2*self.player.other_player().units
 
-        return {
-            'q1': self.player.units,
-            'q2': self.player.other_player().units,
-            'd1': self.player.demand,
-            'd2': self.player.other_player().demand,
-            'revenue': revenue,
-            'othrevenue': othrevenue,
-            'cost': cost,
-            'othcost': othcost,
-            'payoff': int(self.player.payoff),
-            'othpayoff': int(self.player.othpayoff),
-            'overflowd': overflowd,
-            'overflowd2': overflowd2,
-            'efd1': efd1,
-            'efd2': efd2
-        }
+#        return {
+#            'q1': self.player.units,
+#            'q2': self.player.other_player().units,
+#            'd1': self.player.demand,
+#            'd2': self.player.other_player().demand,
+#            'revenue': revenue,
+#            'othrevenue': othrevenue,
+#            'cost': cost,
+#            'othcost': othcost,
+#            'payoff': int(self.player.payoff),
+#            'othpayoff': int(self.player.othpayoff),
+#            'overflowd': overflowd,
+#            'overflowd2': overflowd2,
+#            'efd1': efd1,
+#            'efd2': efd2
+#        }
 
-    def before_next_page(self):
-        self.participant.vars['part3rew'] = self.player.payoff
+#    def before_next_page(self):
+#        self.participant.vars['part3rew'] = self.player.payoff
 
 
 class FinalPage(Page):
@@ -109,14 +109,14 @@ class FinalPage(Page):
     def vars_for_template(self):
 
         rew2 = self.participant.vars['part2rew']
-        rew3 = self.participant.vars['part3rew']
+#        rew3 = self.participant.vars['part3rew']
 
-        rew = (rew2+rew3)/200
+#        rew = (rew2+rew3)/200
 
         return {
             'rew2': int(rew2),
-            'rew3': int(rew3),
-            'rew': rew,
+#            'rew3': int(rew3),
+#            'rew': rew,
             'prolificurl': self.session.config['prolificurl']
         }
 
@@ -126,7 +126,7 @@ page_sequence = [
     TestQuestions,
     PreDecision,
     Decide,
-    ResultsWaitPage,
-    Results,
+#    ResultsWaitPage,
+#    Results,
     FinalPage
 ]

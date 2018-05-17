@@ -33,7 +33,7 @@ class Constants(BaseConstants):
     price = 4
     cost = 2
     instructions_template = 'nvcomp/Instructions.html'
-    profitcalculator_template = 'nvcomp/profitcalculator.html'
+    profitcalculator_template = 'nvcomp/profitcalculator2.html'
 
 
 class Subsession(BaseSubsession):
@@ -58,7 +58,7 @@ class Player(BasePlayer):
     qu1 = models.PositiveIntegerField(
         choices=[66, 14, 41], widget=widgets.RadioSelect(), blank=True)
     qu2 = models.PositiveIntegerField(
-        choices=[50, 85, 10], widget=widgets.RadioSelect(), blank=True)
+        choices=[50, 82, 10], widget=widgets.RadioSelect(), blank=True)
     qu3 = models.PositiveIntegerField(
         choices=[300, 280, 100], widget=widgets.RadioSelect(), blank=True)
 

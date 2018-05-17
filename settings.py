@@ -181,7 +181,7 @@ SESSION_CONFIGS = [
         'name': 'nvcomp',
         'display_name': 'nvcomp',
         'num_demo_participants': 2,
-        'app_sequence': ['nvcomp'],
+        'app_sequence': ['svo', 'nvsingle', 'nvcomp'],
 	'prolificurl': 'https://www.prolific.ac'
     },
     {
