@@ -30,8 +30,8 @@
 
 <p>In the decision matrix, you indicate your decision by selecting a radio button from the left hand side column. The state of the world can be any value from the top row of the matrix. Then, your profit will be indicated by the intersection of the row you selected (your decision) and the column (state of the world) that the computer draws randomly.</p>
 <p>The fractions below the state of the world labels are the probabilities of each state. They indicate that there is a 1/7 probability that each state of the world will realize after you have made your decision. The state of the world in any round is independent of the state of the world in previous or later rounds. This means that if state of the world is S7 in one round, it does not affect in any way whether the state of the world is S7 or near that in the next round.</p>
-<p>The possible state of the world realizations are S1, S2, S3, S4, S5, S6, S7, each with equal probability. For example, if your decision is C, your realized profits will be 208 (with probability 1/7), 572 (with probability 1/7), or 936 (with probability 1/7 + 1/7 + 1/7 + 1/7 + 1/7 = 5/7). If the state of the world is S2, your profit is 780 if your decision was A, or 572 if your decision was C.</p>
-<p>If you realized a loss (a negative profit) in a round, this loss will be deducted from your reward (see determination of monetary reward below). Note that each decision situation you will face contains at least one alternative that avoids losses.</p>
+<p>The possible state of the world realizations are S1, S2, S3, S4, S5, S6, S7, each with equal probability. For example, if your decision is C, your realized profits will be 344 (with probability 1/7), 522 (with probability 1/7), or 700 (with probability 1/7 + 1/7 + 1/7 + 1/7 + 1/7 = 5/7). If the state of the world is S2, your profit is 420 if your decision was A, or 522 if your decision was C.</p>
+<!-- <p>If you realized a loss (a negative profit) in a round, this loss will be deducted from your reward (see determination of monetary reward below). Note that each decision situation you will face contains at least one alternative that avoids losses.</p> -->
 
 
 <h2>Experimental protocol</h2>
@@ -40,12 +40,17 @@
 <h2>Reward determination</h2>
 <p>To determine your actual monetary reward from this part, at the end of the experiment the computer will calculate the average profit over all the rounds and divide it by 10. This will be your monetary reward from Part 2 in pence (i.e. in £ 1/100). For example, if your average profit over all the rounds is 897, your monetary reward from this part is £0.90 (rounded to the nearest whole pence). In addition, you will of course receive the reward from Part 1.</p>
 <p>In addition to your rewards from the tasks in Parts 1 and 2, you will receive a baseline reward of £{{ baselinereward }}.</p>
+
 <h2>Test questions</h2>
 <p>Please answer the following questions concerning the task. We just want to make sure that you have understood the above instructions correctly.</p>
-
 {% formfield player.check1 with label=label1 %}
-{% formfield player.check2 with label=label2 %}
-{% formfield player.check3 with label=label3 %}
+{% if marginlow %}
+    {% formfield player.check2low with label=label2l %}
+    {% formfield player.check3low with label=label3l %}
+{% else %}
+    {% formfield player.check2high with label=label2h %}
+    {% formfield player.check3high with label=label3h %}
+{% endif %}
 {% formfield player.check4 with label=label4 %}
 {% formfield player.check5 with label=label5 %}
 
@@ -86,7 +91,7 @@
         }
         else {
             for (var j = 0; j < 7; j++) {
-                code += "<td><b>" + (300 + j*100) + "</b></td>";
+                code += "<td><b>" + state[j] + "</b></td>";
             }
             code += "</tr>";
         }
@@ -106,11 +111,12 @@
                 code += "<tr align=center>";
             }
 
+            // modified december 2018: deleted name=field.html_name  because it gave an error
             if (margin == 'low') {
-                code += "<td><b><input type=radio name= {{ field.html_name }} value=" + i + "> " + dec[i] + "</b></td>";
+                code += "<td><b><input type=radio value=" + i + "> " + dec[i] + "</b></td>";
             }
             else {
-                code += "<td><b><input type=radio name= {{ field.html_name}} value=" + i + "> " + (300 + i*100) + "</b></td>";
+                code += "<td><b><input type=radio value=" + i + "> " + dec[i] + "</b></td>";
             }
 
             for (var j = 0; j < 7; j++) {

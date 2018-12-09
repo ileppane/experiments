@@ -59,7 +59,7 @@
         }
         else {
             for (var j = 0; j < 7; j++) {
-                code += "<td><b>" + (300 + j*100) + "</b></td>";
+                code += "<td><b>" + state[j] + "</b></td>";
             }
             code += "</tr>";
         }
@@ -83,7 +83,7 @@
                 code += "<td><b><input type=radio name= {{ field.html_name }} value=" + i + "> " + dec[i] + "</b></td>";
             }
             else {
-                code += "<td><b><input type=radio name= {{ field.html_name}} value=" + i + "> " + (300 + i*100) + "</b></td>";
+                code += "<td><b><input type=radio name= {{ field.html_name}} value=" + i + "> " + dec[i] + "</b></td>";
             }
 
             for (var j = 0; j < 7; j++) {

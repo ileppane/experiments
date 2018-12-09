@@ -232,7 +232,7 @@ SESSION_CONFIGS = [
         'name': 'twopartynewsvendor',
         'display_name': "Two party newsvendor",
         'num_demo_participants': 1,
-        'app_sequence': ['svo', 'twopartynewsvendor'],
+        'app_sequence': ['twopartynewsvendor'],
         'prolificurl': 'https://prolific.ac/submissions/complete?cc=5A8RZ4J9',
         'margin': 'low',
     },
@@ -253,7 +253,7 @@ SESSION_CONFIGS = [
         'name': 'neutralvendor',
         'display_name': "Neutralvendor",
         'num_demo_participants': 1,
-        'app_sequence': ['svo', 'neutralvendor'],
+        'app_sequence': ['neutralvendor'],
     	'prolificurl': 'http://www.google.com',
     },
     {
@@ -339,12 +339,6 @@ SESSION_CONFIGS = [
         'display_name': "Principal Agent",
         'num_demo_participants': 2,
         'app_sequence': ['principal_agent', 'payment_info'],
-    },
-    {
-        'name': 'dictator',
-        'display_name': "Dictator Game",
-        'num_demo_participants': 2,
-        'app_sequence': ['dictator', 'payment_info'],
     },
     {
         'name': 'matching_pennies',
