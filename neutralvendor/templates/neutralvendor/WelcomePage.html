@@ -113,10 +113,10 @@
 
             // modified december 2018: deleted name=field.html_name  because it gave an error
             if (margin == 'low') {
-                code += "<td><b><input type=radio value=" + i + "> " + dec[i] + "</b></td>";
+                code += "<td><b><input type=radio name=name value=" + i + "> " + dec[i] + "</b></td>";
             }
             else {
-                code += "<td><b><input type=radio value=" + i + "> " + dec[i] + "</b></td>";
+                code += "<td><b><input type=radio name=name value=" + i + "> " + dec[i] + "</b></td>";
             }
 
             for (var j = 0; j < 7; j++) {

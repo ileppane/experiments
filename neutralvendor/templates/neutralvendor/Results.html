@@ -43,7 +43,7 @@
                 <td>{{ p.round_number }}</td>
                 <td>{{ p.truedecision }}</td>
                 <td>{{ p.truestate }}</td>
-                <td>{{ p.payoff }}</td>
+                <td>{{ p.payoff|floatformat }}</td>
             </tr>
         {% endfor %}
     </table>
