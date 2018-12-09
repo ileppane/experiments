@@ -37,14 +37,6 @@ class WelcomePage(Page):
         }
 
 
-class PreDecision(Page):
-
-    timeout_seconds = 0
-
-    def before_next_page(self):
-        self.player.starttime = set_time()
-
-
 class DecideOrderQuantity(Page):
 
     form_model = models.Player
@@ -74,6 +66,9 @@ class Results(Page):
             'margin': safe_json(Constants.margin),
             'player_in_all_rounds': self.player.in_all_rounds(),
         }
+
+    def before_next_page(self):
+        self.player.starttime = set_time()
 
 
 class FinalPage(Page):
@@ -111,7 +106,6 @@ class PageAfterFinalPage(Page):
 
 page_sequence = [
     WelcomePage,
-    PreDecision,
     DecideOrderQuantity,
     Results,
     FinalPage,
