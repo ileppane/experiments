@@ -253,7 +253,7 @@ SESSION_CONFIGS = [
         'name': 'neutralvendor',
         'display_name': "Neutralvendor",
         'num_demo_participants': 1,
-        'app_sequence': ['neutralvendor'],
+        'app_sequence': ['svo','neutralvendor'],
     	'prolificurl': 'http://www.google.com',
     },
     {
