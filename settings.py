@@ -145,6 +145,13 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
+        'name': 'slider',
+        'display_name': 'Slider',
+        'num_demo_participants': 1,
+        'app_sequence': ['slider'],
+        'margin': 'high'
+    },
+    {
         'name': 'prolificgame',
         'display_name': 'prolificgame',
         'num_demo_participants': 2,

@@ -1,0 +1,144 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Results from round {{ round }}
+{% endblock %}
+
+{% block content %}
+
+    <b>Inventory: {{ q }}</b><br>
+    <b>Demand: {{ d }}</b>
+    <div id="topid">
+
+    </div>
+        <div id="wrapper" align="center">
+            <div id="circle"></div>
+        </div>
+        <div id="demwrapper" align="center">
+            <div id="demcircle"></div>
+        </div>
+
+    <center>
+        <br><p>{{ demandtext }}<br>Your profit from this round is {{ profit }}</p>
+        {% next_button %}
+
+    </center>
+
+    <div class="instructions well well-lg">
+
+    <h3>History</h3>
+    <center>
+        <table width="400px">
+            <tr valign="bottom" align="center">
+                <th>Round</th><th>Inventory</th><th>Demand</th><th>Revenue</th><th>Cost</th><th>Profit</th>
+            </tr>
+            {% for p in player_in_all_rounds %}
+            <tr align="center">
+                <td>{{ p.round_number }}</td>
+                <td>{{ p.q }}</td>
+                <td>{{ p.d }}</td>
+                <td>{{ p.revenue }}</td>
+                <td>{{ p.cost }}</td>
+                <td>{{ p.payoff|floatformat:"0" }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+
+    </div>
+
+{% include Constants.instructions_template %}
+
+{% include Constants.profitcalculator %}
+
+
+
+{% endblock %}
+
+
+
+{% block scripts %}
+<script>
+    let div = document.querySelector('#circle')
+    div.style.width = {{ q }} + 'px'
+    div.style.height = {{ q }} + 'px'
+
+    let demdiv = document.querySelector('#demcircle')
+    demdiv.style.width = {{ d }} + 'px'
+    demdiv.style.height = {{ d }} + 'px'
+
+</script>
+{% endblock %}
+
+
+{% block styles %}
+<style type="text/css">
+    #wrapper {
+        height: 306px;
+        width: 306px;
+        align-items: center;
+        position: absolute;
+        justify-content: center;
+        background-color: #fff;
+        border-style: dotted;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #demwrapper {
+        height: 306px;
+        width: 306px;
+        align-items: center;
+        position: relative;
+        justify-content: center;
+        background-color: #fff;
+        margin: 0 auto;
+        opacity: 0.5;
+        border-style: dotted;
+    }
+
+    #circle {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        background-color: blue;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    #demcircle {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        background-color: red;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+        -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+        animation-name: example;
+        animation-duration: 5s;
+    }
+
+    #topid { height: 50px; width: 100%; text-align: center; }
+
+    @-webkit-keyframes example {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    /* Standard syntax */
+    @keyframes example {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+
+
+
+</style>
+{% endblock %}
+
+
