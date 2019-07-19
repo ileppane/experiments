@@ -145,6 +145,12 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
+        'name': 'bachallenge',
+        'display_name': 'BA challenge',
+        'num_demo_participants': 1,
+        'app_sequence': ['bachallenge','digitalmarketing','datingapp']
+    },
+    {
         'name': 'slider',
         'display_name': 'Slider',
         'num_demo_participants': 1,
