@@ -1,0 +1,49 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Moon rover
+{% endblock %}
+
+{% block content %}
+
+    <p>International efforts in space exploration have discovered interesting
+    sites in one of Jupiter's moons. The sites are shown in the map below.</p>
+
+    <p>[insert map here]</p>
+
+    <p>It has been decided that a moon rover is sent to the moon and it will
+    be programmed to visit certain sites. Due to technical capabilities,
+    it will be limited to visiting four sites in the moon. Furthermore,
+        it can <b>only travel 10 km</b> before its battery runs out. Distance between
+    the sites in the map above can be measured by geometric lines. Each square
+    in the map is one-by-one kilometer in size.</p>
+
+    <p>The space scientists have determined the value of each site that the
+    moon rover may visit, as shown in the table below.</p>
+
+    <table border="1" align="center" width="500px">
+        <tr><th>	Site	</th><th>	Value of site	</th><th>	x-coordinate	</th><th>	y-coordinate	</th></tr>
+        <tr><td>	Plains	</td><td>	1	</td><td>	9	</td><td>	7	</td></tr>
+        <tr><td>	Boulder	</td><td>	1	</td><td>	8	</td><td>	4	</td></tr>
+        <tr><td>	Rocks	</td><td>	2	</td><td>	8	</td><td>	1	</td></tr>
+        <tr><td>	Cliffs	</td><td>	2	</td><td>	7	</td><td>	8	</td></tr>
+        <tr><td>	Water	</td><td>	4	</td><td>	7	</td><td>	6	</td></tr>
+        <tr><td>	Fossils	</td><td>	5	</td><td>	7	</td><td>	3	</td></tr>
+        <tr><td>	Volcano	</td><td>	4	</td><td>	5	</td><td>	2	</td></tr>
+        <tr><td>	Mountain	</td><td>	3	</td><td>	2	</td><td>	3	</td></tr>
+        <tr><td>	Crater	</td><td>	3	</td><td>	1	</td><td>	8	</td></tr>
+        <tr><td>	Electromagnetic	</td><td>	5	</td><td>	4	</td><td>	10	</td></tr>
+    </table>
+
+    <p>The starting point has x-coordinate 4 and y-coordinate 6.</p>
+
+    <p>What is the optimal route for the moon rover, so that the combined value
+    of the sites visited is maximised? Input your answer below in the order in
+    which to visit the sites.</p>
+
+    {% formfields %}
+
+    {% next_button %}
+
+{% endblock %}

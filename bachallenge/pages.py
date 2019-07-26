@@ -18,6 +18,8 @@ class MyPage(Page):
             return "datingapp"
         elif self.player.appchoice == 'Digital Marketing':
             return "digitalmarketing"
+        elif self.player.appchoice == 'Moonrover':
+            return "moonrover"
 
 
 page_sequence = [

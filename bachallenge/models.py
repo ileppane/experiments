@@ -27,4 +27,4 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     name = models.StringField()
-    appchoice = models.StringField(choices=['Dating App','Digital Marketing'])
+    appchoice = models.StringField(choices=['Dating App','Digital Marketing', 'Moonrover'])

@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Thanks!
+{% endblock %}
+
+{% block content %}
+
+    <p>You collected {{ points }} points and travelled a distance of {{ dist|floatformat:"1" }} km.</p>
+    <p>{{ text }}</p>
+
+    {% next_button %}
+{% endblock %}
+
+
