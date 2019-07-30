@@ -21,6 +21,10 @@ class MyPage(Page):
         elif self.player.appchoice == 'Moonrover':
             return "moonrover"
 
+    def before_next_page(self):
+
+        self.participant.vars['username'] = self.player.name
+
 
 page_sequence = [
     WelcomePage,

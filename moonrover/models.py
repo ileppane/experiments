@@ -15,6 +15,7 @@ def moonroverfun(first,second,third,fourth):
     def distance(x1, y1, x2, y2):
         return math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1))
 
+    # must modify: each site can be visited only once
     startx = 4
     starty = 6
     x = [9, 8, 8, 7, 7, 7, 5, 2, 1, 4]
@@ -26,7 +27,21 @@ def moonroverfun(first,second,third,fourth):
     isecond = sites.index(second)
     ithird = sites.index(third)
     ifourth = sites.index(fourth)
-    yourpoints = points[ifirst] + points[isecond] + points[ithird] + points[ifourth]
+
+    yourpoints = points[ifirst]
+
+    if isecond is not ifirst:
+        yourpoints = yourpoints + points[isecond]
+
+    if ithird is not isecond:
+        if ithird is not ifirst:
+            yourpoints = yourpoints + points[ithird]
+
+    if ifourth is not ithird:
+        if ifourth is not isecond:
+            if ifourth is not ifirst:
+                yourpoints = yourpoints + points[ifourth]
+
     yourdist = distance(startx,starty,x[ifirst],y[ifirst]) + distance(x[ifirst],y[ifirst],x[isecond],y[isecond]) + distance(x[isecond],y[isecond],x[ithird],y[ithird]) + distance(x[ithird],y[ithird],x[ifourth],y[ifourth])
 
     return [yourpoints, yourdist]
@@ -51,3 +66,4 @@ class Player(BasePlayer):
     secondsite = models.StringField(choices=['Crater','Electromagnetic','Cliffs','Plains','Water','Boulder','Fossils','Mountain','Volcano','Rocks'])
     thirdsite = models.StringField(choices=['Crater','Electromagnetic','Cliffs','Plains','Water','Boulder','Fossils','Mountain','Volcano','Rocks'])
     fourthsite = models.StringField(choices=['Crater','Electromagnetic','Cliffs','Plains','Water','Boulder','Fossils','Mountain','Volcano','Rocks'])
+    points = models.IntegerField()
