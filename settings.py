@@ -147,8 +147,8 @@ SESSION_CONFIGS = [
     {
         'name': 'bachallenge',
         'display_name': 'BA challenge',
-        'num_demo_participants': 10,
-        'app_sequence': ['bachallenge','digitalmarketing','datingapp','moonrover']
+        'num_demo_participants': 1,
+        'app_sequence': ['moonrover']
     },
     {
         'name': 'slider',
