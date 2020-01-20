@@ -19,7 +19,7 @@
     You ordered {{ player.trueorderquantity }} items.
     Demand was {{ demand }}.
     {{ demandtext }}
-    Your profit is {{ player.payoff }}.
+    Your profit is {{ player.payoff|floatformat:0 }}.
 </p>
 
 <center>
@@ -43,7 +43,7 @@
                 <td>{{ p.round_number }}</td>
                 <td>{{ p.trueorderquantity }}</td>
                 <td>{{ p.demand }}</td>
-                <td>{{ p.payoff }}</td>
+                <td>{{ p.payoff|floatformat:0 }}</td>
             </tr>
         {% endfor %}
     </table>

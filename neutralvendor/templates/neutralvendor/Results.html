@@ -18,7 +18,7 @@
 <p>
     Your decision was {{ player.truedecision }}.
     The state of the world in this round was {{ player.truestate }}.
-    Your profit is {{ player.payoff|floatformat }}.
+    Your profit is {{ player.payoff }}.
     Proceed to the next round by clicking the Next button.
 </p>
 
@@ -43,7 +43,7 @@
                 <td>{{ p.round_number }}</td>
                 <td>{{ p.truedecision }}</td>
                 <td>{{ p.truestate }}</td>
-                <td>{{ p.payoff|floatformat }}</td>
+                <td>{{ p.payoff }}</td>
             </tr>
         {% endfor %}
     </table>
@@ -82,7 +82,7 @@
         }
         else {
             for (var j = 0; j < 7; j++) {
-                code += "<td><b>" + state[j] + "</b></td>";
+                code += "<td><b>" + (300 + j*100) + "</b></td>";
             }
             code += "</tr>";
         }
@@ -106,7 +106,7 @@
                 code += "<td><b>" + dec[i] + "</b></td>";
             }
             else {
-                code += "<td><b>" + dec[i] + "</b></td>";
+                code += "<td><b>" + (300 + i*100) + "</b></td>";
             }
 
             for (var j = 0; j < 7; j++) {

@@ -4,9 +4,9 @@ from .models import Constants, svoscorecalc
 import csv
 
 
-class WelcomePage(Page):
-    form_model = models.Player
-    form_fields = ['prolificcode']
+#class WelcomePage(Page):
+#    form_model = models.Player
+#    form_fields = ['prolificcode']
 
 
 class ElicitSVO(Page):
@@ -59,8 +59,21 @@ class Results(Page):
         self.player.svoscore = svoscorecalc(al1,al2,al3,al4,al5,al6)
 
 
+class PageAfterFinalPage(Page):
+
+    def is_displayed(self):
+        return self.round_number == Constants.num_rounds
+
+    def vars_for_template(self):
+
+        return {
+            'prolificurl': self.session.config['prolificurl']
+        }
+
+
 page_sequence = [
-    WelcomePage,
+#    WelcomePage,
     ElicitSVO,
-    Results
+    Results,
+    PageAfterFinalPage
 ]

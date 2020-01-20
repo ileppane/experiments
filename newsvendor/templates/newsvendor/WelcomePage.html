@@ -1,7 +1,8 @@
 {% extends "global/Base.html" %}
 {% load staticfiles otree_tags %}
 
-{% block title %} Part 2 {% endblock %}
+{# THIS HAS BEEN CHANGED ON 20/01/2020 FROM Part 2 TO Part 1 #}
+{% block title %} Part 1 {% endblock %}
 
 {% block styles %}
 
@@ -37,7 +38,8 @@
 <div id="tabledata"></div>
 
 <h2>Experimental protocol</h2>
-<p>You will first answer to some test questions at the end of this page. Then you have to make order decisions in a number of rounds. In each round, you have the choice among a set of possible order quantities, and you make these decisions in the decision matrix as given above. After each decision, the computer randomly determines a demand realization. The profit resulting from your order quantity and the realized demand is displayed. Then the computer guides you to the next decision round.</p><p>As in Part 1, you should make sound decisions, because you will be rewarded according to them.</p>
+<p>You will first answer to some test questions at the end of this page. Then you have to make order decisions in a number of rounds. In each round, you have the choice among a set of possible order quantities, and you make these decisions in the decision matrix as given above. After each decision, the computer randomly determines a demand realization. The profit resulting from your order quantity and the realized demand is displayed. Then the computer guides you to the next decision round.</p>
+{# <p>As in Part 1, you should make sound decisions, because you will be rewarded according to them.</p> #}
 
 <h2>Reward determination</h2>
 <p>To determine your actual monetary reward from this part, at the end of the experiment the computer will calculate the average profit over all the rounds and divide it by 10. This will be your monetary reward from Part 2 in pence (i.e. in £ 1/100). For example, if your average profit over all the rounds is 897, your monetary reward from this part is £0.90 (rounded to the nearest whole pence). In addition, you will of course receive the reward from Part 1.</p>
@@ -58,7 +60,8 @@
 {% formfield player.check4 with label=label4 %}
 {% formfield player.check5 with label=label5 %}
 
-<h2>Begin Part 2</h2>
+{# THIS HAS BEEN CHANGED ON 20/01/2020 FROM Part 2 TO Part 1 #}
+<h2>Begin Part 1</h2>
 
 <p>When you click the Next button below, the first round will start. Please note that every selling round, starting from the one that begins at the next page, can possibly count for your monetary reward.</p>
 
@@ -115,10 +118,10 @@
             }
 
             if (margin == 'low') {
-                code += "<td><b><input type=radio name= {{ field.html_name }} value=" + i + "> " + (500 + i*50) + "</b></td>";
+                code += "<td><b><input type=radio name=nameremoved value=" + i + "> " + (500 + i*50) + "</b></td>";
             }
             else {
-                code += "<td><b><input type=radio name= {{ field.html_name}} value=" + i + "> " + (300 + i*100) + "</b></td>";
+                code += "<td><b><input type=radio name=nameremoved value=" + i + "> " + (300 + i*100) + "</b></td>";
             }
 
             for (var j = 0; j < 7; j++) {

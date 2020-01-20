@@ -85,6 +85,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
+    prolificcode = models.CharField()
     starttime = models.FloatField()
     endtime = models.FloatField()
     orderquantity = models.PositiveIntegerField(choices=[0, 1, 2, 3, 4, 5, 6], widget=widgets.RadioSelect())

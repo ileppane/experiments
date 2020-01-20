@@ -115,12 +115,12 @@
             else {
                 code += "<tr align=center>";
             }
-            // name= field.html_name
+
             if (margin == 'low') {
-                code += "<td><b><input type=radio value=" + i + "> " + (500 + i*50) + "</b></td>";
+                code += "<td><b><input type=radio name= {{ field.html_name }} value=" + i + "> " + (500 + i*50) + "</b></td>";
             }
             else {
-                code += "<td><b><input type=radio value=" + i + "> " + (300 + i*100) + "</b></td>";
+                code += "<td><b><input type=radio name= {{ field.html_name}} value=" + i + "> " + (300 + i*100) + "</b></td>";
             }
 
             for (var j = 0; j < 7; j++) {

@@ -11,7 +11,7 @@ class WelcomePage(Page):
         return self.round_number == 1
 
     form_model = models.Player
-    form_fields = ['check1', 'check2low', 'check2high', 'check3low', 'check3high', 'check4', 'check5']
+    form_fields = ['check1', 'check2', 'check3', 'check4', 'check5']
 
     def vars_for_template(self):
 
@@ -28,10 +28,8 @@ class WelcomePage(Page):
             'marginlow': marginlow,
             'margin': safe_json(Constants.margin),
             'label1': 'If your decision is C and the state of the world realization is S5, what is your profit?',
-            'label2l': 'If your decision is C, what is the probability that your profit will be 936?',
-            'label3l': 'If your decision is F, what is the probability that your profit will be 806?',
-            'label2h': 'If your decision is C, what is the probability that your profit will be 700?',
-            'label3h': 'If your decision is F, what is the probability that your profit will be 942?',
+            'label2': 'If your decision is C, what is the probability that your profit will be 936?',
+            'label3': 'If your decision is F, what is the probability that your profit will be 806?',
             'label4': 'If the state of the world is S5 in one round, what is the probability that state of world is S3 in the next round?',
             'label5': 'If your average profit over all the rounds is 1130, what is your monetary reward from Part 2 (without the baseline reward)?',
         }

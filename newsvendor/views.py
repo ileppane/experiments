@@ -5,6 +5,14 @@ from .models import Constants, profit, trueorderquantity, set_time
 from decimal import Decimal, ROUND_HALF_UP
 
 
+class FirstWelcomePage(Page):
+    def is_displayed(self):
+        return self.round_number == 1
+
+    form_model = models.Player
+    form_fields = ['prolificcode']
+
+
 class WelcomePage(Page):
 
     def is_displayed(self):
@@ -113,22 +121,23 @@ class FinalPage(Page):
         }
 
 
-class PageAfterFinalPage(Page):
+#class PageAfterFinalPage(Page):
 
-    def is_displayed(self):
-        return self.round_number == Constants.num_rounds
+#    def is_displayed(self):
+#        return self.round_number == Constants.num_rounds
 
-    def vars_for_template(self):
+#    def vars_for_template(self):
 
-        return {
-            'prolificurl': self.session.config['prolificurl']
-        }
+#        return {
+#            'prolificurl': self.session.config['prolificurl']
+#        }
 
 
 page_sequence = [
+    FirstWelcomePage,
     WelcomePage,
     DecideOrderQuantity,
     Results,
-    FinalPage,
-    PageAfterFinalPage,
+    FinalPage
+#    PageAfterFinalPage,
 ]

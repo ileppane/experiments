@@ -49,7 +49,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    prolificcode = models.CharField()
+    #prolificcode = models.CharField()
 
     allocation1 = models.PositiveIntegerField(
         choices=[1,2,3,4,5,6,7,8,9], widget=widgets.RadioSelect())

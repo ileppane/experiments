@@ -145,19 +145,6 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
-        'name': 'bachallenge',
-        'display_name': 'BA challenge',
-        'num_demo_participants': 1,
-        'app_sequence': ['moonrover']
-    },
-    {
-        'name': 'slider',
-        'display_name': 'Slider',
-        'num_demo_participants': 1,
-        'app_sequence': ['slider'],
-        'margin': 'high'
-    },
-    {
         'name': 'prolificgame',
         'display_name': 'prolificgame',
         'num_demo_participants': 2,
@@ -245,7 +232,7 @@ SESSION_CONFIGS = [
         'name': 'twopartynewsvendor',
         'display_name': "Two party newsvendor",
         'num_demo_participants': 1,
-        'app_sequence': ['twopartynewsvendor'],
+        'app_sequence': ['svo', 'twopartynewsvendor'],
         'prolificurl': 'https://prolific.ac/submissions/complete?cc=5A8RZ4J9',
         'margin': 'low',
     },
@@ -266,14 +253,14 @@ SESSION_CONFIGS = [
         'name': 'neutralvendor',
         'display_name': "Neutralvendor",
         'num_demo_participants': 1,
-        'app_sequence': ['svo','neutralvendor'],
+        'app_sequence': ['svo', 'neutralvendor'],
     	'prolificurl': 'http://www.google.com',
     },
     {
         'name': 'newsvendor',
         'display_name': "Newsvendor",
         'num_demo_participants': 1,
-        'app_sequence': ['svo', 'newsvendor'],
+        'app_sequence': ['newsvendor','svo'],
     	'prolificurl': 'http://www.google.com',
     	'margin': 'low',
     },
@@ -352,6 +339,12 @@ SESSION_CONFIGS = [
         'display_name': "Principal Agent",
         'num_demo_participants': 2,
         'app_sequence': ['principal_agent', 'payment_info'],
+    },
+    {
+        'name': 'dictator',
+        'display_name': "Dictator Game",
+        'num_demo_participants': 2,
+        'app_sequence': ['dictator', 'payment_info'],
     },
     {
         'name': 'matching_pennies',

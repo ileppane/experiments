@@ -10,7 +10,7 @@ author = 'IL'
 
 doc = """
 Decision making between lotteries
-Parameters as in low/high margin Newsvendor
+Parameters as in low margin Newsvendor
 This app is made from the Newsvendor app with words such as demand and order masked to state of the world and decision
 """
 
@@ -18,9 +18,9 @@ This app is made from the Newsvendor app with words such as demand and order mas
 def profit(state, decision):
 
     if (state >= decision):
-        prof = 1.78 * (decision*100+300) - 0.38 * (decision*100+300)
+        prof = 7.28 * (decision*50+500) - 5.72 * (decision*50+500)
     else:
-        prof = 1.78 * (state*100+300) - 0.38 * (decision*100+300)
+        prof = 7.28 * (state*50+500) - 5.72 * (decision*50+500)
 
     return prof
 
@@ -52,7 +52,7 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 25
     endowment = None
-    margin = 'high'
+    margin = 'low'
 
 
 class Subsession(BaseSubsession):
@@ -83,19 +83,13 @@ class Player(BasePlayer):
     state = models.PositiveIntegerField()
     truestate = models.CharField()
     truedecision = models.CharField()
-
     check1 = models.PositiveIntegerField(
-        choices=[[1, '560'], [2, '522'], [3, '700']], widget=widgets.RadioSelect(), blank=True)
-    check2low = models.PositiveIntegerField(
+        choices=[[1, '936'], [2, '364'], [3, '858']], widget=widgets.RadioSelect(), blank=True)
+    check2 = models.PositiveIntegerField(
         choices=[[1, '0'], [2, '1/7'], [3, '5/7']], widget=widgets.RadioSelect(), blank=True)
-    check3low = models.PositiveIntegerField(
-        choices=[[1, '5/7'], [2, '1/7'], [3, '2/7']], widget=widgets.RadioSelect(), blank=True)
-    check2high = models.PositiveIntegerField(
-        choices=[[1, '0'], [2, '1/7'], [3, '5/7']], widget=widgets.RadioSelect(), blank=True)
-    check3high = models.PositiveIntegerField(
+    check3 = models.PositiveIntegerField(
         choices=[[1, '5/7'], [2, '1/7'], [3, '2/7']], widget=widgets.RadioSelect(), blank=True)
     check4 = models.PositiveIntegerField(
         choices=[[1, '1/7'], [2, '0'], [3, '5/7']], widget=widgets.RadioSelect(), blank=True)
     check5 = models.PositiveIntegerField(
         choices=[[1, '£0.11'], [2, '£11.30'], [3, '£1.13']], widget=widgets.RadioSelect(), blank=True)
-
