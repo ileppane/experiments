@@ -28,8 +28,8 @@ class ResultsWaitPage(WaitPage):
 
 
 class Results(Page):
-    def offer(self):
-        return Constants.endowment - self.group.kept
+#    def offer(self):
+#        return Constants.endowment - self.group.kept
 
     def vars_for_template(self):
         return {
