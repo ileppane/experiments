@@ -16,7 +16,7 @@ High and low margin treatments
 
 
 def blocktitle(round, blocks):
-    # blocks = self.session.config['blocks']
+    #blocks = self.session.config['blocks']
     if (round % 5 == 0):
         blocknumber = int((round - (round % 5)) / 5) - 1
 

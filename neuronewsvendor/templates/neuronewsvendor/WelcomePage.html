@@ -1,7 +1,7 @@
 {% extends "global/Base.html" %}
 {% load staticfiles otree_tags %}
 
-{% block title %} Part II {% endblock %}
+{% block title %} Part 2 {% endblock %}
 
 {% block styles %}
 
@@ -35,7 +35,7 @@
 <div id="tabledata"></div>
 
 <h2>Experimental protocol</h2>
-<p>You will first answer to some test questions at the end of this page. Then you have to make order decisions in a number of rounds. After each decision, the computer randomly determines a demand realization.</p><p>As in Part I, you should make sound decisions, because you will be rewarded according to them.</p>
+<p>You will first answer to some test questions at the end of this page. Then you have to make order decisions in a number of rounds. After each decision, the computer randomly determines a demand realization.</p><p>As in Part 1, you should make sound decisions, because you will be rewarded according to them.</p>
 <p><b>The decisions that you make are grouped in blocks</b>. The first five decision rounds are practice rounds that do not count towards your final monetary reward. After the practice rounds, there are two kinds of blocks: <b>Reappraise</b> blocks and <b>Attend</b> blocks. These 5-round blocks will appear to you in a random order, and there will be 4 blocks of each. Thus, you will complete a total of 40 decision rounds after the 5 practice rounds.</p>
 <p>Below you see the instruction for the two kinds of blocks. These instructions are repeated again before the start of each block, i.e. after every 5 rounds.</p>
 <h3>Attend block</h3>
@@ -44,8 +44,8 @@
 <ul><i>{{ blockreap|safe }}</i></ul>
 
 <h2>Reward determination</h2>
-<p>At the end of the experiment the computer will calculate your average profit during the decision rounds (excluding the first 5 practice rounds). This average profit will then be divided by 10. This will be your monetary reward from Part II in pence (i.e. in £ 1/100). For example, if your average profit is 855, your monetary reward from this part is 855/10 pence = £0.86 (rounded to the nearest whole pence).</p>
-<p>In addition to your rewards from the tasks in Parts I and II, you will receive a baseline reward of £{{ baselinereward }}.</p>
+<p>At the end of the experiment the computer will calculate your average profit during the decision rounds (excluding the first 5 practice rounds). This average profit will then be divided by 10. This will be your monetary reward from Part 2 in pence (i.e. in £ 1/100). For example, if your average profit is 855, your monetary reward from this Part is 855/10 pence = £0.86 (rounded to the nearest whole pence).</p>
+<p>In addition to your rewards from the tasks in Parts 1 and 2, you will receive a baseline reward of £{{ baselinereward }}.</p>
 <h2>Test questions</h2>
 <p>Please answer the following questions concerning the task. We want to make sure that you have understood the above instructions correctly.</p>
 
@@ -61,7 +61,7 @@
 
 {% formfield player.check4 with label=label4 %}
 
-<h2>Begin Part II</h2>
+<h2>Begin Part 2</h2>
 
 <center>
 {% next_button %}
@@ -116,10 +116,10 @@
             }
 
             if (margin == 'low') {
-                code += "<td><b><input type=radio name= {{ field.html_name }} value=" + i + "> " + (500 + i*50) + "</b></td>";
+                code += "<td><b><input type=radio name= fieldhtml_name value=" + i + "> " + (500 + i*50) + "</b></td>";
             }
             else {
-                code += "<td><b><input type=radio name= {{ field.html_name}} value=" + i + "> " + (300 + i*100) + "</b></td>";
+                code += "<td><b><input type=radio name= fieldhtml_name value=" + i + "> " + (300 + i*100) + "</b></td>";
             }
 
             for (var j = 0; j < 7; j++) {
