@@ -145,6 +145,12 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
+        'name': 'foundationtask',
+        'display_name': 'foundationtask',
+        'num_demo_participants': 1,
+        'app_sequence': ['foundationtask']
+    },
+    {
         'name': 'prolificgame',
         'display_name': 'prolificgame',
         'num_demo_participants': 2,

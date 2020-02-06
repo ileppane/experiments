@@ -1,0 +1,7 @@
+id,group,project1,project2,project3,project4,project5,project6
+test1,Group XX,1,2,1,1,0,0
+test2,Group XX,0,2,2,1,0,0
+test3,Group XX,1,2,1,0,1,0
+test4,Group XX,1,0,1,1,2,0
+test5,Group YY,1,2,1,0,0,1
+test6,Group YY,1,1,1,1,1,0
