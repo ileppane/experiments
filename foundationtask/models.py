@@ -66,11 +66,15 @@ def consensus2(player_id):
     # SEARCH THE OTHER GROUP MEMBERS
     groups = pandas.read_excel('groups.xlsx')
     grouppi = groups.loc[groups['ID number'] == player_id]
-    group_of_player = grouppi.iloc[0][1]
-    ids_in_group = groups.loc[groups['Group'] == group_of_player]['ID number']
-    ids_in_group2 = []
-    for i in range(len(ids_in_group)):
-        ids_in_group2.append(ids_in_group[i])
+
+    if grouppi.empty:
+        ids_in_group2 = []
+    else:
+        group_of_player = grouppi.iloc[0][1]
+        ids_in_group = groups.loc[groups['Group'] == group_of_player]['ID number']
+        ids_in_group2 = []
+        for i in range(len(ids_in_group)):
+            ids_in_group2.append(ids_in_group.iloc[i])
 
     # SEARCH THE LATEST CHOICES OF EACH GROUP MEMBER AND CREATE PREFERENCE MATRIX
     alldata = pandas.read_csv('output.csv')

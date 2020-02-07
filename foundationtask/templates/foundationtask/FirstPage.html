@@ -1,5 +1,5 @@
 {% extends "global/Page.html" %}
-{% load otree static %}
+{% load otree static otree_tags %}
 
 {% block title %}
 Personal Trust Foundation
@@ -8,6 +8,8 @@ Personal Trust Foundation
 {% block content %}
 
 {% formfield player.code with label='Student ID' %}
+
+<div class="instructions well well-lg">
 
 <h2>Background</h2>
 
@@ -25,7 +27,8 @@ Personal Trust Foundation
 <p>REMEMBER</p>
 
 <p>YOUR PERSONAL VALUES DETERMINE HOW YOU ALLOCATE THE MONEY</p>
-
+</div>
+<center>
 {% next_button %}
-
+</center>
 {% endblock %}

@@ -148,7 +148,8 @@ SESSION_CONFIGS = [
         'name': 'foundationtask',
         'display_name': 'foundationtask',
         'num_demo_participants': 1,
-        'app_sequence': ['foundationtask']
+        'app_sequence': ['foundationtask'],
+        'returnurl': 'http://www.google.com'
     },
     {
         'name': 'prolificgame',
