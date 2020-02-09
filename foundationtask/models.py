@@ -108,7 +108,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 
     code = models.CharField()
-    group = models.CharField()
+    groupp = models.CharField()
 
     p1 = models.IntegerField(choices=[0,20,40,60,80,100,120,140,160,180,200,220,240,260,280,300,320,340,360,380,400,420,440,460,480,500])
     p2 = models.IntegerField(choices=[0,20,40,60,80,100,120,140,160,180,200,220,240,260,280,300,320,340,360,380,400,420,440,460,480,500])

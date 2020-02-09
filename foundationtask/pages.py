@@ -33,7 +33,7 @@ class MyPage(Page):
         else:
             group_of_player = grouppi.iloc[0][1]
 
-        self.player.group = group_of_player
+        self.player.groupp = group_of_player
         # create data to be saved in output.csv
         data = [[self.player.code, group_of_player,
                  self.player.p1, self.player.p2, self.player.p3, self.player.p4, self.player.p5, self.player.p6]]
@@ -45,8 +45,13 @@ class MyPage(Page):
 class Results(Page):
 
     def vars_for_template(self):
-        cons = consensus2(self.player.code)
-        self.player.consensus = cons
+
+        if self.player.group == 'No group':
+            self.player.consensus = 'NA'
+            cons = 'NA'
+        else:
+            cons = consensus2(self.player.code)
+            self.player.consensus = cons
 
         return {
             'cons': cons,
