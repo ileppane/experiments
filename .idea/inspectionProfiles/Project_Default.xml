@@ -5,7 +5,7 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="95">
+          <list size="97">
             <item index="0" class="java.lang.String" itemvalue="schema" />
             <item index="1" class="java.lang.String" itemvalue="pbr" />
             <item index="2" class="java.lang.String" itemvalue="honcho" />
@@ -101,6 +101,8 @@
             <item index="92" class="java.lang.String" itemvalue="virtualenv" />
             <item index="93" class="java.lang.String" itemvalue="webencodings" />
             <item index="94" class="java.lang.String" itemvalue="otree" />
+            <item index="95" class="java.lang.String" itemvalue="pandas" />
+            <item index="96" class="java.lang.String" itemvalue="xlrd" />
           </list>
         </value>
       </option>

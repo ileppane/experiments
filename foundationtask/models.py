@@ -8,7 +8,7 @@ import numpy, pandas, csv
 author = 'IL'
 
 doc = """
-Your app description
+For 19BSC068
 """
 
 # RETURN GROUP CONSENSUS ON A GIVEN PREFERENCE MATRIX
@@ -108,12 +108,13 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 
     code = models.CharField()
+    group = models.CharField()
 
-    p1 = models.IntegerField(choices=[0,1,2,3,4,5])
-    p2 = models.IntegerField(choices=[0,1,2,3,4,5])
-    p3 = models.IntegerField(choices=[0,1,2,3,4,5])
-    p4 = models.IntegerField(choices=[0,1,2,3,4,5])
-    p5 = models.IntegerField(choices=[0,1,2,3,4,5])
-    p6 = models.IntegerField(choices=[0,1,2,3,4,5])
+    p1 = models.IntegerField(choices=[0,20,40,60,80,100,120,140,160,180,200,220,240,260,280,300,320,340,360,380,400,420,440,460,480,500])
+    p2 = models.IntegerField(choices=[0,20,40,60,80,100,120,140,160,180,200,220,240,260,280,300,320,340,360,380,400,420,440,460,480,500])
+    p3 = models.IntegerField(choices=[0,20,40,60,80,100,120,140,160,180,200,220,240,260,280,300,320,340,360,380,400,420,440,460,480,500])
+    p4 = models.IntegerField(choices=[0,20,40,60,80,100,120,140,160,180,200,220,240,260,280,300,320,340,360,380,400,420,440,460,480,500])
+    p5 = models.IntegerField(choices=[0,20,40,60,80,100,120,140,160,180,200,220,240,260,280,300,320,340,360,380,400,420,440,460,480,500])
+    p6 = models.IntegerField(choices=[0,20,40,60,80,100,120,140,160,180,200,220,240,260,280,300,320,340,360,380,400,420,440,460,480,500])
 
     consensus = models.FloatField()

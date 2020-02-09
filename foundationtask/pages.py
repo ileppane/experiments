@@ -16,8 +16,8 @@ class MyPage(Page):
     form_fields = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6']
 
     def error_message(self, values):
-        if values['p1'] + values['p2'] + values['p3'] + values['p4'] + values['p5'] + values['p6'] > 5:
-            return 'You are exceeding the budget'
+        if values['p1'] + values['p2'] + values['p3'] + values['p4'] + values['p5'] + values['p6'] > 500:
+            return 'You are exceeding the budget!'
 
     def before_next_page(self):
         #df = pandas.read_csv('output.csv')
@@ -33,6 +33,7 @@ class MyPage(Page):
         else:
             group_of_player = grouppi.iloc[0][1]
 
+        self.player.group = group_of_player
         # create data to be saved in output.csv
         data = [[self.player.code, group_of_player,
                  self.player.p1, self.player.p2, self.player.p3, self.player.p4, self.player.p5, self.player.p6]]
@@ -45,6 +46,7 @@ class Results(Page):
 
     def vars_for_template(self):
         cons = consensus2(self.player.code)
+        self.player.consensus = cons
 
         return {
             'cons': cons,
