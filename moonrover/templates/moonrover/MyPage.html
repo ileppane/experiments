@@ -1,0 +1,100 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+
+    <h4>Choose your distribution centre location</h4>
+    <center>
+        <div class="row">
+            <div class="column">
+                <b>x-coordinate:</b>
+                {{ form.startx }}
+            </div>
+
+            <div class="column">
+                <b>y-coordinate:</b>
+                {{ form.starty }}
+            </div>
+        </div>
+    </center>
+    <h4>Choose which customers to visit</h4>
+    <center>
+        <div class="row">
+            <div class="column">
+                <b>1st customer:</b>
+                {{ form.firstsite }}
+            </div>
+
+            <div class="column">
+                <b>2nd customer:</b>
+                {{ form.secondsite }}
+            </div>
+
+            <div class="column">
+                <b>3rd customer:</b>
+                {{ form.thirdsite }}
+            </div>
+
+            <div class="column">
+                <b>4th customer:</b>
+                {{ form.fourthsite }}
+            </div>
+        </div>
+
+        {% next_button %}
+    </center>
+
+{% endblock %}
+
+{% block app_styles %}
+    <style>
+        body {
+            background-color: #f6f6f6;
+        }
+        .otree-body {
+            background-color: #f6f6f6;
+        }
+        .otree-btn-next {
+            background-color: #a70532;
+            border-color: #a70532;
+        }
+        .otree-btn-next:hover {
+            background-color: #a70532;
+            border-color: #a70532;
+        }
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Create four equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 25%;
+            padding: 20px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* On screens that are 992px wide or less, go from four columns to two columns */
+        @media screen and (max-width: 992px) {
+            .column {
+                width: 50%;
+            }
+        }
+
+        /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+            }
+        }
+    </style>
+{% endblock %}

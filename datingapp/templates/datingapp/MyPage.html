@@ -1,0 +1,63 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Dating App
+{% endblock %}
+
+{% block content %}
+
+    <p>Online dating applications and websites are very popular in forming romantic relationships.
+        Success of a dating app depends on how well it can match people with similar interests.
+        Companies that develop dating apps routinely collect a lot of data about their members
+        and then try to match people so that their interests are aligned. The better matches a
+        dating application is able to make, the happier are its members and the more successful
+        the app is.</p>
+
+    <h3>Description</h3>
+    <p>You have decided to establish a dating app and you already have twenty clients, ten males
+        and ten females. You know what are their political views, hobbies, living preferences, and social
+        types. The data is given in the tables below.</p>
+
+    <center>
+    <table border="1">
+        <tr><th>Males	</th><th>Politics	</th><th>Hobby	</th><th>Living preference	</th><th>Social type	</th></tr>
+        <tr><td>	Jack	</td><td>	Liberal	</td><td>	Running	</td><td>	Country	</td><td>	Introverted	</td></tr>
+        <tr><td>	Thomas	</td><td>	Liberal	</td><td>	Computer games	</td><td>	Country	</td><td>	Outgoing	</td></tr>
+        <tr><td>	James	</td><td>	Conservative	</td><td>	Running	</td><td>	City	</td><td>	Introverted	</td></tr>
+        <tr><td>	Joshua	</td><td>	Liberal	</td><td>	Running	</td><td>	Country	</td><td>	Introverted	</td></tr>
+        <tr><td>	Daniel	</td><td>	Conservative	</td><td>	Running	</td><td>	Country	</td><td>	Introverted	</td></tr>
+        <tr><td>	Harry	</td><td>	Conservative	</td><td>	Computer games	</td><td>	Country	</td><td>	Introverted	</td></tr>
+        <tr><td>	Samuel	</td><td>	Conservative	</td><td>	Computer games	</td><td>	City	</td><td>	Introverted	</td></tr>
+        <tr><td>	Joseph	</td><td>	Liberal	</td><td>	Computer games	</td><td>	City	</td><td>	Introverted	</td></tr>
+        <tr><td>	Matthew	</td><td>	Liberal	</td><td>	Running	</td><td>	City	</td><td>	Introverted	</td></tr>
+        <tr><td>	Callum	</td><td>	Liberal	</td><td>	Running	</td><td>	City	</td><td>	Outgoing	</td></tr>
+    </table>
+
+        <br>
+
+    <table border="1">
+        <tr><th>Females</th><th>Politics	</th><th>Hobby	</th><th>Living preference	</th><th>Social type	</th></tr>
+        <tr><td>	Chloe	</td><td>	Conservative	</td><td>	Computer games	</td><td>	Country	</td><td>	Introverted	</td></tr>
+        <tr><td>	Emily	</td><td>	Liberal	</td><td>	Running	</td><td>	Country	</td><td>	Introverted	</td></tr>
+        <tr><td>	Megan	</td><td>	Conservative	</td><td>	Computer games	</td><td>	Country	</td><td>	Outgoing	</td></tr>
+        <tr><td>	Charlotte	</td><td>	Conservative	</td><td>	Running	</td><td>	City	</td><td>	Outgoing	</td></tr>
+        <tr><td>	Jessica	</td><td>	Conservative	</td><td>	Computer games	</td><td>	City	</td><td>	Outgoing	</td></tr>
+        <tr><td>	Lauren	</td><td>	Liberal	</td><td>	Running	</td><td>	City	</td><td>	Introverted	</td></tr>
+        <tr><td>	Sophie	</td><td>	Conservative	</td><td>	Computer games	</td><td>	City	</td><td>	Outgoing	</td></tr>
+        <tr><td>	Olivia	</td><td>	Conservative	</td><td>	Running	</td><td>	City	</td><td>	Outgoing	</td></tr>
+        <tr><td>	Hannah	</td><td>	Liberal	</td><td>	Computer games	</td><td>	City	</td><td>	Introverted	</td></tr>
+        <tr><td>	Lucy	</td><td>	Liberal	</td><td>	Running	</td><td>	Country	</td><td>	Introverted	</td></tr>
+    </table>
+    </center>
+
+    <h3>Task</h3>
+    <p>Try to find female partners for each male such that the pair matches in all interests.
+    You get one point from each correct match, therefore your maximum points are 10.</p>
+
+    <p>Please input your answers below.</p>
+    {% formfields %}
+
+    {% next_button %}
+
+{% endblock %}

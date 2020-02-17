@@ -1,0 +1,41 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Thanks!
+{% endblock %}
+
+{% block content %}
+
+    <ul>
+        <li>Total profit: {{ points }}</li>
+        <li>Travelled distance: {{ dist|floatformat:"1" }} km</li>
+    </ul>
+    <p>{{ text|safe }}</p>
+
+    <center>
+    <button name="next" class="btn btn-primary btn-large">Play again</button>
+    </center>
+
+    <h3>{{ text2|safe }}</h3>
+
+{% endblock %}
+
+{% block app_styles %}
+    <style>
+        body {
+            background-color: #f6f6f6;
+        }
+        .otree-body {
+            background-color: #f6f6f6;
+        }
+        .btn {
+            background-color: #a70532;
+            border-color: #a70532;
+        }
+        .btn:hover {
+            background-color: #a70532;
+            border-color: #a70532;
+        }
+    </style>
+{% endblock %}
