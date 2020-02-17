@@ -1,0 +1,119 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+<header>
+    Week {{ player.round_number }}
+</header>
+<section>
+<nav>
+    Stock level: {{ onhand | floatformat:"0"}} items<br>
+    Previous week's order: {{ prevorder }} items<br>
+    Demand: {{ demand | floatformat:"0" }} items/week<br>
+    <br>
+    Your order: {% formfield player.orderquantity with label=""%} {% next_button %}
+</nav>
+
+<article>
+    <div id="chartContainer" style="height: 400px; width: 300px;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</article>
+<nav>
+    Value of item: £{{ Constants.price }}<br>
+    Holding cost: £{{ Constants.holdingcost }}/item in stock<br>
+    Ordering cost: £{{ Constants.ordercost }}/order<br>
+    Backlog ordering cost: £{{ Constants.backlogcost }}/order<br>
+    <br>
+    Total holding cost so far: £{{ totalholdingcosts }}<br>
+    Total order cost so far: £{{ totalordercosts }}<br>
+</nav>
+</section>
+<footer>
+    {% include Constants.instructions_template %}
+</footer>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+window.onload = function () {
+CanvasJS.addColorSet("customColorSet1", ["#4661EE"]);
+var datapoints = [{y: {{ onhandlist.0 }}, label: 1}]
+var i
+var rounds = {{ Constants.num_rounds }}
+for (i=1; i<rounds; i++) {
+    var yy = {{ onhandlist | safe }}
+    datapoints.push({y: yy[i], label: i+1})
+}
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+    theme: "theme1",
+  	colorSet: "customColorSet1",
+	axisY: {
+		title: "Stock Level"
+	},
+	data: [{
+		type: "column",
+		showInLegend: false,
+		dataPoints: datapoints,
+	}]
+});
+chart.render();
+
+}
+</script>
+
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+
+header {
+  background-color: #666;
+  padding: 20px;
+  text-align: center;
+  font-size: 25px;
+  color: white;
+}
+
+nav {
+  float: left;
+  width: 30%;
+  background: #ccc;
+  padding: 20px;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 40%;
+  background-color: #fff;
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: left;
+  color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+</style>
+{% endblock %}

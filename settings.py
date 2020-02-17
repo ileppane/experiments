@@ -145,6 +145,12 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
+        'name': 'eoq',
+        'display_name': 'Stock Control Game',
+        'num_demo_participants': 1,
+        'app_sequence': ['eoq'],
+    },
+    {
         'name': 'foundationtask',
         'display_name': 'foundationtask',
         'num_demo_participants': 1,
