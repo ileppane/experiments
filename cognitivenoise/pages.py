@@ -11,10 +11,11 @@ class InitialPage(Page):
 
 class FixationPage(Page):
 
+    # timer can be hidden from the page with CSS: https://otree.readthedocs.io/en/latest/timeouts.html#customizing-the-timer
     timeout_seconds = 2
 
     def before_next_page(self):
-        self.player.starttime = set_time()
+        self.player.dectime = set_time() # here we set the start of the dectime in unix seconds
 
 
 class DecisionPage(Page):
@@ -43,7 +44,7 @@ class DecisionPage(Page):
         }
 
     def before_next_page(self):
-        self.player.endtime = set_time()
+        self.player.dectime = set_time() - self.player.dectime # here we subtract from current unix time the start of the decision round that was set in the fixation page
 
 
 class RestPage(Page):

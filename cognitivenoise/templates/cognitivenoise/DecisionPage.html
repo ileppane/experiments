@@ -46,7 +46,6 @@ document.addEventListener('keydown', function(event) {
 
 {% endblock %}
 
-
 {% block styles %}
 <style type="text/css">
 
@@ -55,7 +54,7 @@ article {
   width: 50%;
   background-color: #ddd;
   padding: 20px;
-  text-align: right;
+  vertical-align: middle;
   height: 500px;
 }
 
@@ -66,23 +65,25 @@ section:after {
   clear: both;
 }
 
-/* style the divs -- this is an example, in the final version these must be controlled using javascript! */
 .div_left {
   width: 100px;
   background: blue;
   text-align: center;
+  margin: 0 auto; // this centers the content in the div
 }
 
 .div_right_down {
   width: 100px;
   background: blue;
   text-align: center;
+  margin: 0 auto;
 }
 
 .div_right_up {
   width: 100px;
   background: red;
   text-align: center;
+  margin: 0 auto;
 }
 </style>
 {% endblock %}

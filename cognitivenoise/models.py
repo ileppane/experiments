@@ -43,5 +43,4 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 
     choice = models.StringField()
-    starttime = models.FloatField()
-    endtime = models.FloatField()
+    dectime = models.FloatField()
