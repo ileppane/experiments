@@ -1,0 +1,88 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<section>
+    <article>
+        <div class="div_left"  style="height: 300px;">
+            100%
+        </div>
+
+    </article>
+
+    <article>
+        <div class="div_right_up" style="height: {{ upvalpx }};">
+            {{ upval }}
+        </div>
+        <div class="div_right_down"  style="height: {{ downvalpx }};">
+            {{ downval }}
+        </div>
+    </article>
+</section>
+
+<input type="hidden" name="choice" id="id_choice" value='nothing'>
+
+<center>(Press left or right arrow)</center>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+
+document.addEventListener('keydown', function(event) {
+    if(event.keyCode === 37) {
+        document.getElementById('id_choice').value = 'left';
+        document.getElementById('form').submit();
+    }
+    if(event.keyCode === 39) {
+        document.getElementById('id_choice').value = 'right';
+        document.getElementById('form').submit();
+    }
+});
+
+</script>
+
+{% endblock %}
+
+
+{% block styles %}
+<style type="text/css">
+
+article {
+  float: left;
+  width: 50%;
+  background-color: #ddd;
+  padding: 20px;
+  text-align: right;
+  height: 500px;
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* style the divs -- this is an example, in the final version these must be controlled using javascript! */
+.div_left {
+  width: 100px;
+  background: blue;
+  text-align: center;
+}
+
+.div_right_down {
+  width: 100px;
+  background: blue;
+  text-align: center;
+}
+
+.div_right_up {
+  width: 100px;
+  background: red;
+  text-align: center;
+}
+</style>
+{% endblock %}
