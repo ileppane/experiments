@@ -32,13 +32,21 @@ class MyPage(Page):
         i = 1
         totalholdingcosts = (Constants.holdingcost)*(Constants.initialinventory)
         totalordercosts = 0
+        totalbacklogcosts = 0
         while i < self.round_number:
             onhandlist.append(self.player.in_round(i).onhand)
             totalholdingcosts += self.player.in_round(i).holdingcosts
             totalordercosts += self.player.in_round(i).ordercosts
+            totalbacklogcosts += self.player.in_round(i).backlogcosts
             i += 1
 
         onhand = onhandlist[self.round_number-1]
+
+        holdingcostpx = str(totalholdingcosts/(totalholdingcosts + totalordercosts + totalbacklogcosts) * 100)+"%"
+        orderingcostpx = str(totalordercosts / (totalholdingcosts + totalordercosts + totalbacklogcosts) * 100) + "%"
+        backlogcostpx = str(totalbacklogcosts / (totalholdingcosts + totalordercosts + totalbacklogcosts) * 100) + "%"
+
+        # DETERMINE AVERAGE SERVICE LEVEL
 
         return {
             'prevorder': prevorder,
@@ -46,7 +54,11 @@ class MyPage(Page):
             'onhand': onhand,
             'demand': demand,
             'totalholdingcosts': totalholdingcosts,
-            'totalordercosts': totalordercosts
+            'totalordercosts': totalordercosts,
+            'totalbacklogcosts': totalbacklogcosts,
+            'holdingcostpx': holdingcostpx,
+            'orderingcostpx': orderingcostpx,
+            'backlogcostpx': backlogcostpx
         }
 
     def before_next_page(self):
@@ -65,8 +77,12 @@ class MyPage(Page):
 
         if self.player.onhand > 0:
             self.player.holdingcosts = (self.player.onhand)*(Constants.holdingcost)
+            self.player.backlogcosts = 0
+#            self.player.servicelevel = 1
         else:
             self.player.holdingcosts = 0
+            self.player.backlogcosts = (-1)*(self.player.onhand)*(Constants.backlogcost)
+#            self.player.servicelevel =
 
 
 class Results(Page):

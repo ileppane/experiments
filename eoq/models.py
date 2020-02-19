@@ -27,7 +27,7 @@ class Constants(BaseConstants):
     ordercost = 20  # per batch
     holdingcost = 8 # as 40% of price
     backlogcost = 4*holdingcost
-    initialinventory = 20
+    initialinventory = 8
 
 
 class Subsession(BaseSubsession):
@@ -46,3 +46,5 @@ class Player(BasePlayer):
     onhand = models.FloatField()
     ordercosts = models.FloatField()    # during current round
     holdingcosts = models.FloatField()  # during current round
+    backlogcosts = models.FloatField()  # during current round
+    servicelevel = models.FloatField()  # during current round

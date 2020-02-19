@@ -15,17 +15,28 @@
 </nav>
 
 <article>
-    <div id="chartContainer" style="height: 400px; width: 300px;"></div>
+    <div id="chartContainer" style="height: 400px; width: 100%;"></div>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </article>
 <nav>
     Value of item: £{{ Constants.price }}<br>
-    Holding cost: £{{ Constants.holdingcost }}/item in stock<br>
+    Holding cost: £{{ Constants.holdingcost }}/item/week<br>
     Ordering cost: £{{ Constants.ordercost }}/order<br>
-    Backlog ordering cost: £{{ Constants.backlogcost }}/order<br>
+    Backlog cost: £{{ Constants.backlogcost }}/item/week<br>
     <br>
-    Total holding cost so far: £{{ totalholdingcosts }}<br>
-    Total order cost so far: £{{ totalordercosts }}<br>
+
+    Total holding cost so far: <br>
+    <div class="div_holdingcost"  style="width: {{ holdingcostpx }};"> £{{ totalholdingcosts }}</div>
+
+    Total order cost so far: <br>
+    <div class="div_orderingcost"  style="width: {{ orderingcostpx }};">£{{ totalordercosts }}</div>
+
+    Total backlog cost so far:<br>
+    <div class="div_backlogcost"  style="width: {{ backlogcostpx }};">£{{ totalbacklogcosts }}</div>
+
+    Service level: <br>
+    <br>
+
 </nav>
 </section>
 <footer>
@@ -61,7 +72,24 @@ var chart = new CanvasJS.Chart("chartContainer", {
 });
 chart.render();
 
+var chart = new CanvasJS.Chart("chartContainer2", {
+	animationEnabled: true,
+	data: [{
+		type: "pie",
+		startAngle: 240,
+		yValueFormatString: "##0.00\"%\"",
+		indexLabel: "{label} {y}",
+        indexLabelPlacement: "inside",
+		dataPoints: [
+			{y: 30, label: "Holding costs"},
+			{y: 70, label: "Ordering costs"},
+		]
+	}]
+});
+chart.render();
+
 }
+
 </script>
 
 {% endblock %}
@@ -82,6 +110,7 @@ nav {
   width: 30%;
   background: #ccc;
   padding: 20px;
+  height: 450px;
 }
 
 article {
@@ -104,6 +133,24 @@ footer {
   padding: 10px;
   text-align: left;
   color: white;
+}
+
+.div_holdingcost {
+  height: 24px;
+  background: #ff8080;
+  text-align: center;
+}
+
+.div_orderingcost {
+  height: 24px;
+  background: #ff8080;
+  text-align: center;
+}
+
+.div_backlogcost {
+  height: 24px;
+  background: #ff8080;
+  text-align: center;
 }
 
 /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
