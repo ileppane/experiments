@@ -9,87 +9,78 @@ class StartPage(Page):
         return self.round_number == 1
 
     def before_next_page(self): # initialises first round holding and order cost, these are written over before first round ends
-        self.player.holdingcosts = 0
-        self.player.ordercosts = 0
+        self.player.hc = 0
+        self.player.oc = 0
+        self.player.bc = 0
 
 class MyPage(Page):
 
 #    timeout_seconds = 10
 
     form_model = 'player'
-    form_fields = ['orderquantity']
+    form_fields = ['Q']
 
     def vars_for_template(self):
 
-        demand = self.session.vars['demand'] / Constants.num_rounds # demand for this round
-
         if self.round_number == 1:
-            prevorder = 0
+            prevQ = 0
         else:
-            prevorder = self.player.in_round(self.round_number - 1).orderquantity
+            prevQ = self.player.in_round(self.round_number - 1).Q
 
-        onhandlist = [Constants.initialinventory]
+        D = self.session.vars['demand'][self.round_number - 1] / 365  # demand for this round
+
+        allI = [Constants.initialinventory]
         i = 1
-        totalholdingcosts = (Constants.holdingcost)*(Constants.initialinventory)
-        totalordercosts = 0
-        totalbacklogcosts = 0
+        [thc, toc, tbc] = [(Constants.holdingcost)*(Constants.initialinventory), 0, 0]  # tot. costs
         while i < self.round_number:
-            onhandlist.append(self.player.in_round(i).onhand)
-            totalholdingcosts += self.player.in_round(i).holdingcosts
-            totalordercosts += self.player.in_round(i).ordercosts
-            totalbacklogcosts += self.player.in_round(i).backlogcosts
+            allI.append(self.player.in_round(i).I)
+            thc += self.player.in_round(i).hc
+            toc += self.player.in_round(i).oc
+            tbc += self.player.in_round(i).bc
             i += 1
-
-        onhand = onhandlist[self.round_number-1]
-
-        holdingcostpx = str(totalholdingcosts/(totalholdingcosts + totalordercosts + totalbacklogcosts) * 100)+"%"
-        orderingcostpx = str(totalordercosts / (totalholdingcosts + totalordercosts + totalbacklogcosts) * 100) + "%"
-        backlogcostpx = str(totalbacklogcosts / (totalholdingcosts + totalordercosts + totalbacklogcosts) * 100) + "%"
 
         # DETERMINE AVERAGE SERVICE LEVEL
 
         return {
-            'prevorder': prevorder,
-            'onhandlist': onhandlist,
-            'onhand': onhand,
-            'demand': demand,
-            'totalholdingcosts': totalholdingcosts,
-            'totalordercosts': totalordercosts,
-            'totalbacklogcosts': totalbacklogcosts,
-            'holdingcostpx': holdingcostpx,
-            'orderingcostpx': orderingcostpx,
-            'backlogcostpx': backlogcostpx
+            'priceA': Constants.price[0],
+            'priceB': Constants.price[1],
+            'priceC': Constants.price[2],
+            'prevQ': prevQ,
+            'allI': allI,
+            'I': allI[self.round_number-1],
+            'D': D,
+            'thc': thc,
+            'toc': toc,
+            'tbc': tbc,
+            'holdingcostpx': str(thc/(thc + toc + tbc) * 100)+"%",
+            'orderingcostpx': str(toc / (thc + toc + tbc) * 100) + "%",
+            'backlogcostpx': str(tbc / (thc + toc + tbc) * 100) + "%"
         }
 
     def before_next_page(self):
 
-        if self.player.orderquantity > 0:
-            self.player.ordercosts = Constants.ordercost
+        if self.player.Q > 0:
+            self.player.oc = Constants.ordercost
         else:
-            self.player.ordercosts = 0
+            self.player.oc = 0
 
-        weekdemand = self.session.vars['demand'] / Constants.num_rounds
+        D = self.session.vars['demand'][self.round_number - 1] / 365
 
         if self.round_number == 1:
-            self.player.onhand = Constants.initialinventory + self.player.orderquantity - weekdemand
+            self.player.I = Constants.initialinventory + self.player.Q - D
         else:
-            self.player.onhand = self.player.in_round(self.round_number - 1).onhand + self.player.orderquantity - weekdemand
+            self.player.I = self.player.in_round(self.round_number - 1).I + self.player.Q - D
 
-        if self.player.onhand > 0:
-            self.player.holdingcosts = (self.player.onhand)*(Constants.holdingcost)
-            self.player.backlogcosts = 0
-#            self.player.servicelevel = 1
-        else:
-            self.player.holdingcosts = 0
-            self.player.backlogcosts = (-1)*(self.player.onhand)*(Constants.backlogcost)
-#            self.player.servicelevel =
+        self.player.hc = max([(self.player.I)*(Constants.holdingcost), 0])
+        self.player.bc = max([(-1)*(self.player.I)*(Constants.backlogcost), 0])
+
+#       self.player.servicelevel =
 
 
 class Results(Page):
 
     def is_displayed(self):
         return self.round_number == Constants.num_rounds
-
 
 
 page_sequence = [StartPage, MyPage, Results]

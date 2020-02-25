@@ -3,43 +3,41 @@
 
 {% block content %}
 <header>
-    Week {{ player.round_number }}
+    Day {{ player.round_number }}
 </header>
 <section>
 <nav>
-    Stock level: {{ onhand | floatformat:"0"}} items<br>
-    Previous week's order: {{ prevorder }} items<br>
-    Demand: {{ demand | floatformat:"0" }} items/week<br>
+    <b>Blue Item (value £{{ priceB }})</b><br>
+    Stock: {{ I | floatformat:"0"}}<br>
+    Prev. order: {{ prevQ }}<br>
+    Demand: {{ D | floatformat:"0" }}<br>
+    Holding cost: £{{ Constants.holdingcost }}<br>
+    Backlog cost: £{{ Constants.backlogcost }}<br>
+
+    <table><tr><td>Your order:</td><td>{% formfield player.Q with label=""%}</td></tr></table>
     <br>
-    Your order: {% formfield player.orderquantity with label=""%} {% next_button %}
+    <center>{% next_button %}</center>
 </nav>
 
 <article>
-    <div id="chartContainer" style="height: 400px; width: 100%;"></div>
+    <div id="chartContainer" style="height: 200px; width: 100%;"></div>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    All orders have ordering cost of £{{ Constants.ordercost }}
+
 </article>
 <nav>
-    Value of item: £{{ Constants.price }}<br>
-    Holding cost: £{{ Constants.holdingcost }}/item/week<br>
-    Ordering cost: £{{ Constants.ordercost }}/order<br>
-    Backlog cost: £{{ Constants.backlogcost }}/item/week<br>
-    <br>
-
-    Total holding cost so far: <br>
-    <div class="div_holdingcost"  style="width: {{ holdingcostpx }};"> £{{ totalholdingcosts }}</div>
-
-    Total order cost so far: <br>
-    <div class="div_orderingcost"  style="width: {{ orderingcostpx }};">£{{ totalordercosts }}</div>
-
-    Total backlog cost so far:<br>
-    <div class="div_backlogcost"  style="width: {{ backlogcostpx }};">£{{ totalbacklogcosts }}</div>
-
-    Service level: <br>
-    <br>
+    <b>Total costs Blue Item</b><br>
+    Holding<br>
+    <div class="div_holdingcost"  style="width: {{ holdingcostpx }};"> £{{ thc | floatformat:"0" }}</div>
+    Order<br>
+    <div class="div_orderingcost"  style="width: {{ orderingcostpx }};">£{{ toc | floatformat:"0" }}</div>
+    Backlog<br>
+    <div class="div_backlogcost"  style="width: {{ backlogcostpx }};">£{{ tbc | floatformat:"0" }}</div>
 
 </nav>
 </section>
 <footer>
+
     {% include Constants.instructions_template %}
 </footer>
 
@@ -50,11 +48,11 @@
 <script>
 window.onload = function () {
 CanvasJS.addColorSet("customColorSet1", ["#4661EE"]);
-var datapoints = [{y: {{ onhandlist.0 }}, label: 1}]
+var datapoints = [{y: {{ allI.0 }}, label: 1}]
 var i
 var rounds = {{ Constants.num_rounds }}
 for (i=1; i<rounds; i++) {
-    var yy = {{ onhandlist | safe }}
+    var yy = {{ allI | safe }}
     datapoints.push({y: yy[i], label: i+1})
 }
 var chart = new CanvasJS.Chart("chartContainer", {

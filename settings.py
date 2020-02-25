@@ -145,16 +145,16 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
-        'name': 'cognitivenoise',
-        'display_name': 'Decision Task in Cognitive Noise Study',
-        'num_demo_participants': 1,
-        'app_sequence': ['cognitivenoise'],
-    },
-    {
         'name': 'eoq',
         'display_name': 'Stock Control Game',
         'num_demo_participants': 1,
         'app_sequence': ['eoq'],
+    },
+    {
+        'name': 'cognitivenoise',
+        'display_name': 'Decision Task in Cognitive Noise Study',
+        'num_demo_participants': 1,
+        'app_sequence': ['cognitivenoise'],
     },
     {
         'name': 'foundationtask',
