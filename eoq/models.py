@@ -19,20 +19,26 @@ class Constants(BaseConstants):
     players_per_group = None
     instructions_template = 'eoq/Instructions.html'
     num_rounds = 30 # days
-    price = [300,20,5] # value of the item, only needed for reference to the holding cost
-    ordercost = 20  # per batch
-    holdingcost = 8 # as 40% of price
+    price = [300,12.5,5] # value of the item, only needed for reference to the holding cost
+    ordercost = 5  # per batch
+    holdingcost = 2.5 # THIS SHOULD BE IN PROPORTION TO PRICE
     backlogcost = 4*holdingcost # per item per year
-    initialinventory = 100 # EOQ should be 89?
+    initialinventory = 20 # EOQ should be 89?
     randomdemandgame = 'no' # USE THIS IN CREATING SESSION!
-    # class B item price should be 20, C item 5 and A item 300
 
+    # Jacobs Chase Example 20.2
+    # annual demand 1000
+    # daily demand 1000/365
+    # ordering cost 5
+    # holding cost 1.25 per unit per year ==> this can be larger to drive ave level down
+    # price 12.50
+    # eoq calculated on yearly basis 89 units
 
 class Subsession(BaseSubsession):
 
     def before_session_starts(self):
         if Constants.randomdemandgame == 'no':
-            self.session.vars['demand'] = [1277.5]*Constants.num_rounds # aver annual demand for 365-day year
+            self.session.vars['demand'] = [1000]*Constants.num_rounds # annual demand for 365-day year
 #        else:
 #            self.session.vars['demand'] = [40,60,30, ...
 

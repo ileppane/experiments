@@ -31,7 +31,7 @@ class MyPage(Page):
 
         allI = [Constants.initialinventory]
         i = 1
-        [thc, toc, tbc] = [(Constants.holdingcost)*(Constants.initialinventory), 0, 0]  # tot. costs
+        [thc, toc, tbc] = [(Constants.holdingcost / 365)*(Constants.initialinventory), 0, 0]  # tot. costs
         while i < self.round_number:
             allI.append(self.player.in_round(i).I)
             thc += self.player.in_round(i).hc
@@ -71,8 +71,8 @@ class MyPage(Page):
         else:
             self.player.I = self.player.in_round(self.round_number - 1).I + self.player.Q - D
 
-        self.player.hc = max([(self.player.I)*(Constants.holdingcost), 0])
-        self.player.bc = max([(-1)*(self.player.I)*(Constants.backlogcost), 0])
+        self.player.hc = max([(self.player.I)*(Constants.holdingcost / 365), 0])
+        self.player.bc = max([(-1)*(self.player.I)*(Constants.backlogcost / 365), 0])
 
 #       self.player.servicelevel =
 
