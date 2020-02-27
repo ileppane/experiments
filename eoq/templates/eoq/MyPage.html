@@ -5,6 +5,11 @@
 <header>
     Day {{ player.round_number }}
 </header>
+
+
+
+
+
 <section>
 <nav>
     <b>Blue Item (value £{{ priceB }})</b><br>
@@ -13,17 +18,11 @@
     Demand: {{ D | floatformat:"0" }}<br>
     Holding cost: £{{ Constants.holdingcost }}<br>
     Backlog cost: £{{ Constants.backlogcost }}<br>
-
     <table><tr><td>Your order:</td><td>{% formfield player.Q with label=""%}</td></tr></table>
-    <br>
-    <center>{% next_button %}</center>
 </nav>
-
-<article>
+    <article>
     <div id="chartContainer" style="height: 200px; width: 100%;"></div>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    All orders have ordering cost of £{{ Constants.ordercost }}
-
 </article>
 <nav>
     <b>Total costs Blue Item</b><br>
@@ -33,8 +32,19 @@
     <div class="div_orderingcost"  style="width: {{ orderingcostpx }};">£{{ toc | floatformat:"2" }}</div>
     Backlog<br>
     <div class="div_backlogcost"  style="width: {{ backlogcostpx }};">£{{ tbc | floatformat:"2" }}</div>
-
 </nav>
+</section>
+
+
+
+
+
+
+<section>
+    <center>
+        All orders have ordering cost of £{{ Constants.ordercost }}<br>
+        {% next_button %}
+    </center>
 </section>
 <footer>
 
@@ -103,12 +113,15 @@ header {
   color: white;
 }
 
+section {
+  background: #ccc;
+}
+
 nav {
   float: left;
   width: 30%;
   background: #ccc;
   padding: 20px;
-  height: 450px;
 }
 
 article {
