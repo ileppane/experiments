@@ -11,29 +11,112 @@
 
 
 <section>
-<nav>
-    <b>Blue Item (value £{{ priceB }})</b><br>
-    Stock: {{ I | floatformat:"0"}}<br>
-    Prev. order: {{ prevQ }}<br>
-    Demand: {{ D | floatformat:"0" }}<br>
-    Holding cost: £{{ Constants.holdingcost }}<br>
-    Backlog cost: £{{ Constants.backlogcost }}<br>
-    <table><tr><td>Your order:</td><td>{% formfield player.Q with label=""%}</td></tr></table>
-</nav>
+    <nav>
+        <b>Item (value £{{ Constants.price.1 }})</b><br>
+        Stock: {{ I.1 | floatformat:"0"}}<br>
+        Previous order: {{ prevQ.1 }}<br>
+        Demand: {{ D.1 | floatformat:"0" }}<br>
+        Holding cost: £{{ Constants.holdingcost.1 }}<br>
+        Backlog cost: £{{ Constants.backlogcost.1 }}<br>
+        <table><tr><td>Your order:</td><td>{% formfield player.QB with label=""%}</td></tr></table>
+    </nav>
     <article>
-    <div id="chartContainer" style="height: 200px; width: 100%;"></div>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-</article>
-<nav>
-    <b>Total costs Blue Item</b><br>
-    Holding<br>
-    <div class="div_holdingcost"  style="width: {{ holdingcostpx }};"> £{{ thc | floatformat:"2" }}</div>
-    Order<br>
-    <div class="div_orderingcost"  style="width: {{ orderingcostpx }};">£{{ toc | floatformat:"2" }}</div>
-    Backlog<br>
-    <div class="div_backlogcost"  style="width: {{ backlogcostpx }};">£{{ tbc | floatformat:"2" }}</div>
-</nav>
+        <div id="chartContainerB" style="height: 200px; width: 100%;"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    </article>
+    <nav>
+        <b>Total costs</b><br><br>
+        Holding costs<br><div class="div_holdingcost" style="width: {{ holdingcostpx.1 }};"> £{{ thc.1 | floatformat:"2" }}</div>
+        Order costs<br><div class="div_orderingcost" style="width: {{ orderingcostpx.1 }};">£{{ toc.1 | floatformat:"2" }}</div>
+        Backlog costs<br><div class="div_backlogcost" style="width: {{ backlogcostpx.1 }};">£{{ tbc.1 | floatformat:"2" }}</div>
+    </nav>
 </section>
+
+
+
+
+{% if Constants.simple == 'no' %}
+
+
+<section style="background-color: #666;">&nbsp;</section>
+
+
+
+
+
+
+<section>
+    <nav>
+        <b>Item (value £{{ Constants.price.0 }})</b><br>
+        Stock: {{ I.0 | floatformat:"0"}}<br>
+        Previous order: {{ prevQ.0 }}<br>
+        Demand: {{ D.0 | floatformat:"0" }}<br>
+        Holding cost: £{{ Constants.holdingcost.0 }}<br>
+        Backlog cost: £{{ Constants.backlogcost.0 }}<br>
+        <table><tr><td>Your order:</td><td>{% formfield player.QA with label=""%}</td></tr></table>
+    </nav>
+    <article>
+        <div id="chartContainerA" style="height: 200px; width: 100%;"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    </article>
+    <nav>
+        <b>Total costs</b><br><br>
+        Holding costs<br><div class="div_holdingcost" style="width: {{ holdingcostpx.0 }};"> £{{ thc.0 | floatformat:"2" }}</div>
+        Order costs<br><div class="div_orderingcost" style="width: {{ orderingcostpx.0 }};">£{{ toc.0 | floatformat:"2" }}</div>
+        Backlog costs<br><div class="div_backlogcost" style="width: {{ backlogcostpx.0 }};">£{{ tbc.0 | floatformat:"2" }}</div>
+    </nav>
+</section>
+
+
+
+
+
+
+<section style="background-color: #666;">&nbsp;</section>
+
+
+
+
+
+
+
+<section>
+    <nav>
+        <b>Item (value £{{ Constants.price.2 }})</b><br>
+        Stock: {{ I.2 | floatformat:"0"}}<br>
+        Previous order: {{ prevQ.2 }}<br>
+        Demand: {{ D.2 | floatformat:"0" }}<br>
+        Holding cost: £{{ Constants.holdingcost.2 }}<br>
+        Backlog cost: £{{ Constants.backlogcost.2 }}<br>
+        <table><tr><td>Your order:</td><td>{% formfield player.QC with label=""%}</td></tr></table>
+    </nav>
+    <article>
+        <div id="chartContainerC" style="height: 200px; width: 100%;"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    </article>
+    <nav>
+        <b>Total costs</b><br><br>
+        Holding costs<br><div class="div_holdingcost" style="width: {{ holdingcostpx.2 }};"> £{{ thc.2 | floatformat:"2" }}</div>
+        Order costs<br><div class="div_orderingcost" style="width: {{ orderingcostpx.2 }};">£{{ toc.2 | floatformat:"2" }}</div>
+        Backlog costs<br><div class="div_backlogcost" style="width: {{ backlogcostpx.2 }};">£{{ tbc.2 | floatformat:"2" }}</div>
+    </nav>
+</section>
+
+
+
+
+
+
+{% else %}
+
+    <input type="hidden" name="QA" value=0>
+    <input type="hidden" name="QC" value=0>
+
+{% endif %}
+
+
+
+<section style="background-color: #666;">&nbsp;</section>
 
 
 
@@ -57,44 +140,91 @@
 
 <script>
 window.onload = function () {
-CanvasJS.addColorSet("customColorSet1", ["#4661EE"]);
-var datapoints = [{y: {{ allI.0 }}, label: 1}]
-var i
-var rounds = {{ Constants.num_rounds }}
-for (i=1; i<rounds; i++) {
-    var yy = {{ allI | safe }}
-    datapoints.push({y: yy[i], label: i+1})
-}
-var chart = new CanvasJS.Chart("chartContainer", {
-	animationEnabled: true,
-    theme: "theme1",
-  	colorSet: "customColorSet1",
-	axisY: {
-		title: "Stock Level"
-	},
-	data: [{
-		type: "column",
-		showInLegend: false,
-		dataPoints: datapoints,
-	}]
-});
-chart.render();
 
-var chart = new CanvasJS.Chart("chartContainer2", {
-	animationEnabled: true,
-	data: [{
-		type: "pie",
-		startAngle: 240,
-		yValueFormatString: "##0.00\"%\"",
-		indexLabel: "{label} {y}",
-        indexLabelPlacement: "inside",
-		dataPoints: [
-			{y: 30, label: "Holding costs"},
-			{y: 70, label: "Ordering costs"},
-		]
-	}]
-});
-chart.render();
+
+
+
+
+    CanvasJS.addColorSet("customColorSet1", ["#c4d4e0"]);
+    var datapointsB = [{y: {{ allIB.0 }}, label: 1}]
+    var i
+    var rounds = {{ Constants.num_rounds }}
+    for (i=1; i<rounds; i++) {
+        var yy = {{ allIB | safe }}
+        datapointsB.push({y: yy[i], label: i+1})
+    }
+
+    var chartB = new CanvasJS.Chart("chartContainerB", {
+	    animationEnabled: true,
+        theme: "theme1",
+  	    colorSet: "customColorSet1",
+	    axisY: {
+		    title: "Stock Level"
+	    },
+	    data: [{
+		    type: "column",
+		    showInLegend: false,
+		    dataPoints: datapointsB,
+	    }]
+    });
+    chartB.render();
+
+
+
+
+
+
+    CanvasJS.addColorSet("customColorSet1", ["#FFD700"]);
+    var datapointsA = [{y: {{ allIA.0 }}, label: 1}]
+    var i
+    var rounds = {{ Constants.num_rounds }}
+    for (i=1; i<rounds; i++) {
+        var yy = {{ allIA | safe }}
+        datapointsA.push({y: yy[i], label: i+1})
+    }
+
+    var chartA = new CanvasJS.Chart("chartContainerA", {
+	    animationEnabled: true,
+        theme: "theme1",
+  	    colorSet: "customColorSet1",
+	    axisY: {
+		    title: "Stock Level"
+	    },
+	    data: [{
+		    type: "column",
+		    showInLegend: false,
+		    dataPoints: datapointsA,
+	    }]
+    });
+    chartA.render();
+
+
+
+
+
+    CanvasJS.addColorSet("customColorSet1", ["#cd7f32"]);
+    var datapointsC = [{y: {{ allIC.0 }}, label: 1}]
+    var i
+    var rounds = {{ Constants.num_rounds }}
+    for (i=1; i<rounds; i++) {
+        var yy = {{ allIC | safe }}
+        datapointsC.push({y: yy[i], label: i+1})
+    }
+
+    var chartC = new CanvasJS.Chart("chartContainerC", {
+	    animationEnabled: true,
+        theme: "theme1",
+  	    colorSet: "customColorSet1",
+	    axisY: {
+		    title: "Stock Level"
+	    },
+	    data: [{
+		    type: "column",
+		    showInLegend: false,
+		    dataPoints: datapointsC,
+	    }]
+    });
+    chartC.render();
 
 }
 
@@ -174,4 +304,5 @@ footer {
 
 
 </style>
+
 {% endblock %}

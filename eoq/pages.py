@@ -9,71 +9,123 @@ class StartPage(Page):
         return self.round_number == 1
 
     def before_next_page(self): # initialises first round holding and order cost, these are written over before first round ends
-        self.player.hc = 0
-        self.player.oc = 0
-        self.player.bc = 0
+        self.player.hcA = 0
+        self.player.ocA = 0
+        self.player.bcA = 0
+        self.player.hcB = 0
+        self.player.ocB = 0
+        self.player.bcB = 0
+        self.player.hcC = 0
+        self.player.ocC = 0
+        self.player.bcC = 0
+
 
 class MyPage(Page):
 
 #    timeout_seconds = 10
 
     form_model = 'player'
-    form_fields = ['Q']
+    if Constants.simple == 'yes':
+        form_fields = ['QB']
+    else:
+        form_fields = ['QA','QB','QC']
 
     def vars_for_template(self):
 
         if self.round_number == 1:
-            prevQ = 0
+            prevQ = [0,0,0]
         else:
-            prevQ = self.player.in_round(self.round_number - 1).Q
+            prevQ = [self.player.in_round(self.round_number - 1).QA,
+                     self.player.in_round(self.round_number - 1).QB,
+                     self.player.in_round(self.round_number - 1).QC]
 
-        D = self.session.vars['demand'][self.round_number - 1] / 365  # demand for this round
+        DA = self.session.vars['demandA'][self.round_number - 1] / 365  # demand for this round
+        DB = self.session.vars['demandB'][self.round_number - 1] / 365  # demand for this round
+        DC = self.session.vars['demandC'][self.round_number - 1] / 365  # demand for this round
 
-        allI = [Constants.initialinventory]
+        allIA = [Constants.initialinventory]
+        allIB = [Constants.initialinventory]
+        allIC = [Constants.initialinventory]
         i = 1
-        [thc, toc, tbc] = [(Constants.holdingcost / 365)*(Constants.initialinventory), 0, 0]  # tot. costs
+        [thcA, tocA, tbcA] = [(Constants.holdingcost[0] / 365) * (Constants.initialinventory), 0, 0]  # tot. costs
+        [thcB, tocB, tbcB] = [(Constants.holdingcost[1] / 365) * (Constants.initialinventory), 0, 0]  # tot. costs
+        [thcC, tocC, tbcC] = [(Constants.holdingcost[2] / 365) * (Constants.initialinventory), 0, 0]  # tot. costs
         while i < self.round_number:
-            allI.append(self.player.in_round(i).I)
-            thc += self.player.in_round(i).hc
-            toc += self.player.in_round(i).oc
-            tbc += self.player.in_round(i).bc
+            allIA.append(self.player.in_round(i).IA)
+            allIB.append(self.player.in_round(i).IB)
+            allIC.append(self.player.in_round(i).IC)
+            thcA += self.player.in_round(i).hcA
+            tocA += self.player.in_round(i).ocA
+            tbcA += self.player.in_round(i).bcA
+            thcB += self.player.in_round(i).hcB
+            tocB += self.player.in_round(i).ocB
+            tbcB += self.player.in_round(i).bcB
+            thcC += self.player.in_round(i).hcC
+            tocC += self.player.in_round(i).ocC
+            tbcC += self.player.in_round(i).bcC
             i += 1
 
         # DETERMINE AVERAGE SERVICE LEVEL
 
-        return {
-            'priceA': Constants.price[0],
-            'priceB': Constants.price[1],
-            'priceC': Constants.price[2],
+        return { # these are list variables that are accessed by index 0,1,2
             'prevQ': prevQ,
-            'allI': allI,
-            'I': allI[self.round_number-1],
-            'D': D,
-            'thc': thc,
-            'toc': toc,
-            'tbc': tbc,
-            'holdingcostpx': str(thc/(thc + toc + tbc) * 100)+"%",
-            'orderingcostpx': str(toc / (thc + toc + tbc) * 100) + "%",
-            'backlogcostpx': str(tbc / (thc + toc + tbc) * 100) + "%"
+            'allIA': allIA,
+            'allIB': allIB,
+            'allIC': allIC,
+            'I': [allIA[self.round_number-1],
+                  allIB[self.round_number-1],
+                  allIC[self.round_number-1]],
+            'D': [DA, DB, DC],
+            'thc': [thcA, thcB, thcC],
+            'toc': [tocA, tocB, tocC],
+            'tbc': [tbcA, tbcB, tbcC],
+            'holdingcostpx': [str(thcA / (thcA + tocA + tbcA) * 100)+"%",
+                              str(thcB / (thcB + tocB + tbcB) * 100) + "%",
+                              str(thcC / (thcC + tocC + tbcC) * 100) + "%"],
+            'orderingcostpx': [str(tocA / (thcA + tocA + tbcA) * 100) + "%",
+                               str(tocB / (thcB + tocB + tbcB) * 100) + "%",
+                               str(tocC / (thcC + tocC + tbcC) * 100) + "%"],
+            'backlogcostpx': [str(tbcA / (thcA + tocA + tbcA) * 100) + "%",
+                              str(tbcB / (thcB + tocB + tbcB) * 100) + "%",
+                              str(tbcC / (thcC + tocC + tbcC) * 100) + "%"]
         }
 
     def before_next_page(self):
 
-        if self.player.Q > 0:
-            self.player.oc = Constants.ordercost
+        if self.player.QA > 0:
+            self.player.ocA = Constants.ordercost
         else:
-            self.player.oc = 0
+            self.player.ocA = 0
 
-        D = self.session.vars['demand'][self.round_number - 1] / 365
+        if self.player.QB > 0:
+            self.player.ocB = Constants.ordercost
+        else:
+            self.player.ocB = 0
+
+        if self.player.QC > 0:
+            self.player.ocC = Constants.ordercost
+        else:
+            self.player.ocC = 0
+
+        DA = self.session.vars['demandA'][self.round_number - 1] / 365
+        DB = self.session.vars['demandB'][self.round_number - 1] / 365
+        DC = self.session.vars['demandC'][self.round_number - 1] / 365
 
         if self.round_number == 1:
-            self.player.I = Constants.initialinventory + self.player.Q - D
+            self.player.IA = Constants.initialinventory + self.player.QA - DA
+            self.player.IB = Constants.initialinventory + self.player.QB - DB
+            self.player.IC = Constants.initialinventory + self.player.QC - DC
         else:
-            self.player.I = self.player.in_round(self.round_number - 1).I + self.player.Q - D
+            self.player.IA = self.player.in_round(self.round_number - 1).IA + self.player.QA - DA
+            self.player.IB = self.player.in_round(self.round_number - 1).IB + self.player.QB - DB
+            self.player.IC = self.player.in_round(self.round_number - 1).IC + self.player.QC - DC
 
-        self.player.hc = max([(self.player.I)*(Constants.holdingcost / 365), 0])
-        self.player.bc = max([(-1)*(self.player.I)*(Constants.backlogcost / 365), 0])
-
+        self.player.hcA = max([(self.player.IA)*(Constants.holdingcost[0] / 365), 0])
+        self.player.bcA = max([(-1)*(self.player.IA)*(Constants.backlogcost[0] / 365), 0])
+        self.player.hcB = max([(self.player.IB)*(Constants.holdingcost[1] / 365), 0])
+        self.player.bcB = max([(-1)*(self.player.IB)*(Constants.backlogcost[1] / 365), 0])
+        self.player.hcC = max([(self.player.IC) * (Constants.holdingcost[2] / 365), 0])
+        self.player.bcC = max([(-1) * (self.player.IC) * (Constants.backlogcost[2] / 365), 0])
 #       self.player.servicelevel =
 
 
