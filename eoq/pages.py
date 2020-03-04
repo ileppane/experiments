@@ -73,8 +73,6 @@ class MyPage(Page):
             tbcC += self.player.in_round(i).bcC
             i += 1
 
-        # DETERMINE AVERAGE SERVICE LEVEL
-
         return { # these are list variables that are accessed by index 0,1,2
             'simple': self.session.config['simple'],
             'prevQ': prevQ,
@@ -136,7 +134,6 @@ class MyPage(Page):
         self.player.bcB = max([(-1)*(self.player.IB)*(Constants.backlogcost[1] / 365), 0])
         self.player.hcC = max([(self.player.IC) * (Constants.holdingcost[2] / 365), 0])
         self.player.bcC = max([(-1) * (self.player.IC) * (Constants.backlogcost[2] / 365), 0])
-#       self.player.servicelevel =
 
 
 class Results(Page):
@@ -162,11 +159,44 @@ class Results(Page):
             tbcC += self.player.in_round(i).bcC
             i += 1
 
+        if thcA / (thcA + tocA) > 0.7 or thcA / (thcA + tocA) < 0.3:
+            text1A = 'For the Gold item, you could try to balance the holding and ordering costs better.'
+        else:
+            text1A = 'For the Gold item, your holding and ordering costs are in good balance.'
+
+        if thcB / (thcB + tocB) > 0.7 or thcB / (thcB + tocB) < 0.3:
+            text1B = 'For the Silver item, you could try to balance the holding and ordering costs better.'
+        else:
+            text1B = 'For the Silver item, your holding and ordering costs are in good balance.'
+
+        if thcC / (thcC + tocC) > 0.7 or thcC / (thcC + tocC) < 0.3:
+            text1C = 'For the Bronze item, you could try to balance the holding and ordering costs better.'
+        else:
+            text1C = 'For the Bronze item, your holding and ordering costs are in good balance.'
+
+        if tbcA > 0:
+            text2A = ' Try to eliminate the backlogs. '
+        else:
+            text2A = ' Well done with avoiding backlogs. '
+
+        if tbcB > 0:
+            text2B = ' Try to eliminate the backlogs. '
+        else:
+            text2B = ' Well done with avoiding backlogs. '
+
+        if tbcC > 0:
+            text2C = ' Try to eliminate the backlogs. '
+        else:
+            text2C = ' Well done with avoiding backlogs. '
+
         return { # these are list variables that are accessed by index 0,1,2
             'simple': self.session.config['simple'],
             'thc': [thcA, thcB, thcC],
             'toc': [tocA, tocB, tocC],
-            'tbc': [tbcA, tbcB, tbcC]
+            'tbc': [tbcA, tbcB, tbcC],
+            'total': [thcA+tocA+tbcA, thcB+tocB+tbcB, thcC+tocC+tbcC],
+            'text1': [text1A, text1B, text1C],
+            'text2': [text2A, text2B, text2C]
         }
 
 

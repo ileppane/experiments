@@ -11,24 +11,32 @@
 
 <center>
 <table border="1px">
-    <tr><td></td><td>Holding costs</td><td>Order costs</td><td>Backlog costs</td></tr>
-    <tr><td>Item A</td><td align="center">{{ thc.0| floatformat:"2" }}</td><td align="center">{{ toc.0| floatformat:"2" }}</td><td align="center">{{ tbc.0| floatformat:"2" }}</td></tr>
-    <tr><td>Item B</td><td align="center">{{ thc.1| floatformat:"2" }}</td><td align="center">{{ toc.1| floatformat:"2" }}</td><td align="center">{{ tbc.1| floatformat:"2" }}</td></tr>
-    <tr><td>Item C</td><td align="center">{{ thc.2| floatformat:"2" }}</td><td align="center">{{ toc.2| floatformat:"2" }}</td><td align="center">{{ tbc.2| floatformat:"2" }}</td></tr>
-</table>
+    <tr><td></td><td>Holding costs</td><td>Order costs</td><td>Backlog costs</td><td>Total costs</td></tr>
+    <tr><td>Gold item</td><td align="center">{{ thc.0| floatformat:"2" }}</td><td align="center">{{ toc.0| floatformat:"2" }}</td><td align="center">{{ tbc.0| floatformat:"2" }}</td><td align="center">{{ total.0| floatformat:"2" }}</td></tr>
+    <tr><td>Silver item</td><td align="center">{{ thc.1| floatformat:"2" }}</td><td align="center">{{ toc.1| floatformat:"2" }}</td><td align="center">{{ tbc.1| floatformat:"2" }}</td><td align="center">{{ total.1| floatformat:"2" }}</td></tr>
+    <tr><td>Bronze item</td><td align="center">{{ thc.2| floatformat:"2" }}</td><td align="center">{{ toc.2| floatformat:"2" }}</td><td align="center">{{ tbc.2| floatformat:"2" }}</td><td align="center">{{ total.2| floatformat:"2" }}</td></tr>
+</table></center>
+
+<br>
+    <p>{{ text1.0 }} {{ text2.0 }}<br>
+    {{ text1.1 }} {{ text2.1 }}<br>
+    {{ text1.2 }} {{ text2.2 }}<br>
 
 {% else %}
 
 <center>
-<table>
-    <tr><td></td><td>Holding costs</td><td>Order costs</td><td>Backlog costs</td></tr>
-    <tr><td>Item B</td><td align="center">{{ thc.1| floatformat:"2" }}</td><td align="center">{{ toc.1| floatformat:"2" }}</td><td align="center">{{ tbc.1| floatformat:"2" }}</td></tr>
+<table border="1px">
+    <tr><td></td><td>Holding costs</td><td>Order costs</td><td>Backlog costs</td><td>Total costs</td></tr>
+    <tr><td>Silver item</td><td align="center">{{ thc.1| floatformat:"2" }}</td><td align="center">{{ toc.1| floatformat:"2" }}</td><td align="center">{{ tbc.1| floatformat:"2" }}</td><td align="center">{{ total.1| floatformat:"2" }}</td></tr>
 </table>
-
+</center>
+<br>
+    <p>{{ text1.1 }} {{ text2.1 }}</p>
 {% endif %}
 
 <br>
-<p>You can play again if you believe you can do better!</p>
+<center>
+<p>Not bad! You can play again if you believe you can do better.</p>
 </center>
 
 {% endblock %}
