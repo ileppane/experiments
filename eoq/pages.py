@@ -25,23 +25,31 @@ class MyPage(Page):
 #    timeout_seconds = 10
 
     form_model = 'player'
-    if Constants.simple == 'yes':
-        form_fields = ['QB']
-    else:
-        form_fields = ['QA','QB','QC']
+
+#    def get_form_fields(self):
+
+#        if self.session.config['simple'] == 'yes':
+#            return ['QB']
+#        else:
+#            return ['QA','QB','QC']
+    form_fields = ['QA','QB','QC']
 
     def vars_for_template(self):
 
         if self.round_number == 1:
             prevQ = [0,0,0]
+            prevD = [0,0,0]
         else:
             prevQ = [self.player.in_round(self.round_number - 1).QA,
                      self.player.in_round(self.round_number - 1).QB,
                      self.player.in_round(self.round_number - 1).QC]
+            prevD = [self.session.vars['demandA'][self.round_number - 2],
+                     self.session.vars['demandB'][self.round_number - 2],
+                     self.session.vars['demandC'][self.round_number - 2]]
 
-        DA = self.session.vars['demandA'][self.round_number - 1] / 365  # demand for this round
-        DB = self.session.vars['demandB'][self.round_number - 1] / 365  # demand for this round
-        DC = self.session.vars['demandC'][self.round_number - 1] / 365  # demand for this round
+        DA = self.session.vars['demandA'][self.round_number - 1]
+        DB = self.session.vars['demandB'][self.round_number - 1]
+        DC = self.session.vars['demandC'][self.round_number - 1]
 
         allIA = [Constants.initialinventory]
         allIB = [Constants.initialinventory]
@@ -68,6 +76,7 @@ class MyPage(Page):
         # DETERMINE AVERAGE SERVICE LEVEL
 
         return { # these are list variables that are accessed by index 0,1,2
+            'simple': self.session.config['simple'],
             'prevQ': prevQ,
             'allIA': allIA,
             'allIB': allIB,
@@ -76,6 +85,7 @@ class MyPage(Page):
                   allIB[self.round_number-1],
                   allIC[self.round_number-1]],
             'D': [DA, DB, DC],
+            'prevD': prevD,
             'thc': [thcA, thcB, thcC],
             'toc': [tocA, tocB, tocC],
             'tbc': [tbcA, tbcB, tbcC],
@@ -107,9 +117,9 @@ class MyPage(Page):
         else:
             self.player.ocC = 0
 
-        DA = self.session.vars['demandA'][self.round_number - 1] / 365
-        DB = self.session.vars['demandB'][self.round_number - 1] / 365
-        DC = self.session.vars['demandC'][self.round_number - 1] / 365
+        DA = self.session.vars['demandA'][self.round_number - 1]
+        DB = self.session.vars['demandB'][self.round_number - 1]
+        DC = self.session.vars['demandC'][self.round_number - 1]
 
         if self.round_number == 1:
             self.player.IA = Constants.initialinventory + self.player.QA - DA
@@ -133,6 +143,31 @@ class Results(Page):
 
     def is_displayed(self):
         return self.round_number == Constants.num_rounds
+
+    def vars_for_template(self):
+
+        i = 1
+        [thcA, tocA, tbcA] = [(Constants.holdingcost[0] / 365) * (Constants.initialinventory), 0, 0]  # tot. costs
+        [thcB, tocB, tbcB] = [(Constants.holdingcost[1] / 365) * (Constants.initialinventory), 0, 0]  # tot. costs
+        [thcC, tocC, tbcC] = [(Constants.holdingcost[2] / 365) * (Constants.initialinventory), 0, 0]  # tot. costs
+        while i < self.round_number:
+            thcA += self.player.in_round(i).hcA
+            tocA += self.player.in_round(i).ocA
+            tbcA += self.player.in_round(i).bcA
+            thcB += self.player.in_round(i).hcB
+            tocB += self.player.in_round(i).ocB
+            tbcB += self.player.in_round(i).bcB
+            thcC += self.player.in_round(i).hcC
+            tocC += self.player.in_round(i).ocC
+            tbcC += self.player.in_round(i).bcC
+            i += 1
+
+        return { # these are list variables that are accessed by index 0,1,2
+            'simple': self.session.config['simple'],
+            'thc': [thcA, thcB, thcC],
+            'toc': [tocA, tocB, tocC],
+            'tbc': [tbcA, tbcB, tbcC]
+        }
 
 
 page_sequence = [StartPage, MyPage, Results]

@@ -7,6 +7,8 @@ from otree.api import (
     BasePlayer,
 )
 
+import csv
+
 author = 'IL'
 
 doc = """
@@ -17,32 +19,48 @@ Inventory game for OM students
 class Constants(BaseConstants):
     name_in_url = 'eoq'
     players_per_group = None
+    num_rounds = 20  # days, MAX=364
     instructions_template = 'eoq/Instructions.html'
-    num_rounds = 30 # days
     price = [300, 12.5, 5] # value of the item, only needed for reference to the holding cost
     ordercost = 5  # per batch
     holdingcost = [120, 5, 2] # THIS SHOULD BE 40% OF PRICE
     backlogcost = [480, 20, 8] # 4x holdingcost, per item per year
     initialinventory = 20 # same for all?
-    randomdemandgame = 'no' # USE THIS IN CREATING SESSION!
-    simple = 'no' # yes: only item B, no: all items
+    randomdemandgame = 'yes'
+#    simple = 'no' # yes: only item B, no: all items
 
-    # EOQ's
+# EOQ's
     # A: 9
     # B: 44
     # C: 70
-
     # Jacobs Chase Example 20.2
 
 class Subsession(BaseSubsession):
 
     def before_session_starts(self):
+
         if Constants.randomdemandgame == 'no':
-            self.session.vars['demandA'] = [1000]*Constants.num_rounds # annual demand for 365-day year
-            self.session.vars['demandB'] = [1000] * Constants.num_rounds  # annual demand for 365-day year
-            self.session.vars['demandC'] = [1000] * Constants.num_rounds  # annual demand for 365-day year
-#        else:
-#            self.session.vars['demand'] = [
+            self.session.vars['demandA'] = [1095/365] * Constants.num_rounds  # ave daily demand 3
+            self.session.vars['demandB'] = [1095/365] * Constants.num_rounds
+            self.session.vars['demandC'] = [1095/365] * Constants.num_rounds
+
+        else:
+            with open('365demand.csv', newline='') as f:
+                reader = csv.reader(f)
+                data = list(reader)
+
+            demaA = []
+            demaB = []
+            demaC = []
+
+            for i in range(1, 365):
+                demaA.append(int(data[i][0]))
+                demaB.append(int(data[i][1]))
+                demaC.append(int(data[i][2]))
+
+            self.session.vars['demandA'] = demaA  # ave daily demand 3
+            self.session.vars['demandB'] = demaB  # ave daily demand 3
+            self.session.vars['demandC'] = demaC  # ave daily demand 3
 
 
 class Group(BaseGroup):

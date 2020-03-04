@@ -149,6 +149,7 @@ SESSION_CONFIGS = [
         'display_name': 'Stock Control Game',
         'num_demo_participants': 1,
         'app_sequence': ['eoq'],
+        'simple': 'no'
     },
     {
         'name': 'cognitivenoise',

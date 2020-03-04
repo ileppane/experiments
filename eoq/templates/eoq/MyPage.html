@@ -15,9 +15,10 @@
         <b>Item (value £{{ Constants.price.1 }})</b><br>
         Stock: {{ I.1 | floatformat:"0"}}<br>
         Previous order: {{ prevQ.1 }}<br>
-        Demand: {{ D.1 | floatformat:"0" }}<br>
-        Holding cost: £{{ Constants.holdingcost.1 }}<br>
-        Backlog cost: £{{ Constants.backlogcost.1 }}<br>
+        Previous demand: {{ prevD.1 | floatformat:"0" }}<br>
+        Expected demand for next day: 3<br>
+        Annual holding cost: £{{ Constants.holdingcost.1 }} / item<br>
+        Annual backlog cost: £{{ Constants.backlogcost.1 }} / item<br>
         <table><tr><td>Your order:</td><td>{% formfield player.QB with label=""%}</td></tr></table>
     </nav>
     <article>
@@ -35,7 +36,7 @@
 
 
 
-{% if Constants.simple == 'no' %}
+{% if simple == 'no' %}
 
 
 <section style="background-color: #666;">&nbsp;</section>
@@ -50,9 +51,10 @@
         <b>Item (value £{{ Constants.price.0 }})</b><br>
         Stock: {{ I.0 | floatformat:"0"}}<br>
         Previous order: {{ prevQ.0 }}<br>
-        Demand: {{ D.0 | floatformat:"0" }}<br>
-        Holding cost: £{{ Constants.holdingcost.0 }}<br>
-        Backlog cost: £{{ Constants.backlogcost.0 }}<br>
+        Previous demand: {{ prevD.0 | floatformat:"0" }}<br>
+        Expected demand for next day: 3<br>
+        Annual holding cost: £{{ Constants.holdingcost.0 }} / item<br>
+        Annual backlog cost: £{{ Constants.backlogcost.0 }} / item<br>
         <table><tr><td>Your order:</td><td>{% formfield player.QA with label=""%}</td></tr></table>
     </nav>
     <article>
@@ -85,9 +87,10 @@
         <b>Item (value £{{ Constants.price.2 }})</b><br>
         Stock: {{ I.2 | floatformat:"0"}}<br>
         Previous order: {{ prevQ.2 }}<br>
-        Demand: {{ D.2 | floatformat:"0" }}<br>
-        Holding cost: £{{ Constants.holdingcost.2 }}<br>
-        Backlog cost: £{{ Constants.backlogcost.2 }}<br>
+        Previous demand: {{ prevD.2 | floatformat:"0" }}<br>
+        Expected demand for next day: 3<br>
+        Annual holding cost: £{{ Constants.holdingcost.2 }} / item<br>
+        Annual backlog cost: £{{ Constants.backlogcost.2 }} / item<br>
         <table><tr><td>Your order:</td><td>{% formfield player.QC with label=""%}</td></tr></table>
     </nav>
     <article>

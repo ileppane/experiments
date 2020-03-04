@@ -2,13 +2,33 @@
 {% load otree static %}
 
 {% block title %}
-    Stock Control Game
+    Stock Control Game -- Total cost summary
 {% endblock %}
 
 {% block content %}
 
-    <p>Your total costs over the {{ Constants.num_rounds }} weeks were £ .</p>
-    <p>The optimal order quantity is X and it is made every Y weeks, giving minimum costs of £ . Thus, you were £ above minimum level.</p>
-    <p>You can play again if you believe you can do better!</p>
+{% if simple == 'no' %}
+
+<center>
+<table border="1px">
+    <tr><td></td><td>Holding costs</td><td>Order costs</td><td>Backlog costs</td></tr>
+    <tr><td>Item A</td><td align="center">{{ thc.0| floatformat:"2" }}</td><td align="center">{{ toc.0| floatformat:"2" }}</td><td align="center">{{ tbc.0| floatformat:"2" }}</td></tr>
+    <tr><td>Item B</td><td align="center">{{ thc.1| floatformat:"2" }}</td><td align="center">{{ toc.1| floatformat:"2" }}</td><td align="center">{{ tbc.1| floatformat:"2" }}</td></tr>
+    <tr><td>Item C</td><td align="center">{{ thc.2| floatformat:"2" }}</td><td align="center">{{ toc.2| floatformat:"2" }}</td><td align="center">{{ tbc.2| floatformat:"2" }}</td></tr>
+</table>
+
+{% else %}
+
+<center>
+<table>
+    <tr><td></td><td>Holding costs</td><td>Order costs</td><td>Backlog costs</td></tr>
+    <tr><td>Item B</td><td align="center">{{ thc.1| floatformat:"2" }}</td><td align="center">{{ toc.1| floatformat:"2" }}</td><td align="center">{{ tbc.1| floatformat:"2" }}</td></tr>
+</table>
+
+{% endif %}
+
+<br>
+<p>You can play again if you believe you can do better!</p>
+</center>
 
 {% endblock %}
