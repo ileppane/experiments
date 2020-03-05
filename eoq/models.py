@@ -12,14 +12,14 @@ import csv
 author = 'IL'
 
 doc = """
-Inventory game for OM students
+Stock Control Game for 19BSB100 & 19BSB580 students to be used to teach EOQ model and ABC classification
 """
 
 
 class Constants(BaseConstants):
     name_in_url = 'eoq'
     players_per_group = None
-    num_rounds = 35  # days, MAX=364
+    num_rounds = 50  # days, MAX=364
     instructions_template = 'eoq/Instructions.html'
     price = [300, 12.5, 5] # value of the item, only needed for reference to the holding cost
     ordercost = 5  # per batch
@@ -84,3 +84,5 @@ class Player(BasePlayer):
     ocC = models.FloatField()  # ordercost during current round
     hcC = models.FloatField()  # holdingcost during current round
     bcC = models.FloatField()  # backlog during current round
+
+    freeform = models.LongStringField(label="")

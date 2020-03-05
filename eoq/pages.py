@@ -138,6 +138,9 @@ class MyPage(Page):
 
 class Results(Page):
 
+    form_model = 'player'
+    form_fields = ['freeform']
+
     def is_displayed(self):
         return self.round_number == Constants.num_rounds
 
@@ -159,20 +162,20 @@ class Results(Page):
             tbcC += self.player.in_round(i).bcC
             i += 1
 
-        if thcA / (thcA + tocA) > 0.7 or thcA / (thcA + tocA) < 0.3:
-            text1A = 'For the Gold item, you could try to balance the holding and ordering costs better.'
+        if thcA / (thcA + tocA) > 0.65 or thcA / (thcA + tocA) < 0.35:
+            text1A = 'Gold item: try to balance the holding and ordering costs better.'
         else:
-            text1A = 'For the Gold item, your holding and ordering costs are in good balance.'
+            text1A = 'Gold item: holding and ordering costs are in good balance.'
 
-        if thcB / (thcB + tocB) > 0.7 or thcB / (thcB + tocB) < 0.3:
-            text1B = 'For the Silver item, you could try to balance the holding and ordering costs better.'
+        if thcB / (thcB + tocB) > 0.65 or thcB / (thcB + tocB) < 0.35:
+            text1B = 'Silver item: try to balance the holding and ordering costs better.'
         else:
-            text1B = 'For the Silver item, your holding and ordering costs are in good balance.'
+            text1B = 'Silver item: holding and ordering costs are in good balance.'
 
-        if thcC / (thcC + tocC) > 0.7 or thcC / (thcC + tocC) < 0.3:
-            text1C = 'For the Bronze item, you could try to balance the holding and ordering costs better.'
+        if thcC / (thcC + tocC) > 0.65 or thcC / (thcC + tocC) < 0.35:
+            text1C = 'Bronze item: try to balance the holding and ordering costs better.'
         else:
-            text1C = 'For the Bronze item, your holding and ordering costs are in good balance.'
+            text1C = 'Bronze item: holding and ordering costs are in good balance.'
 
         if tbcA > 0:
             text2A = ' Try to eliminate the backlogs. '

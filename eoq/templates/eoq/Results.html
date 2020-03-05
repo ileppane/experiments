@@ -2,10 +2,12 @@
 {% load otree static %}
 
 {% block title %}
-    Stock Control Game -- Total cost summary
+
 {% endblock %}
 
 {% block content %}
+
+<h2>Total cost summary</h2>
 
 {% if simple == 'no' %}
 
@@ -18,9 +20,16 @@
 </table></center>
 
 <br>
-    <p>{{ text1.0 }} {{ text2.0 }}<br>
-    {{ text1.1 }} {{ text2.1 }}<br>
-    {{ text1.2 }} {{ text2.2 }}<br>
+<p>{{ text1.0 }} {{ text2.0 }}<br>
+{{ text1.1 }} {{ text2.1 }}<br>
+{{ text1.2 }} {{ text2.2 }}<br>
+
+<br><br>
+<h2>Leave feedback</h2>
+<p>Below you can write your thoughts about your inventory management strategy. You can also leave feedback about the game design. Thanks!</p>
+
+{% formfields %}
+{% next_button %}
 
 {% else %}
 
@@ -33,10 +42,5 @@
 <br>
     <p>{{ text1.1 }} {{ text2.1 }}</p>
 {% endif %}
-
-<br>
-<center>
-<p>Not bad! You can play again if you believe you can do better.</p>
-</center>
 
 {% endblock %}
