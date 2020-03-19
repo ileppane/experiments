@@ -1,0 +1,110 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+<h1>Please specify how much you want to pay for the current lottery</h1>
+
+{% endblock %}
+
+{% block content %}
+
+
+<article class="auction">
+  <p class="instruction">Reminder: a reasonable price of this lottery should be greater than {{ floor }} and less than {{ reward}}.</p>
+
+  <div style="float: left; font-size: 25px; position: relative; right: 10px; top: 10px;">
+    <p>£</p>
+  </div>
+
+  <div style="position: relative; top: 10px;">
+    {% formfield player.WTP label = "" %}
+  </div>
+
+  <div style="position: relative; top: 200px;">
+    {% next_button %}
+  </div>
+
+</article>
+
+
+<article class="lottery">
+  <div class="risk_up_div" style="height: {{ risk_up_px }};">
+    <p class="risk_up_txt">{{ risk_up }}</p>
+  </div>
+  <div class="risk_down_div"  style="height: {{ risk_down_px }};">
+    <p class="risk_down_txt">{{ risk_down }}</p>
+  </div>
+  <div class="reward_div">
+    <p class="reward_txt">{{ reward }}</p>
+  </div>
+
+</article>
+
+
+
+<style type="text/css">
+
+  .instruction {
+    font-size: 20px;
+    font-style: italic;
+  }
+
+  .auction {
+    float: left;
+    width: 70%;
+    padding: 20px;
+    vertical-align: middle;
+    height: 500px;
+  }
+
+  .lottery {
+    float: left;
+    width: 30%;
+    background-color: black;
+    padding: 20px;
+    vertical-align: middle;
+    height: 500px;
+  }
+
+  .risk_up_div {
+    width: 100px;
+    background: red;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .risk_up_txt {
+    color: white;
+    font-size: 25px;
+    position: relative;
+    top: {{risk_up_posi}};
+  }
+
+  .risk_down_div {
+    width: 100px;
+    background: blue;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .risk_down_txt {
+    color: white;
+    font-size: 25px;
+    position: relative;
+    top: {{risk_down_posi}};
+  }
+
+  .reward_div {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .reward_txt {
+    color: white;
+    font-weight: normal;
+    font-size: 40px;
+  }
+</style>
+
+
+{% endblock %}

@@ -145,6 +145,12 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
+        'name': 'BDMauction',
+        'display_name': 'preference elicitation in Cognitive Noise Study',
+        'num_demo_participants': 1,
+        'app_sequence': ['BDMauction'],
+    },
+    {
         'name': 'cognitivenoise',
         'display_name': 'Decision Task in Cognitive Noise Study',
         'num_demo_participants': 1,
