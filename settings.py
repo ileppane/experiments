@@ -145,6 +145,21 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
+<<<<<<< HEAD
+=======
+        'name': 'BDMauction',
+        'display_name': 'preference elicitation in Cognitive Noise Study',
+        'num_demo_participants': 1,
+        'app_sequence': ['BDMauction'],
+    },
+    {
+        'name': 'cognitivenoise',
+        'display_name': 'Decision Task in Cognitive Noise Study',
+        'num_demo_participants': 1,
+        'app_sequence': ['cognitivenoise'],
+    },
+    {
+>>>>>>> origin/THu_Branch
         'name': 'eoq',
         'display_name': 'Stock Control Game',
         'num_demo_participants': 1,
