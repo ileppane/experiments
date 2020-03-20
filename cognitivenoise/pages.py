@@ -63,14 +63,14 @@ class DecisionPage(Page):
 class RestPage(Page):
 
     def is_displayed(self):
-        rest_after = 3
+        rest_after = 4
         rest_round = list(range(rest_after, Constants.num_rounds, rest_after))
         if self.round_number in rest_round:
             return True
         else:
             return False
 
-    timeout_seconds = 5
+    timeout_seconds = 1
 
 
 class FinishPage(Page):
