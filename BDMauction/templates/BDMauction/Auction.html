@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-<h1>Please specify how much you want to pay for the current lottery</h1>
+<h1 style="font-size: 35px;">Please specify how much you want to pay for the current lottery ( {{ player.round_number }} / {{ Constants.num_rounds}})</h1>
 
 {% endblock %}
 
@@ -10,19 +10,21 @@
 
 
 <article class="auction">
-  <p class="instruction">Reminder: a reasonable price of this lottery should be greater than {{ floor }} and less than {{ reward}}.</p>
 
-  <div style="float: left; font-size: 25px; position: relative; right: 10px; top: 10px;">
-    <p>£</p>
-  </div>
+  <!-- <p style="font-size: 20px;">Drag the slider below to adjust the value</p> -->
+  <h4>Drag the slider below to adjust the value</h4>
+<br>
 
-  <div style="position: relative; top: 10px;">
-    {% formfield player.WTP label = "" %}
-  </div>
+  <p class="instruction"> <b>Reminder</b> <br>A reasonable price of this lottery should be: <br> -Greater than {{ floor }} <br> -Less than {{ reward }}</p>
+<br>
 
-  <div style="position: relative; top: 200px;">
-    {% next_button %}
+  <div class="slidecontainer">
+    <input type="range" name = "WTP" min= {{ floor_raw }} max= {{ reward_raw }} step = "0.05" value= {{ initial_value }} class="slider" id="myRange">
   </div>
+  <p class="valuation">Your Valuation: £<span id="demo"></span></p>
+<br><br>
+
+{% next_button %}
 
 </article>
 
@@ -40,8 +42,60 @@
 
 </article>
 
+<!-- The followinf section is for the slider -->
+<style>
+.slidecontainer {
+  width: {{ bar_length }};
+  /* width: 70%; */
+}
 
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
 
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+</style>
+
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+
+</script>
+
+<!-- thie following section is for the lottery and instruction -->
 <style type="text/css">
 
   .instruction {
@@ -49,9 +103,15 @@
     font-style: italic;
   }
 
+  .valuation {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 25px;
+    /* font-style: italic; */
+  }
+
   .auction {
     float: left;
-    width: 70%;
+    width: 75%;
     padding: 20px;
     vertical-align: middle;
     height: 500px;
@@ -59,11 +119,11 @@
 
   .lottery {
     float: left;
-    width: 30%;
+    width: 25%;
     background-color: black;
     padding: 20px;
     vertical-align: middle;
-    height: 500px;
+    height: 450px;
   }
 
   .risk_up_div {

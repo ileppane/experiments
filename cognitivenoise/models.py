@@ -80,6 +80,7 @@ class Constants(BaseConstants):
     name_in_url = 'cognitivenoise'
     players_per_group = None
     num_rounds = 10 # this should be changed later
+    
     # instructions_template = 'cognitivenoise/Instructions.html'
     # In a template: "You can write the instructions on a template file and include here using the below line: {% include Constants.instructions_template %}"
 
