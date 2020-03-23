@@ -48,6 +48,8 @@ def lottery_generator(scaler, min_reward, min_risk, reward_lev, risk_lev):
     columns = ['reward', 'risk']
     lottery_table.columns = columns
 
+    # lottery_table = lottery_table.sort_values(by=['reward'])
+
     return lottery_table
 
 
@@ -74,7 +76,7 @@ def bigger(a, b):
 class Constants(BaseConstants):
     name_in_url = 'BDMauction'
     players_per_group = None
-    num_rounds = 18
+    num_rounds = 3
 
 
 class Subsession(BaseSubsession):

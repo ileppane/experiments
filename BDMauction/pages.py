@@ -26,6 +26,7 @@ class Auction(Page):
         risk_down = str(risk)
         risk_down_px = (risk / 100) * 300
 
+        # floor = 0
 
         if self.round_number == 1:
             floor = 0
@@ -35,6 +36,8 @@ class Auction(Page):
             floor = self.player.in_round(self.round_number - risk_lev).WTP
         else:
             floor = bigger(self.player.in_round(self.round_number - 1).WTP, self.player.in_round(self.round_number - risk_lev).WTP)
+        
+
 
         bar_length = (reward - floor) / 31.4
         bar_length = bar_length * 1.5 + 0.2 #just to make it longer in case it is too short
