@@ -48,6 +48,8 @@ def lottery_generator(scaler, min_reward, min_risk, reward_lev, risk_lev):
     columns = ['reward', 'risk']
     lottery_table.columns = columns
 
+    # lottery_table = lottery_table.sort_values(by=['reward'])
+
     return lottery_table
 
 
@@ -65,16 +67,16 @@ def bigger(a, b):
     else:
         return b
 
-def decimal_places(number):
-    x = re.findall(r'\.\d*', str(number))
-    places = len(x[0]) -1
-    return places
+# def decimal_places(number):
+#     x = re.findall(r'\.\d*', str(number))
+#     places = len(x[0]) -1
+#     return places
 
 
 class Constants(BaseConstants):
     name_in_url = 'BDMauction'
     players_per_group = None
-    num_rounds = 18
+    num_rounds = 3
 
 
 class Subsession(BaseSubsession):
@@ -90,30 +92,25 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
-    WTP = models.FloatField(min=0)
+    WTP = models.FloatField()
 
-    def WTP_max(self):
-        ceiling = lottery_table['reward'][self.round_number - 1]
-        return ceiling
-
-    def WTP_min(self):
-        if self.round_number == 1:
-            floor = 0
-            return floor
-
-        elif lottery_table['reward'][self.round_number - 1] == min_reward:
-            floor = self.in_round(self.round_number - 1).WTP
-            return floor
-
-        elif self.round_number % risk_lev == 1:
-            floor = self.in_round(self.round_number - risk_lev).WTP
-            return floor
-
-        else:
-            floor = bigger(self.in_round(self.round_number - 1).WTP, self.in_round(self.round_number - risk_lev).WTP)
-            return floor
-
-    def WTP_error_message(self, value):
-
-        if decimal_places(value) > 2:
-            return "your specified price cannot have a unit smaller than penny."
+    # def WTP_max(self):
+    #     ceiling = lottery_table['reward'][self.round_number - 1]
+    #     return ceiling
+    #
+    # def WTP_min(self):
+    #     if self.round_number == 1:
+    #         floor = 0
+    #         return floor
+    #
+    #     elif lottery_table['reward'][self.round_number - 1] == min_reward:
+    #         floor = self.in_round(self.round_number - 1).WTP
+    #         return floor
+    #
+    #     elif self.round_number % risk_lev == 1:
+    #         floor = self.in_round(self.round_number - risk_lev).WTP
+    #         return floor
+    #
+    #     else:
+    #         floor = bigger(self.in_round(self.round_number - 1).WTP, self.in_round(self.round_number - risk_lev).WTP)
+    #         return floor
