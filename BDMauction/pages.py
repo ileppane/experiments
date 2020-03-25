@@ -1,6 +1,6 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
-from .models import Constants, bigger
+from .models import Constants, bigger, lottery_generator
 
 
 class Initial(Page):
@@ -13,13 +13,21 @@ class Auction(Page):
     form_model = 'player'
     form_fields = ['WTP']
 
-
     def vars_for_template(self):
 
-        reward = self.session.vars["reward"][self.round_number - 1]
-        risk = self.session.vars["risk"][self.round_number - 1]
-        min_reward = self.session.vars["min_reward"]
-        risk_lev = self.session.vars["risk_lev"]
+        scaler = 2 ** 0.5
+        min_reward = 5.55
+        min_risk = 43
+        reward_lev = 6
+        risk_lev = 3
+
+        min_reward = min_reward
+        risk_lev = risk_lev
+
+        lottery_table = lottery_generator(scaler, min_reward, min_risk, reward_lev, risk_lev)
+
+        reward = lottery_table['reward'][self.round_number - 1]
+        risk = lottery_table['risk'][self.round_number - 1]
 
         risk_up = str(100 - risk)
         risk_up_px = ((100 - risk) / 100) * 300
@@ -36,8 +44,6 @@ class Auction(Page):
             floor = self.player.in_round(self.round_number - risk_lev).WTP
         else:
             floor = bigger(self.player.in_round(self.round_number - 1).WTP, self.player.in_round(self.round_number - risk_lev).WTP)
-        
-
 
         bar_length = (reward - floor) / 31.4
         bar_length = bar_length * 1.5 + 0.2 #just to make it longer in case it is too short

@@ -145,26 +145,10 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
-        'name': 'MCN',
-        'display_name': 'Modelling Cognitive Noise',
-        'num_demo_participants': 1,
-        # 'app_sequence': ['cognitivenoise', 'BDMauction'],
-        'app_sequence': ['BDMauction', 'cognitivenoise'],
-    },
-    {
-        'name': 'MCN2',
-        'display_name': 'Modelling Cognitive Noise2',
-        'num_demo_participants': 1,
-        # 'app_sequence': ['cognitivenoise', 'BDMauction'],
-        'app_sequence': ['general_instruction', 'BDMauction', 'cognitivenoise'],
-    },
-
-    {
         'name': 'BDMauction',
-        'display_name': 'Preference Elicitation in Cognitive Noise Study',
+        'display_name': 'BDMauction',
         'num_demo_participants': 1,
-        'app_sequence': ['BDMauction'],
-        # 'app_sequence': ['BDMauction', 'cognitivenoise'],
+        'app_sequence': ['BDMauction','cognitivenoise'],
     },
     {
         'name': 'cognitivenoise',
