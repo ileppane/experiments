@@ -76,16 +76,17 @@ def bigger(a, b):
 class Constants(BaseConstants):
     name_in_url = 'BDMauction'
     players_per_group = None
-    num_rounds = 3
+    num_rounds = 5
+    # num_rounds should be 18 when deployed in experiment
 
 
 class Subsession(BaseSubsession):
     def before_session_starts(self):
-        self.session.vars["reward"] = lottery_table['reward']
-        self.session.vars["risk"] = lottery_table['risk']
+        self.session.vars["reward_auc"] = lottery_table['reward']
+        self.session.vars["risk_auc"] = lottery_table['risk']
 
-        self.session.vars["min_reward"] = min_reward
-        self.session.vars["risk_lev"] = risk_lev
+        self.session.vars["min_reward_auc"] = min_reward
+        self.session.vars["risk_lev_auc"] = risk_lev
 
 class Group(BaseGroup):
     pass
@@ -93,6 +94,9 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 
     WTP = models.FloatField()
+
+    reward = models.FloatField()
+    risk = models.FloatField()
 
     # def WTP_max(self):
     #     ceiling = lottery_table['reward'][self.round_number - 1]
