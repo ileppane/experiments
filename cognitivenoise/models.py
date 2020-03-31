@@ -85,7 +85,7 @@ trial_table = trial_generator(scaler, min_reward, min_risk, reward_lev, risk_lev
 class Constants(BaseConstants):
     name_in_url = 'cognitivenoise'
     players_per_group = None
-    num_rounds = 3
+    num_rounds = 20
     # num_rounds should be changed to 324 when deployed in experiment
 
     # instructions_template = 'cognitivenoise/Instructions.html'
