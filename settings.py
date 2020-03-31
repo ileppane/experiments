@@ -153,8 +153,6 @@ SESSION_CONFIGS = [
     # },
 
     {
-<<<<<<< HEAD
-=======
         'name': 'REItest',
         'display_name': 'REI Survey',
         'num_demo_participants': 1,
@@ -162,7 +160,6 @@ SESSION_CONFIGS = [
         'app_sequence': ['REItest', 'BDMauction', 'cognitivenoise'],
     },
     {
->>>>>>> origin/THu_Branch
         'name': 'BDMauction',
         'display_name': 'BDMauction',
         'num_demo_participants': 1,
