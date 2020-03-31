@@ -27,8 +27,7 @@ def set_time():
 
     return time_now
 
-def trial_generator(scaler = 2**0.5, min_reward = 5.55, min_risk = 43,
-                      reward_lev = 6, risk_lev = 3, m_values = list(range(0,9))):
+def trial_generator(scaler, min_reward, min_risk, reward_lev, risk_lev, m_values):
 
     rewards = []
     risks = []
@@ -73,14 +72,21 @@ def trial_generator(scaler = 2**0.5, min_reward = 5.55, min_risk = 43,
 
     return trial_table
 
-trial_table = trial_generator()
+scaler = 2**0.5
+min_reward = 5.55
+min_risk = 43
+reward_lev = 6
+risk_lev = 3
+m_values = list(range(0,9))
+
+trial_table = trial_generator(scaler, min_reward, min_risk, reward_lev, risk_lev, m_values)
 
 
 class Constants(BaseConstants):
     name_in_url = 'cognitivenoise'
     players_per_group = None
-    num_rounds = 3
-    # num_rounds should be changed to 324 in actual operation
+    num_rounds = 20
+    # num_rounds should be changed to 324 when deployed in experiment
 
     # instructions_template = 'cognitivenoise/Instructions.html'
     # In a template: "You can write the instructions on a template file and include here using the below line: {% include Constants.instructions_template %}"
@@ -89,10 +95,10 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def before_session_starts(self):
-        self.session.vars["reward"] = trial_table['reward']
-        self.session.vars["risk"] = trial_table['risk']
-        self.session.vars["certainty"] = trial_table['certainty']
-        self.session.vars["display"] = trial_table['display']
+        self.session.vars["reward_ddm"] = trial_table['reward']
+        self.session.vars["risk_ddm"] = trial_table['risk']
+        self.session.vars["certainty_ddm"] = trial_table['certainty']
+        self.session.vars["display_ddm"] = trial_table['display']
 
 
 class Group(BaseGroup):
@@ -103,3 +109,10 @@ class Player(BasePlayer):
 
     choice = models.StringField()
     dectime = models.FloatField()
+
+    reward = models.FloatField()
+    risk = models.FloatField()
+    certainty = models.FloatField()
+    display = models.IntegerField()
+
+    pay = models.LongStringField()

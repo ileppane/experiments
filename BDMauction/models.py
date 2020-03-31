@@ -70,11 +70,24 @@ class Constants(BaseConstants):
     name_in_url = 'BDMauction'
     players_per_group = None
     num_rounds = 18
+<<<<<<< HEAD
 
 
 class Subsession(BaseSubsession):
     pass
 
+=======
+    # num_rounds should be 18 when deployed in experiment
+
+
+class Subsession(BaseSubsession):
+    def before_session_starts(self):
+        self.session.vars["reward_auc"] = lottery_table['reward']
+        self.session.vars["risk_auc"] = lottery_table['risk']
+
+        self.session.vars["min_reward_auc"] = min_reward
+        self.session.vars["risk_lev_auc"] = risk_lev
+>>>>>>> origin/THu_Branch
 
 class Group(BaseGroup):
     pass
@@ -83,6 +96,9 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 
     WTP = models.FloatField()
+
+    reward = models.FloatField()
+    risk = models.FloatField()
 
     # def WTP_max(self):
     #     ceiling = lottery_table['reward'][self.round_number - 1]

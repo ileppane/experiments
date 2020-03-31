@@ -144,7 +144,25 @@ SESSION_CONFIG_DEFAULTS = {
 }
 
 SESSION_CONFIGS = [
+    # {
+    #     'name': 'MCN',
+    #     'display_name': 'Modelling Cognitive Noise',
+    #     'num_demo_participants': 1,
+    #     # 'app_sequence': ['cognitivenoise', 'BDMauction'],
+    #     'app_sequence': ['REItest', 'BDMauction', 'cognitivenoise'],
+    # },
+
     {
+<<<<<<< HEAD
+=======
+        'name': 'REItest',
+        'display_name': 'REI Survey',
+        'num_demo_participants': 1,
+        # 'app_sequence': ['REItest'],
+        'app_sequence': ['REItest', 'BDMauction', 'cognitivenoise'],
+    },
+    {
+>>>>>>> origin/THu_Branch
         'name': 'BDMauction',
         'display_name': 'BDMauction',
         'num_demo_participants': 1,
