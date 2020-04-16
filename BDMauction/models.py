@@ -70,13 +70,11 @@ class Constants(BaseConstants):
     name_in_url = 'BDMauction'
     players_per_group = None
     num_rounds = 18
-<<<<<<< HEAD
 
 
-class Subsession(BaseSubsession):
-    pass
+#class Subsession(BaseSubsession):
+#    pass
 
-=======
     # num_rounds should be 18 when deployed in experiment
 
 
@@ -87,7 +85,7 @@ class Subsession(BaseSubsession):
 
         self.session.vars["min_reward_auc"] = min_reward
         self.session.vars["risk_lev_auc"] = risk_lev
->>>>>>> origin/THu_Branch
+
 
 class Group(BaseGroup):
     pass

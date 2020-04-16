@@ -1,0 +1,167 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+<center><h2>Quality control game</h2></center>
+<div id="wrapper" align="center">
+
+    <div id="mydiv">
+        <span id="circle" style="color:#ddddff;">&#9675;</span>
+    </div>
+
+    <canvas id="myCanvas" width="300px" height="300px"></canvas>
+</div>
+
+
+
+    <div id="buttondiv" align="center">
+        <br>
+        <p>
+        X coordinate: <span id="xposition">{{ prevx }}</span><br>
+        Y coordinate: <span id="yposition">{{ prevy }}</span>
+        </p>
+        <input type="hidden" name="x" id="hiddeninputx">
+        <input type="hidden" name="y" id="hiddeninputy">
+
+        <button class="btn btn-primary btn-large">Ready</button>
+        <br>
+        <p>Score: <span id="score">&nbsp;</span></p><br>
+
+    </div>
+
+{% include Constants.instructions_template %}
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+
+    var round = {{ round }};
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var xlist = {{ allxcoord | safe }};
+    var ylist = {{ allycoord | safe }};
+
+    // DRAWS ALL BUT THE LATES BLACK BALLS IMMEDIATELY ON THE CANVAS
+    for(var i = 0; i < round-1; i++) {
+        ctx.beginPath();
+        var x = xlist[i];
+        var y = ylist[i];
+        ctx.arc(150+(x),150+(-y),4,0,2*Math.PI);
+        ctx.fill();
+        ctx.stroke();
+    }
+
+    // THIS DRAWS THE LATEST BLACK BALL AND SCORE UPDATE WITH 2 SECOND DELAY
+    setTimeout(function(){
+        ctx.beginPath();
+        var x = xlist[xlist.length-1];
+        var y = ylist[ylist.length-1];
+        ctx.arc(150+(x),150+(-y),4,0,2*Math.PI);
+        ctx.fill();
+        ctx.stroke();
+
+        document.getElementById("score").innerHTML = {{ cumulativescore | floatformat:"0" }};
+
+    }, 2000);
+
+
+    // THIS PART CREATES THE DRAGGABLE RED CIRCLE THAT APPEARS WITH SLIGHT DELAY
+    setTimeout(function() {
+        document.getElementById("circle").setAttribute("style", "font-size:30px; color: red;");
+
+        divi = document.getElementById("mydiv");
+        divi.style.top = 126 - {{ prevy }} + "px";
+        divi.style.left = 125 + {{ prevx }} + "px";
+
+        dragElement(document.getElementById("mydiv"));
+
+        // default values if the cross is not moved
+        document.getElementById("hiddeninputx").value = {{ prevx }};
+        document.getElementById("hiddeninputy").value = {{ prevy }};
+
+        function dragElement(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            elmnt.onmousedown = dragMouseDown;
+
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // get the mouse cursor position at startup:
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                // call a function whenever the cursor moves:
+                document.onmousemove = elementDrag;
+            }
+
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // calculate the new cursor position:
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                // set the element's new position:
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+
+                // write new position on span element
+                document.getElementById("xposition").innerHTML = -150+25+(elmnt.offsetLeft - pos1);
+                document.getElementById("yposition").innerHTML = 150-25-(elmnt.offsetTop - pos2);
+                document.getElementById("hiddeninputx").value = -150+25+(elmnt.offsetLeft - pos1);
+                document.getElementById("hiddeninputy").value = 150-25-(elmnt.offsetTop - pos2);
+            }
+
+            function closeDragElement() {
+                /* stop moving when mouse button is released:*/
+                document.onmouseup = null;
+                document.onmousemove = null;
+            }
+        }
+
+    }, 100);
+
+</script>
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+
+    #mydiv {
+        position: absolute;
+        left: 126px;
+        top: 125px;
+        text-align: center;
+        cursor: move;
+        height: 50px;
+        width: 50px;
+        line-height: 50px;
+    }
+
+    #buttondiv {
+        width: 300px;
+        align-items: center;
+        position: relative;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    #wrapper {
+        height: 300px;
+        width: 300px;
+        align-items: center;
+        position: relative;
+        justify-content: center;
+        background-color: #ddddff;
+        margin: 0 auto;
+        border-style: dotted;
+    }
+</style>
+{% endblock %}
