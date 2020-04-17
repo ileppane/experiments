@@ -2,12 +2,14 @@
 {% load otree static %}
 
 {% block title %}
-    Page title
+    Thanks for playing
 {% endblock %}
 
 {% block content %}
 
-    {% next_button %}
+    <p>Your score was {{ cumulativescore | floatformat:"0"}}.
+       The best possible score would have been {{ lowscore | floatformat:"0"}}.</p>
+
 {% endblock %}
 
 

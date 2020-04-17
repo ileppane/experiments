@@ -28,9 +28,9 @@
         <input type="hidden" name="x" id="hiddeninputx">
         <input type="hidden" name="y" id="hiddeninputy">
 
-        <button class="btn btn-primary btn-large">Ready</button>
+        <button class="btn btn-primary btn-large">Drop marble</button>
         <br>
-        <p>Score: <span id="score">&nbsp;</span></p><br>
+        <p>Round: {{ round }} / {{ Constants.num_rounds }}<br>Score: <span id="score">&nbsp;</span></p><br>
 
     </div>
 
@@ -42,33 +42,62 @@
 <script>
 
     var round = {{ round }};
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
     var xlist = {{ allxcoord | safe }};
     var ylist = {{ allycoord | safe }};
 
-    // DRAWS ALL BUT THE LATES BLACK BALLS IMMEDIATELY ON THE CANVAS
-    for(var i = 0; i < round-1; i++) {
-        ctx.beginPath();
-        var x = xlist[i];
-        var y = ylist[i];
-        ctx.arc(150+(x),150+(-y),4,0,2*Math.PI);
-        ctx.fill();
-        ctx.stroke();
-    }
+    var x = xlist[xlist.length-1];
+    var y = ylist[ylist.length-1];
+    var xposfinal = 150+(x);
+    var yposfinal = 150+(-y);
+    var xpos = xposfinal;
+    var ypos = 0;
 
-    // THIS DRAWS THE LATEST BLACK BALL AND SCORE UPDATE WITH 2 SECOND DELAY
+
+    // THIS SETS THE SCORE UPDATE WITH 2 SECOND DELAY
     setTimeout(function(){
-        ctx.beginPath();
-        var x = xlist[xlist.length-1];
-        var y = ylist[ylist.length-1];
-        ctx.arc(150+(x),150+(-y),4,0,2*Math.PI);
-        ctx.fill();
-        ctx.stroke();
-
         document.getElementById("score").innerHTML = {{ cumulativescore | floatformat:"0" }};
-
     }, 2000);
+
+    // THIS MAKES THE ANIMATE EFFECT OF THE CURRENT BALL DROPPING FROM THE FUNNEL
+    var id = setInterval(frame, 10);
+    function frame() {
+        if (ypos == yposfinal) {
+            clearInterval(id);
+        } else {
+
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.clearRect(0,0,300,300);
+
+            // DRAW THE AXIS LINES
+            ctx.beginPath();
+            ctx.moveTo(150, 0);
+            ctx.lineTo(150, 297);
+            ctx.moveTo(0, 150);
+            ctx.lineTo(297, 150);
+            ctx.strokeStyle = "#aaaaaa";
+            ctx.stroke();
+
+            // DRAWS ALL BUT THE LATES BLACK BALLS IMMEDIATELY ON THE CANVAS
+            for(var i = 0; i < round-1; i++) {
+                ctx.beginPath();
+                ctx.arc(150+(xlist[i]),150+(-ylist[i]),4,0,2*Math.PI);
+                ctx.fill();
+            }
+
+            // DRAWS THE CURRENT BALL AS ANIMATED SO THAT IT DROPS FROM THE TOP,
+            // WIGGLES IN THE FUNNEL, AND SHRINKS TO ITS PROPER SIZE AS IT MOVES
+            ctx.beginPath();
+            if (ypos < .5*yposfinal) {
+                ctx.arc(xpos+50*Math.random(),ypos+50*Math.random(),4+.5*(yposfinal-ypos),0,2*Math.PI);
+            } else {
+                ctx.arc(xpos,ypos,4+.5*(yposfinal-ypos),0,2*Math.PI);
+            }
+            ctx.fill();
+            ypos++;
+
+        }
+    }
 
 
     // THIS PART CREATES THE DRAGGABLE RED CIRCLE THAT APPEARS WITH SLIGHT DELAY
@@ -81,13 +110,13 @@
 
         dragElement(document.getElementById("mydiv"));
 
-        // default values if the cross is not moved
+        // default values if the circle is not moved
         document.getElementById("hiddeninputx").value = {{ prevx }};
         document.getElementById("hiddeninputy").value = {{ prevy }};
 
         function dragElement(elmnt) {
             var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-            elmnt.onmousedown = dragMouseDown;
+            elmnt.onpointerdown = dragMouseDown; // onmousedown
 
             function dragMouseDown(e) {
                 e = e || window.event;
@@ -95,9 +124,9 @@
                 // get the mouse cursor position at startup:
                 pos3 = e.clientX;
                 pos4 = e.clientY;
-                document.onmouseup = closeDragElement;
+                document.onpointerup = closeDragElement; // onmouseup
                 // call a function whenever the cursor moves:
-                document.onmousemove = elementDrag;
+                document.onpointermove = elementDrag; // onmousemove
             }
 
             function elementDrag(e) {
@@ -121,12 +150,12 @@
 
             function closeDragElement() {
                 /* stop moving when mouse button is released:*/
-                document.onmouseup = null;
-                document.onmousemove = null;
+                document.onpointerup = null; // onmouseup
+                document.onpointermove = null; // onmousemove
             }
         }
 
-    }, 100);
+    }, 10);
 
 </script>
 {% endblock %}

@@ -20,8 +20,9 @@ Deming''s funnel expreriment for OM students
 class Constants(BaseConstants):
     name_in_url = 'funnel'
     players_per_group = None
-    num_rounds = 20
+    num_rounds = 8
     instructions_template = 'funnel/Instructions.html'
+    stdev = 30 # standard deviation for marble location
 
 
 class Subsession(BaseSubsession):
