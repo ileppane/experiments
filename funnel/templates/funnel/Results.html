@@ -2,14 +2,66 @@
 {% load otree static %}
 
 {% block title %}
-    Thanks for playing
+    Your progress so far...
 {% endblock %}
 
 {% block content %}
 
-    <p>Your score was {{ cumulativescore | floatformat:"0"}}.
-       The best possible score would have been {{ lowscore | floatformat:"0"}}.</p>
+    <center>
+        <div id="chartContainer" style="height: 200px; width: 70%;"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    </center>
+
+    {% next_button %}
+
 
 {% endblock %}
 
 
+{% block scripts %}
+
+<script>
+    window.onload = function () {
+
+    var datapointsy = [{y: {{ allycoord.0 }}, label: 1}]
+    var i
+    var rounds = {{ round }}
+    for (i=1; i<rounds; i++) {
+        var yy = {{ allycoord | safe }}
+        datapointsy.push({y: yy[i], label: i+1})
+    }
+
+    var datapointsx = [{y: {{ allxcoord.0 }}, label: 1}]
+    var i
+    var rounds = {{ round }}
+    for (i=1; i<rounds; i++) {
+        var yy = {{ allxcoord | safe }}
+        datapointsx.push({y: yy[i], label: i+1})
+    }
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+	    animationEnabled: true,
+        theme: "theme1",
+  	    colorSet: "customColorSet1",
+	    axisY: {
+		    title: "Deviation"
+	    },
+	    data: [{
+		    type: "line",
+		    name: "Y coordinate",
+		    showInLegend: true,
+		    dataPoints: datapointsy,
+	    },
+	    {
+		    type: "line",
+		    name: "X coordinate",
+		    showInLegend: true,
+		    dataPoints: datapointsx,
+		}]
+    });
+    chart.render();
+
+}
+</script>
+
+{% endblock %}

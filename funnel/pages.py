@@ -81,30 +81,38 @@ class MyPage(Page):
 class Results(Page):
 
     def is_displayed(self):
-        return self.round_number == Constants.num_rounds
+        return self.round_number == 10 or self.round_number == 20 or self.round_number == 30 #Constants.num_rounds
 
     def vars_for_template(self):
+
+        # list of coordinates for the balls, starts from the centre of the area
+        allycoord = []
+        allxcoord = []
 
         cumulativescore = 0
         i = 1
         while i < self.round_number + 1:
+            allxcoord.append(self.player.in_round(i).xcoord)
+            allycoord.append(self.player.in_round(i).ycoord)
             cumulativescore += self.player.in_round(i).score
             i += 1
 
         # lowest score simulation, assuming funnel is kept at centre
-        mclowscore = 0
-        for mc in range(10000):
+        mclowscore = []
+        for mc in range(1000):
             lowscore = 0
             for i in range(Constants.num_rounds):
                 xcoord = numpy.ceil(numpy.random.normal(0, Constants.stdev))
                 ycoord = numpy.ceil(numpy.random.normal(0, Constants.stdev))
                 lowscore += math.sqrt(xcoord * xcoord + ycoord * ycoord)
-            mclowscore += lowscore
 
-        mclowscore = mclowscore / 10000
+            mclowscore.append(lowscore)
 
         return {
-            'lowscore': mclowscore,
+            'allxcoord': allxcoord,
+            'allycoord': allycoord,
+            'round': self.player.round_number,
+            'lowscore': min(mclowscore),
             'cumulativescore': cumulativescore
         }
 

@@ -1,45 +1,43 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
 
-{% block title %}
-
-{% endblock %}
-
 {% block content %}
 
-<center><h2>Quality control game</h2></center>
-<div id="wrapper" align="center">
+<center>
+    <h2>Quality control game</h2>
+    <div id="wrapper" align="center">
 
-    <div id="mydiv">
-        <span id="circle" style="color:#ddddff;">&#9675;</span>
+        <div id="mydiv">
+            <span id="circle" style="color:#ddddff;">&#9675;</span>
+        </div>
+
+        <canvas id="myCanvas" width="300px" height="300px"></canvas>
     </div>
-
-    <canvas id="myCanvas" width="300px" height="300px"></canvas>
-</div>
-
-
 
     <div id="buttondiv" align="center">
+        <p>Funnel location: (
+            <span id="xposition">{{ prevx }}</span>,
+            <span id="yposition">{{ prevy }}</span>)
         <br>
-        <p>
-        X coordinate: <span id="xposition">{{ prevx }}</span><br>
-        Y coordinate: <span id="yposition">{{ prevy }}</span>
-        </p>
+        Round: {{ round }} / {{ Constants.num_rounds }} ... Score: <span id="score">&nbsp;</span></p>
+
         <input type="hidden" name="x" id="hiddeninputx">
         <input type="hidden" name="y" id="hiddeninputy">
+        <button class="btn btn-primary btn-large">Drop a new marble</button>
 
-        <button class="btn btn-primary btn-large">Drop marble</button>
-        <br>
-        <p>Round: {{ round }} / {{ Constants.num_rounds }}<br>Score: <span id="score">&nbsp;</span></p><br>
+        <br><br>
+        <button class="btn btn-primary btn-large" type="button" onclick="instructions()">View instructions</button>
 
     </div>
-
-{% include Constants.instructions_template %}
-
+</center>
 {% endblock %}
 
 {% block scripts %}
 <script>
+
+    function instructions() {
+        alert("On each round, a black marble is dropped through a funnel. The marble will land on a random location in the in the vicinity of the funnel. You are responsible of keeping the marbles as close to the centre of the area as possible. Your task is to control the location of the funnel, by moving the red circle. You can move it by dragging it. Try to keep all marbles as close to the centre of the area as possible. Your score is a sum of the distances of each new marble from the centre -- the smaller your score, the better.");
+    }
 
     var round = {{ round }};
     var xlist = {{ allxcoord | safe }};
@@ -105,8 +103,25 @@
         document.getElementById("circle").setAttribute("style", "font-size:30px; color: red;");
 
         divi = document.getElementById("mydiv");
+
         divi.style.top = 126 - {{ prevy }} + "px";
         divi.style.left = 125 + {{ prevx }} + "px";
+
+        if ({{ prevx }} > 150) {
+            divi.style.left = 260 + "px";
+        }
+
+        if ({{ prevx }} < -150) {
+            divi.style.left = -15 + "px";
+        }
+
+        if ({{ prevy }} > 150) {
+            divi.style.top = -15 + "px";
+        }
+
+        if ({{ prevy }} < -150) {
+            divi.style.top = 260 + "px";
+        }
 
         dragElement(document.getElementById("mydiv"));
 
@@ -124,6 +139,7 @@
                 // get the mouse cursor position at startup:
                 pos3 = e.clientX;
                 pos4 = e.clientY;
+
                 document.onpointerup = closeDragElement; // onmouseup
                 // call a function whenever the cursor moves:
                 document.onpointermove = elementDrag; // onmousemove
@@ -137,9 +153,28 @@
                 pos2 = pos4 - e.clientY;
                 pos3 = e.clientX;
                 pos4 = e.clientY;
+
                 // set the element's new position:
                 elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
                 elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+
+/*
+                if (elmnt.offsetTop - pos2 > 260) {
+                    elmnt.style.top = 260 + "px";
+                }
+
+                if (elmnt.offsetTop - pos2 < -16) {
+                    elmnt.style.top = -16 + "px";
+                }
+
+                if (elmnt.offsetLeft - pos1 > 261) {
+                    elmnt.style.left = 261 + "px";
+                }
+
+                if (elmnt.offsetLeft - pos1 < -16) {
+                    elmnt.style.left = -16 + "px";
+                }
+*/
 
                 // write new position on span element
                 document.getElementById("xposition").innerHTML = -150+25+(elmnt.offsetLeft - pos1);
@@ -152,6 +187,7 @@
                 /* stop moving when mouse button is released:*/
                 document.onpointerup = null; // onmouseup
                 document.onpointermove = null; // onmousemove
+
             }
         }
 
@@ -162,6 +198,19 @@
 
 {% block styles %}
 <style type="text/css">
+
+    body, html {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+    }
+
+    .page-header {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-top: 0px;
+    }
+
 
     #mydiv {
         position: absolute;
