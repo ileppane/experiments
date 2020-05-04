@@ -6,6 +6,9 @@
 {% endblock %}
 
 {% block content %}
+    <p>Your cumulative score is {{ cumulativescore | floatformat:"0" }}. Our simulations show that the lowest
+        score could be as low as {{ lowscore | floatformat:"0" }}. {{ lowscoretext }}</p>
+    <p>{{ controllimitbreachtext }}</p>
 
     <center>
         <div id="chartContainer" style="height: 200px; width: 70%;"></div>
@@ -44,7 +47,18 @@
         theme: "theme1",
   	    colorSet: "customColorSet1",
 	    axisY: {
-		    title: "Deviation"
+		    title: "Deviation",
+		    stripLines: [
+		        {
+		    	    value: 3*{{ Constants.stdev }},
+			        label: "UCL"
+		        },
+		        {
+		    	value: -3*{{ Constants.stdev }},
+			    label: "LCL"
+			    }
+		    ]
+
 	    },
 	    data: [{
 		    type: "line",
