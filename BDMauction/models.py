@@ -54,12 +54,13 @@ def lottery_generator(scaler, min_reward, min_risk, reward_lev, risk_lev):
 
 
 scaler = 2**0.5
-min_reward = 5.55
-min_risk = 43
-reward_lev = 6
+min_reward = 7.85
+min_risk = 41
+reward_lev = 4
 risk_lev = 3
 
 lottery_table = lottery_generator(scaler, min_reward, min_risk, reward_lev, risk_lev)
+
 
 def bigger(a, b):
     if a > b:
@@ -76,7 +77,7 @@ def bigger(a, b):
 class Constants(BaseConstants):
     name_in_url = 'BDMauction'
     players_per_group = None
-    num_rounds = 18
+    num_rounds = 12
     # num_rounds should be 18 when deployed in experiment
 
 
@@ -88,6 +89,8 @@ class Subsession(BaseSubsession):
         self.session.vars["min_reward_auc"] = min_reward
         self.session.vars["risk_lev_auc"] = risk_lev
 
+        self.session.vars['treatment'] = np.random.choice(['A','E'])
+
 class Group(BaseGroup):
     pass
 
@@ -98,6 +101,8 @@ class Player(BasePlayer):
     reward = models.FloatField()
     risk = models.FloatField()
 
+    treatment = models.StringField()
+    
     # def WTP_max(self):
     #     ceiling = lottery_table['reward'][self.round_number - 1]
     #     return ceiling

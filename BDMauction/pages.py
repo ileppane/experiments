@@ -25,6 +25,8 @@ class Auction(Page):
         self.player.reward = reward
         self.player.risk = risk
 
+        self.player.treatment = self.session.vars["treatment"]
+
         risk_up = str(100 - risk)
         risk_up_px = ((100 - risk) / 100) * 300
         risk_down = str(risk)

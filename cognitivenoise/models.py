@@ -46,6 +46,9 @@ def trial_generator(scaler, min_reward, min_risk, reward_lev, risk_lev, m_values
         min_risk = round(min_risk)
         counter += 1
 
+    mode1 = [0,1,0]
+    mode2 = [1,0,1]
+    mode_use = 1
     trial_list = []
     for reward in rewards:
         for risk in risks:
@@ -59,8 +62,14 @@ def trial_generator(scaler, min_reward, min_risk, reward_lev, risk_lev, m_values
 
                 certainty = round(reward / devider, 2)
 
-                for display in range(2):
-                    trial_list.append([reward, risk, certainty, display])
+                if mode_use == 1:
+                    for display in range(3):
+                        trial_list.append([reward, risk, certainty, mode1[display]])
+                    mode_use += 1
+                else:
+                    for display in range(3):
+                        trial_list.append([reward, risk, certainty, mode2[display]])
+                    mode_use -= 1
 
     trial_table = pd.DataFrame(trial_list)
 
@@ -73,9 +82,9 @@ def trial_generator(scaler, min_reward, min_risk, reward_lev, risk_lev, m_values
     return trial_table
 
 scaler = 2**0.5
-min_reward = 5.55
-min_risk = 43
-reward_lev = 6
+min_reward = 7.85
+min_risk = 41
+reward_lev = 4
 risk_lev = 3
 m_values = list(range(0,9))
 
@@ -85,12 +94,11 @@ trial_table = trial_generator(scaler, min_reward, min_risk, reward_lev, risk_lev
 class Constants(BaseConstants):
     name_in_url = 'cognitivenoise'
     players_per_group = None
-    num_rounds = 20
+    num_rounds = 10
     # num_rounds should be changed to 324 when deployed in experiment
 
     # instructions_template = 'cognitivenoise/Instructions.html'
     # In a template: "You can write the instructions on a template file and include here using the below line: {% include Constants.instructions_template %}"
-
 
 
 class Subsession(BaseSubsession):
