@@ -1,0 +1,73 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    press left or right arrow
+{% endblock %}
+
+{% block content %}
+
+    <div id="wrapper">
+        <div id="left">
+            left div
+        </div>
+
+        <div id="right">
+            right div
+        </div>
+    </div>
+    <input type="hidden" name="choice" id="id_choice" value="nothing">
+
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+
+    document.addEventListener('keydown', function(event) {
+        if(event.keyCode === 37) {
+            document.getElementById('id_choice').value = 'left';
+            document.getElementById("right").style.display = "none";
+        }
+        if(event.keyCode === 39) {
+            document.getElementById('id_choice').value = 'right';
+            document.getElementById("left").style.display = "none";
+        }
+        setTimeout(function() {
+            document.getElementById('form').submit();
+            },
+        1000);
+    });
+
+</script>
+
+{% endblock %}
+
+{% block styles %}
+
+<style>
+
+    #left {
+        background-color: red;
+        color: white;
+        padding: 20px;
+        float: left;
+    }
+
+    #right {
+        background-color: green;
+        color: white;
+        padding: 20px;
+        float: left;
+        position: absolute;
+        left: 400px;
+    }
+
+    #wrapper {
+        margin: auto;
+    }
+
+</style>
+
+{% endblock %}

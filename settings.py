@@ -145,6 +145,13 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
+        'name': 'testform',
+        'display_name': 'testform',
+        'num_demo_participants': 1,
+        'app_sequence': ['testform'],
+    },
+
+    {
         'name': 'funnel',
         'display_name': 'Deming funnel experiment',
         'num_demo_participants': 1,
@@ -188,12 +195,19 @@ SESSION_CONFIGS = [
         'randomdemandgame': 'no'
     },
     {
-        'name': 'foundationtask',
-        'display_name': 'foundationtask',
+        'name': 'bachallenge',
+        'display_name': 'bachallenge',
         'num_demo_participants': 1,
-        'app_sequence': ['foundationtask'],
-        'returnurl': 'http://www.google.com'
+        'app_sequence': ['bachallenge','digitalmarketing','datingapp','moonrover'],
     },
+
+    # {
+    #     'name': 'foundationtask',
+    #     'display_name': 'foundationtask',
+    #     'num_demo_participants': 1,
+    #     'app_sequence': ['foundationtask'],
+    #     'returnurl': 'http://www.google.com'
+    # },
     # {
     #     'name': 'prolificgame',
     #     'display_name': 'prolificgame',
