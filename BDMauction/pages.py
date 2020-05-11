@@ -1,8 +1,9 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
-from .models import Constants, bigger
+from .models import Constants, bigger, lottery_generator
 import random
-from random import choice
+import numpy as np
+import pandas as pd
 
 class Initial(Page):
 
@@ -17,14 +18,24 @@ class Auction(Page):
 
     def vars_for_template(self):
 
-        reward = self.session.vars["reward_auc"][self.round_number - 1]
-        risk = self.session.vars["risk_auc"][self.round_number - 1]
-        min_reward = self.session.vars["min_reward_auc"]
-        risk_lev = self.session.vars["risk_lev_auc"]
+        treatment = self.session.vars["treatment"]
+        # treatment = random.choice(['A','E'])
+        # treatment = 'A'
+        # treatment = 'E'
+
+        scaler = 2**0.5
+        min_reward = 7.85
+        min_risk = 41
+        reward_lev = 4
+        risk_lev = 3
+
+        lottery_table = lottery_generator(scaler, min_reward, min_risk, reward_lev, risk_lev, treatment)
+
+        reward = lottery_table['reward'][self.round_number - 1]
+        risk = lottery_table['risk'][self.round_number - 1]
 
         self.player.reward = reward
         self.player.risk = risk
-
         self.player.treatment = self.session.vars["treatment"]
 
         risk_up = str(100 - risk)
@@ -36,7 +47,7 @@ class Auction(Page):
 
         if self.round_number == 1:
             floor = 0
-        elif reward == min_reward:
+        elif reward == min_reward or reward == round(min_reward):
             floor = self.player.in_round(self.round_number - 1).WTP
         elif self.round_number % risk_lev == 1:
             floor = self.player.in_round(self.round_number - risk_lev).WTP
@@ -61,8 +72,8 @@ class Auction(Page):
             'risk_up_posi': str(risk_up_px * 0.5 - 20)+"px",
             'risk_down_posi': str(risk_down_px * 0.5 - 20)+"px",
 
-            'reward': '£' + str(reward),
-            'floor': '£' + str(floor),
+            'reward': '$' + str(reward),
+            'floor': '$' + str(floor),
             'reward_raw': str(reward),
             'floor_raw': str(floor),
 
@@ -80,10 +91,10 @@ class End(Page):
 
         endowment = 32
 
-        pick_round = choice(range(1, Constants.num_rounds +1))
+        pick_round = random.choice(range(1, Constants.num_rounds +1))
 
-        reward = self.session.vars["reward_auc"][pick_round - 1]
-        risk = self.session.vars["risk_auc"][pick_round - 1]
+        reward = self.player.in_round(pick_round).reward
+        risk = int(self.player.in_round(pick_round).risk)
 
         selling_price = round(random.uniform(0, reward), 2)
 
@@ -109,4 +120,8 @@ class End(Page):
 
 
 
-page_sequence = [Initial, Auction, End]
+page_sequence = [
+Initial,
+Auction,
+End
+]

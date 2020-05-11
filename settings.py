@@ -163,8 +163,8 @@ SESSION_CONFIGS = [
         'name': 'BDMauction',
         'display_name': 'Preference Elicitation in Cognitive Noise Study',
         'num_demo_participants': 1,
-        'app_sequence': ['BDMauction'],
-        # 'app_sequence': ['BDMauction', 'cognitivenoise'],
+        # 'app_sequence': ['BDMauction'],
+        'app_sequence': ['BDMauction', 'cognitivenoise'],
     },
     {
         'name': 'cognitivenoise',

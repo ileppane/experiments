@@ -13,38 +13,44 @@ from timeit import default_timer as timer
 import numpy as np
 import pandas as pd
 
-
 author = 'Your name here'
 
 doc = """
 App with decision task, to come after elicitation task
 """
 
-
-def set_time():
-
-    time_now = timer()
-
-    return time_now
-
-def trial_generator(scaler, min_reward, min_risk, reward_lev, risk_lev, m_values):
+def trial_generator(scaler, min_reward, min_risk, reward_lev, risk_lev, m_values, treatment):
 
     rewards = []
     risks = []
 
     counter = 1
-    while counter <= reward_lev:
-        rewards.append(min_reward)
-        min_reward *= scaler
-        min_reward = round(min_reward, 2)
-        counter += 1
+    if treatment == 'A':
+        while counter <= reward_lev:
+            rewards.append(min_reward)
+            min_reward *= scaler
+            min_reward = round(min_reward, 2)
+            counter += 1
+    else:
+        while counter <= reward_lev:
+            rewards.append(round(min_reward))
+            min_reward *= scaler
+            min_reward = round(min_reward, 2)
+            counter += 1
 
     counter = 1
-    while counter <= risk_lev:
-        risks.append(min_risk)
-        min_risk *= scaler
-        min_risk = round(min_risk)
-        counter += 1
+    if treatment == 'A':
+        while counter <= risk_lev:
+            risks.append(min_risk)
+            min_risk *= scaler
+            min_risk = round(min_risk)
+            counter += 1
+    else:
+        while counter <= risk_lev:
+            risks.append(round(min_risk / 10) * 10)
+            min_risk *= scaler
+            min_risk = round(min_risk)
+            counter += 1
 
     mode1 = [0,1,0]
     mode2 = [1,0,1]
@@ -60,7 +66,10 @@ def trial_generator(scaler, min_reward, min_risk, reward_lev, risk_lev, m_values
                 else:
                     devider = (2 ** 0.5) ** (m / 4)
 
-                certainty = round(reward / devider, 2)
+                if treatment == 'A':
+                    certainty = round(reward / devider, 2)
+                else:
+                    certainty = round(reward / devider, 1)
 
                 if mode_use == 1:
                     for display in range(3):
@@ -81,14 +90,12 @@ def trial_generator(scaler, min_reward, min_risk, reward_lev, risk_lev, m_values
 
     return trial_table
 
-scaler = 2**0.5
-min_reward = 7.85
-min_risk = 41
-reward_lev = 4
-risk_lev = 3
-m_values = list(range(0,9))
 
-trial_table = trial_generator(scaler, min_reward, min_risk, reward_lev, risk_lev, m_values)
+def set_time():
+
+    time_now = timer()
+
+    return time_now
 
 
 class Constants(BaseConstants):
@@ -102,11 +109,7 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    def before_session_starts(self):
-        self.session.vars["reward_ddm"] = trial_table['reward']
-        self.session.vars["risk_ddm"] = trial_table['risk']
-        self.session.vars["certainty_ddm"] = trial_table['certainty']
-        self.session.vars["display_ddm"] = trial_table['display']
+    pass
 
 
 class Group(BaseGroup):

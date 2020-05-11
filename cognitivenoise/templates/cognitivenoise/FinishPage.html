@@ -10,49 +10,49 @@
 {% block content %}
 
 {% if scenario == 1 %}
-<p>Your final payoff is decided based on the round {{pick_round}} in the treatment 1. In that round your faced a lottery with {{risk}}% of chance winning £{{reward}}. Your biding price for this lottery is £{{WTP}}.</p>
+<p>Your final payoff is decided based on the round {{pick_round}} in the treatment 1. In that round your faced a lottery with {{risk}}% of chance winning ${{reward}}. Your biding price for this lottery is ${{WTP}}.</p>
 
-<p>The generated selling price is £{{selling_price}}, which is greater than your biding price. Therefore, you did not purchase the lottery. Your finnal payoff from this experiment is £{{endowment}}</p>
+<p>The generated selling price is ${{selling_price}}, which is greater than your biding price. Therefore, you did not purchase the lottery. Your finnal payoff from this experiment is ${{endowment}}</p>
 
 <p>Thank you very much for participation!</p>
 {% endif %}
 
 {% if scenario == 2 %}
-<p>Your final payoff is decided based on the round {{pick_round}} in the treatment 1. In that round your faced a lottery with {{risk}}% of chance winning £{{reward}}. Your biding price for this lottery is £{{WTP}}.</p>
+<p>Your final payoff is decided based on the round {{pick_round}} in the treatment 1. In that round your faced a lottery with {{risk}}% of chance winning ${{reward}}. Your biding price for this lottery is ${{WTP}}.</p>
 
-<p>The generated selling price is £{{selling_price}}, which is less than your biding price. Therefore, you purchased the lottery at the selling price. Unfortunately, you did not win the reward. Your finnal payoff from this experiment is £{{endowment}}</p>
+<p>The generated selling price is ${{selling_price}}, which is less than your biding price. Therefore, you purchased the lottery at the selling price. Unfortunately, you did not win the reward. Your final payoff from this experiment is ${{payoff}}</p>
 
 <p>Thank you very much for participation!</p>
 {% endif %}
 
 {% if scenario == 3 %}
-<p>Your final payoff is decided based on the round {{pick_round}} in the treatment 1. In that round your faced a lottery with {{risk}}% of chance winning £{{reward}}. Your biding price for this lottery is £{{WTP}}.</p>
+<p>Your final payoff is decided based on the round {{pick_round}} in the treatment 1. In that round your faced a lottery with {{risk}}% of chance winning ${{reward}}. Your biding price for this lottery is ${{WTP}}.</p>
 
-<p>The generated selling price is £{{selling_price}}, which is less than your biding price. Therefore, you purchased the lottery at the selling price. Congradulation! you won the reward. Your finnal payoff from this experiment is £{{payoff}}</p>
+<p>The generated selling price is ${{selling_price}}, which is less than your biding price. Therefore, you purchased the lottery at the selling price. Congradulation! you won the reward. Your finnal payoff from this experiment is ${{payoff}}</p>
 
 <p>Thank you very much for participation!</p>
 {% endif %}
 
 {% if scenario == 4 %}
-<p>Your final payoff is decided based on the round {{pick_round}} in the treatment 2. In that round you were asked if you would like to spend £{{certainty}} to purcahse a lottery with {{risk}}% of chance winning £{{reward}}.</p>
+<p>Your final payoff is decided based on the round {{pick_round}} in the treatment 2. In that round you were asked if you would like to spend ${{certainty}} to purcahse a lottery with {{risk}}% of chance winning ${{reward}}.</p>
 
-<p>You did not buy the lottery. Your final payoff from this experiment is £{{endowment}}</p>
+<p>You did not buy the lottery. Your final payoff from this experiment is ${{endowment}}</p>
 
 <p>Thank you very much for participation!</p>
 {% endif %}
 
 {% if scenario == 5 %}
-<p>Your final payoff is decided based on the round {{pick_round}} in the treatment 2. In that round you were asked if you would like to spend £{{certainty}} to purcahse a lottery with {{risk}}% of chance winning £{{reward}}.</p>
+<p>Your final payoff is decided based on the round {{pick_round}} in the treatment 2. In that round you were asked if you would like to spend ${{certainty}} to purcahse a lottery with {{risk}}% of chance winning ${{reward}}.</p>
 
-<p>You bought the lottery. Unfortunately, you did not win the reward. Your final payoff from this experiment is £{{payoff}}</p>
+<p>You bought the lottery. Unfortunately, you did not win the reward. Your final payoff from this experiment is ${{payoff}}</p>
 
 <p>Thank you very much for participation!</p>
 {% endif %}
 
 {% if scenario == 6 %}
-<p>Your final payoff is decided based on the round {{pick_round}} in the treatment 2. In that round you were asked if you would like to spend £{{certainty}} to purcahse a lottery with {{risk}}% of chance winning £{{reward}}.</p>
+<p>Your final payoff is decided based on the round {{pick_round}} in the treatment 2. In that round you were asked if you would like to spend ${{certainty}} to purcahse a lottery with {{risk}}% of chance winning ${{reward}}.</p>
 
-<p>You bought the lottery. Congradulation! you won the reward. Your finnal payoff from this experiment is £{{payoff}}</p>
+<p>You bought the lottery. Congradulation! you won the reward. Your finnal payoff from this experiment is ${{payoff}}</p>
 
 <p>Thank you very much for participation!</p>
 {% endif %}

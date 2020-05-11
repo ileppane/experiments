@@ -18,24 +18,38 @@ doc = """
 Your app description
 """
 
-def lottery_generator(scaler, min_reward, min_risk, reward_lev, risk_lev):
+def lottery_generator(scaler, min_reward, min_risk, reward_lev, risk_lev, treatment):
 
     rewards = []
     risks = []
 
     counter = 1
-    while counter <= reward_lev:
-        rewards.append(min_reward)
-        min_reward *= scaler
-        min_reward = round(min_reward, 2)
-        counter += 1
+    if treatment == 'A':
+        while counter <= reward_lev:
+            rewards.append(min_reward)
+            min_reward *= scaler
+            min_reward = round(min_reward, 2)
+            counter += 1
+    else:
+        while counter <= reward_lev:
+            rewards.append(round(min_reward))
+            min_reward *= scaler
+            min_reward = round(min_reward, 2)
+            counter += 1
 
     counter = 1
-    while counter <= risk_lev:
-        risks.append(min_risk)
-        min_risk *= scaler
-        min_risk = round(min_risk)
-        counter += 1
+    if treatment == 'A':
+        while counter <= risk_lev:
+            risks.append(min_risk)
+            min_risk *= scaler
+            min_risk = round(min_risk)
+            counter += 1
+    else:
+        while counter <= risk_lev:
+            risks.append(round(min_risk / 10) * 10)
+            min_risk *= scaler
+            min_risk = round(min_risk)
+            counter += 1
 
     lottery_list = []
 
@@ -53,15 +67,6 @@ def lottery_generator(scaler, min_reward, min_risk, reward_lev, risk_lev):
     return lottery_table
 
 
-scaler = 2**0.5
-min_reward = 7.85
-min_risk = 41
-reward_lev = 4
-risk_lev = 3
-
-lottery_table = lottery_generator(scaler, min_reward, min_risk, reward_lev, risk_lev)
-
-
 def bigger(a, b):
     if a > b:
         return a
@@ -77,17 +82,12 @@ def bigger(a, b):
 class Constants(BaseConstants):
     name_in_url = 'BDMauction'
     players_per_group = None
-    num_rounds = 12
-    # num_rounds should be 18 when deployed in experiment
+    num_rounds = 5
+    # num_rounds should be 12 when deployed in experiment
 
 
 class Subsession(BaseSubsession):
     def before_session_starts(self):
-        self.session.vars["reward_auc"] = lottery_table['reward']
-        self.session.vars["risk_auc"] = lottery_table['risk']
-
-        self.session.vars["min_reward_auc"] = min_reward
-        self.session.vars["risk_lev_auc"] = risk_lev
 
         self.session.vars['treatment'] = np.random.choice(['A','E'])
 
@@ -102,7 +102,7 @@ class Player(BasePlayer):
     risk = models.FloatField()
 
     treatment = models.StringField()
-    
+
     # def WTP_max(self):
     #     ceiling = lottery_table['reward'][self.round_number - 1]
     #     return ceiling

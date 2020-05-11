@@ -1,8 +1,11 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
-from .models import Constants, set_time
+from .models import Constants, set_time, trial_generator
 import random
-from random import choice
+import numpy as np
+import pandas as pd
+import time
+
 
 class InitialPage(Page):
 
@@ -21,7 +24,7 @@ class FixationPage(Page):
 
 class DecisionPage(Page):
 
-#    timeout_seconds = 5
+    # timeout_seconds = 0.5
 
     form_model = 'player'
     form_fields = ['choice']
@@ -33,15 +36,32 @@ class DecisionPage(Page):
         # and the text inside them
         # can be programmed to change in every round using self.round_number in for-loop
 
-        reward = self.session.vars["reward_ddm"][self.round_number - 1]
-        risk = self.session.vars["risk_ddm"][self.round_number - 1]
-        certainty = self.session.vars["certainty_ddm"][self.round_number - 1]
-        display = self.session.vars["display_ddm"][self.round_number - 1]
+        # treatment = self.session.vars["treatment"]
+        # treatment = random.choice(['A','E'])
+        treatment = 'A'
+        # treatment = 'E'
+
+        scaler = 2**0.5
+        min_reward = 7.85
+        min_risk = 41
+        reward_lev = 4
+        risk_lev = 3
+        m_values = list(range(0,9))
+
+        trial_table = trial_generator(scaler, min_reward, min_risk, reward_lev, risk_lev, m_values, treatment)
+
+        reward = trial_table['reward'][self.round_number - 1]
+        risk = trial_table['risk'][self.round_number - 1]
+        certainty = trial_table['certainty'][self.round_number - 1]
+        display = trial_table['display'][self.round_number - 1]
+
+        if certainty.is_integer():
+            certainty = int(certainty)
 
         self.player.reward = reward
         self.player.risk = risk
         self.player.certainty = certainty
-        self.player.display = display        
+        self.player.display = display
 
         risk_up = str(100 - risk)
         risk_up_px = ((100 - risk) / 100) * 300
@@ -57,26 +77,72 @@ class DecisionPage(Page):
             'risk_up_posi': str(risk_up_px * 0.5 - 20)+"px",
             'risk_down_posi': str(risk_down_px * 0.5 - 20)+"px",
 
-            'reward': '£' + str(reward),
-            'certainty': '£' + str(certainty),
-            'display': display
+            'reward': '$' + str(reward),
+            'certainty': '$' + str(certainty),
+            'display': display,
         }
 
     def before_next_page(self):
-        self.player.dectime = set_time() - self.player.dectime # here we subtract from current unix time the start of the decision round that was set in the fixation page
+        self.player.dectime = set_time() - self.player.dectime
+        # here we subtract from current unix time the start of the decision round that was set in the fixation page
+
+class AfterPage(Page):
+
+    timeout_seconds = 0.5
+
+    def vars_for_template(self):
+
+
+        reward = self.player.reward
+        risk = self.player.risk
+        certainty = self.player.certainty
+        display = self.player.display
+
+        choice = self.player.choice
+
+        if reward.is_integer():
+            reward = int(reward)
+
+        if risk.is_integer():
+            risk = int(risk)
+
+        if certainty.is_integer():
+            certainty = int(certainty)
+
+        risk_up = str(100 - risk)
+        risk_up_px = ((100 - risk) / 100) * 300
+        risk_down = str(risk)
+        risk_down_px = (risk / 100) * 300
+
+        return {
+            'risk_up': risk_up,
+            'risk_up_px': str(risk_up_px)+"px",
+            'risk_down': risk_down,
+            'risk_down_px': str(risk_down_px)+"px",
+
+            'risk_up_posi': str(risk_up_px * 0.5 - 20)+"px",
+            'risk_down_posi': str(risk_down_px * 0.5 - 20)+"px",
+
+            'reward': '$' + str(reward),
+            'certainty': '$' + str(certainty),
+            'display': display,
+            'choice': choice
+        }
 
 
 class RestPage(Page):
 
+    timeout_seconds = 1
+
     def is_displayed(self):
-        rest_after = 4
+        rest_after = 100
         rest_round = list(range(rest_after, Constants.num_rounds, rest_after))
         if self.round_number in rest_round:
             return True
         else:
             return False
 
-    timeout_seconds = 1
+
 
 
 class FinishPage(Page):
@@ -86,17 +152,25 @@ class FinishPage(Page):
 
     def vars_for_template(self):
 
+        # This is to remove the effect of the previous random seed by resetting the random seed according to the time
+        # Although it is intereting to note that it seems the random functions below are not affected by the random.seed() in sampling the trial_table.
+        t = 1000 * time.time() # current time in milliseconds
+        np.random.seed(int(t) % 2**32)
+
+        # np.random.seed(888)
+
+        ######
         payoff_auc = self.participant.vars['payoff_auc']
 
         ######
         endowment = 32
 
-        pick_round = choice(range(1, Constants.num_rounds +1))
+        pick_round = random.choice(range(1, Constants.num_rounds +1))
 
-        reward = self.session.vars["reward_ddm"][pick_round - 1]
-        risk = self.session.vars["risk_ddm"][pick_round - 1]
-        certainty = self.session.vars["certainty_ddm"][pick_round - 1]
-        display = self.session.vars["display_ddm"][pick_round - 1]
+        reward = self.player.in_round(pick_round).reward
+        risk = int(self.player.in_round(pick_round).risk)
+        certainty = self.player.in_round(pick_round).certainty
+        display = self.player.in_round(pick_round).display
 
         LR = self.player.in_round(pick_round).choice
         if display == 0 and LR == 'left' or display == 1 and LR == 'right':
@@ -116,22 +190,22 @@ class FinishPage(Page):
         payoff_ddm = {"endowment": endowment, "pick_round": pick_round, "reward": reward, "risk": risk, "certainty": certainty, "proceed": proceed, "win": win, "payoff": payoff}
 
         # # Just to test the program
-        # treatment = 'auc'
-        # treatment = 'ddm'
+        # pay_from = 'auc'
+        # pay_from = 'ddm'
 
-        treatment = choice(['auc','ddm'])
+        pay_from = random.choice(['auc','ddm'])
 
         # record the payoff info
-        if treatment == 'auc':
-            payoff_auc["treatment"] = "auc"
+        if pay_from == 'auc':
+            payoff_auc["pay_from"] = "auc"
             self.player.pay = str(payoff_auc)
         else:
-            payoff_ddm["treatment"] = "ddm"
+            payoff_ddm["pay_from"] = "ddm"
             self.player.pay = str(payoff_ddm)
 
         # scenario verdict
-        if treatment == 'auc':
-            # payoff to be chosen from the treatment 1
+        if pay_from == 'auc':
+            # payoff to be chosen from the acution
             if payoff_auc["proceed"] == False:
                 scenario = 1
                 # selling price greater than the WTP
@@ -153,7 +227,7 @@ class FinishPage(Page):
                 'payoff': payoff_auc["payoff"]
             }
 
-        # payoff to be chosen from the treatment 2
+        # payoff to be chosen from the binary choices
         else:
             if payoff_ddm["proceed"] == False:
                 scenario = 4
@@ -187,4 +261,11 @@ class FinishPage(Page):
 
 # page_sequence = [InitialPage, DecisionPage, RestPage, FinishPage]
 
-page_sequence = [InitialPage, FixationPage, DecisionPage, RestPage, FinishPage]
+page_sequence = [
+InitialPage,
+FixationPage,
+DecisionPage,
+AfterPage,
+RestPage,
+FinishPage
+]

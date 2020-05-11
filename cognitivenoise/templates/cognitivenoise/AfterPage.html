@@ -60,7 +60,7 @@
 </body>
 {% endif %}
 
-<input type="hidden" name="choice" id="id_choice" value='nothing'>
+<!-- <input type="hidden" name="choice" id="id_choice" value='nothing'> -->
 
 <!-- <center>(Press left or right arrow)</center> -->
 
@@ -70,16 +70,12 @@
 
 <script>
 
-  document.addEventListener('keydown', function(event) {
-    if(event.keyCode === 37) {
-      document.getElementById('id_choice').value = 'left';
-      document.getElementById('form').submit();
-    }
-    if(event.keyCode === 39) {
-      document.getElementById('id_choice').value = 'right';
-      document.getElementById('form').submit();
-    }
-  });
+  var choice = '{{ choice | safe }}';
+  if (choice == 'left') {
+      document.getElementById("option_left").style.border = "thick solid white";
+  } else {
+      document.getElementById("option_right").style.border = "thick solid white";
+  }
 
 </script>
 
@@ -162,6 +158,9 @@
     top: 120px;
   }
 
-
+  .otree-timer {
+    display: none;
+  }
+  
 </style>
 {% endblock %}
