@@ -9,12 +9,21 @@ from otree.api import (
     currency_range,
 )
 
+from timeit import default_timer as timer
+
 
 author = 'Your name here'
 
 doc = """
 Your app description
 """
+
+
+def set_time():
+
+    time_now = timer()
+
+    return time_now
 
 
 class Constants(BaseConstants):
@@ -34,3 +43,6 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 
     choice = models.StringField()
+    dectime = models.FloatField()
+
+    afterpage_time = models.FloatField() # this is recorded only for testing purposes, not needed in the final app

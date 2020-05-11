@@ -8,6 +8,7 @@
 {% block content %}
 
     <div id="wrapper">
+
         <div id="left">
             left div
         </div>
@@ -16,9 +17,7 @@
             right div
         </div>
 
-
     </div>
-    <input type="hidden" name="choice" id="id_choice" value="nothing">
 
 {% endblock %}
 
@@ -26,20 +25,12 @@
 
 <script>
 
-    document.addEventListener('keydown', function(event) {
-        if(event.keyCode === 37) {
-            document.getElementById('id_choice').value = 'left';
-            document.getElementById("right").style.display = "none";
-        }
-        if(event.keyCode === 39) {
-            document.getElementById('id_choice').value = 'right';
-            document.getElementById("left").style.display = "none";
-        }
-        setTimeout(function() {
-            document.getElementById('form').submit();
-            },
-        1000);
-    });
+    var choice = '{{ choice | safe }}';
+    if (choice == 'left') {
+        document.getElementById('right').style.display = 'none';
+    } else {
+        document.getElementById('left').style.display = 'none';
+    }
 
 </script>
 
@@ -48,6 +39,10 @@
 {% block styles %}
 
 <style>
+
+    .otree-timer {
+        display: none;
+    }
 
     #left {
         background-color: red;

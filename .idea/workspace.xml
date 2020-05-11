@@ -18,50 +18,18 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
+            <state relative-caret-position="2130">
               <caret line="150" column="34" lean-forward="false" selection-start-line="150" selection-start-column="34" selection-end-line="150" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyPage.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MyPage.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testform/templates/testform/MyPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cognitivenoise/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#159#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pages.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cognitivenoise/pages.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-45">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DecisionPage.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cognitivenoise/templates/cognitivenoise/DecisionPage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-930">
-              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="675">
+              <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -70,9 +38,11 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testform/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="22" column="19" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-              <folding />
+            <state relative-caret-position="457">
+              <caret line="47" column="114" lean-forward="false" selection-start-line="47" selection-start-column="114" selection-end-line="47" selection-end-column="114" />
+              <folding>
+                <element signature="e#0#159#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -80,11 +50,31 @@
       <file leaf-file-name="pages.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testform/pages.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="112">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AfterPage.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/testform/templates/testform/AfterPage.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FixationPage.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/testform/templates/testform/FixationPage.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -113,8 +103,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/nvcomp/templates/nvcomp/PreDecision.html" />
-        <option value="$PROJECT_DIR$/nvcomp/views.py" />
         <option value="$PROJECT_DIR$/nvcomp/templates/nvcomp/FinalPage.html" />
         <option value="$PROJECT_DIR$/nvcomp/templates/nvcomp/Instructions.html" />
         <option value="$PROJECT_DIR$/nvsingle/templates/nvsingle/Instructions.html" />
@@ -161,17 +149,19 @@
         <option value="$PROJECT_DIR$/funnel/models.py" />
         <option value="$PROJECT_DIR$/funnel/templates/funnel/Results.html" />
         <option value="$PROJECT_DIR$/settings.py" />
+        <option value="$PROJECT_DIR$/testform/templates/testform/FixationPage.html" />
+        <option value="$PROJECT_DIR$/testform/templates/testform/MyPage.html" />
         <option value="$PROJECT_DIR$/testform/models.py" />
         <option value="$PROJECT_DIR$/testform/pages.py" />
-        <option value="$PROJECT_DIR$/testform/templates/testform/MyPage.html" />
+        <option value="$PROJECT_DIR$/testform/templates/testform/AfterPage.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="655" />
-    <option name="y" value="263" />
-    <option name="width" value="733" />
-    <option name="height" value="510" />
+    <option name="x" value="327" />
+    <option name="y" value="144" />
+    <option name="width" value="1061" />
+    <option name="height" value="629" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -377,7 +367,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="655" y="263" width="733" height="510" extended-state="0" />
+    <frame x="327" y="144" width="1061" height="629" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24504362" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -409,20 +399,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/svo/templates/svo/ElicitSVO.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="14" lean-forward="false" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/foundationtask/templates/foundationtask/FirstPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/foundationtask/templates/foundationtask/Results.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -557,13 +533,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eoq/pages.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="66" column="47" lean-forward="true" selection-start-line="66" selection-start-column="47" selection-end-line="66" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/neuronewsvendor/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1140">
@@ -634,13 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eoq/templates/eoq/MyPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="88" column="41" lean-forward="true" selection-start-line="88" selection-start-column="41" selection-end-line="88" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/funnel/templates/funnel/MyPage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="548">
@@ -671,60 +633,94 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
+        <state relative-caret-position="2130">
           <caret line="150" column="34" lean-forward="false" selection-start-line="150" selection-start-column="34" selection-end-line="150" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cognitivenoise/templates/cognitivenoise/DecisionPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cognitivenoise/pages.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cognitivenoise/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+        <state relative-caret-position="322">
+          <caret line="110" column="33" lean-forward="true" selection-start-line="110" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
           <folding>
-            <element signature="e#0#159#0" expanded="true" />
+            <element signature="e#0#159#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cognitivenoise/pages.py">
+    <entry file="file://$PROJECT_DIR$/eoq/pages.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-45">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="82">
+          <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testform/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="22" column="19" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testform/pages.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="457">
+          <caret line="47" column="114" lean-forward="false" selection-start-line="47" selection-start-column="114" selection-end-line="47" selection-end-column="114" />
           <folding>
-            <element signature="e#0#51#0" expanded="true" />
+            <element signature="e#0#159#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cognitivenoise/templates/cognitivenoise/DecisionPage.html">
+    <entry file="file://$PROJECT_DIR$/eoq/templates/eoq/MyPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-930">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="212">
+          <caret line="165" column="36" lean-forward="true" selection-start-line="165" selection-start-column="36" selection-end-line="165" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testform/templates/testform/MyPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        <state relative-caret-position="675">
+          <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testform/pages.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testform/templates/testform/FixationPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testform/templates/testform/AfterPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
       </provider>
