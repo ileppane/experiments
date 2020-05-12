@@ -44,5 +44,6 @@ class Player(BasePlayer):
 
     choice = models.StringField()
     dectime = models.FloatField()
-
+    jsdectime_start = models.FloatField() # dectime with the JS method
+    jsdectime_end = models.FloatField() # dectime with the JS method
     afterpage_time = models.FloatField() # this is recorded only for testing purposes, not needed in the final app
