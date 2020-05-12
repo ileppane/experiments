@@ -8,56 +8,420 @@
 {% block content %}
 
     <p>Online dating applications and websites are very popular in forming romantic relationships.
-        Success of a dating app depends on how well it can match people with similar interests.
-        Companies that develop dating apps routinely collect a lot of data about their members
-        and then try to match people so that their interests are aligned. The better matches a
-        dating application is able to make, the happier are its members and the more successful
+        Successful dating apps can match people with similar interests.
+        Companies that develop dating apps collect a lot of data about their users
+        and try to match people with similar interests. The better matches a
+        dating app makes, the happier are its users and the more successful
         the app is.</p>
 
     <h3>Description</h3>
-    <p>You have decided to establish a dating app and you already have twenty clients, ten males
-        and ten females. You know what are their political views, hobbies, living preferences, and social
-        types. The data is given in the tables below.</p>
+    <p>You have decided to build a dating app at the University and you already have twenty clients, ten men
+        and ten women. You know what are their political views, hobbies, living style preferences, and social
+        types. The data are given in the tables below.</p>
 
-    <center>
-    <table border="1">
-        <tr><th>Males	</th><th>Politics	</th><th>Hobby	</th><th>Living preference	</th><th>Social type	</th></tr>
-        <tr><td>	Jack	</td><td>	Liberal	</td><td>	Running	</td><td>	Country	</td><td>	Introverted	</td></tr>
-        <tr><td>	Thomas	</td><td>	Liberal	</td><td>	Computer games	</td><td>	Country	</td><td>	Outgoing	</td></tr>
-        <tr><td>	James	</td><td>	Conservative	</td><td>	Running	</td><td>	City	</td><td>	Introverted	</td></tr>
-        <tr><td>	Joshua	</td><td>	Liberal	</td><td>	Running	</td><td>	Country	</td><td>	Introverted	</td></tr>
-        <tr><td>	Daniel	</td><td>	Conservative	</td><td>	Running	</td><td>	Country	</td><td>	Introverted	</td></tr>
-        <tr><td>	Harry	</td><td>	Conservative	</td><td>	Computer games	</td><td>	Country	</td><td>	Introverted	</td></tr>
-        <tr><td>	Samuel	</td><td>	Conservative	</td><td>	Computer games	</td><td>	City	</td><td>	Introverted	</td></tr>
-        <tr><td>	Joseph	</td><td>	Liberal	</td><td>	Computer games	</td><td>	City	</td><td>	Introverted	</td></tr>
-        <tr><td>	Matthew	</td><td>	Liberal	</td><td>	Running	</td><td>	City	</td><td>	Introverted	</td></tr>
-        <tr><td>	Callum	</td><td>	Liberal	</td><td>	Running	</td><td>	City	</td><td>	Outgoing	</td></tr>
-    </table>
+    <div id="wrapper">
+        <div id="tleft">
+            <h3>Men</h3>
+            <table class="t1">
+                <tr><th></th><th>Politics	    </th><th>Hobby	        </th><th>Living style	</th><th>Social type	</th></tr>
+                <tr><th>Jack	</th><td>Liberal	    </td><td>Running	    </td><td>Country	        </td><td>Introverted	</td></tr>
+                <tr><th>Thomas	</th><td>Liberal	    </td><td>Computers	</td><td>Country	        </td><td>Outgoing	</td></tr>
+                <tr><th>James	</th><td>Conservative	</td><td>Running	    </td><td>City	            </td><td>Introverted	</td></tr>
+                <tr><th>Joshua	</th><td>Liberal	    </td><td>Running	    </td><td>Country	        </td><td>Introverted	</td></tr>
+                <tr><th>Daniel	</th><td>Conservative	</td><td>Running	    </td><td>Country	        </td><td>Introverted	</td></tr>
+                <tr><th>Harry	</th><td>Conservative	</td><td>Computers	</td><td>Country	        </td><td>Introverted	</td></tr>
+                <tr><th>Samuel	</th><td>Conservative	</td><td>Computers	</td><td>City	            </td><td>Introverted	</td></tr>
+                <tr><th>Joseph	</th><td>Liberal	    </td><td>Computers	</td><td>City	            </td><td>Introverted	</td></tr>
+                <tr><th>Matthew	</th><td>Liberal	    </td><td>Running	    </td><td>City	            </td><td>Introverted	</td></tr>
+                <tr><th>Callum	</th><td>Liberal	    </td><td>Running	    </td><td>City	            </td><td>Outgoing	</td></tr>
+            </table>
+        </div>
 
-        <br>
+        <div id="tright">
+            <h3>Women</h3>
+            <table class="t1">
+                <tr><th></th><th>Politics	</th><th>Hobby	</th><th>Living style	</th><th>Social type	</th></tr>
+                <tr><th>Chloe	</th><td>Conservative	</td><td>Computers	</td><td>Country	</td><td>Introverted	</td></tr>
+                <tr><th>Emily	</th><td>Liberal	</td><td>Running	</td><td>	Country	</td><td>Introverted	</td></tr>
+                <tr><th>Megan	</th><td>Conservative	</td><td>Computers	</td><td>Country	</td><td>Outgoing	</td></tr>
+                <tr><th>Charlotte	</th><td>	Conservative	</td><td>Running	</td><td>City	</td><td>Outgoing	</td></tr>
+                <tr><th>Jessica	</th><td>Conservative	</td><td>Computers	</td><td>City	</td><td>Outgoing	</td></tr>
+                <tr><th>Lauren	</th><td>Liberal	</td><td>Running	</td><td>City	</td><td>Introverted	</td></tr>
+                <tr><th>Sophie	</th><td>Conservative	</td><td>Computers	</td><td>City	</td><td>Outgoing	</td></tr>
+                <tr><th>Olivia	</th><td>Conservative	</td><td>Running	</td><td>City	</td><td>Outgoing	</td></tr>
+                <tr><th>Hannah	</th><td>Liberal	</td><td>Computers	</td><td>City	</td><td>Introverted	</td></tr>
+                <tr><th>Lucy	</th><td>Liberal	</td><td>Running	</td><td>Country	</td><td>Introverted	</td></tr>
+            </table>
 
-    <table border="1">
-        <tr><th>Females</th><th>Politics	</th><th>Hobby	</th><th>Living preference	</th><th>Social type	</th></tr>
-        <tr><td>	Chloe	</td><td>	Conservative	</td><td>	Computer games	</td><td>	Country	</td><td>	Introverted	</td></tr>
-        <tr><td>	Emily	</td><td>	Liberal	</td><td>	Running	</td><td>	Country	</td><td>	Introverted	</td></tr>
-        <tr><td>	Megan	</td><td>	Conservative	</td><td>	Computer games	</td><td>	Country	</td><td>	Outgoing	</td></tr>
-        <tr><td>	Charlotte	</td><td>	Conservative	</td><td>	Running	</td><td>	City	</td><td>	Outgoing	</td></tr>
-        <tr><td>	Jessica	</td><td>	Conservative	</td><td>	Computer games	</td><td>	City	</td><td>	Outgoing	</td></tr>
-        <tr><td>	Lauren	</td><td>	Liberal	</td><td>	Running	</td><td>	City	</td><td>	Introverted	</td></tr>
-        <tr><td>	Sophie	</td><td>	Conservative	</td><td>	Computer games	</td><td>	City	</td><td>	Outgoing	</td></tr>
-        <tr><td>	Olivia	</td><td>	Conservative	</td><td>	Running	</td><td>	City	</td><td>	Outgoing	</td></tr>
-        <tr><td>	Hannah	</td><td>	Liberal	</td><td>	Computer games	</td><td>	City	</td><td>	Introverted	</td></tr>
-        <tr><td>	Lucy	</td><td>	Liberal	</td><td>	Running	</td><td>	Country	</td><td>	Introverted	</td></tr>
-    </table>
-    </center>
+        </div>
+    </div>
 
+    <br>
     <h3>Task</h3>
-    <p>Try to find female partners for each male such that the pair matches in all interests.
-    You get one point from each correct match, therefore your maximum points are 10.</p>
+    <p>
+        By dragging and dropping, try to match each man to each woman such that the pair matches in their interests as well as possible.
+        You get one point from each correct match, therefore your maximum points are 10.
+    </p>
+    <p>
+        Hint: There are five pairs that match their interests in all four areas.
+    </p>
 
-    <p>Please input your answers below.</p>
-    {% formfields %}
+    <div id="wrapper">
 
-    {% next_button %}
+    <div class="flex-container1">
+
+        <div id="divd1" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div draggable="true" ondragstart="drag(event)" id="Jack">
+                Jack
+                <div id="popup">liberal, running, country, introverted</div>
+            </div>
+        </div>
+
+        <div id="divd1" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div draggable="true" ondragstart="drag(event)" id="Thomas">
+                Thomas
+                <div id="popup">liberal, computers, country, outgoing</div>
+            </div>
+        </div>
+
+        <div id="divd1" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div draggable="true" ondragstart="drag(event)" id="James">
+                James
+                <div id="popup">conservative, running, city, introverted</div>
+            </div>
+        </div>
+
+        <div id="divd1" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div draggable="true" ondragstart="drag(event)" id="Joshua">
+                Joshua
+                <div id="popup">liberal, running, country, introverted</div>
+            </div>
+        </div>
+
+        <div id="divd1" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div draggable="true" ondragstart="drag(event)" id="Daniel">
+                Daniel
+                <div id="popup">conservative, running, country, introverted</div>
+            </div>
+        </div>
+
+        <div id="divd1" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div draggable="true" ondragstart="drag(event)" id="Harry">
+                Harry
+                <div id="popup">conservative, computers, country, introverted</div>
+            </div>
+        </div>
+
+        <div id="divd1" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div draggable="true" ondragstart="drag(event)" id="Samuel">
+                Samuel
+                <div id="popup">conservative, computers, city, introverted</div>
+            </div>
+        </div>
+
+        <div id="divd1" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div draggable="true" ondragstart="drag(event)" id="Joseph">
+                Joseph
+                <div id="popup">liberal, computers, city, introverted</div>
+            </div>
+        </div>
+
+        <div id="divd1" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div draggable="true" ondragstart="drag(event)" id="Matthew">
+                Matthew
+                <div id="popup">liberal, running, city, introverted</div>
+            </div>
+        </div>
+
+        <div id="divd1" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div draggable="true" ondragstart="drag(event)" id="Callum">
+                Callum
+                <div id="popup">liberal, running, city, outgoing</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex-container2">
+
+        <div id="Chloe" ondrop="dropchloe(event)" ondragover="allowDrop(event)">
+            Chloe
+            <div id="popup2">conservative, computers, country, introverted</div>
+        </div>
+
+        <div id="Emily" ondrop="dropemily(event)" ondragover="allowDrop(event)">
+            Emily
+            <div id="popup2">liberal, running, country, introverted</div>
+        </div>
+
+        <div id="Megan" ondrop="dropmegan(event)" ondragover="allowDrop(event)">
+            Megan
+            <div id="popup2">conservative, computers, country, outgoing</div>
+        </div>
+
+        <div id="Charlotte" ondrop="dropcharlotte(event)" ondragover="allowDrop(event)">
+            Charlotte
+            <div id="popup2">conservative, running, city, outgoing</div>
+        </div>
+
+        <div id="Jessica" ondrop="dropjessica(event)" ondragover="allowDrop(event)">
+            Jessica
+            <div id="popup2">conservative, computers, city, outgoing</div>
+        </div>
+
+        <div id="Lauren" ondrop="droplauren(event)" ondragover="allowDrop(event)">
+            Lauren
+            <div id="popup2">liberal, running, city, introverted</div>
+        </div>
+
+        <div id="Sophie" ondrop="dropsophie(event)" ondragover="allowDrop(event)">
+            Sophie
+            <div id="popup2">conservative, computers, city, outgoing</div>
+        </div>
+
+        <div id="Olivia" ondrop="dropolivia(event)" ondragover="allowDrop(event)">
+            Olivia
+            <div id="popup2">conservative, running, city, outgoing</div>
+        </div>
+
+        <div id="Hannah" ondrop="drophannah(event)" ondragover="allowDrop(event)">
+            Hannah
+            <div id="popup2">liberal, computers, city, introverted</div>
+        </div>
+
+        <div id="Lucy" ondrop="droplucy(event)" ondragover="allowDrop(event)">
+            Lucy
+            <div id="popup2">liberal, running, country, introverted</div>
+        </div>
+    </div>
+    </div>
+
+    <input type="hidden" name="Chloe" id="chloepair">
+    <input type="hidden" name="Emily" id="emilypair">
+    <input type="hidden" name="Megan" id="meganpair">
+    <input type="hidden" name="Charlotte" id="charlottepair">
+    <input type="hidden" name="Jessica" id="jessicapair">
+    <input type="hidden" name="Lauren" id="laurenpair">
+    <input type="hidden" name="Sophie" id="sophiepair">
+    <input type="hidden" name="Olivia" id="oliviapair">
+    <input type="hidden" name="Hannah" id="hannahpair">
+    <input type="hidden" name="Lucy" id="lucypair">
+
+    <button class="btn btn-primary btn-large">Submit your answer</button>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+    }
+
+    function dropchloe(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+        document.getElementById('chloepair').value = data;
+    }
+
+    function dropemily(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+        document.getElementById('emilypair').value = data;
+    }
+
+    function dropmegan(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+        document.getElementById('meganpair').value = data;
+    }
+
+    function dropcharlotte(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+        document.getElementById('charlottepair').value = data;
+    }
+
+    function dropjessica(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+        document.getElementById('jessicapair').value = data;
+    }
+
+    function droplauren(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+        document.getElementById('laurenpair').value = data;
+    }
+
+    function dropsophie(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+        document.getElementById('sophiepair').value = data;
+    }
+
+    function dropolivia(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+        document.getElementById('oliviapair').value = data;
+    }
+
+    function drophannah(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+        document.getElementById('hannahpair').value = data;
+    }
+
+    function droplucy(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+        document.getElementById('lucypair').value = data;
+    }
+
+
+</script>
+
+{% endblock %}
+
+{% block styles %}
+
+<style type="text/css">
+
+    .flex-container1 {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .flex-container2 {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #wrapper {
+        display: flex;
+        overflow-x: auto;
+    }
+
+    #tleft {
+        width: 470px;
+    }
+
+    #tright {
+        width: 470px;
+    }
+
+    table.t1 th, table.t1 td {
+        padding: 8px;
+        font-size: 14px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    table.t2 {
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    table.t2 td {
+        padding: 0px;
+        font-size: 14px;
+    }
+
+    table.t1 tr:hover {background-color:#f5f5f5;}
+
+    #popup {
+        padding: 1px;
+        display: none;
+        position: relative;
+        left: 10px;
+        top: -10px;
+        border: 0px;
+        opacity: 1;
+        width: 105px;
+        background: #aaaaff;
+        font-size: 12px;
+    }
+
+    #popup2 {
+        padding: 1px;
+        display: none;
+        position: absolute;
+        left: 10px;
+        top: -10px;
+        border: 0px;
+        opacity: 1;
+        width: 105px;
+        font-size: 12px;
+        background: #ffaaaa;
+    }
+
+    #divd1 {
+        float: left;
+        position: relative;
+        width: 70px;
+        height: 55px;
+        margin: 15px;
+        padding: 0px;
+        border: 0px;
+        text-align: center;
+    }
+
+    #Chloe, #Emily, #Megan, #Charlotte, #Jessica, #Lauren, #Sophie, #Olivia, #Hannah, #Lucy {
+        float: left;
+        position: relative;
+        width: 70px;
+        height: 55px;
+        margin: 10px;
+        padding: 0px;
+        border: 1px black solid;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    #divd1:active #popup {
+        display: block;
+    }
+
+    #Chloe:active #popup2, #Emily:active #popup2, #Megan:active #popup2, #Charlotte:active #popup2, #Jessica:active #popup2, #Lauren:active #popup2, #Sophie:active #popup2, #Olivia:active #popup2, #Hannah:active #popup2, #Lucy:active #popup2 {
+        display: block;
+    }
+
+    #Jack, #Thomas, #James, #Joshua, #Daniel, #Harry, #Samuel, #Joseph, #Matthew, #Callum {
+        width 70px;
+        height: 15px;
+        font-size: 14px;
+    }
+
+    @media (max-width: 767px) {
+        #wrapper {
+            flex-direction: column-reverse;
+        }
+
+        #tleft,
+        #tright {
+            width: auto;
+        }
+    }
+
+</style>
 
 {% endblock %}

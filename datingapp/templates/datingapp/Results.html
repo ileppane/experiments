@@ -8,12 +8,11 @@
 {% block content %}
 
     <p>Here are your correct matches:</p>
-    <p>{{ correct|linebreaks }}</p>
+    <ul>{{ correct|linebreaks }}</ul>
 
     <p>Your points are {{ points }}/10.</p>
 
-    <p>Play again by clicking the button below.</p>
-    {% next_button %}
+    <button class="btn btn-primary btn-large">Play again</button>
 
 {% endblock %}
 
