@@ -63,12 +63,10 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    startx = models.IntegerField(choices=[1,2,3,4,5,6,7,8,9])
-    starty = models.IntegerField(choices=[1,2,3,4,5,6,7,8,9])
-    firstsite = models.StringField(choices=['Barking','Pier','Shooters Hill','East Ham','Beckton','Woolwich','Greenwich','Millwall','Bow','Stratford'])
-    secondsite = models.StringField(choices=['Barking','Pier','Shooters Hill','East Ham','Beckton','Woolwich','Greenwich','Millwall','Bow','Stratford'])
-    thirdsite = models.StringField(choices=['Barking','Pier','Shooters Hill','East Ham','Beckton','Woolwich','Greenwich','Millwall','Bow','Stratford'])
-    fourthsite = models.StringField(choices=['Barking','Pier','Shooters Hill','East Ham','Beckton','Woolwich','Greenwich','Millwall','Bow','Stratford'])
-    points = models.IntegerField()
-
-
+    startx = models.IntegerField()
+    starty = models.IntegerField()
+    firstsite = models.StringField(blank=True)
+    secondsite = models.StringField(blank=True)
+    thirdsite = models.StringField(blank=True)
+    fourthsite = models.StringField(blank=True)
+    points = models.IntegerField(blank=True)

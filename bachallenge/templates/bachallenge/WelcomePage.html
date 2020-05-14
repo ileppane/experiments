@@ -2,15 +2,37 @@
 {% load otree static %}
 
 {% block title %}
-    Welcome page
+    Choose your challenge!
 {% endblock %}
 
 {% block content %}
 
-    Here you can choose the challenges
+    <center>
+        <button name="appchoice" value="Dating App" class="buttoni" style="background-color: #f44336;"><b>Dating App</b><br>Match your clients with each other to create happy couples</button>
+        <button name="appchoice" value="Digital Marketing" class="buttoni" style="background-color: #008CBA;"><b>Digital Marketing</b><br>Create a marketing strategy using social media influencers</button>
+        <button name="appchoice" value="Moonrover" class="buttoni"><b>Drone Delivery</b><br>Find an optimal route for a drone delivery company</button>
+    </center>
 
-    {% formfields %}
+{% endblock %}
 
-    {% next_button %}
+{% block styles %}
+
+<style>
+    .buttoni {
+        background-color: #4CAF50;
+        border: 0px;
+        color: white;
+        width: 300px;
+        height: 200px;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+</style>
+
 
 {% endblock %}

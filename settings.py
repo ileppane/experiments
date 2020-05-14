@@ -158,6 +158,13 @@ SESSION_CONFIGS = [
         'app_sequence': ['funnel'],
     },
 
+    {
+        'name': 'moonrover',
+        'display_name': 'Drone Challenge',
+        'num_demo_participants': 1,
+        'app_sequence': ['moonrover'],
+    },
+
     # {
     #     'name': 'MCN',
     #     'display_name': 'Modelling Cognitive Noise',

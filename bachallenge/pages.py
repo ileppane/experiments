@@ -9,8 +9,8 @@ class WelcomePage(Page):
 
 
 class MyPage(Page):
-    form_model = 'player'
-    form_fields = ['name']
+
+    timeout_seconds = 0.1
 
     # https://otree.readthedocs.io/en/latest/pages.html#app-after-this-page
     def app_after_this_page(self, upcoming_apps):
@@ -20,10 +20,6 @@ class MyPage(Page):
             return "digitalmarketing"
         elif self.player.appchoice == 'Moonrover':
             return "moonrover"
-
-    def before_next_page(self):
-
-        self.participant.vars['username'] = self.player.name
 
 
 page_sequence = [
