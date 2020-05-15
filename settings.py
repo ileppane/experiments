@@ -154,7 +154,7 @@ SESSION_CONFIGS = [
 
     {
         'name': 'REItest',
-        'display_name': 'REI Survey',
+        'display_name': 'CA Tests',
         'num_demo_participants': 1,
         # 'app_sequence': ['REItest'],
         'app_sequence': ['REItest', 'BDMauction', 'cognitivenoise'],

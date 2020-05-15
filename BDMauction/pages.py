@@ -1,7 +1,6 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants, bigger, lottery_generator
-import random
 import numpy as np
 import pandas as pd
 
@@ -19,7 +18,7 @@ class Auction(Page):
     def vars_for_template(self):
 
         treatment = self.session.vars["treatment"]
-        # treatment = random.choice(['A','E'])
+        # treatment = np.random.choice(['A','E'])
         # treatment = 'A'
         # treatment = 'E'
 
@@ -55,14 +54,6 @@ class Auction(Page):
             floor = bigger(self.player.in_round(self.round_number - 1).WTP, self.player.in_round(self.round_number - risk_lev).WTP)
 
 
-
-        bar_length = (reward - floor) / 31.4
-        bar_length = bar_length * 1.5 + 0.2 #just to make it longer in case it is too short
-        if bar_length > 1:
-            bar_length = 1
-
-        initial_value = (reward - floor) / 2 + floor
-
         return {
             'risk_up': risk_up,
             'risk_up_px': str(risk_up_px)+"px",
@@ -74,11 +65,7 @@ class Auction(Page):
 
             'reward': '$' + str(reward),
             'floor': '$' + str(floor),
-            'reward_raw': str(reward),
-            'floor_raw': str(floor),
 
-            'bar_length': str(bar_length * 100) + "%",
-            'initial_value': str(initial_value)
         }
 
 
@@ -89,14 +76,20 @@ class End(Page):
 
     def before_next_page(self):
 
+        # # Otherwise a participant can refresh the page to get desired outcome
+        # seed = self.session.vars['seed']
+        # np.random.seed(seed)
+
+        ######
+
         endowment = 32
 
-        pick_round = random.choice(range(1, Constants.num_rounds +1))
+        pick_round = np.random.choice(range(1, Constants.num_rounds +1))
 
         reward = self.player.in_round(pick_round).reward
         risk = int(self.player.in_round(pick_round).risk)
 
-        selling_price = round(random.uniform(0, reward), 2)
+        selling_price = round(np.random.uniform(0, reward), 2)
 
         WTP = self.player.in_round(pick_round).WTP
         if selling_price < WTP:
@@ -104,7 +97,7 @@ class End(Page):
         else:
             proceed = False
 
-        dice = random.randint(1, 100)
+        dice = np.random.randint(1, 101)
         if dice <= risk:
             win = True
             payoff = endowment - selling_price + reward

@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    A proper tile here
+{% endblock %}
+
+{% block content %}
+
+    <h2>Please select the correct answer for the question:</h2>
+
+{% formfield player.q1 with label=" I would rather do something that requires little thought than something that is sure to challenge my thinking abilities.  " %}
+
+
+    {% next_button %}
+
+{% endblock %}

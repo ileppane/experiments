@@ -1,7 +1,6 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants, set_time, trial_generator
-import random
 import numpy as np
 import pandas as pd
 import time
@@ -24,11 +23,10 @@ class FixationPage(Page):
 
 class DecisionPage(Page):
 
-    # timeout_seconds = 0.5
+    # timeout_seconds = 2
 
     form_model = 'player'
-    form_fields = ['choice']
-
+    form_fields = ['choice', 'jsdectime_start', 'jsdectime_end']
 
     def vars_for_template(self):
 
@@ -36,9 +34,9 @@ class DecisionPage(Page):
         # and the text inside them
         # can be programmed to change in every round using self.round_number in for-loop
 
-        # treatment = self.session.vars["treatment"]
-        # treatment = random.choice(['A','E'])
-        treatment = 'A'
+        treatment = self.session.vars["treatment"]
+        # treatment = np.random.choice(['A','E'])
+        # treatment = 'A'
         # treatment = 'E'
 
         scaler = 2**0.5
@@ -83,10 +81,15 @@ class DecisionPage(Page):
         }
 
     def before_next_page(self):
+        # Python Method of dectime collection: here we subtract from current unix time the start of the decision round that was set in the fixation page
         self.player.dectime = set_time() - self.player.dectime
-        # here we subtract from current unix time the start of the decision round that was set in the fixation page
+
+        # JavaScript Method of dectime collection:
+        self.player.jsdectime = (self.player.jsdectime_end - self.player.jsdectime_start) / 1000
+
 
 class AfterPage(Page):
+    # This AfterPage is used to display the confirmation animation, and to make the environment for Python time recording as simple as possible.
 
     timeout_seconds = 0.5
 
@@ -152,12 +155,9 @@ class FinishPage(Page):
 
     def vars_for_template(self):
 
-        # This is to remove the effect of the previous random seed by resetting the random seed according to the time
-        # Although it is intereting to note that it seems the random functions below are not affected by the random.seed() in sampling the trial_table.
-        t = 1000 * time.time() # current time in milliseconds
-        np.random.seed(int(t) % 2**32)
-
-        # np.random.seed(888)
+        # Otherwise a participant can refresh the page to get desired outcome
+        seed = self.session.vars['seed']
+        np.random.seed(seed)
 
         ######
         payoff_auc = self.participant.vars['payoff_auc']
@@ -165,7 +165,7 @@ class FinishPage(Page):
         ######
         endowment = 32
 
-        pick_round = random.choice(range(1, Constants.num_rounds +1))
+        pick_round = np.random.choice(range(1, Constants.num_rounds +1))
 
         reward = self.player.in_round(pick_round).reward
         risk = int(self.player.in_round(pick_round).risk)
@@ -179,7 +179,7 @@ class FinishPage(Page):
         else:
             proceed = False
 
-        dice = random.randint(1, 100)
+        dice = np.random.randint(1, 101)
         if dice <= risk:
             win = True
             payoff = endowment - certainty + reward
@@ -193,7 +193,7 @@ class FinishPage(Page):
         # pay_from = 'auc'
         # pay_from = 'ddm'
 
-        pay_from = random.choice(['auc','ddm'])
+        pay_from = np.random.choice(['auc','ddm'])
 
         # record the payoff info
         if pay_from == 'auc':
@@ -251,15 +251,6 @@ class FinishPage(Page):
 
 
 
-        # return {
-        #     'payoff_auc': payoff_auc,
-        #     'payoff_ddm': payoff_ddm
-        #
-        # }
-
-
-
-# page_sequence = [InitialPage, DecisionPage, RestPage, FinishPage]
 
 page_sequence = [
 InitialPage,
@@ -269,3 +260,7 @@ AfterPage,
 RestPage,
 FinishPage
 ]
+
+# sq1 = [InitialPage, FixationPage, DecisionPage]
+# sq2 = [AfterPage, RestPage, FinishPage]
+# page_sequence = sq1 + sq2

@@ -36,9 +36,36 @@ class Player(BasePlayer):
     # email = models.CharField()
     # student_number = models.CharField()
 
+    # The following section contians variables the CRT:
+    crt1 = models.StringField(
+    choices = ['5 pence', '10 pence', '9 pence', '1 pence'], widget = widgets.RadioSelect()
+    )
+    crt2 = models.StringField(
+    choices = ['5 minutes', '100 minutes', '20 minutes', '500 minutes'], widget = widgets.RadioSelect()
+    )
+    crt3 = models.StringField(
+    choices = ['47 days', '24 days', '12 days', '36 days'], widget = widgets.RadioSelect()
+    )
+    crt4 = models.StringField(
+    choices = ['4 days', '9 days', '12 days', '3 days'], widget = widgets.RadioSelect()
+    )
+    crt5 = models.StringField(
+    choices = ['29 students', '30 students', '1 student', '15 students'], widget = widgets.RadioSelect()
+    )
+    crt6 = models.StringField(
+    choices = ['20 pounds', '10 pounds', '0 pounds', '30 pounds'], widget = widgets.RadioSelect()
+    )
+    crt7 = models.StringField(
+    choices = ['has lost money.', 'is ahead of where he began.', 'has broken even in the stock market.', 'it cannot be determined.'], widget = widgets.RadioSelect()
+    )
+
+    # The following section contians variables for the BNT:
+
+
+
+    # The following section contians variables for the NFC and FI survey
     nfcscore = models.PositiveIntegerField()
     fiscore = models.PositiveIntegerField()
-
 
     q1 = models.PositiveIntegerField(
         choices = [[1,'1 = definitely not true'],[2, '2 = somewhat not true'],[3,'3 = neither true nor untrue'],[4,'4 = somewhat true'],[5,'5 = definitely true']], widget=widgets.RadioSelect())
