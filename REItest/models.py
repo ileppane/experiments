@@ -59,9 +59,29 @@ class Player(BasePlayer):
     choices = ['has lost money.', 'is ahead of where he began.', 'has broken even in the stock market.', 'it cannot be determined.'], widget = widgets.RadioSelect()
     )
 
+    # Both scores range between 0 - 7
+    reflectiveness_score = models.IntegerField(initial=0)
+    intuitiveness_score = models.IntegerField(initial=0)
+
     # The following section contians variables for the BNT:
+    bnt1 = models.StringField(
+    choices = ['5 out of 50 throws', '25 out of 50 throws', '30 out of 50 throws', 'None of the above'], widget = widgets.RadioSelect()
+    )
 
+    bnt2 = models.StringField(
+    choices = ['10 %', '25 %', '40 %', 'None of the above'], widget = widgets.RadioSelect()
+    )
 
+    bnt3 = models.StringField(
+    choices = ['20 out of 70 throws', '23 out of 70 throws', '35 out of 70 throws', 'None of the above'], widget = widgets.RadioSelect()
+    )
+
+    bnt4 = models.StringField(
+    choices = ['4 %', '20 %', '50 %', 'None of the above'], widget = widgets.RadioSelect()
+    )
+
+    # BNT score ranges between 0 - 4
+    bnt_score = models.IntegerField(initial=0)
 
     # The following section contians variables for the NFC and FI survey
     nfcscore = models.PositiveIntegerField()
