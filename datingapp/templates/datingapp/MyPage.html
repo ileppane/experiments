@@ -1,61 +1,31 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
 
-{% block title %}
-    Dating App
-{% endblock %}
-
 {% block content %}
 
-    <p>To help your Uni classmates form romantic relationships, you have decided to build a dating app.
-        Your clientele consists of ten women and ten men. You know what are their political views, hobbies,
-        living style preferences, and social types. The data are given in the tables below.</p>
-
+    <CENTER>
+        <h1>Dating App</h1>
+    </CENTER>
+    <br>
     <div id="wrapper">
-        <div id="tleft">
-            <h3>Men</h3>
+        <div>
             <table class="t1">
-                <tr><th></th><th>Politics	    </th><th>Hobby	        </th><th>Living style	</th><th>Social type	</th></tr>
-                <tr><th>Jack	</th><td>Liberal	    </td><td>Running	    </td><td>Country	        </td><td>Introverted	</td></tr>
-                <tr><th>Thomas	</th><td>Liberal	    </td><td>Computers	</td><td>Country	        </td><td>Outgoing	</td></tr>
-                <tr><th>James	</th><td>Conservative	</td><td>Running	    </td><td>City	            </td><td>Introverted	</td></tr>
-                <tr><th>Joshua	</th><td>Liberal	    </td><td>Running	    </td><td>Country	        </td><td>Introverted	</td></tr>
-                <tr><th>Daniel	</th><td>Conservative	</td><td>Running	    </td><td>Country	        </td><td>Introverted	</td></tr>
-                <tr><th>Harry	</th><td>Conservative	</td><td>Computers	</td><td>Country	        </td><td>Introverted	</td></tr>
-                <tr><th>Samuel	</th><td>Conservative	</td><td>Computers	</td><td>City	            </td><td>Introverted	</td></tr>
-                <tr><th>Joseph	</th><td>Liberal	    </td><td>Computers	</td><td>City	            </td><td>Introverted	</td></tr>
-                <tr><th>Matthew	</th><td>Liberal	    </td><td>Running	    </td><td>City	            </td><td>Introverted	</td></tr>
-                <tr><th>Callum	</th><td>Liberal	    </td><td>Running	    </td><td>City	            </td><td>Outgoing	</td></tr>
+                <tr><th>Men	</th><th>	Jack	</th><th>	Thomas	</th><th>	James	</th><th>	Joshua	</th><th>	Daniel	</th><th>	Harry	</th><th>	Samuel	</th><th>	Joseph	</th><th>	Matthew	</th><th>	Callum	</th></tr>
+                <tr><th>Politics	</th><td>	Liberal	</td><td>	Liberal	</td><td>	Conservative	</td><td>	Liberal	</td><td>	Conservative	</td><td>	Conservative	</td><td>	Conservative	</td><td>	Liberal	</td><td>	Liberal	</td><td>	Liberal	</td></tr>
+                <tr><th>Hobby	</th><td>	Running	</td><td>	Computers</td><td>	Running	</td><td>	Running	</td><td>	Running	</td><td>	Computers	</td><td>	Computers	</td><td>	Computers	</td><td>	Running	</td><td>	Running	</td></tr>
+                <tr><th>Living </th><td>	Country	</td><td>	Country	</td><td>	City	</td><td>	Country	</td><td>	Country	</td><td>	Country	</td><td>	City	</td><td>	City	</td><td>	City	</td><td>	City	</td></tr>
+                <tr><th>Personality	</th><td>	Introverted	</td><td>	Outgoing	</td><td>	Introverted	</td><td>	Introverted	</td><td>	Introverted	</td><td>	Introverted	</td><td>	Introverted	</td><td>	Introverted	</td><td>	Introverted	</td><td>	Outgoing	</td></tr>
+                <tr><th bgcolor="#ffe6e6"></th></tr>
+                <tr><th>Women	</th><th>	Chloe	</th><th>	Emily	</th><th>	Megan	</th><th>	Charlotte	</th><th>	Jessica	</th><th>	Lauren	</th><th>	Sophie	</th><th>	Olivia	</th><th>	Hannah	</th><th>	Lucy	</th></tr>
+                <tr><th>Politics	</th><td>Conservative </td><td>	Liberal	</td><td>	Conservative	</td><td>	Conservative	</td><td>	Conservative	</td><td>	Liberal	</td><td>	Conservative	</td><td>	Conservative	</td><td>	Liberal	</td><td>	Liberal	</td></tr>
+                <tr><th>Hobby	</th><td>	Computers	</td><td>	Running	</td><td>	Computers	</td><td>	Running	</td><td>	Computers	</td><td>	Running	</td><td>	Computers	</td><td>	Running	</td><td>	Computers	</td><td>	Running	</td></tr>
+                <tr><th>Living </th><td>Country	</td><td>	Country	</td><td>	Country	</td><td>	City	</td><td>	City	</td><td>	City	</td><td>	City	</td><td>	City	</td><td>	City	</td><td>	Country	</td></tr>
+                <tr><th>Personality	</th><td>Introverted	</td><td>	Introverted	</td><td>	Outgoing	</td><td>	Outgoing	</td><td>	Outgoing	</td><td>	Introverted	</td><td>	Outgoing	</td><td>	Outgoing	</td><td>	Introverted	</td><td>	Introverted	</td></tr>
             </table>
-        </div>
-
-        <div id="tright">
-            <h3>Women</h3>
-            <table class="t1">
-                <tr><th></th><th>Politics	</th><th>Hobby	</th><th>Living style	</th><th>Social type	</th></tr>
-                <tr><th>Chloe	</th><td>Conservative	</td><td>Computers	</td><td>Country	</td><td>Introverted	</td></tr>
-                <tr><th>Emily	</th><td>Liberal	</td><td>Running	</td><td>	Country	</td><td>Introverted	</td></tr>
-                <tr><th>Megan	</th><td>Conservative	</td><td>Computers	</td><td>Country	</td><td>Outgoing	</td></tr>
-                <tr><th>Charlotte	</th><td>	Conservative	</td><td>Running	</td><td>City	</td><td>Outgoing	</td></tr>
-                <tr><th>Jessica	</th><td>Conservative	</td><td>Computers	</td><td>City	</td><td>Outgoing	</td></tr>
-                <tr><th>Lauren	</th><td>Liberal	</td><td>Running	</td><td>City	</td><td>Introverted	</td></tr>
-                <tr><th>Sophie	</th><td>Conservative	</td><td>Computers	</td><td>City	</td><td>Outgoing	</td></tr>
-                <tr><th>Olivia	</th><td>Conservative	</td><td>Running	</td><td>City	</td><td>Outgoing	</td></tr>
-                <tr><th>Hannah	</th><td>Liberal	</td><td>Computers	</td><td>City	</td><td>Introverted	</td></tr>
-                <tr><th>Lucy	</th><td>Liberal	</td><td>Running	</td><td>Country	</td><td>Introverted	</td></tr>
-            </table>
-
         </div>
     </div>
 
     <br>
-    <p>
-        By dragging and dropping, try to match each man to each woman such that the pair matches in their interests as well as possible.
-        You get one point from each correct match, therefore your maximum points are 10.
-    </p>
-    <p>
-        Hint: There are five pairs that match their interests in all four areas. The other five pairs match in three interests.
-    </p>
 
     <div id="wrapper">
 
@@ -197,13 +167,22 @@
     <input type="hidden" name="Hannah" id="hannahpair">
     <input type="hidden" name="Lucy" id="lucypair">
 
-    <button class="btn btn-primary btn-large">Submit your answer</button>
+    <br>
+
+    <center>
+        <button class="btn btn-primary btn-large">Submit your answer</button>
+        <button class="btn btn-primary btn-large" type="button" onclick="instructions()" style="line-height: 15px;"><span style="font-size: 25px; font-family: Georgia, serif;">i</span></button>
+    </center>
 
 {% endblock %}
 
 {% block scripts %}
 
 <script>
+
+    function instructions() {
+        alert("To help your Uni classmates form romantic relationships, you have decided to build a dating app. Your clientele consists of ten women and ten men. You know what are their political views, hobbies, living style preferences, and social types. The data are given in the tables.\n\nBy dragging and dropping, try to match each man to each woman such that the pair matches in their interests as well as possible. You get one point from each correct match, therefore your maximum points are 10.\n\nHint: There are five pairs that match their interests in all four areas. The other five pairs match in three interests.");
+    }
 
     function allowDrop(ev) {
         ev.preventDefault();
@@ -298,6 +277,10 @@
 
 <style type="text/css">
 
+    body {
+        background-color: #ffe6e6;
+      }
+
     .flex-container1 {
         display: flex;
         flex-wrap: wrap;
@@ -313,17 +296,9 @@
         overflow-x: auto;
     }
 
-    #tleft {
-        width: 470px;
-    }
-
-    #tright {
-        width: 470px;
-    }
-
     table.t1 th, table.t1 td {
         padding: 8px;
-        font-size: 14px;
+        font-size: 12px;
         border-bottom: 1px solid #ddd;
     }
 
@@ -337,13 +312,14 @@
         font-size: 14px;
     }
 
-    table.t1 tr:hover {background-color:#f5f5f5;}
+    table.t1 tr:nth-child(odd) {background-color: #f2f2f2;}
+    table.t1 tr:nth-child(even) {background-color: #ffffff;}
 
     #popup {
         padding: 1px;
         display: none;
         position: relative;
-        left: 10px;
+        left: 0px;
         top: -10px;
         border: 0px;
         opacity: 1;
@@ -356,7 +332,7 @@
         padding: 1px;
         display: none;
         position: absolute;
-        left: 10px;
+        left: -15px;
         top: -10px;
         border: 0px;
         opacity: 1;
@@ -383,9 +359,10 @@
         height: 55px;
         margin: 10px;
         padding: 0px;
-        border: 1px black solid;
-        font-size: 14px;
+        border-radius: 20px;
+        font-size: 12px;
         text-align: center;
+        background-color: #fae6ff;
     }
 
     #divd1:active #popup {
@@ -399,7 +376,7 @@
     #Jack, #Thomas, #James, #Joshua, #Daniel, #Harry, #Samuel, #Joseph, #Matthew, #Callum {
         width 70px;
         height: 15px;
-        font-size: 14px;
+        font-size: 12px;
     }
 
     @media (max-width: 767px) {
