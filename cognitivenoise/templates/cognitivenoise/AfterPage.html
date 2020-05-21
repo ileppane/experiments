@@ -3,9 +3,10 @@
 
 {% block content %}
 
-{% if display == 0 %}
-<!-- lottery shown on the right hand side -->
 <body>
+  {% if display == 0 %}
+  <!-- lottery shown on the right hand side -->
+  <br>
   <section>
     <article id="option_left">
 
@@ -29,11 +30,10 @@
 
     </article>
   </section>
-</body>
 
-{% else %}
-<!-- lottery shown on the left hand side -->
-<body>
+  {% else %}
+  <!-- lottery shown on the left hand side -->
+  <br>
   <section>
     <article id="option_left">
       <div class="risk_up_div" style="height: {{ risk_up_px }};">
@@ -57,8 +57,8 @@
 
     </article>
   </section>
+  {% endif %}
 </body>
-{% endif %}
 
 <!-- <input type="hidden" name="choice" id="id_choice" value='nothing'> -->
 
@@ -72,9 +72,9 @@
 
   var choice = '{{ choice | safe }}';
   if (choice == 'left') {
-      document.getElementById("option_left").style.border = "thick solid white";
+    document.getElementById("option_left").style.border = "5px solid white";
   } else {
-      document.getElementById("option_right").style.border = "thick solid white";
+    document.getElementById("option_right").style.border = "5px solid white";
   }
 
 </script>
@@ -90,7 +90,9 @@
     background-color: black;
     padding: 20px;
     vertical-align: middle;
-    height: 500px;
+    height: 450px;
+    box-sizing: border-box;
+    border: 5px solid transparent;
   }
 
   /* Clear floats after the columns */
@@ -151,9 +153,11 @@
   }
 
   .certainty_txt {
-    font-family: "Times New Roman", Times, serif;
+    /* font-family: "Times New Roman", Times, serif;
     font-weight: normal;
-    font-size: 90px;
+    font-size: 90px; */
+    font-weight: 300;
+    font-size: 85px;
     position: relative;
     top: 120px;
   }
@@ -161,6 +165,6 @@
   .otree-timer {
     display: none;
   }
-  
+
 </style>
 {% endblock %}

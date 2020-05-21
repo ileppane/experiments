@@ -90,17 +90,18 @@ def decimal_places(number):
 class Constants(BaseConstants):
     name_in_url = 'BDMauction'
     players_per_group = None
-    num_rounds = 3
+    num_rounds = 5
     # num_rounds should be 12 when deployed in experiment
 
 
 class Subsession(BaseSubsession):
     def before_session_starts(self):
+        if self.round_number == 1:
+            self.session.vars['treatment'] = np.random.choice(['A','E'])
 
-        self.session.vars['treatment'] = np.random.choice(['A','E'])
+            t = 1000 * time.time() # current time in milliseconds
+            self.session.vars['seed2'] = int(t) % 2**32
 
-        # t = 1000 * time.time() # current time in milliseconds
-        # self.session.vars['seed'] = int(t) % 2**32
 
 class Group(BaseGroup):
     pass
@@ -110,6 +111,11 @@ class Player(BasePlayer):
     treatment = models.StringField()
 
     WTP = models.FloatField()
+
+    # decision time collected by JavaScript method
+    jsdectime_start = models.FloatField()
+    jsdectime_end = models.FloatField()
+    jsdectime = models.FloatField()
 
     reward = models.FloatField()
     risk = models.FloatField()

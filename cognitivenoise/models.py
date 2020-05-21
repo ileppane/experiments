@@ -102,7 +102,7 @@ def set_time():
 class Constants(BaseConstants):
     name_in_url = 'cognitivenoise'
     players_per_group = None
-    num_rounds = 3
+    num_rounds = 6
     # num_rounds should be changed to 324 when deployed in experiment
 
     # instructions_template = 'cognitivenoise/Instructions.html'
@@ -111,14 +111,18 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def before_session_starts(self):
-        t = 1000 * time.time() # current time in milliseconds
-        self.session.vars['seed'] = int(t) % 2**32
+        if self.round_number == 1:
+            t = 1000 * time.time() # current time in milliseconds
+            self.session.vars['seed3'] = int(t) % 2**32
+
 
 class Group(BaseGroup):
     pass
 
 
 class Player(BasePlayer):
+    treatment = models.StringField()
+
 
     choice = models.StringField()
 
@@ -127,7 +131,7 @@ class Player(BasePlayer):
     jsdectime_end = models.FloatField()
     jsdectime = models.FloatField()
     # decision time collected by Python method
-    dectime = models.FloatField()
+    pydectime = models.FloatField()
 
     reward = models.FloatField()
     risk = models.FloatField()

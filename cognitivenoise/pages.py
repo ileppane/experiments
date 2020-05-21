@@ -18,7 +18,7 @@ class FixationPage(Page):
     timeout_seconds = 0.5
 
     def before_next_page(self):
-        self.player.dectime = set_time() # here we set the start of the dectime in unix seconds
+        self.player.pydectime = set_time() # here we set the start of the dectime in unix seconds
 
 
 class DecisionPage(Page):
@@ -34,7 +34,7 @@ class DecisionPage(Page):
         # and the text inside them
         # can be programmed to change in every round using self.round_number in for-loop
 
-        treatment = self.session.vars["treatment"]
+        treatment = self.session.vars['treatment']
         # treatment = np.random.choice(['A','E'])
         # treatment = 'A'
         # treatment = 'E'
@@ -82,10 +82,14 @@ class DecisionPage(Page):
 
     def before_next_page(self):
         # Python Method of dectime collection: here we subtract from current unix time the start of the decision round that was set in the fixation page
-        self.player.dectime = set_time() - self.player.dectime
+        self.player.pydectime = set_time() - self.player.pydectime
 
         # JavaScript Method of dectime collection:
         self.player.jsdectime = (self.player.jsdectime_end - self.player.jsdectime_start) / 1000
+
+        self.player.treatment = self.session.vars["treatment"]
+
+
 
 
 class AfterPage(Page):
@@ -135,17 +139,17 @@ class AfterPage(Page):
 
 class RestPage(Page):
 
-    timeout_seconds = 1
+    timeout_seconds = 300
 
     def is_displayed(self):
-        rest_after = 100
+        rest_after = 3
         rest_round = list(range(rest_after, Constants.num_rounds, rest_after))
         if self.round_number in rest_round:
             return True
         else:
             return False
 
-
+    # def vars_for_template(self):
 
 
 class FinishPage(Page):
@@ -156,7 +160,7 @@ class FinishPage(Page):
     def vars_for_template(self):
 
         # Otherwise a participant can refresh the page to get desired outcome
-        seed = self.session.vars['seed']
+        seed = self.session.vars['seed3']
         np.random.seed(seed)
 
         ######

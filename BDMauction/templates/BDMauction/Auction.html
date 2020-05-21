@@ -8,44 +8,63 @@
 
 {% block content %}
 
+<body onload="setStartTime()">
 
-<article class="auction">
+  <article class="auction">
 
-  <!-- <h4>type in your valuation of the lottery</h4>
-  <br> -->
+    <!-- <h4>type in your valuation of the lottery</h4>
+    <br> -->
 
-  <p class="instruction"> <b>Reminder</b> <br>A reasonable price of this lottery should be: <br> -Greater than {{ floor }} <br> -Less than {{ reward }}</p>
-  <br>
+    <p class="instruction"> <b>Reminder</b> <br>A reasonable price of this lottery should be: <br> -Greater than {{ floor }} <br> -Less than {{ reward }}</p>
+    <br>
 
-  <p class="instruction">Type in your valuation:</p>
+    <p class="instruction">Type in your valuation:</p>
 
-  <div style="float: left; font-size: 25px; position: relative; left: 5px;">
-    <p>$</p>
-  </div>
+    <div style="float: left; font-size: 25px; position: relative; left: 5px;">
+      <p>$</p>
+    </div>
 
-  <div style="position: relative; left: 15px;">
-    {% formfield player.WTP label = "" %}
-  </div>
+    <div style="position: relative; left: 15px;">
+      {% formfield player.WTP label = "" %}
+    </div>
 
-<br><br>
+    <br><br>
 
-  {% next_button %}
-</article>
+    <button class="btn btn-primary btn-large" onclick="end()">
+    Next
+    </button>
+
+  </article>
 
 
-<article class="lottery">
-  <div class="risk_up_div" style="height: {{ risk_up_px }};">
-    <p class="risk_up_txt">{{ risk_up }}</p>
-  </div>
-  <div class="risk_down_div"  style="height: {{ risk_down_px }};">
-    <p class="risk_down_txt">{{ risk_down }}</p>
-  </div>
-  <div class="reward_div">
-    <p class="reward_txt">{{ reward }}</p>
-  </div>
+  <article class="lottery">
+    <div class="risk_up_div" style="height: {{ risk_up_px }};">
+      <p class="risk_up_txt">{{ risk_up }}</p>
+    </div>
+    <div class="risk_down_div"  style="height: {{ risk_down_px }};">
+      <p class="risk_down_txt">{{ risk_down }}</p>
+    </div>
+    <div class="reward_div">
+      <p class="reward_txt">{{ reward }}</p>
+    </div>
 
-</article>
+  </article>
 
+</body>
+
+<input type="hidden" name="jsdectime_start" id="id_jsdectime_start" value=0>
+<input type="hidden" name="jsdectime_end" id="id_jsdectime_end" value=0>
+
+<script>
+  function setStartTime() {
+    var d = new Date();
+    document.getElementById('id_jsdectime_start').value = d.getTime();
+  }
+  function end() {
+    var d = new Date();
+    document.getElementById('id_jsdectime_end').value = d.getTime();
+  }
+</script>
 
 <!-- thie following section is for the lottery and instruction -->
 <style type="text/css">

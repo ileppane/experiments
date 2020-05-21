@@ -9,12 +9,17 @@ from otree.api import (
     currency_range,
 )
 
+import numpy as np
+import time
 
 author = 'Your name here'
 
 doc = """
 Your app description
 """
+
+t = 1000 * time.time() # current time in milliseconds
+np.random.seed(int(t) % 2**32)
 
 
 class Constants(BaseConstants):
@@ -24,8 +29,10 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    pass
-
+    def before_session_starts(self):
+        if self.round_number == 1:
+            t = 1000 * time.time() # current time in milliseconds
+            self.session.vars['seed1'] = int(t) % 2**32
 
 class Group(BaseGroup):
     pass
@@ -37,51 +44,101 @@ class Player(BasePlayer):
     # student_number = models.CharField()
 
     # The following section contians variables the CRT:
-    crt1 = models.StringField(
-    choices = ['5 pence', '10 pence', '9 pence', '1 pence'], widget = widgets.RadioSelect()
-    )
-    crt2 = models.StringField(
-    choices = ['5 minutes', '100 minutes', '20 minutes', '500 minutes'], widget = widgets.RadioSelect()
-    )
-    crt3 = models.StringField(
-    choices = ['47 days', '24 days', '12 days', '36 days'], widget = widgets.RadioSelect()
-    )
-    crt4 = models.StringField(
-    choices = ['4 days', '9 days', '12 days', '3 days'], widget = widgets.RadioSelect()
-    )
-    crt5 = models.StringField(
-    choices = ['29 students', '30 students', '1 student', '15 students'], widget = widgets.RadioSelect()
-    )
-    crt6 = models.StringField(
-    choices = ['20 pounds', '10 pounds', '0 pounds', '30 pounds'], widget = widgets.RadioSelect()
-    )
-    crt7 = models.StringField(
-    choices = ['has lost money.', 'is ahead of where he began.', 'has broken even in the stock market.', 'it cannot be determined.'], widget = widgets.RadioSelect()
-    )
-
     # Both scores range between 0 - 7
     reflectiveness_score = models.IntegerField(initial=0)
     intuitiveness_score = models.IntegerField(initial=0)
 
+    crt1 = models.StringField(widget = widgets.RadioSelect())
+
+    def crt1_choices(self):
+        np.random.seed(self.session.vars['seed1'] + 1)
+        choices = ['5 pence', '10 pence', '9 pence', '1 pence']
+        np.random.shuffle(choices)
+        return choices
+
+    crt2 = models.StringField(widget = widgets.RadioSelect())
+
+    def crt2_choices(self):
+        np.random.seed(self.session.vars['seed1'] + 2)
+        choices = ['5 minutes', '100 minutes', '20 minutes', '500 minutes']
+        np.random.shuffle(choices)
+        return choices
+
+    crt3 = models.StringField(widget = widgets.RadioSelect())
+
+    def crt3_choices(self):
+        np.random.seed(self.session.vars['seed1'] + 3)
+        choices = ['47 days', '24 days', '12 days', '36 days']
+        np.random.shuffle(choices)
+        return choices
+
+    crt4 = models.StringField(widget = widgets.RadioSelect())
+
+    def crt4_choices(self):
+        np.random.seed(self.session.vars['seed1'] + 4)
+        choices = ['4 days', '9 days', '12 days', '3 days']
+        np.random.shuffle(choices)
+        return choices
+
+    crt5 = models.StringField(widget = widgets.RadioSelect())
+
+    def crt5_choices(self):
+        np.random.seed(self.session.vars['seed1'] + 5)
+        choices = ['29 students', '30 students', '1 student', '15 students']
+        np.random.shuffle(choices)
+        return choices
+
+    crt6 = models.StringField(widget = widgets.RadioSelect())
+
+    def crt6_choices(self):
+        np.random.seed(self.session.vars['seed1'] + 6)
+        choices = ['20 pounds', '10 pounds', '0 pounds', '30 pounds']
+        np.random.shuffle(choices)
+        return choices
+
+    crt7 = models.StringField(widget = widgets.RadioSelect())
+
+    def crt7_choices(self):
+        np.random.seed(self.session.vars['seed1'] + 7)
+        choices = ['has lost money.', 'is ahead of where he began.', 'has broken even in the stock market.', 'it cannot be determined.']
+        np.random.shuffle(choices)
+        return choices
+
     # The following section contians variables for the BNT:
-    bnt1 = models.StringField(
-    choices = ['5 out of 50 throws', '25 out of 50 throws', '30 out of 50 throws', 'None of the above'], widget = widgets.RadioSelect()
-    )
-
-    bnt2 = models.StringField(
-    choices = ['10 %', '25 %', '40 %', 'None of the above'], widget = widgets.RadioSelect()
-    )
-
-    bnt3 = models.StringField(
-    choices = ['20 out of 70 throws', '23 out of 70 throws', '35 out of 70 throws', 'None of the above'], widget = widgets.RadioSelect()
-    )
-
-    bnt4 = models.StringField(
-    choices = ['4 %', '20 %', '50 %', 'None of the above'], widget = widgets.RadioSelect()
-    )
-
     # BNT score ranges between 0 - 4
     bnt_score = models.IntegerField(initial=0)
+
+    bnt1 = models.StringField(widget = widgets.RadioSelect())
+
+    def bnt1_choices(self):
+        np.random.seed(self.session.vars['seed1'] + 8)
+        choices = ['5 out of 50 throws', '25 out of 50 throws', '30 out of 50 throws', 'None of the above']
+        np.random.shuffle(choices)
+        return choices
+
+    bnt2 = models.StringField(widget = widgets.RadioSelect())
+
+    def bnt2_choices(self):
+        np.random.seed(self.session.vars['seed1'] + 9)
+        choices = ['10 %', '25 %', '40 %', 'None of the above']
+        np.random.shuffle(choices)
+        return choices
+
+    bnt3 = models.StringField(widget = widgets.RadioSelect())
+
+    def bnt3_choices(self):
+        np.random.seed(self.session.vars['seed1'] + 10)
+        choices = ['20 out of 70 throws', '23 out of 70 throws', '35 out of 70 throws', 'None of the above']
+        np.random.shuffle(choices)
+        return choices
+
+    bnt4 = models.StringField(widget = widgets.RadioSelect())
+
+    def bnt4_choices(self):
+        np.random.seed(self.session.vars['seed1'] + 11)
+        choices = ['4 %', '20 %', '50 %', 'None of the above']
+        np.random.shuffle(choices)
+        return choices
 
     # The following section contians variables for the NFC and FI survey
     nfcscore = models.PositiveIntegerField()

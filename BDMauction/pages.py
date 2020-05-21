@@ -12,7 +12,7 @@ class Initial(Page):
 class Auction(Page):
 
     form_model = 'player'
-    form_fields = ['WTP']
+    form_fields = ['WTP', 'jsdectime_start', 'jsdectime_end']
 
 
     def vars_for_template(self):
@@ -35,7 +35,6 @@ class Auction(Page):
 
         self.player.reward = reward
         self.player.risk = risk
-        self.player.treatment = self.session.vars["treatment"]
 
         risk_up = str(100 - risk)
         risk_up_px = ((100 - risk) / 100) * 300
@@ -68,6 +67,13 @@ class Auction(Page):
 
         }
 
+    def before_next_page(self):
+        # JavaScript Method of dectime collection:
+        self.player.jsdectime = (self.player.jsdectime_end - self.player.jsdectime_start) / 1000
+
+        self.player.treatment = self.session.vars["treatment"]
+
+
 
 class End(Page):
 
@@ -76,9 +82,9 @@ class End(Page):
 
     def before_next_page(self):
 
-        # # Otherwise a participant can refresh the page to get desired outcome
-        # seed = self.session.vars['seed']
-        # np.random.seed(seed)
+        # Otherwise a participant can refresh the page to get desired outcome (though hidden in this app)
+        seed = self.session.vars['seed2']
+        np.random.seed(seed)
 
         ######
 

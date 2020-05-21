@@ -3,6 +3,9 @@ from . import models
 from ._builtin import Page, WaitPage
 from .models import Constants
 
+import time
+import numpy as np
+
 
 class Introduction(Page):
     pass
@@ -12,46 +15,185 @@ class CRT1page(Page):
     form_model = models.Player
     form_fields = ['crt1']
 
+    def vars_for_template(self):
+        number = CRT_seq.index(CRT1page) + 1
+        return {
+            's1_total': s1_total,
+            'number': number
+        }
+
+    def before_next_page(self):
+        if self.player.crt1 == '5 pence':
+            self.player.reflectiveness_score += 1
+        elif self.player.crt1 == '10 pence':
+            self.player.intuitiveness_score += 1
+
+
 class CRT2page(Page):
     form_model = models.Player
     form_fields = ['crt2']
+
+    def vars_for_template(self):
+        number = CRT_seq.index(CRT2page) + 1
+        return {
+            's1_total': s1_total,
+            'number': number
+        }
+
+    def before_next_page(self):
+        if self.player.crt2 == '5 minutes':
+            self.player.reflectiveness_score += 1
+        elif self.player.crt2 == '100 minutes':
+            self.player.intuitiveness_score += 1
 
 class CRT3page(Page):
     form_model = models.Player
     form_fields = ['crt3']
 
+    def vars_for_template(self):
+        number = CRT_seq.index(CRT3page) + 1
+        return {
+            's1_total': s1_total,
+            'number': number
+        }
+
+    def before_next_page(self):
+        if self.player.crt3 == '47 days':
+            self.player.reflectiveness_score += 1
+        elif self.player.crt3 == '24 days':
+            self.player.intuitiveness_score += 1
+
 class CRT4page(Page):
     form_model = models.Player
     form_fields = ['crt4']
+
+    def vars_for_template(self):
+        number = CRT_seq.index(CRT4page) + 1
+        return {
+            's1_total': s1_total,
+            'number': number
+        }
+
+    def before_next_page(self):
+        if self.player.crt4 == '4 days':
+            self.player.reflectiveness_score += 1
+        elif self.player.crt4 == '9 days':
+            self.player.intuitiveness_score += 1
 
 class CRT5page(Page):
     form_model = models.Player
     form_fields = ['crt5']
 
+    def vars_for_template(self):
+        number = CRT_seq.index(CRT5page) + 1
+        return {
+            's1_total': s1_total,
+            'number': number
+        }
+
+    def before_next_page(self):
+        if self.player.crt5 == '29 students':
+            self.player.reflectiveness_score += 1
+        elif self.player.crt5 == '30 students':
+            self.player.intuitiveness_score += 1
+
 class CRT6page(Page):
     form_model = models.Player
     form_fields = ['crt6']
 
+    def vars_for_template(self):
+        number = CRT_seq.index(CRT6page) + 1
+        return {
+            's1_total': s1_total,
+            'number': number
+        }
+
+    def before_next_page(self):
+        if self.player.crt6 == '20 pounds':
+            self.player.reflectiveness_score += 1
+        elif self.player.crt6 == '10 pounds':
+            self.player.intuitiveness_score += 1
+
+
 class CRT7page(Page):
     form_model = models.Player
     form_fields = ['crt7']
+
+    def vars_for_template(self):
+        number = CRT_seq.index(CRT7page) + 1
+        return {
+            's1_total': s1_total,
+            'number': number
+        }
+
+    def before_next_page(self):
+        if self.player.crt7 == 'has lost money.':
+            self.player.reflectiveness_score += 1
+        elif self.player.crt7 == 'is ahead of where he began.':
+            self.player.intuitiveness_score += 1
+
 
 """ BNT """
 class BNT1page(Page):
     form_model = models.Player
     form_fields = ['bnt1']
 
+    def vars_for_template(self):
+        number = BNT_seq.index(BNT1page) + 1 + len(CRT_seq)
+        return {
+            's1_total': s1_total,
+            'number': number
+        }
+
+    def before_next_page(self):
+        if self.player.bnt1 == '30 out of 50 throws':
+            self.player.bnt_score += 1
+
 class BNT2page(Page):
     form_model = models.Player
     form_fields = ['bnt2']
+
+    def vars_for_template(self):
+        number = BNT_seq.index(BNT2page) + 1 + len(CRT_seq)
+        return {
+            's1_total': s1_total,
+            'number': number
+        }
+
+    def before_next_page(self):
+        if self.player.bnt2 == '25 %':
+            self.player.bnt_score += 1
 
 class BNT3page(Page):
     form_model = models.Player
     form_fields = ['bnt3']
 
+    def vars_for_template(self):
+        number = BNT_seq.index(BNT3page) + 1 + len(CRT_seq)
+        return {
+            's1_total': s1_total,
+            'number': number
+        }
+
+    def before_next_page(self):
+        if self.player.bnt3 == '20 out of 70 throws':
+            self.player.bnt_score += 1
+
 class BNT4page(Page):
     form_model = models.Player
     form_fields = ['bnt4']
+
+    def vars_for_template(self):
+        number = BNT_seq.index(BNT4page) + 1 + len(CRT_seq)
+        return {
+            's1_total': s1_total,
+            'number': number
+        }
+
+    def before_next_page(self):
+        if self.player.bnt4 == '50 %':
+            self.player.bnt_score += 1
+
 
 """ NFC and FI """
 class REIpage(Page):
@@ -66,61 +208,20 @@ class REIpage(Page):
 
 
 class End(Page):
-    def before_next_page(self):
-
-        # To calculate the CRT score
-        if self.player.crt1 == '5 pence':
-            self.player.reflectiveness_score += 1
-        elif self.player.crt1 == '10 pence':
-            self.player.intuitiveness_score += 1
-
-        if self.player.crt2 == '5 minutes':
-            self.player.reflectiveness_score += 1
-        elif self.player.crt2 == '100 minutes':
-            self.player.intuitiveness_score += 1
-
-        if self.player.crt3 == '47 days':
-            self.player.reflectiveness_score += 1
-        elif self.player.crt3 == '24 days':
-            self.player.intuitiveness_score += 1
-
-        if self.player.crt4 == '4 days':
-            self.player.reflectiveness_score += 1
-        elif self.player.crt4 == '9 days':
-            self.player.intuitiveness_score += 1
-
-        if self.player.crt5 == '29 students':
-            self.player.reflectiveness_score += 1
-        elif self.player.crt5 == '30 students':
-            self.player.intuitiveness_score += 1
-
-        if self.player.crt6 == '20 pounds':
-            self.player.reflectiveness_score += 1
-        elif self.player.crt6 == '10 pounds':
-            self.player.intuitiveness_score += 1
-
-        if self.player.crt7 == 'has lost money.':
-            self.player.reflectiveness_score += 1
-        elif self.player.crt7 == 'is ahead of where he began.':
-            self.player.intuitiveness_score += 1
+    pass
 
 
-        # To calculate the BNT score
-        if self.player.bnt1 == '30 out of 50 throws':
-            self.player.bnt_score += 1
-
-        if self.player.bnt2 == '25 %':
-            self.player.bnt_score += 1
-
-        if self.player.bnt3 == '20 out of 70 throws':
-            self.player.bnt_score += 1
-
-        if self.player.bnt4 == '50 %':
-            self.player.bnt_score += 1
-
+# t = 1000 * time.time() # current time in milliseconds
+# np.random.seed(int(t) % 2**32)
 
 CRT_seq = [CRT1page, CRT2page, CRT3page, CRT4page, CRT5page, CRT6page, CRT7page]
 
 BNT_seq = [BNT1page, BNT2page, BNT3page, BNT4page]
 
-page_sequence = [Introduction] + CRT_seq + BNT_seq + [End] + [REIpage]
+np.random.shuffle(CRT_seq)
+np.random.shuffle(BNT_seq)
+
+s1_total = len(CRT_seq) + len(BNT_seq)
+
+
+page_sequence = [Introduction] + CRT_seq + BNT_seq + [REIpage] + [End]
