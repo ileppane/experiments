@@ -145,54 +145,12 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
-        'name': 'testform',
-        'display_name': 'testform',
-        'num_demo_participants': 1,
-        'app_sequence': ['testform'],
-    },
-
-    {
         'name': 'funnel',
         'display_name': 'Deming funnel experiment',
         'num_demo_participants': 1,
         'app_sequence': ['funnel'],
     },
 
-    {
-        'name': 'moonrover',
-        'display_name': 'Drone Challenge',
-        'num_demo_participants': 1,
-        'app_sequence': ['moonrover'],
-    },
-
-    # {
-    #     'name': 'MCN',
-    #     'display_name': 'Modelling Cognitive Noise',
-    #     'num_demo_participants': 1,
-    #     # 'app_sequence': ['cognitivenoise', 'BDMauction'],
-    #     'app_sequence': ['REItest', 'BDMauction', 'cognitivenoise'],
-    # },
-
-    {
-        'name': 'REItest',
-        'display_name': 'REI Survey',
-        'num_demo_participants': 1,
-        # 'app_sequence': ['REItest'],
-        'app_sequence': ['REItest'],#, 'BDMauction', 'cognitivenoise'],
-    },
-    {
-        'name': 'BDMauction',
-        'display_name': 'BDMauction',
-        'num_demo_participants': 1,
-        'app_sequence': ['BDMauction','cognitivenoise'],
-    },
-    {
-        'name': 'cognitivenoise',
-        'display_name': 'Decision Task in Cognitive Noise Study',
-        'num_demo_participants': 1,
-        'app_sequence': ['cognitivenoise'],
-        # 'app_sequence': ['cognitivenoise', 'BDMauction'],
-    },
     {
         'name': 'eoq',
         'display_name': 'Stock Control Game',
@@ -201,140 +159,13 @@ SESSION_CONFIGS = [
         'simple': 'yes',
         'randomdemandgame': 'no'
     },
+
     {
         'name': 'bachallenge',
-        'display_name': 'bachallenge',
+        'display_name': 'Business Analytics Challenges',
         'num_demo_participants': 1,
         'app_sequence': ['bachallenge','digitalmarketing','datingapp','moonrover'],
     },
-
-    # {
-    #     'name': 'foundationtask',
-    #     'display_name': 'foundationtask',
-    #     'num_demo_participants': 1,
-    #     'app_sequence': ['foundationtask'],
-    #     'returnurl': 'http://www.google.com'
-    # },
-    # {
-    #     'name': 'prolificgame',
-    #     'display_name': 'prolificgame',
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['svo','nvsingle','nvcompnoniid'],
-    #     'prolificurl': 'https://www.prolific.ac'
-    # },
-    # {
-    #     'name': 'svo',
-    #     'display_name': 'svo',
-    #     'num_demo_participants': 1,
-    #     'app_sequence': ['svo']
-    # },
-    # {
-    #     'name': 'nvsingle',
-    #     'display_name': 'nvsingle',
-    #     'num_demo_participants': 1,
-    #     'app_sequence': ['nvsingle']
-    # },
-    # {
-    #     'name': 'nvcompnoniid2',
-    #     'display_name': 'nvcompnoniid2',
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['nvcompnoniid2'],
-    # 	'prolificurl': 'https://www.prolific.ac'
-    # },
-    # {
-    #     'name': 'nvcompnoniid',
-    #     'display_name': 'nvcompnoniid',
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['nvcompnoniid'],
-    # 	'prolificurl': 'https://www.prolific.ac'
-    # },
-    # {
-    #     'name': 'nvcomp',
-    #     'display_name': 'nvcomp',
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['nvsingle', 'nvcomp'],
-    # 'prolificurl': 'https://www.prolific.ac'
-    # },
-    # {
-    #     'name': 'ERQ',
-    #     'display_name': 'ERQ',
-    #     'num_demo_participants': 1,
-    #     'app_sequence': ['ERQ']
-    # },
-    # {
-    #     'name': 'DOSPERT',
-    #     'display_name': 'DOSPERT',
-    #     'num_demo_participants': 1,
-    #     'prolificurl': 'https://www.prolific.ac',
-    #     'app_sequence': ['DOSPERT']
-    # },
-    # {
-    #     'name': 'neuronewsvendor',
-    #     'display_name': 'Neuronewsvendor (blocks)',
-    #     'num_demo_participants': 1,
-    #     'app_sequence': ['svofirst', 'neuronewsvendor', 'DOSPERT'],
-    #     'prolificurl': 'https://www.prolific.ac',
-    #     'margin': 'high',
-    #     'blocks1': ['reap', 'att', 'att', 'reap', 'att', 'reap', 'reap', 'att'],
-    #     'blocks2': ['att',  'reap', 'reap', 'att', 'reap', 'att', 'att', 'reap']
-    # },
-    # {
-    #     'name': 'OMNV',
-    #     'display_name': "Newsvendor game for OM participants",
-    #     'num_demo_participants': 1,
-    #     'app_sequence': ['OMNV'],
-    #     'margin': random.choice(['low','high']),
-    # },
-    # {
-    #     'name': 'dsraq',
-    #     'display_name': "DSR and AQ",
-    #     'num_demo_participants': 1,
-    #     'app_sequence': ['dsraq'],
-    # },
-    # {
-    #     'name': 'dreber',
-    #     'display_name': "Repeated PD",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['dreber'],
-    #     'prolificurl': 'http://www.google.com',
-    #     'treatment': 'p1',
-    # },
-    # {
-    #     'name': 'twopartynewsvendor',
-    #     'display_name': "Two party newsvendor",
-    #     'num_demo_participants': 1,
-    #     'app_sequence': ['svo', 'twopartynewsvendor'],
-    #     'prolificurl': 'https://prolific.ac/submissions/complete?cc=5A8RZ4J9',
-    #     'margin': 'low',
-    # },
-    # {
-    #     'name': 'linkstudy',
-    #     'display_name': "linkstudy",
-    #     'num_demo_participants': 1,
-    #     'app_sequence': ['linkstudy','LAFsurvey'],
-    #     'prolificurl': 'http://www.google.com',
-    # },
-    # {
-    #     'name': 'LAFsurvey',
-    #     'display_name': "LAFsurvey",
-    #     'num_demo_participants': 1,
-    #     'app_sequence': ['LAFsurvey'],
-    # },
-    # {
-    #     'name': 'neutralvendor',
-    #     'display_name': "Neutralvendor",
-    #     'num_demo_participants': 1,
-    #     'app_sequence': ['svo', 'neutralvendor'],
-    # 	'prolificurl': 'http://www.google.com',
-    # },
-    # {
-    #     'name': 'newsvendor',
-    #     'display_name': "Newsvendor",
-    #     'num_demo_participants': 1,
-    #     'app_sequence': ['newsvendor','svo'],
-    # 	'prolificurl': 'http://www.google.com',
-    # 	'margin': 'low',
-    # },
 
 ]
 

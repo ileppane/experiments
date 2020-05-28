@@ -10,7 +10,7 @@ doc = """
 BA challenge: Moonrover
 """
 
-def moonroverfun(startx,starty,first,second,third,fourth):
+def moonroverfun(startx,starty,first,second,third,fourth,fifth):
 
     def distance(x1, y1, x2, y2):
         return math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1))
@@ -24,6 +24,7 @@ def moonroverfun(startx,starty,first,second,third,fourth):
     isecond = sites.index(second)
     ithird = sites.index(third)
     ifourth = sites.index(fourth)
+    ififth = sites.index(fifth)
 
     yourpoints = points[ifirst]
 
@@ -39,11 +40,17 @@ def moonroverfun(startx,starty,first,second,third,fourth):
             if ifourth is not ifirst:
                 yourpoints = yourpoints + points[ifourth]
 
+    if ififth is not ifourth:
+        if ififth is not ithird:
+            if ififth is not isecond:
+                if ififth is not ifirst:
+                    yourpoints = yourpoints + points[ififth]
+
     yourdist = distance(startx,starty,x[ifirst],y[ifirst]) + \
                distance(x[ifirst],y[ifirst],x[isecond],y[isecond]) + \
                distance(x[isecond],y[isecond],x[ithird],y[ithird]) + \
                distance(x[ithird],y[ithird],x[ifourth],y[ifourth]) + \
-               distance(x[ifourth],y[ifourth],startx,starty)
+               distance(x[ifourth],y[ifourth],x[ififth],y[ififth])
 
     return [yourpoints, yourdist]
 
@@ -51,7 +58,7 @@ def moonroverfun(startx,starty,first,second,third,fourth):
 class Constants(BaseConstants):
     name_in_url = 'moonrover'
     players_per_group = None
-    num_rounds = 100
+    num_rounds = 20
 
 
 class Subsession(BaseSubsession):
@@ -69,4 +76,5 @@ class Player(BasePlayer):
     secondsite = models.StringField(blank=True)
     thirdsite = models.StringField(blank=True)
     fourthsite = models.StringField(blank=True)
+    fifthsite = models.StringField(blank=True)
     points = models.IntegerField(blank=True)

@@ -17,25 +17,58 @@
     <button name="next" class="btn btn-primary btn-large">Play again</button>
     </center>
 
-    <h3>{{ text2|safe }}</h3>
+    <br>
+
+    <div id="wrapper">
+        <div id="info">
+            <p>
+                This challenge is an example of an <b>optimal routing problem</b>, also known as the travelling salesman problem.
+                Companies face routing problems mainly in logistics, where an optimal route must be designed between nodes in a network such that cost is minimised.
+            </p>
+
+            <p>
+                Logistics companies such as Amazon have for long been planning to use drones as delivery vehicles, and the limited range of the drone
+                poses a challenge for designing an optimal route for it. There are also ridesharing platforms in London and other large cities, where companies
+                allow customers to rent vehicles and return them to selected locations ...
+            </p>
+
+            <p>
+                Analytics can help in optimal routing problems by describing the problem as a network and using efficient algorithms to solve it.
+            </p>
+        </div>
+    </div>
 
 {% endblock %}
 
 {% block app_styles %}
-    <style>
+
+    <style type="text/css">
+
         body {
-            background-color: #f6f6f6;
+            background-color: #ebebfa;
         }
-        .otree-body {
-            background-color: #f6f6f6;
-        }
+
         .btn {
-            background-color: #a70532;
-            border-color: #a70532;
+            background-color: #7070db;
+            border-color: #7070db;
         }
-        .btn:hover {
-            background-color: #a70532;
-            border-color: #a70532;
+
+        .page-header {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding-top: 0px;
         }
+
+        #wrapper {
+            height: 300px;
+        }
+
+        #info {
+            max-height: 100%;
+            overflow: auto;
+            background-color: #c2c2f0;
+            padding: 5px;
+        }
+
     </style>
 {% endblock %}
