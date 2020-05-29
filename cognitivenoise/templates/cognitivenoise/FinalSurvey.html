@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <h1>Part 3: one final question</h1>
+{% endblock %}
+
+{% block content %}
+
+<br>
+<h5>Now you have completed all trials! Thank you for taking part in this experiment, Before you go to the next page to view your final payoff, we would like to ask you one final question:</h5>
+<br>
+
+{% formfield player.decmode with label="Which one of the following statements can best describe how you made choices in trials you just went through?" %}
+
+<br><br>
+{% next_button %}
+
+{% endblock %}

@@ -3,11 +3,14 @@
 
 {% block title %}
 <h1 style="font-size: 35px;">Part 1 Section 2</h1>
+
 {% endblock %}
 
 {% block content %}
 
-    <h3>How do you rate the following statements?</h3>
+<body onload="setStartTime()">
+
+  <h3>How do you rate the following statements?</h3>
 
 {% formfield player.q1 with label=" I would rather do something that requires little thought than something that is sure to challenge my thinking abilities.  " %}
 {% formfield player.q2 with label=" I don't like to have the responsibility of handling a situation that requires a lot of thinking.  " %}
@@ -42,6 +45,24 @@
 {% formfield player.q30 with label=" I have a very good sense of rhythm. " %}
 {% formfield player.q31 with label=" I am good at visualizing things. " %}
 
-    {% next_button %}
+</body>
+
+<button class="btn btn-primary btn-large" onclick="end()">
+  Next
+</button>
+
+<input type="hidden" name="dt_start" id="id_jsdectime_start" value=0>
+<input type="hidden" name="dt_end" id="id_jsdectime_end" value=0>
+
+<script>
+  function setStartTime() {
+    var d = new Date();
+    document.getElementById('id_jsdectime_start').value = d.getTime();
+  }
+  function end() {
+    var d = new Date();
+    document.getElementById('id_jsdectime_end').value = d.getTime();
+  }
+</script>
 
 {% endblock %}

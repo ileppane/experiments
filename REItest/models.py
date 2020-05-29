@@ -227,3 +227,23 @@ class Player(BasePlayer):
     q40 = models.PositiveIntegerField(
         choices = [[1,'1 = definitely not true'],[2, '2 = somewhat not true'],[3,'3 = neither true nor untrue'],[4,'4 = somewhat true'],[5,'5 = definitely true']], widget=widgets.RadioSelect())
     '''
+
+    ### The section below contains variables for decition times
+
+    dt_start = models.FloatField()
+    dt_end = models.FloatField()
+
+    dt_crt1 = models.FloatField()
+    dt_crt2 = models.FloatField()
+    dt_crt3 = models.FloatField()
+    dt_crt4 = models.FloatField()
+    dt_crt5 = models.FloatField()
+    dt_crt6 = models.FloatField()
+    dt_crt7 = models.FloatField()
+
+    dt_bnt1 = models.FloatField()
+    dt_bnt2 = models.FloatField()
+    dt_bnt3 = models.FloatField()
+    dt_bnt4 = models.FloatField()
+
+    dt_rei = models.FloatField()

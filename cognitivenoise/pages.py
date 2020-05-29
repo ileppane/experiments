@@ -140,6 +140,7 @@ class AfterPage(Page):
 class RestPage(Page):
 
     timeout_seconds = 300
+    timer_text = 'Time remaining for this break:'
 
     def is_displayed(self):
         rest_after = 3
@@ -150,6 +151,14 @@ class RestPage(Page):
             return False
 
     # def vars_for_template(self):
+
+class FinalSurvey(Page):
+
+    form_model = 'player'
+    form_fields = ['decmode']
+
+    def is_displayed(self):
+        return self.round_number == Constants.num_rounds
 
 
 class FinishPage(Page):
@@ -262,6 +271,7 @@ FixationPage,
 DecisionPage,
 AfterPage,
 RestPage,
+FinalSurvey,
 FinishPage
 ]
 

@@ -138,4 +138,7 @@ class Player(BasePlayer):
     certainty = models.FloatField()
     display = models.IntegerField()
 
+    decmode = models.PositiveIntegerField(
+        choices = [[1,'In the majority of the trials, I made choices based on some calculation of the potential returns of the lotteries.'],[2, 'In the majority of the trials, I mostly relied on my intuition to make decision about which option is better.']], widget=widgets.RadioSelect())
+
     pay = models.LongStringField()
