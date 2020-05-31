@@ -2,13 +2,116 @@
 {% load otree static %}
 
 {% block title %}
-<h1>Part Two</h1>
+<h1 style="font-size: 35px;">Part 2: Instructions</h1>
+
 {% endblock %}
 
 {% block content %}
 
-<p>Now you are invited to participate in an auction and is given $25 (= £5). Twelve lotteries will be presented to you one by one, and you are asked to specify how much you would like to spend to purchase them. After this, one lottery and the bid to it will be randomly selected to count, …</p>
+<body>
+  <article>
+    <h4>Auction and Your Payoff:</h4>
+    <p>Now you are invited to participate in an auction, and you are assigned with {{endowment}} (= {{pound}}) to make investment in lottery. Twelve lotteries will be presented to you one by one, and you are asked to specify how much you would like to spend to purchase each of them.</p>
 
-{% next_button %}
+    <p>After submitting your bids for all twelve lotteries, one lottery and your bid to it will be randomly selected to count. The system will also generate a random selling price for the selected lottery (the price is drawn between $0 and the award value of that lottery). If the random selling price is greater than your bid, you would not purchase the lottery and keep the entire {{endowment}}. Otherwise, if the random selling price is less than or equal to your bid, you would purchase the lottery, in this case, your payoff would be the rest of the {{endowment}} plus the outcome of the lottery.</p>
+
+    <p>When you bid for a lottery, you should NOT think about reserving money for other lotteries, because in the end, one and only one lottery out of the total twelve will be selected to count.</p>
+  </article>
+
+  <article class="figure">
+    <h5>Figure 1:</h5>
+    <div class="lottery">
+      <div class="risk_up_div" style="height: {{ risk_up_px }};">
+        <p class="risk_up_txt">{{ risk_up }}</p>
+      </div>
+      <div class="risk_down_div"  style="height: {{ risk_down_px }};">
+        <p class="risk_down_txt">{{ risk_down }}</p>
+      </div>
+      <div class="reward_div">
+        <p class="reward_txt">{{ reward }}</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="text">
+    <h4>Lotteries and Bids:</h4>
+    <p>The Figure 1 on the right shows how a lottery is depicted: The values in the blue and red boxes represent the chances of winning and losing the lottery, respectively. The monetary amount at the bottom is the reward of winning the lottery.</p>
+
+    <p>As such, the lottery shown in the Figure 1 has {{risk_down}} percent of chance winning an award of {{reward}}. If you bid {{bid}} for this lottery and it is being chosen to count, you can have two possible payoffs. In case you win the lottery ({{risk_down}}%), your payoff increases to {{win}} ({{endowment}} - {{bid}} + {{reward}})</p>
+
+    <p>The system will let you know what is the “reasonable” price range for the lottery being presented to you: you cannot bid a price that is greater than the lottery’s reward, because such investment means taking unnecessary risk. In addition, if the Lottery A is “strictly better” than the Lottery B, your bid to the Lottery A must be higher. For example, if the Lottery A and B have the same chance of winning, but the former provides greater reward, then your valuation for the Lottery A should be higher. Similarly, you should value the Lottery A more than the Lottery B if the they offer the same reward but the Lottery A has higher chance of winning. The reasonable price range will be shown to you while you make bids.</p>
+
+    <p>Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test </p>
+
+    {% next_button %}
+
+  </article>
+
+</body>
+
+
+<style type="text/css">
+
+  h4 {
+    text-decoration: underline;
+  }
+
+  .text {
+    float: none;
+  }
+
+  .figure {
+    float: right;
+    width: 25%;
+    padding: 20px;
+  }
+
+  .lottery {
+    background-color: black;
+    padding: 20px;
+    vertical-align: middle;
+    /* height: 420px; */
+  }
+
+  .risk_up_div {
+    width: 100px;
+    background: red;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .risk_up_txt {
+    color: white;
+    font-size: 25px;
+    position: relative;
+    top: {{risk_up_posi}};
+  }
+
+  .risk_down_div {
+    width: 100px;
+    background: blue;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .risk_down_txt {
+    color: white;
+    font-size: 25px;
+    position: relative;
+    top: {{risk_down_posi}};
+  }
+
+  .reward_div {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .reward_txt {
+    color: white;
+    font-weight: normal;
+    font-size: 40px;
+  }
+</style>
+
 
 {% endblock %}

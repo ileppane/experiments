@@ -9,6 +9,45 @@ class Initial(Page):
     def is_displayed(self):
         return self.round_number == 1
 
+    def vars_for_template(self):
+
+        endowment = 25
+        pound = endowment / 5 # divided by the exchange rate
+        if pound.is_integer():
+            pound = int(pound)
+
+        reward = 12
+        risk = 75
+
+        risk_up = str(100 - risk)
+        risk_up_px = ((100 - risk) / 100) * 300
+        risk_down = str(risk)
+        risk_down_px = (risk / 100) * 300
+
+        bid = 8.5
+        win = endowment - bid + reward
+        loss = endowment - bid
+
+        return {
+            'endowment': '$' + str(endowment),
+            'pound': '£' + str(pound),
+
+            'reward': '$' + str(reward),
+
+            'risk_up': risk_up,
+            'risk_up_px': str(risk_up_px)+"px",
+            'risk_down': risk_down,
+            'risk_down_px': str(risk_down_px)+"px",
+
+            'risk_up_posi': str(risk_up_px * 0.5 - 20)+"px",
+            'risk_down_posi': str(risk_down_px * 0.5 - 20)+"px",
+
+            'bid': '$' + str(bid),
+            'win': '$' + str(win),
+            'loss': '$' + str(loss),
+        }
+
+
 class Auction(Page):
 
     form_model = 'player'

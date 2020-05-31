@@ -1,3 +1,161 @@
+{% extends "global/Page.html" %}
 {% load otree static %}
 
-<p>These are general instructions for the decision task.</p>
+{% block title %}
+<h1 style="font-size: 35px;">Part 3: Instructions</h1>
+
+{% endblock %}
+
+{% block content %}
+
+<body>
+  <article>
+    <h4>Binary Choices and Your Payoff:</h4>
+    <p>In the following part, you are asked to make investment decisions based on binary choices. Same with the Part 2, you are assigned with {{endowment}} (= {{pound}}). In total, 324 trials will be presented to you. As is shown in the Figure 2 below, in each trial, you will see the a lottery and a monetary amount, which is the selling price of that lottery. You need to decide whether to purchase the lottery by choosing between those two options.</p>
+
+    <p>After completing this section, one random trial will be selected to count. If you chose the lottery in that trial, you will receive it at the price of the monetary amount in the same trial. On the other hand, if the money was chosen, you will keep the entire {{endowment}} and leave without a lottery.</p>
+
+  </article>
+
+  <article class="figure">
+    <h5>Figure 2:</h5>
+    <div class="background">
+      <!-- lottery shown on the right hand side -->
+      <section>
+        <article class="binary">
+
+          <div class="certainty_div">
+            <p class = "certainty_txt">{{ certainty }}</p>
+
+          </div>
+
+        </article>
+
+        <article class="binary">
+          <div class="risk_up_div" style="height: {{ risk_up_px }};">
+            <p class="risk_up_txt">{{ risk_up }}</p>
+          </div>
+          <div class="risk_down_div"  style="height: {{ risk_down_px }};">
+            <p class="risk_down_txt">{{ risk_down }}</p>
+          </div>
+          <div class="reward_div">
+            <p class="reward_txt">{{ reward }}</p>
+          </div>
+
+        </article>
+      </section>
+    </div>
+  </article>
+
+  <article class="text">
+    <h4>Further Instructions:</h4>
+    <p>To make the choice between the lottery and monetary amount, you can and can only use the left key (&#8592) and the right key (&#8594) on your keyboard, they are located on the bottom-right of a standard keyboard.</p>
+
+    <p>When the choice trials start, we would like to ask you to concentrate on making investment decisions without interruptions. You will have opportunity to take breaks after the trial 108 and 216.</p>
+
+    <p>Before starting the actual trials, we prepared a short practice session (six trials) for you to be familiar with the mechanism in this section. You can start the practice session by clicking the “Next” button below.</p>
+
+    <p>Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test.</p>
+
+    {% next_button %}
+
+  </article>
+
+</body>
+
+{% endblock %}
+
+{% block styles %}
+<style type="text/css">
+
+  h4 {
+    text-decoration: underline;
+  }
+
+  .figure {
+    float: right;
+    width: 60%;
+    padding: 20px;
+    /* height: 300px; */
+  }
+
+  .text {
+    width: 100%;
+  }
+
+  .binary {
+    float: left;
+    width: 50%;
+    background-color: black;
+    padding: 20px;
+    vertical-align: middle;
+    height: 410px;
+    box-sizing: border-box;
+    border: 5px solid transparent;
+  }
+
+  /* Clear floats after the columns */
+  section:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  section p {
+    color: white;
+  }
+
+  .risk_up_div {
+    width: 100px;
+    background: red;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .risk_up_txt {
+    font-size: 25px;
+    position: relative;
+    top: {{risk_up_posi}};
+  }
+
+  .risk_down_div {
+    width: 100px;
+    background: blue;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .risk_down_txt {
+    font-size: 25px;
+    position: relative;
+    top: {{risk_down_posi}};
+  }
+
+  .reward_div {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .reward_txt {
+    font-weight: normal;
+    font-size: 40px;
+  }
+
+  .certainty_div {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .certainty_txt {
+    /* font-family: "Times New Roman", Times, serif;
+    font-weight: normal;
+    font-size: 90px; */
+    font-weight: 300;
+    font-size: 85px;
+    position: relative;
+    top: 120px;
+  }
+
+
+</style>
+{% endblock %}

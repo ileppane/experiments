@@ -5,6 +5,50 @@ import numpy as np
 import pandas as pd
 import time
 
+# This page is to be shown at the beginning of the practice session.
+class Instructions(Page):
+
+    def is_displayed(self):
+        return self.round_number == 1
+
+    def vars_for_template(self):
+
+        endowment = 25
+        pound = endowment / 5 # divided by the exchange rate
+        if pound.is_integer():
+            pound = int(pound)
+
+        reward = 12
+        risk = 75
+        certainty = 7.6
+
+        risk_up = str(100 - risk)
+        risk_up_px = ((100 - risk) / 100) * 300
+        risk_down = str(risk)
+        risk_down_px = (risk / 100) * 300
+
+        win = endowment - certainty + reward
+        loss = endowment - certainty
+
+        return {
+            'endowment': '$' + str(endowment),
+            'pound': '£' + str(pound),
+
+            'reward': '$' + str(reward),
+            'certainty': '$' + str(certainty),
+
+            'risk_up': risk_up,
+            'risk_up_px': str(risk_up_px)+"px",
+            'risk_down': risk_down,
+            'risk_down_px': str(risk_down_px)+"px",
+
+            'risk_up_posi': str(risk_up_px * 0.5 - 20)+"px",
+            'risk_down_posi': str(risk_down_px * 0.5 - 20)+"px",
+
+            'win': '$' + str(win),
+            'loss': '$' + str(loss),
+        }
+
 
 class InitialPage(Page):
 
@@ -266,6 +310,7 @@ class FinishPage(Page):
 
 
 page_sequence = [
+Instructions,
 InitialPage,
 FixationPage,
 DecisionPage,
