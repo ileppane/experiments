@@ -34,6 +34,9 @@ class Subsession(BaseSubsession):
             t = 1000 * time.time() # current time in milliseconds
             self.session.vars['seed1'] = int(t) % 2**32
 
+            self.session.vars['endowment'] = 25 # $ assigned in one part
+            self.session.vars['exchange'] = 5 # $/£
+
 class Group(BaseGroup):
     pass
 

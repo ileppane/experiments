@@ -11,8 +11,11 @@ class Initial(Page):
 
     def vars_for_template(self):
 
-        endowment = 25
-        pound = endowment / 5 # divided by the exchange rate
+        endowment = self.session.vars['endowment']
+        pound = endowment / self.session.vars['exchange']
+        # endowment = 25
+        # pound = endowment / 5
+
         if pound.is_integer():
             pound = int(pound)
 
@@ -127,7 +130,7 @@ class End(Page):
 
         ######
 
-        endowment = 32
+        endowment = self.session.vars['endowment']
 
         pick_round = np.random.choice(range(1, Constants.num_rounds +1))
 
@@ -137,7 +140,7 @@ class End(Page):
         selling_price = round(np.random.uniform(0, reward), 2)
 
         WTP = self.player.in_round(pick_round).WTP
-        if selling_price < WTP:
+        if selling_price <= WTP:
             proceed = True
         else:
             proceed = False
@@ -145,12 +148,14 @@ class End(Page):
         dice = np.random.randint(1, 101)
         if dice <= risk:
             win = True
-            payoff = endowment - selling_price + reward
+            payoff = round(endowment - selling_price + reward, 2)
         else:
             win = False
-            payoff = endowment - selling_price
+            payoff = round(endowment - selling_price, 2)
 
         payoff_auc = {"endowment": endowment, "pick_round": pick_round, "reward": reward, "risk": risk, "WTP": WTP, "selling_price": selling_price, "proceed": proceed, "win": win, "payoff": payoff}
+
+        self.player.payoff_auc = str(payoff_auc)
 
         self.participant.vars['payoff_auc'] = payoff_auc
 

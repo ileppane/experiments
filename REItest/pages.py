@@ -8,7 +8,25 @@ import numpy as np
 
 
 class Introduction(Page):
-    pass
+
+    def vars_for_template(self):
+
+        endowment = self.session.vars['endowment']
+        exchange = self.session.vars['exchange']
+        pound = endowment / exchange
+
+        if pound.is_integer():
+            pound = int(pound)
+
+        pound_total = pound * 2
+
+        return {
+            'endowment': '$' + str(endowment),
+            'exchange': exchange,
+            'pound': '£' + str(pound),
+            'pound_total': '£' + str(pound_total)
+        }
+
 
 """ CRT """
 class CRT1page(Page):
@@ -245,9 +263,26 @@ CRT_seq = [CRT1page, CRT2page, CRT3page, CRT4page, CRT5page, CRT6page, CRT7page]
 
 BNT_seq = [BNT1page, BNT2page, BNT3page, BNT4page]
 
-np.random.shuffle(CRT_seq)
-np.random.shuffle(BNT_seq)
+# np.random.shuffle(CRT_seq)
+# np.random.shuffle(BNT_seq)
 
 s1_total = len(CRT_seq) + len(BNT_seq)
 
-page_sequence = [Introduction] + CRT_seq + BNT_seq + [REIpage] + [End]
+# page_sequence = [Introduction] + [REIpage] + CRT_seq + BNT_seq + [End]
+
+page_sequence = [
+Introduction,
+REIpage,
+CRT1page,
+CRT2page,
+CRT3page,
+CRT4page,
+CRT5page,
+CRT6page,
+CRT7page,
+BNT1page,
+BNT2page,
+BNT3page,
+BNT4page,
+End
+]

@@ -10,45 +10,50 @@
 
 <body onload="setStartTime()">
 
-  <article class="auction">
+  <div class="container">
 
-    <!-- <h4>type in your valuation of the lottery</h4>
-    <br> -->
+    <article class="auction">
 
-    <p class="instruction"> <b>Reminder</b> <br>A reasonable price of this lottery should be: <br> -Greater than {{ floor }} <br> -Less than {{ reward }}</p>
-    <br>
+      <!-- <h4>type in your valuation of the lottery</h4>
+      <br> -->
 
-    <p class="instruction">Type in your valuation:</p>
+      <p class="instruction1"> <b>Reminder:</b> <br>The values in the blue and red boxes represent the probability of winning and losing the lottery, respectively. The monetary amount at the bottom is the reward in case of winning.</p>
 
-    <div style="float: left; font-size: 25px; position: relative; left: 5px;">
-      <p>$</p>
-    </div>
+      <br>
+      <p class="instruction2">A reasonable price of this lottery should be: <br> - Greater than {{ floor }} <br> - Less than {{ reward }}</p>
 
-    <div style="position: relative; left: 15px;">
-      {% formfield player.WTP label = "" %}
-    </div>
+      <p class="instruction2">Type in your bid:</p>
 
-    <br><br>
+      <div style="float: left; font-size: 25px; position: relative; left: 5px;">
+        <p>$</p>
+      </div>
 
-    <button class="btn btn-primary btn-large" onclick="end()">
-    Next
-    </button>
+      <div style="position: relative; left: 15px;">
+        {% formfield player.WTP label = "" %}
+      </div>
 
-  </article>
+      <br>
 
+      <button class="btn btn-primary btn-large" onclick="end()">
+        submit your bid for this lottery
+      </button>
 
-  <article class="lottery">
-    <div class="risk_up_div" style="height: {{ risk_up_px }};">
-      <p class="risk_up_txt">{{ risk_up }}</p>
-    </div>
-    <div class="risk_down_div"  style="height: {{ risk_down_px }};">
-      <p class="risk_down_txt">{{ risk_down }}</p>
-    </div>
-    <div class="reward_div">
-      <p class="reward_txt">{{ reward }}</p>
-    </div>
+    </article>
 
-  </article>
+    <article class="lottery">
+      <div class="risk_up_div" style="height: {{ risk_up_px }};">
+        <p class="risk_up_txt">{{ risk_up }}</p>
+      </div>
+      <div class="risk_down_div"  style="height: {{ risk_down_px }};">
+        <p class="risk_down_txt">{{ risk_down }}</p>
+      </div>
+      <div class="reward_div">
+        <p class="reward_txt">{{ reward }}</p>
+      </div>
+
+    </article>
+
+  </div>
 
 </body>
 
@@ -69,11 +74,22 @@
 <!-- thie following section is for the lottery and instruction -->
 <style type="text/css">
 
-  .instruction {
+  .container {
+    /* float: left; */
+    /* width: 100%; */
+    overflow: hidden;
+    /* overflow: auto; */
+  }
+
+  .instruction1 {
+    font-size: 20px;
+    /* font-style: italic; */
+  }
+
+  .instruction2 {
     font-size: 20px;
     font-style: italic;
   }
-
 
   .auction {
     float: left;

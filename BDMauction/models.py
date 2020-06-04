@@ -90,7 +90,7 @@ def decimal_places(number):
 class Constants(BaseConstants):
     name_in_url = 'BDMauction'
     players_per_group = None
-    num_rounds = 1
+    num_rounds = 3
     # num_rounds should be 12 when deployed in experiment
 
 
@@ -102,6 +102,8 @@ class Subsession(BaseSubsession):
             t = 1000 * time.time() # current time in milliseconds
             self.session.vars['seed2'] = int(t) % 2**32
 
+            # self.session.vars['endowment'] = 25 # $ assigned in one part
+            # self.session.vars['exchange'] = 5 # $/£
 
 class Group(BaseGroup):
     pass
@@ -121,6 +123,9 @@ class Player(BasePlayer):
     risk = models.FloatField()
 
     floor = models.FloatField()
+
+    payoff_auc = models.LongStringField()
+
 
     def WTP_max(self):
 

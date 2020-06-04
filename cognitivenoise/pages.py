@@ -5,51 +5,6 @@ import numpy as np
 import pandas as pd
 import time
 
-# This page is to be shown at the beginning of the practice session.
-class Instructions(Page):
-
-    def is_displayed(self):
-        return self.round_number == 1
-
-    def vars_for_template(self):
-
-        endowment = 25
-        pound = endowment / 5 # divided by the exchange rate
-        if pound.is_integer():
-            pound = int(pound)
-
-        reward = 12
-        risk = 75
-        certainty = 7.6
-
-        risk_up = str(100 - risk)
-        risk_up_px = ((100 - risk) / 100) * 300
-        risk_down = str(risk)
-        risk_down_px = (risk / 100) * 300
-
-        win = endowment - certainty + reward
-        loss = endowment - certainty
-
-        return {
-            'endowment': '$' + str(endowment),
-            'pound': '£' + str(pound),
-
-            'reward': '$' + str(reward),
-            'certainty': '$' + str(certainty),
-
-            'risk_up': risk_up,
-            'risk_up_px': str(risk_up_px)+"px",
-            'risk_down': risk_down,
-            'risk_down_px': str(risk_down_px)+"px",
-
-            'risk_up_posi': str(risk_up_px * 0.5 - 20)+"px",
-            'risk_down_posi': str(risk_down_px * 0.5 - 20)+"px",
-
-            'win': '$' + str(win),
-            'loss': '$' + str(loss),
-        }
-
-
 class InitialPage(Page):
 
     def is_displayed(self):
@@ -133,8 +88,12 @@ class DecisionPage(Page):
 
         self.player.treatment = self.session.vars["treatment"]
 
-
-
+        if self.player.choice == 'right' and self.player.display == 0:
+            self.player.lottery = 1
+        elif self.player.choice == 'left' and self.player.display == 1:
+            self.player.lottery = 1
+        else:
+            self.player.lottery = 0
 
 class AfterPage(Page):
     # This AfterPage is used to display the confirmation animation, and to make the environment for Python time recording as simple as possible.
@@ -180,21 +139,45 @@ class AfterPage(Page):
             'choice': choice
         }
 
+    def before_next_page(self):
+        if self.round_number in rest_round:
+            self.player.pyresttime = set_time()
+        else:
+            pass
+
+rest_limit = 300 # seconds
+rest_round = [5]
+# rest_round = [108,216]
 
 class RestPage(Page):
 
-    timeout_seconds = 300
+    timeout_seconds = rest_limit
     timer_text = 'Time remaining for this break:'
 
     def is_displayed(self):
-        rest_after = 3
-        rest_round = list(range(rest_after, Constants.num_rounds, rest_after))
-        if self.round_number in rest_round:
+        # rest_after = 3
+        # rest = list(range(rest_after, Constants.num_rounds, rest_after))
+
+        rest = rest_round
+
+        if self.round_number in rest:
             return True
         else:
             return False
 
-    # def vars_for_template(self):
+    def vars_for_template(self):
+        rest_minites = rest_limit / 60
+
+        if rest_minites.is_integer():
+            rest_minites = int(rest_minites)
+
+        return {
+            'rest_minites': rest_minites
+        }
+
+    def before_next_page(self):
+        self.player.pyresttime = set_time() - self.player.pyresttime
+
 
 class FinalSurvey(Page):
 
@@ -220,7 +203,10 @@ class FinishPage(Page):
         payoff_auc = self.participant.vars['payoff_auc']
 
         ######
-        endowment = 32
+        endowment = self.session.vars['endowment']
+        exchange = self.session.vars['exchange']
+        # endowment = 25
+        # exchange = 5
 
         pick_round = np.random.choice(range(1, Constants.num_rounds +1))
 
@@ -228,9 +214,9 @@ class FinishPage(Page):
         risk = int(self.player.in_round(pick_round).risk)
         certainty = self.player.in_round(pick_round).certainty
         display = self.player.in_round(pick_round).display
+        lottery = self.player.in_round(pick_round).lottery
 
-        LR = self.player.in_round(pick_round).choice
-        if display == 0 and LR == 'left' or display == 1 and LR == 'right':
+        if lottery == 1:
             # lottery is chosen
             proceed = True
         else:
@@ -239,78 +225,92 @@ class FinishPage(Page):
         dice = np.random.randint(1, 101)
         if dice <= risk:
             win = True
-            payoff = endowment - certainty + reward
+            payoff = round(endowment - certainty + reward, 2)
         else:
             win = False
-            payoff = endowment - certainty
+            payoff = round(endowment - certainty, 2)
 
         payoff_ddm = {"endowment": endowment, "pick_round": pick_round, "reward": reward, "risk": risk, "certainty": certainty, "proceed": proceed, "win": win, "payoff": payoff}
 
-        # # Just to test the program
-        # pay_from = 'auc'
-        # pay_from = 'ddm'
-
-        pay_from = np.random.choice(['auc','ddm'])
-
         # record the payoff info
-        if pay_from == 'auc':
-            payoff_auc["pay_from"] = "auc"
-            self.player.pay = str(payoff_auc)
-        else:
-            payoff_ddm["pay_from"] = "ddm"
-            self.player.pay = str(payoff_ddm)
+        self.player.payoff_ddm = str(payoff_ddm)
+
+        pay_sum = payoff_auc['payoff'] + payoff_ddm['payoff']
+        pay_pound = round(pay_sum / exchange, 2)
+        self.player.pay_pound = pay_pound
 
         # scenario verdict
-        if pay_from == 'auc':
-            # payoff to be chosen from the acution
-            if payoff_auc["proceed"] == False:
-                scenario = 1
-                # selling price greater than the WTP
-            elif payoff_auc["win"] == False:
-                scenario = 2
-                # open lottery and lose
-            else:
-                scenario = 3
-                # open lottery and win
+        if payoff_auc["proceed"] == False and payoff_ddm["proceed"] == False:
+            scenario = 1
+            # In auction: no lottery
+            # In choice: no lottery
 
-            return {
-                'scenario': scenario,
-                'endowment': payoff_auc["endowment"],
-                'pick_round': payoff_auc["pick_round"],
-                'reward': payoff_auc["reward"],
-                'risk': payoff_auc["risk"],
-                'WTP': payoff_auc["WTP"],
-                'selling_price': payoff_auc["selling_price"],
-                'payoff': payoff_auc["payoff"]
-            }
+        if payoff_auc["proceed"] == False and payoff_ddm["proceed"] == True and payoff_ddm["win"] == False:
+            scenario = 2
+            # In auction: no lottery
+            # In choice: lose lottery
 
-        # payoff to be chosen from the binary choices
-        else:
-            if payoff_ddm["proceed"] == False:
-                scenario = 4
-                # did not choose to purchase the lottery
-            elif payoff_ddm["win"] == False:
-                scenario = 5
-                # open lottery and lose
-            else:
-                scenario = 6
-                # open lottery and win
+        if payoff_auc["proceed"] == False and payoff_ddm["proceed"] == True and payoff_ddm["win"] == True:
+            scenario = 3
+            # In auction: no lottery
+            # In choice: win lottery
 
-            return {
-                'scenario': scenario,
-                'endowment': payoff_ddm["endowment"],
-                'pick_round': payoff_ddm["pick_round"],
-                'reward': payoff_ddm["reward"],
-                'risk': payoff_ddm["risk"],
-                'certainty': payoff_ddm["certainty"],
-                'payoff': payoff_ddm["payoff"]
-            }
+        if payoff_auc["proceed"] == True and payoff_auc["win"] == False and payoff_ddm["proceed"] == False:
+            scenario = 4
+            # In auction: lose lottery
+            # In choice: no lottery
 
+        if payoff_auc["proceed"] == True and payoff_auc["win"] == False and payoff_ddm["proceed"] == True and payoff_ddm["win"] == False:
+            scenario = 5
+            # In auction: lose lottery
+            # In choice: lose lottery
 
+        if payoff_auc["proceed"] == True and payoff_auc["win"] == False and payoff_ddm["proceed"] == True and payoff_ddm["win"] == True:
+            scenario = 6
+            # In auction: lose lottery
+            # In choice: win lottery
 
+        if payoff_auc["proceed"] == True and payoff_auc["win"] == True and payoff_ddm["proceed"] == False:
+            scenario = 7
+            # In auction: win lottery
+            # In choice: no lottery
+
+        if payoff_auc["proceed"] == True and payoff_auc["win"] == True and payoff_ddm["proceed"] == True and payoff_ddm["win"] == False:
+            scenario = 8
+            # In auction: win lottery
+            # In choice: lose lottery
+
+        if payoff_auc["proceed"] == True and payoff_auc["win"] == True and payoff_ddm["proceed"] == True and payoff_ddm["win"] == True:
+            scenario = 9
+            # In auction: win lottery
+            # In choice: win lottery
+
+        return {
+            'scenario': scenario,
+
+            'endowment_auc': payoff_auc["endowment"],
+            'pick_round_auc': payoff_auc["pick_round"],
+            'reward_auc': payoff_auc["reward"],
+            'risk_auc': payoff_auc["risk"],
+            'WTP_auc': payoff_auc["WTP"],
+            'selling_price_auc': payoff_auc["selling_price"],
+            'payoff_auc': payoff_auc["payoff"],
+
+            'endowment_ddm': payoff_ddm["endowment"],
+            'pick_round_ddm': payoff_ddm["pick_round"],
+            'reward_ddm': payoff_ddm["reward"],
+            'risk_ddm': payoff_ddm["risk"],
+            'certainty_ddm': payoff_ddm["certainty"],
+            'payoff_ddm': payoff_ddm["payoff"],
+
+            'pay_sum': pay_sum,
+            'pay_pound': pay_pound,
+
+            'prolificurl': self.session.config['prolificurl']
+            # 'prolificurl': 'http://www.google.com'
+        }
 
 page_sequence = [
-Instructions,
 InitialPage,
 FixationPage,
 DecisionPage,

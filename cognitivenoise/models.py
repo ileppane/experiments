@@ -102,7 +102,7 @@ def set_time():
 class Constants(BaseConstants):
     name_in_url = 'cognitivenoise'
     players_per_group = None
-    num_rounds = 6
+    num_rounds = 10
     # num_rounds should be changed to 324 when deployed in experiment
 
     # instructions_template = 'cognitivenoise/Instructions.html'
@@ -123,7 +123,6 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     treatment = models.StringField()
 
-
     choice = models.StringField()
 
     # decision time collected by JavaScript method
@@ -133,12 +132,18 @@ class Player(BasePlayer):
     # decision time collected by Python method
     pydectime = models.FloatField()
 
+    pyresttime = models.FloatField()
+
     reward = models.FloatField()
     risk = models.FloatField()
     certainty = models.FloatField()
     display = models.IntegerField()
 
+    # Whether the lottery is chosen in the trial: 1 = yes, 0 = no
+    lottery = models.IntegerField()
+
     decmode = models.PositiveIntegerField(
         choices = [[1,'In the majority of the trials, I made choices based on some calculation of the potential returns of the lotteries.'],[2, 'In the majority of the trials, I mostly relied on my intuition to make decision about which option is better.']], widget=widgets.RadioSelect())
 
-    pay = models.LongStringField()
+    payoff_ddm = models.LongStringField()
+    pay_pound = models.FloatField()
