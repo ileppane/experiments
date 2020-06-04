@@ -9,130 +9,36 @@
 {% block content %}
 
 <div>
-{% if scenario == 1 %}
 <h4>For your payment from the Part 2:</h4>
 <p>Your payoff is decided based on the round {{pick_round_auc}}. In that round your faced a lottery with {{risk_auc}}% of chance winning ${{reward_auc}}. Your biding price for this lottery is ${{WTP_auc}}.</p>
 
+{% if scenario_auc == 1 %}
 <p>The generated selling price is ${{selling_price_auc}}, which is greater than your biding price. Therefore, you did not purchase the lottery. Your payoff from this part is ${{endowment_auc}}</p>
-
-<h4>For your payment from the Part 3:</h4>
-<p>Your payoff is decided based on the round {{pick_round_ddm}}. In that round you were asked if you would like to spend ${{certainty_ddm}} to purcahse a lottery with {{risk_ddm}}% of chance winning ${{reward_ddm}}.</p>
-
-<p>You did not buy the lottery. Your payoff from this part is ${{endowment_ddm}}</p>
-
 {% endif %}
 
-
-{% if scenario == 2 %}
-<h4>For your payment from the Part 2:</h4>
-<p>Your payoff is decided based on the round {{pick_round_auc}}. In that round your faced a lottery with {{risk_auc}}% of chance winning ${{reward_auc}}. Your biding price for this lottery is ${{WTP_auc}}.</p>
-
-<p>The generated selling price is ${{selling_price_auc}}, which is greater than your biding price. Therefore, you did not purchase the lottery. Your payoff from this part is ${{endowment_auc}}</p>
-
-<h4>For your payment from the Part 3:</h4>
-<p>Your payoff is decided based on the round {{pick_round_ddm}}. In that round you were asked if you would like to spend ${{certainty_ddm}} to purcahse a lottery with {{risk_ddm}}% of chance winning ${{reward_ddm}}.</p>
-
-<p>You bought the lottery. Unfortunately, you did not win the reward. Your payoff from this part is ${{payoff_ddm}}</p>
-
-{% endif %}
-
-
-{% if scenario == 3 %}
-<h4>For your payment from the Part 2:</h4>
-<p>Your payoff is decided based on the round {{pick_round_auc}}. In that round your faced a lottery with {{risk_auc}}% of chance winning ${{reward_auc}}. Your biding price for this lottery is ${{WTP_auc}}.</p>
-
-<p>The generated selling price is ${{selling_price_auc}}, which is greater than your biding price. Therefore, you did not purchase the lottery. Your payoff from this part is ${{endowment_auc}}</p>
-
-<h4>For your payment from the Part 3:</h4>
-<p>Your payoff is decided based on the round {{pick_round_ddm}}. In that round you were asked if you would like to spend ${{certainty_ddm}} to purcahse a lottery with {{risk_ddm}}% of chance winning ${{reward_ddm}}.</p>
-
-<p>You bought the lottery. Congradulation! you won the reward. Your payoff from this part is ${{payoff_ddm}}</p>
-
-{% endif %}
-
-
-{% if scenario == 4 %}
-<h4>For your payment from the Part 2:</h4>
-<p>Your payoff is decided based on the round {{pick_round_auc}}. In that round your faced a lottery with {{risk_auc}}% of chance winning ${{reward_auc}}. Your biding price for this lottery is ${{WTP_auc}}.</p>
-
+{% if scenario_auc == 2 %}
 <p>The generated selling price is ${{selling_price_auc}}, which is less than your biding price. Therefore, you purchased the lottery at the selling price. Unfortunately, you did not win the reward. Your payoff from this part is ${{payoff_auc}}</p>
+{% endif %}
+
+{% if scenario_auc == 3 %}
+<p>The generated selling price is ${{selling_price_auc}}, which is less than your biding price. Therefore, you purchased the lottery at the selling price. Congradulation! you won the reward. Your payoff from this part is ${{payoff_auc}}</p>
+{% endif %}
 
 <h4>For your payment from the Part 3:</h4>
 <p>Your payoff is decided based on the round {{pick_round_ddm}}. In that round you were asked if you would like to spend ${{certainty_ddm}} to purcahse a lottery with {{risk_ddm}}% of chance winning ${{reward_ddm}}.</p>
 
+{% if scenario_ddm == 1 %}
 <p>You did not buy the lottery. Your payoff from this part is ${{endowment_ddm}}</p>
-
 {% endif %}
 
-
-{% if scenario == 5 %}
-<h4>For your payment from the Part 2:</h4>
-<p>Your payoff is decided based on the round {{pick_round_auc}}. In that round your faced a lottery with {{risk_auc}}% of chance winning ${{reward_auc}}. Your biding price for this lottery is ${{WTP_auc}}.</p>
-
-<p>The generated selling price is ${{selling_price_auc}}, which is less than your biding price. Therefore, you purchased the lottery at the selling price. Unfortunately, you did not win the reward. Your payoff from this part is ${{payoff_auc}}</p>
-
-<h4>For your payment from the Part 3:</h4>
-<p>Your payoff is decided based on the round {{pick_round_ddm}}. In that round you were asked if you would like to spend ${{certainty_ddm}} to purcahse a lottery with {{risk_ddm}}% of chance winning ${{reward_ddm}}.</p>
-
+{% if scenario_ddm == 2 %}
 <p>You bought the lottery. Unfortunately, you did not win the reward. Your payoff from this part is ${{payoff_ddm}}</p>
-
 {% endif %}
 
-
-{% if scenario == 6 %}
-<h4>For your payment from the Part 2:</h4>
-<p>Your payoff is decided based on the round {{pick_round_auc}}. In that round your faced a lottery with {{risk_auc}}% of chance winning ${{reward_auc}}. Your biding price for this lottery is ${{WTP_auc}}.</p>
-
-<p>The generated selling price is ${{selling_price_auc}}, which is less than your biding price. Therefore, you purchased the lottery at the selling price. Unfortunately, you did not win the reward. Your payoff from this part is ${{payoff_auc}}</p>
-
-<h4>For your payment from the Part 3:</h4>
-<p>Your payoff is decided based on the round {{pick_round_ddm}}. In that round you were asked if you would like to spend ${{certainty_ddm}} to purcahse a lottery with {{risk_ddm}}% of chance winning ${{reward_ddm}}.</p>
-
+{% if scenario_ddm == 3 %}
 <p>You bought the lottery. Congradulation! you won the reward. Your payoff from this part is ${{payoff_ddm}}</p>
-
 {% endif %}
 
-
-{% if scenario == 7 %}
-<h4>For your payment from the Part 2:</h4>
-<p>Your payoff is decided based on the round {{pick_round_auc}}. In that round your faced a lottery with {{risk_auc}}% of chance winning ${{reward_auc}}. Your biding price for this lottery is ${{WTP_auc}}.</p>
-
-<p>The generated selling price is ${{selling_price_auc}}, which is less than your biding price. Therefore, you purchased the lottery at the selling price. Congradulation! you won the reward. Your payoff from this part is ${{payoff_auc}}</p>
-
-<h4>For your payment from the Part 3:</h4>
-<p>Your payoff is decided based on the round {{pick_round_ddm}}. In that round you were asked if you would like to spend ${{certainty_ddm}} to purcahse a lottery with {{risk_ddm}}% of chance winning ${{reward_ddm}}.</p>
-
-<p>You did not buy the lottery. Your payoff from this part is ${{endowment_ddm}}</p>
-
-{% endif %}
-
-
-{% if scenario == 8 %}
-<h4>For your payment from the Part 2:</h4>
-<p>Your payoff is decided based on the round {{pick_round_auc}}. In that round your faced a lottery with {{risk_auc}}% of chance winning ${{reward_auc}}. Your biding price for this lottery is ${{WTP_auc}}.</p>
-
-<p>The generated selling price is ${{selling_price_auc}}, which is less than your biding price. Therefore, you purchased the lottery at the selling price. Congradulation! you won the reward. Your payoff from this part is ${{payoff_auc}}</p>
-
-<h4>For your payment from the Part 3:</h4>
-<p>Your payoff is decided based on the round {{pick_round_ddm}}. In that round you were asked if you would like to spend ${{certainty_ddm}} to purcahse a lottery with {{risk_ddm}}% of chance winning ${{reward_ddm}}.</p>
-
-<p>You bought the lottery. Unfortunately, you did not win the reward. Your payoff from this part is ${{payoff_ddm}}</p>
-
-{% endif %}
-
-
-{% if scenario == 9 %}
-<h4>For your payment from the Part 2:</h4>
-<p>Your payoff is decided based on the round {{pick_round_auc}}. In that round your faced a lottery with {{risk_auc}}% of chance winning ${{reward_auc}}. Your biding price for this lottery is ${{WTP_auc}}.</p>
-
-<p>The generated selling price is ${{selling_price_auc}}, which is less than your biding price. Therefore, you purchased the lottery at the selling price. Congradulation! you won the reward. Your payoff from this part is ${{payoff_auc}}</p>
-
-<h4>For your payment from the Part 3:</h4>
-<p>Your payoff is decided based on the round {{pick_round_ddm}}. In that round you were asked if you would like to spend ${{certainty_ddm}} to purcahse a lottery with {{risk_ddm}}% of chance winning ${{reward_ddm}}.</p>
-
-<p>You bought the lottery. Congradulation! you won the reward. Your payoff from this part is ${{payoff_ddm}}</p>
-
-{% endif %}
 </div>
 
 <div>

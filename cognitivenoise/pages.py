@@ -240,68 +240,46 @@ class FinishPage(Page):
         self.player.pay_pound = pay_pound
 
         # scenario verdict
-        if payoff_auc["proceed"] == False and payoff_ddm["proceed"] == False:
-            scenario = 1
+        if payoff_auc["proceed"] == False:
+            scenario_auc = 1
             # In auction: no lottery
+
+        if payoff_auc["proceed"] == True and payoff_auc["win"] == False:
+            scenario_auc = 2
+            # In auction: lose lottery
+
+        if payoff_auc["proceed"] == True and payoff_auc["win"] == True:
+            scenario_auc = 3
+            # In auction: win lottery
+
+        if payoff_ddm["proceed"] == False:
+            scenario_ddm = 1
             # In choice: no lottery
 
-        if payoff_auc["proceed"] == False and payoff_ddm["proceed"] == True and payoff_ddm["win"] == False:
-            scenario = 2
-            # In auction: no lottery
+        if payoff_ddm["proceed"] == True and payoff_ddm["win"] == False:
+            scenario_ddm = 2
             # In choice: lose lottery
 
-        if payoff_auc["proceed"] == False and payoff_ddm["proceed"] == True and payoff_ddm["win"] == True:
-            scenario = 3
-            # In auction: no lottery
+        if payoff_ddm["proceed"] == True and payoff_ddm["win"] == True:
+            scenario_ddm = 3
             # In choice: win lottery
 
-        if payoff_auc["proceed"] == True and payoff_auc["win"] == False and payoff_ddm["proceed"] == False:
-            scenario = 4
-            # In auction: lose lottery
-            # In choice: no lottery
 
-        if payoff_auc["proceed"] == True and payoff_auc["win"] == False and payoff_ddm["proceed"] == True and payoff_ddm["win"] == False:
-            scenario = 5
-            # In auction: lose lottery
-            # In choice: lose lottery
-
-        if payoff_auc["proceed"] == True and payoff_auc["win"] == False and payoff_ddm["proceed"] == True and payoff_ddm["win"] == True:
-            scenario = 6
-            # In auction: lose lottery
-            # In choice: win lottery
-
-        if payoff_auc["proceed"] == True and payoff_auc["win"] == True and payoff_ddm["proceed"] == False:
-            scenario = 7
-            # In auction: win lottery
-            # In choice: no lottery
-
-        if payoff_auc["proceed"] == True and payoff_auc["win"] == True and payoff_ddm["proceed"] == True and payoff_ddm["win"] == False:
-            scenario = 8
-            # In auction: win lottery
-            # In choice: lose lottery
-
-        if payoff_auc["proceed"] == True and payoff_auc["win"] == True and payoff_ddm["proceed"] == True and payoff_ddm["win"] == True:
-            scenario = 9
-            # In auction: win lottery
-            # In choice: win lottery
-
-        if scenario == 1:
+        if scenario_auc == 1 and scenario_ddm == 1:
             pay_sum = payoff_auc['endowment'] + payoff_ddm['endowment']
-            pay_pound = round(pay_sum / exchange, 2)
-        elif scenario == 2 or scenario == 3:
+        elif scenario_auc == 1 and scenario_ddm != 1:
             pay_sum = payoff_auc['endowment'] + payoff_ddm['payoff']
-            pay_pound = round(pay_sum / exchange, 2)
-        elif scenario == 4 or scenario == 7:
+        elif scenario_auc != 1 and scenario_ddm == 1:
             pay_sum = payoff_auc['payoff'] + payoff_ddm['endowment']
-            pay_pound = round(pay_sum / exchange, 2)
         else:
             pay_sum = payoff_auc['payoff'] + payoff_ddm['payoff']
-            pay_pound = round(pay_sum / exchange, 2)
-        
+
+        pay_pound = round(pay_sum / exchange, 2)
         self.player.pay_pound = pay_pound
 
         return {
-            'scenario': scenario,
+            'scenario_auc': scenario_auc,
+            'scenario_ddm': scenario_ddm,
 
             'endowment_auc': payoff_auc["endowment"],
             'pick_round_auc': payoff_auc["pick_round"],
