@@ -157,6 +157,7 @@ SESSION_CONFIGS = [
         'display_name': 'CA Tests',
         'num_demo_participants': 1,
         'app_sequence': ['REItest', 'BDMauction', 'choice_practice', 'cognitivenoise'],
+        # 'treatment': 'A',
         'prolificurl': 'http://www.google.com',
     },
     {
@@ -177,7 +178,6 @@ SESSION_CONFIGS = [
         'display_name': 'Decision Task in Cognitive Noise Study',
         'num_demo_participants': 1,
         'app_sequence': ['cognitivenoise'],
-        # 'app_sequence': ['cognitivenoise', 'BDMauction'],
     },
     {
         'name': 'eoq',

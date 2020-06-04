@@ -285,6 +285,21 @@ class FinishPage(Page):
             # In auction: win lottery
             # In choice: win lottery
 
+        if scenario == 1:
+            pay_sum = payoff_auc['endowment'] + payoff_ddm['endowment']
+            pay_pound = round(pay_sum / exchange, 2)
+        elif scenario == 2 or scenario == 3:
+            pay_sum = payoff_auc['endowment'] + payoff_ddm['payoff']
+            pay_pound = round(pay_sum / exchange, 2)
+        elif scenario == 4 or scenario == 7:
+            pay_sum = payoff_auc['payoff'] + payoff_ddm['endowment']
+            pay_pound = round(pay_sum / exchange, 2)
+        else:
+            pay_sum = payoff_auc['payoff'] + payoff_ddm['payoff']
+            pay_pound = round(pay_sum / exchange, 2)
+        
+        self.player.pay_pound = pay_pound
+
         return {
             'scenario': scenario,
 
