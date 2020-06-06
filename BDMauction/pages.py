@@ -105,7 +105,9 @@ class Auction(Page):
             'risk_down_posi': str(risk_down_px * 0.5 - 20)+"px",
 
             'reward': '$' + str(reward),
+
             'floor': '$' + str(floor),
+            'ceiling': '$' + str(float(reward)),
 
         }
 

@@ -103,7 +103,8 @@ class Constants(BaseConstants):
     name_in_url = 'cognitivenoise'
     players_per_group = None
     num_rounds = 10
-    # num_rounds should be changed to 324 when deployed in experiment
+    # num_rounds = 324
+    # num_rounds should be changed to 324 when deployed in experiment, also to change the rest_round in the page file.
 
     # instructions_template = 'cognitivenoise/Instructions.html'
     # In a template: "You can write the instructions on a template file and include here using the below line: {% include Constants.instructions_template %}"
@@ -147,3 +148,15 @@ class Player(BasePlayer):
 
     payoff_ddm = models.LongStringField()
     pay_pound = models.FloatField()
+
+    # To collect feedback from pilot
+
+    feedback_p1 = models.LongStringField(blank=True)
+    feedback_p2 = models.LongStringField(blank=True)
+    feedback_p3 = models.LongStringField(blank=True)
+    feedback_general = models.LongStringField(blank=True)
+
+    # feedback_p1 = models.LongStringField()
+    # feedback_p2 = models.LongStringField()
+    # feedback_p3 = models.LongStringField()
+    # feedback_general = models.LongStringField()

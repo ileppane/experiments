@@ -8,7 +8,6 @@ from boto.mturk import qualification
 
 import otree.settings
 
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # the environment variable OTREE_PRODUCTION controls whether Django runs in
@@ -157,7 +156,8 @@ SESSION_CONFIGS = [
         'display_name': 'CA Tests',
         'num_demo_participants': 1,
         'app_sequence': ['REItest', 'BDMauction', 'choice_practice', 'cognitivenoise'],
-        # 'treatment': 'A',
+        'treatment': random.choice(['A','E']),
+        # Currently the treatment randomisation is still activated in the auction app, modify the Subsession section in the app to allow for configuration.
         'prolificurl': 'http://www.google.com',
     },
     {

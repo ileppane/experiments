@@ -13,8 +13,10 @@ class InitialPage(Page):
 
 class FixationPage(Page):
 
-    # timer can be hidden from the page with CSS: https://otree.readthedocs.io/en/latest/timeouts.html#customizing-the-timer
-    timeout_seconds = 0.5
+    # timeout_seconds = 0.5
+    # This page should stay for 1 second in real experiment
+
+    timeout_seconds = 1
 
     def before_next_page(self):
         self.player.pydectime = set_time() # here we set the start of the dectime in unix seconds
@@ -146,8 +148,10 @@ class AfterPage(Page):
             pass
 
 rest_limit = 300 # seconds
+
 rest_round = [5]
 # rest_round = [108,216]
+# In actual experiment rest after trial 108 and 216
 
 class RestPage(Page):
 
@@ -274,6 +278,7 @@ class FinishPage(Page):
         else:
             pay_sum = payoff_auc['payoff'] + payoff_ddm['payoff']
 
+        pay_sum = round(pay_sum, 2)
         pay_pound = round(pay_sum / exchange, 2)
         self.player.pay_pound = pay_pound
 
@@ -303,6 +308,16 @@ class FinishPage(Page):
             # 'prolificurl': 'http://www.google.com'
         }
 
+
+class FeedbackPage(Page):
+
+    form_model = 'player'
+    form_fields = ['feedback_p1', 'feedback_p2', 'feedback_p3', 'feedback_general']
+
+    def is_displayed(self):
+        return self.round_number == Constants.num_rounds
+
+
 page_sequence = [
 InitialPage,
 FixationPage,
@@ -310,7 +325,8 @@ DecisionPage,
 AfterPage,
 RestPage,
 FinalSurvey,
-FinishPage
+FinishPage,
+FeedbackPage
 ]
 
 # sq1 = [InitialPage, FixationPage, DecisionPage]

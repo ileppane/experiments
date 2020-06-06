@@ -54,7 +54,7 @@ class Instructions(Page):
 class FixationPage(Page):
 
     # timer can be hidden from the page with CSS: https://otree.readthedocs.io/en/latest/timeouts.html#customizing-the-timer
-    timeout_seconds = 0.5
+    timeout_seconds = 1
 
     def before_next_page(self):
         self.player.pydectime = set_time() # here we set the start of the dectime in unix seconds

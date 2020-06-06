@@ -115,32 +115,36 @@ class Player(BasePlayer):
 
     def bnt1_choices(self):
         np.random.seed(self.session.vars['seed1'] + 8)
-        choices = ['5 out of 50 throws', '25 out of 50 throws', '30 out of 50 throws', 'None of the above']
+        choices = ['5 out of 50 throws', '25 out of 50 throws', '30 out of 50 throws']
         np.random.shuffle(choices)
+        choices = choices + ['None of the above']
         return choices
 
     bnt2 = models.StringField(widget = widgets.RadioSelect())
 
     def bnt2_choices(self):
         np.random.seed(self.session.vars['seed1'] + 9)
-        choices = ['10 %', '25 %', '40 %', 'None of the above']
+        choices = ['10 %', '25 %', '40 %']
         np.random.shuffle(choices)
+        choices = choices + ['None of the above']
         return choices
 
     bnt3 = models.StringField(widget = widgets.RadioSelect())
 
     def bnt3_choices(self):
         np.random.seed(self.session.vars['seed1'] + 10)
-        choices = ['20 out of 70 throws', '23 out of 70 throws', '35 out of 70 throws', 'None of the above']
+        choices = ['20 out of 70 throws', '23 out of 70 throws', '35 out of 70 throws']
         np.random.shuffle(choices)
+        choices = choices + ['None of the above']
         return choices
 
     bnt4 = models.StringField(widget = widgets.RadioSelect())
 
     def bnt4_choices(self):
         np.random.seed(self.session.vars['seed1'] + 11)
-        choices = ['4 %', '20 %', '50 %', 'None of the above']
+        choices = ['4 %', '20 %', '50 %']
         np.random.shuffle(choices)
+        choices = choices + ['None of the above']
         return choices
 
     # The following section contians variables for the NFC and FI survey
