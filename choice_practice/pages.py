@@ -70,7 +70,7 @@ class DecisionPage(Page):
         # and the text inside them
         # can be programmed to change in every round using self.round_number in for-loop
 
-        treatment = self.session.vars['treatment']
+        treatment = self.participant.vars['treatment']
         # treatment = np.random.choice(['A','E'])
         # treatment = 'A'
         # treatment = 'E'
@@ -126,7 +126,7 @@ class DecisionPage(Page):
         # JavaScript Method of dectime collection:
         self.player.jsdectime = (self.player.jsdectime_end - self.player.jsdectime_start) / 1000
 
-        self.player.treatment = self.session.vars["treatment"]
+        self.player.treatment = self.participant.vars['treatment']
 
         if self.player.choice == 'right' and self.player.display == 0:
             self.player.lottery = 1

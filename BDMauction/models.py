@@ -101,13 +101,13 @@ class Subsession(BaseSubsession):
             # self.session.vars['exchange'] = 5 # $/£
             # The above should be set in the REI test, they are put here for the convenience of testing only.
 
-            self.session.vars['treatment'] = np.random.choice(['A','E'])
+            for p in self.get_players():
+                p.participant.vars['treatment'] = np.random.choice(['A','E'])
+                # p.participant.vars['treatment'] = 'A'
+                # p.participant.vars['treatment'] = 'E'
 
-            # To allow for configuration, activate the line below instead.
-            # self.session.vars['treatment'] = self.session.config['treatment']
-
-            t = 1000 * time.time() # current time in milliseconds
-            self.session.vars['seed2'] = int(t) % 2**32
+                # t = 1000 * time.time() # current time in milliseconds
+                # p.participant.vars['seed2'] = int(t) % 2**32
 
 
 class Group(BaseGroup):
@@ -134,7 +134,7 @@ class Player(BasePlayer):
 
     def WTP_error_message(self, value):
 
-        treatment = self.session.vars["treatment"]
+        treatment = self.participant.vars['treatment']
         # treatment = random.choice(['A','E'])
         # treatment = 'A'
         # treatment = 'E'
@@ -170,7 +170,7 @@ class Player(BasePlayer):
     #
     #     # ceiling = self.reward
     #
-    #     treatment = self.session.vars["treatment"]
+    #     treatment = self.participant.vars['treatment']
     #     # treatment = random.choice(['A','E'])
     #     # treatment = 'A'
     #     # treatment = 'E'
@@ -183,7 +183,7 @@ class Player(BasePlayer):
     #
     # def WTP_min(self):
     #
-    #     treatment = self.session.vars["treatment"]
+    #     treatment = self.participant.vars['treatment']
     #     # treatment = random.choice(['A','E'])
     #     # treatment = 'A'
     #     # treatment = 'E'

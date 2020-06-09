@@ -31,11 +31,15 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
     def before_session_starts(self):
         if self.round_number == 1:
-            t = 1000 * time.time() # current time in milliseconds
-            self.session.vars['seed1'] = int(t) % 2**32
+            for p in self.get_players():
+                t = 1000 * time.time() # current time in milliseconds
+                p.participant.vars['seed1'] = int(t) % 2**32
 
-            self.session.vars['endowment'] = 25 # $ assigned in one part
-            self.session.vars['exchange'] = 5 # $/£
+            self.session.vars['endowment'] = self.session.config['endowment']
+            self.session.vars['exchange'] = self.session.config['exchange']
+
+            # self.session.vars['endowment'] = 25 # $ assigned in one part
+            # self.session.vars['exchange'] = 5 # $/£
 
 class Group(BaseGroup):
     pass
@@ -54,7 +58,7 @@ class Player(BasePlayer):
     crt1 = models.StringField(widget = widgets.RadioSelect())
 
     def crt1_choices(self):
-        np.random.seed(self.session.vars['seed1'] + 1)
+        np.random.seed(self.participant.vars['seed1'] + 1)
         choices = ['5 pence', '10 pence', '9 pence', '1 pence']
         np.random.shuffle(choices)
         return choices
@@ -62,7 +66,7 @@ class Player(BasePlayer):
     crt2 = models.StringField(widget = widgets.RadioSelect())
 
     def crt2_choices(self):
-        np.random.seed(self.session.vars['seed1'] + 2)
+        np.random.seed(self.participant.vars['seed1'] + 2)
         choices = ['5 minutes', '100 minutes', '20 minutes', '500 minutes']
         np.random.shuffle(choices)
         return choices
@@ -70,7 +74,7 @@ class Player(BasePlayer):
     crt3 = models.StringField(widget = widgets.RadioSelect())
 
     def crt3_choices(self):
-        np.random.seed(self.session.vars['seed1'] + 3)
+        np.random.seed(self.participant.vars['seed1'] + 3)
         choices = ['47 days', '24 days', '12 days', '36 days']
         np.random.shuffle(choices)
         return choices
@@ -78,7 +82,7 @@ class Player(BasePlayer):
     crt4 = models.StringField(widget = widgets.RadioSelect())
 
     def crt4_choices(self):
-        np.random.seed(self.session.vars['seed1'] + 4)
+        np.random.seed(self.participant.vars['seed1'] + 4)
         choices = ['4 days', '9 days', '12 days', '3 days']
         np.random.shuffle(choices)
         return choices
@@ -86,7 +90,7 @@ class Player(BasePlayer):
     crt5 = models.StringField(widget = widgets.RadioSelect())
 
     def crt5_choices(self):
-        np.random.seed(self.session.vars['seed1'] + 5)
+        np.random.seed(self.participant.vars['seed1'] + 5)
         choices = ['29 students', '30 students', '1 student', '15 students']
         np.random.shuffle(choices)
         return choices
@@ -94,7 +98,7 @@ class Player(BasePlayer):
     crt6 = models.StringField(widget = widgets.RadioSelect())
 
     def crt6_choices(self):
-        np.random.seed(self.session.vars['seed1'] + 6)
+        np.random.seed(self.participant.vars['seed1'] + 6)
         choices = ['20 pounds', '10 pounds', '0 pounds', '30 pounds']
         np.random.shuffle(choices)
         return choices
@@ -102,7 +106,7 @@ class Player(BasePlayer):
     crt7 = models.StringField(widget = widgets.RadioSelect())
 
     def crt7_choices(self):
-        np.random.seed(self.session.vars['seed1'] + 7)
+        np.random.seed(self.participant.vars['seed1'] + 7)
         choices = ['has lost money.', 'is ahead of where he began.', 'has broken even in the stock market.', 'it cannot be determined.']
         np.random.shuffle(choices)
         return choices
@@ -114,7 +118,7 @@ class Player(BasePlayer):
     bnt1 = models.StringField(widget = widgets.RadioSelect())
 
     def bnt1_choices(self):
-        np.random.seed(self.session.vars['seed1'] + 8)
+        np.random.seed(self.participant.vars['seed1'] + 8)
         choices = ['5 out of 50 throws', '25 out of 50 throws', '30 out of 50 throws']
         np.random.shuffle(choices)
         choices = choices + ['None of the above']
@@ -123,7 +127,7 @@ class Player(BasePlayer):
     bnt2 = models.StringField(widget = widgets.RadioSelect())
 
     def bnt2_choices(self):
-        np.random.seed(self.session.vars['seed1'] + 9)
+        np.random.seed(self.participant.vars['seed1'] + 9)
         choices = ['10 %', '25 %', '40 %']
         np.random.shuffle(choices)
         choices = choices + ['None of the above']
@@ -132,7 +136,7 @@ class Player(BasePlayer):
     bnt3 = models.StringField(widget = widgets.RadioSelect())
 
     def bnt3_choices(self):
-        np.random.seed(self.session.vars['seed1'] + 10)
+        np.random.seed(self.participant.vars['seed1'] + 10)
         choices = ['20 out of 70 throws', '23 out of 70 throws', '35 out of 70 throws']
         np.random.shuffle(choices)
         choices = choices + ['None of the above']
@@ -141,7 +145,7 @@ class Player(BasePlayer):
     bnt4 = models.StringField(widget = widgets.RadioSelect())
 
     def bnt4_choices(self):
-        np.random.seed(self.session.vars['seed1'] + 11)
+        np.random.seed(self.participant.vars['seed1'] + 11)
         choices = ['4 %', '20 %', '50 %']
         np.random.shuffle(choices)
         choices = choices + ['None of the above']

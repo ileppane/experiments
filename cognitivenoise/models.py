@@ -102,7 +102,7 @@ def set_time():
 class Constants(BaseConstants):
     name_in_url = 'cognitivenoise'
     players_per_group = None
-    num_rounds = 10
+    num_rounds = 100
     # num_rounds = 324
     # num_rounds should be changed to 324 when deployed in experiment, also to change the rest_round in the page file.
 
@@ -111,11 +111,13 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    def before_session_starts(self):
-        if self.round_number == 1:
-            t = 1000 * time.time() # current time in milliseconds
-            self.session.vars['seed3'] = int(t) % 2**32
+    pass
 
+    # def before_session_starts(self):
+    #     if self.round_number == 1:
+    #          for p in self.get_players():
+    #              t = 1000 * time.time() # current time in milliseconds
+    #              p.participant.vars['seed3'] = int(t) % 2**32
 
 class Group(BaseGroup):
     pass
@@ -144,7 +146,7 @@ class Player(BasePlayer):
     lottery = models.IntegerField()
 
     decmode = models.PositiveIntegerField(
-        choices = [[1,'In the majority of the trials, I made choices based on some calculation of the potential returns of the lotteries.'],[2, 'In the majority of the trials, I mostly relied on my intuition to make decision about which option is better.']], widget=widgets.RadioSelect())
+        choices = [[1,'In the majority of the trials, I made choices based on some calculation of the potential returns of the lotteries.'],[2, 'In the majority of the trials, I mostly relied on my intuition to make decisions about which option is better.']], widget=widgets.RadioSelect())
 
     payoff_ddm = models.LongStringField()
     pay_pound = models.FloatField()

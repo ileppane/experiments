@@ -10,6 +10,10 @@ class InitialPage(Page):
     def is_displayed(self):
         return self.round_number == 1
 
+    def before_next_page(self):
+
+        t = 1000 * time.time() # current time in milliseconds
+        self.participant.vars['seed3'] = int(t) % 2**32
 
 class FixationPage(Page):
 
@@ -35,7 +39,7 @@ class DecisionPage(Page):
         # and the text inside them
         # can be programmed to change in every round using self.round_number in for-loop
 
-        treatment = self.session.vars['treatment']
+        treatment = self.participant.vars['treatment']
         # treatment = np.random.choice(['A','E'])
         # treatment = 'A'
         # treatment = 'E'
@@ -88,7 +92,7 @@ class DecisionPage(Page):
         # JavaScript Method of dectime collection:
         self.player.jsdectime = (self.player.jsdectime_end - self.player.jsdectime_start) / 1000
 
-        self.player.treatment = self.session.vars["treatment"]
+        self.player.treatment = self.participant.vars["treatment"]
 
         if self.player.choice == 'right' and self.player.display == 0:
             self.player.lottery = 1
@@ -149,7 +153,7 @@ class AfterPage(Page):
 
 rest_limit = 300 # seconds
 
-rest_round = [5]
+rest_round = [50]
 # rest_round = [108,216]
 # In actual experiment rest after trial 108 and 216
 
@@ -200,7 +204,7 @@ class FinishPage(Page):
     def vars_for_template(self):
 
         # Otherwise a participant can refresh the page to get desired outcome
-        seed = self.session.vars['seed3']
+        seed = self.participant.vars['seed3']
         np.random.seed(seed)
 
         ######

@@ -61,7 +61,7 @@ def set_time():
 class Constants(BaseConstants):
     name_in_url = 'choice_practice'
     players_per_group = None
-    num_rounds = 6
+    num_rounds = 6 #should be 6
 
 
 class Subsession(BaseSubsession):

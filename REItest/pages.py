@@ -27,7 +27,6 @@ class Introduction(Page):
             'pound_total': '£' + str(pound_total)
         }
 
-
 """ CRT """
 class CRT1page(Page):
     form_model = models.Player

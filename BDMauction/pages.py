@@ -3,6 +3,7 @@ from ._builtin import Page, WaitPage
 from .models import Constants, bigger, lottery_generator
 import numpy as np
 import pandas as pd
+import time
 
 class Initial(Page):
 
@@ -28,8 +29,9 @@ class Initial(Page):
         risk_down_px = (risk / 100) * 300
 
         bid = 8.5
-        win = endowment - bid + reward
-        loss = endowment - bid
+        sell = 5.6
+        win = endowment - sell + reward
+        loss = endowment - sell
 
         return {
             'endowment': '$' + str(endowment),
@@ -46,9 +48,15 @@ class Initial(Page):
             'risk_down_posi': str(risk_down_px * 0.5 - 20)+"px",
 
             'bid': '$' + str(bid),
+            'sell': '$' + str(sell),
             'win': '$' + str(win),
             'loss': '$' + str(loss),
         }
+
+    def before_next_page(self):
+
+        t = 1000 * time.time() # current time in milliseconds
+        self.participant.vars['seed2'] = int(t) % 2**32
 
 
 class Auction(Page):
@@ -59,7 +67,7 @@ class Auction(Page):
 
     def vars_for_template(self):
 
-        treatment = self.session.vars["treatment"]
+        treatment = self.participant.vars['treatment']
         # treatment = np.random.choice(['A','E'])
         # treatment = 'A'
         # treatment = 'E'
@@ -115,8 +123,7 @@ class Auction(Page):
         # JavaScript Method of dectime collection:
         self.player.jsdectime = (self.player.jsdectime_end - self.player.jsdectime_start) / 1000
 
-        self.player.treatment = self.session.vars["treatment"]
-
+        self.player.treatment = self.participant.vars['treatment']
 
 
 class End(Page):
@@ -127,7 +134,7 @@ class End(Page):
     def before_next_page(self):
 
         # Otherwise a participant can refresh the page to get desired outcome (though hidden in this app)
-        seed = self.session.vars['seed2']
+        seed = self.participant.vars['seed2']
         np.random.seed(seed)
 
         ######

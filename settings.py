@@ -156,8 +156,8 @@ SESSION_CONFIGS = [
         'display_name': 'CA Tests',
         'num_demo_participants': 1,
         'app_sequence': ['REItest', 'BDMauction', 'choice_practice', 'cognitivenoise'],
-        'treatment': random.choice(['A','E']),
-        # Currently the treatment randomisation is still activated in the auction app, modify the Subsession section in the app to allow for configuration.
+        'endowment': 25,
+        'exchange': 5,
         'prolificurl': 'http://www.google.com',
     },
     {
