@@ -2,12 +2,11 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-
-<h1 style="font-size: 35px;">Part 1 Section 2 ({{number}} / {{s1_total}})</h1>
-
+Part 1 Section 2 ({{number}} / {{s1_total}})
 {% endblock %}
 
 {% block content %}
+<h1 style="font-size: 35px;">Part 1 Section 2 ({{number}} / {{s1_total}})</h1>
 
 <body onload="setStartTime()">
 
@@ -34,5 +33,12 @@
     document.getElementById('id_jsdectime_end').value = d.getTime();
   }
 </script>
+
+<style>
+.otree-title {
+  font-size: 0;
+}
+
+</style>
 
 {% endblock %}

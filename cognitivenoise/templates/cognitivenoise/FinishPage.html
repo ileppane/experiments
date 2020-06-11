@@ -2,26 +2,27 @@
 {% load otree static %}
 
 {% block title %}
-<h1 style="font-size: 35px;">This is the end of the experiment</h1>
+Your Payment
 
 {% endblock %}
 
 {% block content %}
+<h1 style="font-size: 35px;">This is the end of the experiment</h1>
 
 <div>
 <h4>For your payment from the Part 2:</h4>
-<p>Your payoff is decided based on the trial {{pick_round_auc}}. In that trial your faced a lottery with {{risk_auc}}% of chance winning ${{reward_auc}}. Your biding price for this lottery is ${{WTP_auc}}.</p>
+<p>Your payoff is decided based on the trial {{pick_round_auc}}. In that trial your faced a lottery with {{risk_auc}}% of chance winning ${{reward_auc}}. Your bidding price for this lottery is ${{WTP_auc}}.</p>
 
 {% if scenario_auc == 1 %}
-<p>The generated selling price is ${{selling_price_auc}}, which is greater than your biding price. Therefore, you did not purchase the lottery. Your payoff from this part is ${{endowment_auc}}</p>
+<p>The generated selling price is ${{selling_price_auc}}, which is greater than your bidding price. Therefore, you did not purchase the lottery. Your payoff from this part is ${{endowment_auc}}</p>
 {% endif %}
 
 {% if scenario_auc == 2 %}
-<p>The generated selling price is ${{selling_price_auc}}, which is less than your biding price. Therefore, you purchased the lottery at the selling price. Unfortunately, you did not win the reward. Your payoff from this part is ${{payoff_auc}}</p>
+<p>The generated selling price is ${{selling_price_auc}}, which is less than your bidding price. Therefore, you purchased the lottery at the selling price. Unfortunately, you did not win the reward. Your payoff from this part is ${{payoff_auc}}</p>
 {% endif %}
 
 {% if scenario_auc == 3 %}
-<p>The generated selling price is ${{selling_price_auc}}, which is less than your biding price. Therefore, you purchased the lottery at the selling price. Congradulation! you won the reward. Your payoff from this part is ${{payoff_auc}}</p>
+<p>The generated selling price is ${{selling_price_auc}}, which is less than your bidding price. Therefore, you purchased the lottery at the selling price. Congradulation! you won the reward. Your payoff from this part is ${{payoff_auc}}</p>
 {% endif %}
 
 <h4>For your payment from the Part 3:</h4>
@@ -57,5 +58,12 @@
 <button class="btn btn-primary btn-large">
   Please give us some feedback
 </button>
+
+<style>
+.otree-title {
+  font-size: 0;
+}
+
+</style>
 
 {% endblock %}

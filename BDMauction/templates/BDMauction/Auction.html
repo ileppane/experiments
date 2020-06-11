@@ -2,11 +2,11 @@
 {% load otree static %}
 
 {% block title %}
-<h1 style="font-size: 35px;">Please specify how much you want to pay for the current lottery ( {{ player.round_number }} / {{ Constants.num_rounds }})</h1>
-
+Auction ( {{ player.round_number }} / {{ Constants.num_rounds }})
 {% endblock %}
 
 {% block content %}
+<h1 style="font-size: 35px;">Please specify how much you want to pay for the current lottery ( {{ player.round_number }} / {{ Constants.num_rounds }})</h1>
 
 <body onload="setStartTime()">
 
@@ -74,6 +74,10 @@
 <!-- thie following section is for the lottery and instruction -->
 <style type="text/css">
 
+  .otree-title {
+    font-size: 0;
+  }
+
   .container {
     /* float: left; */
     /* width: 100%; */
@@ -107,8 +111,6 @@
     vertical-align: middle;
     height: 420px;
   }
-
-
 
   .risk_up_div {
     width: 100px;

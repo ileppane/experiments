@@ -102,7 +102,7 @@ def set_time():
 class Constants(BaseConstants):
     name_in_url = 'cognitivenoise'
     players_per_group = None
-    num_rounds = 100
+    num_rounds = 10
     # num_rounds = 324
     # num_rounds should be changed to 324 when deployed in experiment, also to change the rest_round in the page file.
 

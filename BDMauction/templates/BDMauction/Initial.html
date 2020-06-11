@@ -2,16 +2,16 @@
 {% load otree static %}
 
 {% block title %}
-<h1 style="font-size: 35px;">Part 2: Instructions</h1>
-
+Part 2: Instructions
 {% endblock %}
 
 {% block content %}
+<h1 style="font-size: 35px;">Part 2: Instructions</h1>
 
 <body>
   <article>
     <h4>Auction and Your Payment:</h4>
-    <p>Now you are invited to participate in an auction, and you are assigned with a fund of {{endowment}} (= {{pound}}) to make investment in lottery. Twelve lotteries will be presented to you one by one, and you are asked to specify how much you would like to spend to purchase each of them.</p>
+    <p>Now you are invited to participate in an auction, and you are assigned with a fund of {{endowment}} (= {{pound}}) to make investments in lotteries. Twelve lotteries will be presented to you one by one, and you are asked to specify how much you would like to spend to purchase each of them.</p>
 
     <p>After submitting your bids for all twelve lotteries, one lottery and your bid to it will be randomly selected to count. The computer will also generate a random selling price for the selected lottery (the price is drawn between $0 and the reward value of that lottery). If the random selling price is greater than your bid, you would not purchase the lottery and keep the entire {{endowment}}. Otherwise, if the random selling price is less than or equal to your bid, you would purchase the lottery, and your payment would be the rest of the {{endowment}} plus the outcome of the lottery.</p>
 
@@ -36,9 +36,11 @@
   <article class="text">
     <br>
     <h4>Lotteries and Bids:</h4>
-    <p><b>The Figure 1 on the right shows how a lottery is depicted:</b> the sizes of the blue and red boxes, as well as the numbers written inside them represent the probability of winning and losing the lottery, respectively. The cash reward of winning the lottery is displayed at the bottom.</p>
+    <p><b>The Figure 1 on the right shows how a lottery is depicted:</b> the sizes of the blue and red boxes, as well as the numbers written inside them represent the probability of winning and losing the lottery, respectively. The reward of winning the lottery is displayed at the bottom.</p>
 
-    <p>As such, the lottery shown in the Figure 1 has {{risk_down}} percent of chance winning an award of {{reward}}. In event of this lottery being chosen to count, you will purchase it if the random selling price is below or equal to your bid. For example, you bid {{bid}} for this lottery and the generated selling price is {{sell}}, there will be two possible payments. In case you win the lottery ({{risk_down}}%), your payment increases to {{win}} ({{endowment}} - {{sell}} + {{reward}}). If you lose the lottery ({{risk_up}}%), your payment drops to {{loss}} ({{endowment}} - {{sell}}).</p>
+    <p>As such, the lottery shown in the Figure 1 has {{risk_down}} percent chance of winning {{reward}}. In the event that this lottery is chosen to count, you will purchase it if the random selling price is below or equal to your bid. </p>
+
+    <p>For example, if you bid {{bid}} for this lottery and the generated selling price is {{sell}}, there will be two possible payments. In case you win the lottery ({{risk_down}}%), your payment increases to {{win}} ({{endowment}} - {{sell}} + {{reward}}). If you lose the lottery ({{risk_up}}%), your payment drops to {{loss}} ({{endowment}} - {{sell}}).</p>
 
     <p>In addition, the computer will let you know what is the “reasonable” price range for the lottery being presented to you. Firstly, you cannot bid a price that is greater than the lottery’s reward, because such investment means taking unnecessary risk. Secondly, if the Lottery A is “strictly better” than the Lottery B, such that A has higher reward and/or probability of wining than B, your bid to the Lottery A must be higher. The reasonable price range will be shown to you while you make bids. To note, your bids do NOT have to be integers; any value within the reasonable range is acceptable.</p>
 
@@ -58,6 +60,10 @@
 
 
 <style type="text/css">
+
+  .otree-title {
+    font-size: 0;
+  }
 
   h4 {
     text-decoration: underline;

@@ -1,9 +1,14 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
 
+{% block title %}
+Choice Page
+{% endblock %}
+
 {% block content %}
 
 <body onload="setStartTime()">
+  <br><br>
   {% if display == 0 %}
   <!-- lottery shown on the right hand side -->
   <br>
@@ -58,6 +63,11 @@
     </article>
   </section>
   {% endif %}
+
+  <!-- This is just to push away the debug table, should be commented off in actual deploy -->
+  <!-- <div style="height: 600px;">
+  </div> -->
+
 </body>
 
 <input type="hidden" name="choice" id="id_choice" value='nothing'>
@@ -72,6 +82,9 @@
 {% block scripts %}
 
 <script>
+  document.documentElement.style.cursor = 'none';
+  // This is to hide the cursor, work the same as the CSS method.
+
   function setStartTime() {
     var d = new Date();
     document.getElementById('id_jsdectime_start').value = d.getTime();
@@ -100,6 +113,10 @@
 
 {% block styles %}
 <style type="text/css">
+
+  .otree-title {
+    font-size: 0;
+  }
 
   article {
     float: left;

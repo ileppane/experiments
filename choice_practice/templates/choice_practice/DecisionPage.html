@@ -1,6 +1,10 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
 
+{% block title %}
+Practice Session
+{% endblock %}
+
 {% block content %}
 
 <body onload="setStartTime()">
@@ -81,6 +85,9 @@
 {% block scripts %}
 
 <script>
+  document.documentElement.style.cursor = 'none';
+  // This is to hide the cursor, work the same as the CSS method.
+
   function setStartTime() {
     var d = new Date();
     document.getElementById('id_jsdectime_start').value = d.getTime();
@@ -109,6 +116,10 @@
 
 {% block styles %}
 <style type="text/css">
+
+  .otree-title {
+    font-size: 0;
+  }
 
   article {
     float: left;

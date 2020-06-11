@@ -1,27 +1,60 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
 
+{% block title %}
+Practice Session
+{% endblock %}
+
 {% block content %}
 
 <!-- use divs to center the fixation cross -->
 <!-- should the background colour be black? -->
-<body style="background: black; text-align: center;">
-  <br><br><br><br>
+<body>
+  <!-- <br><br> -->
+  <div class="cross">
+    <center><p style="font-size: 70px; color: white;"> + </p></center>
+  </div>
 
-  <center><p style="font-size: 70px; color: white;"> + </p></center>
-
-  <!-- <center><font size="30">+</font></center> -->
+  <!-- This is just to push away the debug table, should be commented off in actual deploy -->
+  <!-- <div style="height: 600px;">
+  </div> -->
 
 </body>
 
 {% endblock %}
 
+{% block scripts %}
+
+<script>
+  document.documentElement.style.cursor = 'none';
+  // This is to hide the cursor, work the same as the CSS method.
+
+</script>
+
+{% endblock %}
+
+
 {% block app_styles %}
 
 <style type="text/css">
 
+  .otree-title {
+    font-size: 0;
+  }
+
   .otree-timer {
     display: none;
+  }
+
+  body {
+    background: black;
+    text-align: center;
+  }
+
+
+  .cross {
+    position: relative;
+    top: 160px;
   }
 
 </style>

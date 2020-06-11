@@ -153,7 +153,7 @@ class AfterPage(Page):
 
 rest_limit = 300 # seconds
 
-rest_round = [50]
+rest_round = [5]
 # rest_round = [108,216]
 # In actual experiment rest after trial 108 and 216
 
