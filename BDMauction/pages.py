@@ -59,6 +59,76 @@ class Initial(Page):
         self.participant.vars['seed2'] = int(t) % 2**32
 
 
+class Check1(Page):
+
+    form_model = 'player'
+    form_fields = ['cq_l1', 'cq_l2', 'cq_l3']
+
+    def is_displayed(self):
+        return self.round_number == 1
+
+    def vars_for_template(self):
+
+        reward = 10
+        risk = 70
+
+        risk_up = str(100 - risk)
+        risk_up_px = ((100 - risk) / 100) * 300
+        risk_down = str(risk)
+        risk_down_px = (risk / 100) * 300
+
+        return {
+            'reward': '$' + str(reward),
+
+            'risk_up': risk_up,
+            'risk_up_px': str(risk_up_px)+"px",
+            'risk_down': risk_down,
+            'risk_down_px': str(risk_down_px)+"px",
+
+            'risk_up_posi': str(risk_up_px * 0.5 - 20)+"px",
+            'risk_down_posi': str(risk_down_px * 0.5 - 20)+"px",
+        }
+
+    # def error_message(self, values):
+    #         if values['cq_l1'] != 2 or values['cq_l2'] != 1 or values['cq_l3'] != 3:
+    #             return 'Your answer(s) to one or more quesitons is(are) wrong, please read the instruction and try agian. [Instruction: the sizes of the blue and red boxes, as well as the numbers written inside them represent the probability of winning and losing the lottery, respectively. The reward of winning the lottery is displayed at the bottom.]'
+
+class Check2(Page):
+
+    form_model = 'player'
+    form_fields = ['cq_a1', 'cq_a2', 'cq_a3']
+
+    def is_displayed(self):
+        return self.round_number == 1
+
+    def vars_for_template(self):
+
+        reward = 10
+        risk = 70
+
+        risk_up = str(100 - risk)
+        risk_up_px = ((100 - risk) / 100) * 300
+        risk_down = str(risk)
+        risk_down_px = (risk / 100) * 300
+
+        return {
+            'reward': '$' + str(reward),
+
+            'risk_up': risk_up,
+            'risk_up_px': str(risk_up_px)+"px",
+            'risk_down': risk_down,
+            'risk_down_px': str(risk_down_px)+"px",
+
+            'risk_up_posi': str(risk_up_px * 0.5 - 20)+"px",
+            'risk_down_posi': str(risk_down_px * 0.5 - 20)+"px",
+        }
+
+class GetReady(Page):
+
+    def is_displayed(self):
+        return self.round_number == 1
+
+
 class Auction(Page):
 
     form_model = 'player'
@@ -174,6 +244,9 @@ class End(Page):
 
 page_sequence = [
 Initial,
+Check1,
+Check2,
+GetReady,
 Auction,
 End
 ]

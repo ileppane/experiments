@@ -127,9 +127,53 @@ class Player(BasePlayer):
     reward = models.FloatField()
     risk = models.FloatField()
 
-    floor = models.FloatField()
+    # floor = models.FloatField()
 
     payoff_auc = models.LongStringField()
+
+    ### check up questions ###
+    cq_l1 = models.PositiveIntegerField(
+        choices = [[1,'30%'],[2, '70%'],[3, '10%'],[4, '25%']], widget=widgets.RadioSelect())
+
+    cq_l2 = models.PositiveIntegerField(
+        choices = [[1,'30%'],[2, '70%'],[3, '10%'],[4, '25%']], widget=widgets.RadioSelect())
+
+    cq_l3 = models.PositiveIntegerField(
+        choices = [[1,'$30'],[2, '$70'],[3, '$10'],[4, '$25']], widget=widgets.RadioSelect())
+
+    cq_a1 = models.PositiveIntegerField(
+        choices = [[1,'$25'],[2, '$35'],[3, '$16'],[4, 'None of the above']], widget=widgets.RadioSelect())
+
+    cq_a2 = models.PositiveIntegerField(
+        choices = [[1,'$19'],[2, '$29'],[3, '$31'],[4, '$21']], widget=widgets.RadioSelect())
+
+    cq_a3 = models.PositiveIntegerField(
+        choices = [[1,'$19'],[2, '$29'],[3, '$31'],[4, '$21']], widget=widgets.RadioSelect())
+
+
+    def cq_l1_error_message(self, value):
+        if value != 2:
+            return "Your answer to the question 1 is wrong. The number written inside the blue box represents the probability of winning the lottery"
+
+    def cq_l2_error_message(self, value):
+        if value != 1:
+            return "Your answer to the question 2 is wrong. The number written inside the red box represents the probability of losing the lottery"
+
+    def cq_l3_error_message(self, value):
+        if value != 3:
+            return "Your answer to the question 3 is wrong. The reward of winning the lottery is represented by the monetary amount at the bottom."
+
+    def cq_a1_error_message(self, value):
+        if value != 1:
+            return "Your answer to the question 1 is wrong. If the random selling price is greater than your bid, you would not purchase the lottery and keep the entire $25, which is the fund assigned to you at the beginning."
+
+    def cq_a2_error_message(self, value):
+        if value != 3:
+            return "Your answer to the question 2 is wrong. If the random selling price is less than or equal to your bid, you would purchase the lottery. In case you win the lottery, your payment increases to the assigned fund minus the selling price plus the lottery reward (assigned fund - selling price + lottery reward)."
+
+    def cq_a3_error_message(self, value):
+        if value != 4:
+            return "Your answer to the question 3 is wrong. If the random selling price is less than or equal to your bid, you would purchase the lottery. In case you lose the lottery, your payment drops to the assigned fund minus the selling price (assigned fund - selling price)."
 
 
     def WTP_error_message(self, value):
@@ -164,6 +208,7 @@ class Player(BasePlayer):
 
         # if decimal_places(value) > 2:
         #     return "your specified price cannot have a unit smaller than $0.01."
+
 
 
     # def WTP_max(self):
