@@ -50,6 +50,8 @@ class Player(BasePlayer):
     # email = models.CharField()
     # student_number = models.CharField()
 
+    prolific_code = models.CharField()
+
     # The following section contians variables the CRT:
     # Both scores range between 0 - 7
     reflectiveness_score = models.IntegerField(initial=0)

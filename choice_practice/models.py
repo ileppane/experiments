@@ -46,7 +46,7 @@ def practice_generator(treatment):
     columns = ['reward', 'risk', 'certainty', 'display']
     trial_table.columns = columns
 
-    # np.random.seed(123456)
+    # np.random.seed(520)
     # trial_table = trial_table.sample(frac=1).reset_index(drop=True)
 
     return trial_table

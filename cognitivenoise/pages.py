@@ -154,8 +154,8 @@ class AfterPage(Page):
 rest_limit = 300 # seconds
 
 rest_round = [5]
-# rest_round = [108,216]
-# In actual experiment rest after trial 108 and 216
+# rest_round = [72, 144]
+# In actual experiment rest after trial 72 and 144
 
 class RestPage(Page):
 
@@ -179,8 +179,14 @@ class RestPage(Page):
         if rest_minites.is_integer():
             rest_minites = int(rest_minites)
 
+        trials_gone = self.round_number
+        trials_left = Constants.num_rounds - self.round_number
+
         return {
-            'rest_minites': rest_minites
+            'rest_minites': rest_minites,
+
+            'trials_gone': trials_gone,
+            'trials_left': trials_left
         }
 
     def before_next_page(self):
@@ -313,13 +319,13 @@ class FinishPage(Page):
         }
 
 
-class FeedbackPage(Page):
-
-    form_model = 'player'
-    form_fields = ['feedback_p1', 'feedback_p2', 'feedback_p3', 'feedback_general']
-
-    def is_displayed(self):
-        return self.round_number == Constants.num_rounds
+# class FeedbackPage(Page):
+#
+#     form_model = 'player'
+#     form_fields = ['feedback_p1', 'feedback_p2', 'feedback_p3', 'feedback_general']
+#
+#     def is_displayed(self):
+#         return self.round_number == Constants.num_rounds
 
 
 page_sequence = [
@@ -330,9 +336,4 @@ AfterPage,
 RestPage,
 FinalSurvey,
 FinishPage,
-FeedbackPage
 ]
-
-# sq1 = [InitialPage, FixationPage, DecisionPage]
-# sq2 = [AfterPage, RestPage, FinishPage]
-# page_sequence = sq1 + sq2

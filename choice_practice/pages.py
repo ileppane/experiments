@@ -221,8 +221,14 @@ class RestPage(Page):
         if rest_minites.is_integer():
             rest_minites = int(rest_minites)
 
+        trials_gone = self.round_number
+        trials_left = Constants.num_rounds - self.round_number
+
         return {
-            'rest_minites': rest_minites
+            'rest_minites': rest_minites,
+
+            'trials_gone': trials_gone,
+            'trials_left': trials_left
         }
 
     def before_next_page(self):

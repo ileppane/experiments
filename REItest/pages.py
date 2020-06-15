@@ -7,7 +7,8 @@ import time
 import numpy as np
 
 class Consent(Page):
-    pass
+    form_model = models.Player
+    form_fields = ['prolific_code']
 
 
 class Introduction(Page):

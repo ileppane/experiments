@@ -90,7 +90,7 @@ def bigger(a, b):
 class Constants(BaseConstants):
     name_in_url = 'BDMauction'
     players_per_group = None
-    num_rounds = 5
+    num_rounds = 6
     # num_rounds should be 12 when deployed in experiment
 
 
@@ -165,15 +165,15 @@ class Player(BasePlayer):
 
     def cq_a1_error_message(self, value):
         if value != 1:
-            return "Your answer to the question 1 is wrong. If the random selling price is greater than your bid, you would not purchase the lottery and keep the entire $25, which is the fund assigned to you at the beginning."
+            return "Your answer to the question 1 is wrong. If the random selling price is greater than your bid price, you would not purchase the lottery and keep the entire $25, which is the fund assigned to you at the beginning."
 
     def cq_a2_error_message(self, value):
         if value != 3:
-            return "Your answer to the question 2 is wrong. If the random selling price is less than or equal to your bid, you would purchase the lottery. In case you win the lottery, your payment increases to the assigned fund minus the selling price plus the lottery reward (assigned fund - selling price + lottery reward)."
+            return "Your answer to the question 2 is wrong. If the random selling price is less than or equal to your bid price, you would purchase the lottery. In case you win the lottery, your payment increases to the assigned fund minus the selling price plus the lottery reward (assigned fund - selling price + lottery reward)."
 
     def cq_a3_error_message(self, value):
         if value != 4:
-            return "Your answer to the question 3 is wrong. If the random selling price is less than or equal to your bid, you would purchase the lottery. In case you lose the lottery, your payment drops to the assigned fund minus the selling price (assigned fund - selling price)."
+            return "Your answer to the question 3 is wrong. If the random selling price is less than or equal to your bid price, you would purchase the lottery. In case you lose the lottery, your payment drops to the assigned fund minus the selling price (assigned fund - selling price)."
 
 
     def WTP_error_message(self, value):
@@ -201,10 +201,10 @@ class Player(BasePlayer):
 
 
         if value >= reward:
-             return "your bid is above the reasonable price range."
+             return "your bid price is above the reasonable price range."
 
         if value <= floor:
-             return "your bid is below the reasonable price range."
+             return "your bid price is below the reasonable price range."
 
         # if decimal_places(value) > 2:
         #     return "your specified price cannot have a unit smaller than $0.01."

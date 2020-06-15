@@ -53,9 +53,6 @@ def trial_generator(scaler, min_reward, min_risk, reward_lev, risk_lev, m_values
             min_risk = round(min_risk)
             counter += 1
 
-    mode1 = [0,1,0]
-    mode2 = [1,0,1]
-    mode_use = 1
     trial_list = []
     for reward in rewards:
         for risk in risks:
@@ -72,21 +69,15 @@ def trial_generator(scaler, min_reward, min_risk, reward_lev, risk_lev, m_values
                 else:
                     certainty = round(reward / devider, 1)
 
-                if mode_use == 1:
-                    for display in range(3):
-                        trial_list.append([reward, risk, certainty, mode1[display]])
-                    mode_use += 1
-                else:
-                    for display in range(3):
-                        trial_list.append([reward, risk, certainty, mode2[display]])
-                    mode_use -= 1
+                for display in range(2):
+                    trial_list.append([reward, risk, certainty, display])
 
     trial_table = pd.DataFrame(trial_list)
 
     columns = ['reward', 'risk', 'certainty', 'display']
     trial_table.columns = columns
 
-    np.random.seed(123456)
+    np.random.seed(520)
     trial_table = trial_table.sample(frac=1).reset_index(drop=True)
 
     return trial_table
@@ -102,9 +93,9 @@ def set_time():
 class Constants(BaseConstants):
     name_in_url = 'cognitivenoise'
     players_per_group = None
-    num_rounds = 10
-    # num_rounds = 324
-    # num_rounds should be changed to 324 when deployed in experiment, also to change the rest_round in the page file.
+    num_rounds = 12
+    # num_rounds = 216
+    # num_rounds should be changed to 216 when deployed in experiment, also to change the rest_round in the page file.
 
     # instructions_template = 'cognitivenoise/Instructions.html'
     # In a template: "You can write the instructions on a template file and include here using the below line: {% include Constants.instructions_template %}"
@@ -146,19 +137,23 @@ class Player(BasePlayer):
     lottery = models.IntegerField()
 
     decmode = models.PositiveIntegerField(
-        choices = [[1,'In the majority of the trials, I made choices based on some calculation of the potential returns of the lotteries.'],[2, 'In the majority of the trials, I mostly relied on my intuition to make decisions about which option is better.']], widget=widgets.RadioSelect())
+        choices = [
+        [7, 'Almost always (near 100% of the time)'],
+        [6, 'Very often (about 80% of the time)'],
+        [5, 'Moderately often (about 60% of the time)'],
+        [4, 'About half of the time (50% of the time)'],
+        [3, 'Moderately seldom (about 40% of the time)'],
+        [2, 'Very seldom (about 20% of the time)'],
+        [1, 'Almost never (near 0% of the time)'],
+        ],
+        widget=widgets.RadioSelect())
 
     payoff_ddm = models.LongStringField()
     pay_pound = models.FloatField()
 
     # To collect feedback from pilot
 
-    feedback_p1 = models.LongStringField(blank=True)
-    feedback_p2 = models.LongStringField(blank=True)
-    feedback_p3 = models.LongStringField(blank=True)
-    feedback_general = models.LongStringField(blank=True)
-
-    # feedback_p1 = models.LongStringField()
-    # feedback_p2 = models.LongStringField()
-    # feedback_p3 = models.LongStringField()
-    # feedback_general = models.LongStringField()
+    # feedback_p1 = models.LongStringField(blank=True)
+    # feedback_p2 = models.LongStringField(blank=True)
+    # feedback_p3 = models.LongStringField(blank=True)
+    # feedback_general = models.LongStringField(blank=True)
