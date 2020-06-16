@@ -19,7 +19,7 @@ Part 2: Instructions
   </article>
 
   <article class="figure">
-    <h5>Figure 1:</h5>
+    <!-- <h5>Figure 1:</h5> -->
     <div class="lottery">
       <div class="risk_up_div" style="height: {{ risk_up_px }};">
         <p class="risk_up_txt">{{ risk_up }}</p>
@@ -36,9 +36,9 @@ Part 2: Instructions
   <article class="text">
     <br>
     <h4>Lotteries and Bids:</h4>
-    <p><b>The Figure 1 on the right shows how a lottery is depicted:</b> the sizes of the <font color = 'blue'><b>blue</b></font> and <font color = 'red'><b>red</b></font> boxes, as well as the numbers written inside them represent the probability (in percent) of <font color = 'blue'><b>winning</b></font> and <font color = 'red'><b>losing</b></font> the lottery, respectively. The reward of winning the lottery is displayed at the bottom.</p>
+    <p><b>The figure on the right shows how a lottery is depicted:</b> the sizes of the <font color = 'blue'><b>blue</b></font> and <font color = 'red'><b>red</b></font> boxes, as well as the numbers written inside them represent the probability (in percent) of <font color = 'blue'><b>winning</b></font> and <font color = 'red'><b>losing</b></font> the lottery, respectively. The reward of winning the lottery is displayed at the bottom.</p>
 
-    <p>As such, the lottery shown in the Figure 1 has {{risk_down}} percent chance of winning {{reward}}. In the event that this lottery is chosen to count, you will purchase it if the random selling price is below or equal to your bid price. </p>
+    <p>As such, the lottery shown in the figure has {{risk_down}} percent chance of winning {{reward}}. In the event that this lottery is chosen to count, you will purchase it if the random selling price is below or equal to your bid price. </p>
 
     <p>For example, if you bid {{bid}} for this lottery and the generated selling price is {{sell}}, there will be two possible payments. If you win the lottery ({{risk_down}}%), your payment increases to {{win}} ({{endowment}} - {{sell}} + {{reward}}). If you lose the lottery ({{risk_up}}%), your payment drops to {{loss}} ({{endowment}} - {{sell}}).</p>
 
@@ -77,6 +77,9 @@ Part 2: Instructions
     float: right;
     width: 25%;
     padding: 20px;
+
+    position: relative;
+    top: 40px;
   }
 
   .lottery {

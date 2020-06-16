@@ -153,8 +153,8 @@ class AfterPage(Page):
 
 rest_limit = 300 # seconds
 
-rest_round = [5]
-# rest_round = [72, 144]
+# rest_round = [5]
+rest_round = [72, 144]
 # In actual experiment rest after trial 72 and 144
 
 class RestPage(Page):

@@ -90,7 +90,7 @@ def bigger(a, b):
 class Constants(BaseConstants):
     name_in_url = 'BDMauction'
     players_per_group = None
-    num_rounds = 6
+    num_rounds = 12
     # num_rounds should be 12 when deployed in experiment
 
 
