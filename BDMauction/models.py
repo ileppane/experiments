@@ -102,9 +102,9 @@ class Subsession(BaseSubsession):
             # The above should be set in the REI test, they are put here for the convenience of testing only.
 
             for p in self.get_players():
-                p.participant.vars['treatment'] = np.random.choice(['A','E'])
+                # p.participant.vars['treatment'] = np.random.choice(['A','E'])
                 # p.participant.vars['treatment'] = 'A'
-                # p.participant.vars['treatment'] = 'E'
+                p.participant.vars['treatment'] = 'E'
 
                 # t = 1000 * time.time() # current time in milliseconds
                 # p.participant.vars['seed2'] = int(t) % 2**32
