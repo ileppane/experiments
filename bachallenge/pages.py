@@ -17,7 +17,7 @@ class MyPage(Page):
         if self.player.appchoice == 'Dating App':
             return "datingapp"
         elif self.player.appchoice == 'Digital Marketing':
-            return "digitalmarketing"
+            return "influencers"
         elif self.player.appchoice == 'Moonrover':
             return "moonrover"
 

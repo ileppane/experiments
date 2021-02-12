@@ -14,7 +14,7 @@ Challenges for prospective BA students: Dating App
 class Constants(BaseConstants):
     name_in_url = 'datingapp'
     players_per_group = None
-    num_rounds = 100
+    num_rounds = 20
 
 
 class Subsession(BaseSubsession):

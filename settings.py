@@ -30,11 +30,14 @@ SECRET_KEY = 'g#^90ip)&$$q-q!4@sv90@r%if&a5*%zhye*@s75t7s&80z@2q'
 
 SENTRY_DSN = 'http://7bba1340f6ba4cdea4a43db7cdede209:e1ce95d7ef444299bbac99164877f292@sentry.otree.org/140'
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-    )
-}
+
+# deleted 10/02/2021
+#DATABASES = {
+#    'default': dj_database_url.config(
+#        default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+#    )
+#}
+
 
 # AUTH_LEVEL:
 # this setting controls which parts of your site are freely accessible,
@@ -144,6 +147,14 @@ SESSION_CONFIG_DEFAULTS = {
 }
 
 SESSION_CONFIGS = [
+
+    {
+        'name': 'supplychain',
+        'display_name': 'Supply Chain Sourcing Game',
+        'num_demo_participants': 2,
+        'app_sequence': ['supplychain'],
+    },
+
     {
         'name': 'funnel',
         'display_name': 'Deming funnel experiment',
@@ -164,7 +175,7 @@ SESSION_CONFIGS = [
         'name': 'bachallenge',
         'display_name': 'Business Analytics Challenges',
         'num_demo_participants': 1,
-        'app_sequence': ['bachallenge','digitalmarketing','datingapp','moonrover'],
+        'app_sequence': ['bachallenge','influencers','datingapp','moonrover'],
     },
 
 ]

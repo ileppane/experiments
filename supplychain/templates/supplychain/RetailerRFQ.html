@@ -1,0 +1,116 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+    {% if roundnumber == 0 %}
+
+        <h1>You are the Retailer</h1>
+
+        <p>Please indicate your starting RFQ for the Wholesaler.</p>
+        <br>
+        <table id="table1">
+            <tr>
+                <td>RFQ</td>
+                <td>May</td>
+                <td>June</td>
+                <td>July</td>
+                <td>August</td>
+            </tr>
+            <tr>
+                <td>Quantity:</td>
+                <td>{% formfield group.orderQ_May %}</td>
+                <td>{% formfield group.orderQ_June %}</td>
+                <td>{% formfield group.orderQ_July %}</td>
+                <td>{% formfield group.orderQ_August %}</td>
+            </tr>
+        </table>
+        <br>
+    {% else %}
+
+        <h1>Retailer (round {{ roundnumber }})</h1>
+
+        <h2>Wholesaler's offer</h2>
+        <br>
+        <table  id="table1">
+            <tr>
+                <td>Offer</td><td>May</td><td>June</td><td>July</td><td>August</td>
+            </tr>
+            <tr>
+                <td>Quantity:</td>
+                <td>{{ group.supplyQ_May }}</td>
+                <td>{{ group.supplyQ_June }}</td>
+                <td>{{ group.supplyQ_July }}</td>
+                <td>{{ group.supplyQ_August }}</td>
+            </tr>
+        </table>
+        <br>
+        <p>Wholesale price: {{ group.wholesaleprice }}</p>
+
+        <p>The Wholesaler has also attached the following comments:</p>
+        <ul><i>{{ group.wholesalercomment }}</i></ul>
+
+        <h2>You have rejected the Wholesaler's offer</h2>
+
+        <p>Please write a new RFQ for the Wholesaler.</p>
+        <br>
+        <table  id="table1">
+            <tr>
+                <td>RFQ</td><td>May</td><td>June</td><td>July</td><td>August</td>
+            </tr>
+            <tr>
+                <td>Quantity:</td>
+                <td>{% formfield group.orderQ_May %}</td>
+                <td>{% formfield group.orderQ_June %}</td>
+                <td>{% formfield group.orderQ_July %}</td>
+                <td>{% formfield group.orderQ_August %}</td>
+            </tr>
+        </table>
+        <br>
+        <p>Please write comments to the Wholesaler in the below field. Justify your reasons for rejecting the offer and why you wish to submit a new RFQ.</p>
+
+        {% formfield group.retailercomment %}
+
+    {% endif %}
+
+    <p>This will be submitted to the Wholesaler once you click Submit.</p>
+    <br><center>
+    <button class="btn btn-primary btn-large">Submit</button>
+    </center>
+
+    <br><br>
+    <div class="instr">
+        {% include Constants.retailerinfo_template %}
+    </div>
+    <br>
+    <div class="instr">
+        {% include Constants.instructions_template %}
+    </div>
+
+{% endblock %}
+
+{% block styles %}
+
+<style type="text/css">
+
+#table1 td, #table1 th {
+    border: 1px solid #ddd;
+    width: 100px;
+    padding: 5px;
+    text-align: center;
+}
+
+#table2 td, #table2 th {
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: left;
+}
+
+.instr {
+    background-color: #eee;
+    padding: 10px;
+}
+
+</style>
+
+{% endblock %}

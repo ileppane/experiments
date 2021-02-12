@@ -27,7 +27,7 @@ class Results(Page):
             text = 'Unfortunately the distance was more than allowed for the drone, therefore your answer cannot be accepted. Go ahead and try again.'
         else:
             if yourpoints < 12 and yourpoints > 9:
-                text = "Close! The maximum profit you could achieve is 12. Go ahead and try again!"
+                text = "Close! The maximum profit you could achieve is £12,000. Go ahead and try again!"
             elif yourpoints <= 9:
                 text = "You could do better, go ahead and try again!"
             else:
@@ -43,7 +43,8 @@ class Results(Page):
             'fifthsite': self.player.fifthsite,
             'text': text,
             'dist': yourdist,
-            'points': yourpoints
+            'points': yourpoints,
+            'profit': '£' + str(yourpoints) + ',000'
         }
 
 

@@ -13,7 +13,7 @@
 
     <center>
 
-        <p id="p1">Click on a customer location to set distribution centre</p>
+        <p id="p1">Click on a location to set distribution point, then select four customer sites</p>
 
         <input type="hidden" name="startx" id="hstartx">
         <input type="hidden" name="starty" id="hstarty">
@@ -42,7 +42,7 @@
         }
 
         function instructions() {
-            alert("You are in charge of route planning in a London company that uses a drone to deliver parcels. Possible customer destinations are shown in the map. The numbers assigned to each destination represent profit margins (in £1,000s) that you get from each customer.\n\nEach square in the grid of the map represents a one sq-km area. The drone can travel any straight distance in the map, including diagonals. For example, the distance between customers at Woolwich and Greenwich is 2.24 km.\n\nFirst you have to decide the location of the distribution point. This is where the parcels are loaded from a lorry onto the drone. The distribution point can be placed at any customer location. You can select the location by clicking/touching it.\n\nThen select three destinations where the drone will fly, such that your total profit is maximised.\n\nThe drone can travel a maximum route of 10 km.");
+            alert("You are in charge of route planning in a London company that uses a drone to deliver parcels. Possible customer destinations are shown in the map. The numbers assigned to each destination represent profit margins (in £1,000s) that you get from each customer.\n\nEach square in the grid of the map represents a one sq-km area. The drone can travel any straight distance in the map, including diagonals. For example, the distance between customers at Woolwich and Greenwich is 2.24 km.\n\nFirst you have to decide the location of the distribution point. This is where the parcels are loaded from a lorry onto the drone. The distribution point can be placed at any customer location. You can select the location by clicking/touching it.\n\nThen select three destinations where the drone will fly, such that your total profit is maximised.\n\nThe drone can travel a maximum route of 10 km.\n");
         }
 
         var canvas = document.getElementById("myCanvas");
@@ -67,7 +67,7 @@
 
         // DRAW THE LOCATIONS
         var x = [1,2,4,5,7,7,7,8,8,9];
-        var y = [8,3,10,2,3,6,8,1,4,7];
+        var y = [8,3,9,2,3,6,8,1,4,7];
         var scores = [3,3,5,4,2,1,2,2,1,1];
         var names = ['Bow','Millwall','Stratford','Greenwich','Woolwich','Beckton','East Ham','Shooters Hill','Pier','Barking'];
 
@@ -118,7 +118,7 @@
 
             // LOCATION COORDINATES AND NAMES
             var x = [1,2,4,5,7,7,7,8,8,9];
-            var y = [8,3,10,2,3,6,8,1,4,7];
+            var y = [8,3,9,2,3,6,8,1,4,7];
             var scores = [3,3,5,4,2,1,2,2,1,1];
             var names = ['Bow','Millwall','Stratford','Greenwich','Woolwich','Beckton','East Ham','Shooters Hill','Pier','Barking'];
 
@@ -255,12 +255,12 @@
             position: fixed;
             width: 100%;
             height: 100%;
-            background-color: #ebebfa;
+            background-color: #edffea;
         }
 
         .btn {
-            background-color: #7070db;
-            border-color: #7070db;
+            background-color: #216353;
+            border-color: #216353;
         }
 
         #p1 {

@@ -1,0 +1,76 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+    <h1>Retailer (round {{ roundnumber }})</h1>
+
+    <h2>Wholesaler's offer</h2>
+    <br>
+    <table  id="table1">
+        <tr>
+            <td>Offer</td>
+            <td>May</td>
+            <td>June</td>
+            <td>July</td>
+            <td>August</td>
+        </tr>
+        <tr>
+            <td>Quantity:</td>
+            <td>{{ group.supplyQ_May }}</td>
+            <td>{{ group.supplyQ_June }}</td>
+            <td>{{ group.supplyQ_July }}</td>
+            <td>{{ group.supplyQ_August }}</td>
+        </tr>
+    </table>
+    <br>
+    <p>Wholesale price: {{ group.wholesaleprice }}</p>
+
+    <p>The Wholesaler has also attached the following comments:</p>
+    <ul><i>{{ group.wholesalercomment }}</i></ul>
+
+    <h2>Do you accept or reject the Wholesaler's offer?</h2>
+
+    <p>If you accept, then the game ends and your profits will be determined according to the Wholesaler's offer. If you reject, then you get the chance to revise your RFQ.</p>
+
+    <center>
+        <button name="retaileraccept" value="Accept" class="btn btn-primary btn-large">Accept</button>&nbsp; &nbsp; &nbsp;
+        <button name="retaileraccept" value="Reject" class="btn btn-primary btn-large">Reject</button>
+    </center>
+
+    <br><br>
+    <div class="instr">
+        {% include Constants.retailerinfo_template %}
+    </div>
+    <br>
+    <div class="instr">
+        {% include Constants.instructions_template %}
+    </div>
+
+{% endblock %}
+
+{% block styles %}
+
+<style type="text/css">
+
+#table1 td, #table1 th {
+    border: 1px solid #ddd;
+    width: 100px;
+    padding: 5px;
+    text-align: center;
+}
+
+#table2 td, #table2 th {
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: left;
+}
+
+.instr {
+    background-color: #ddd;
+    padding: 10px;
+}
+
+</style>
+
+{% endblock %}

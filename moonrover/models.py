@@ -16,7 +16,7 @@ def moonroverfun(startx,starty,first,second,third,fourth,fifth):
         return math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1))
 
     x =      [9, 8, 8, 7, 7, 7, 5, 2, 1, 4]
-    y =      [7, 4, 1, 8, 6, 3, 2, 3, 8, 10]
+    y =      [7, 4, 1, 8, 6, 3, 2, 3, 8, 9] # stratford y coord changed from 10 to 9
     points = [1, 1, 2, 2, 1, 2, 4, 3, 3, 5]
     #sites = ['Plains', 'Boulder', 'Rocks', 'Cliffs', 'Water', 'Life', 'Volcano', 'Mountain', 'Crater', 'Electromagnetic']
     sites = ['Barking','Pier','Shooters Hill','East Ham','Beckton','Woolwich','Greenwich','Millwall','Bow','Stratford']

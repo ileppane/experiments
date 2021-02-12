@@ -1,0 +1,23 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Game ends after {{ roundnumber }} rounds
+{% endblock %}
+
+{% block content %}
+
+    {% if group.retaileraccept == 'Accept' %}
+
+        <p>The Retailer has accepted the Supplier's offer.</p>
+
+    {% else %}
+
+        <p>The maximum number of rounds has been played and an agreement was not reached.</p>
+
+    {% endif %}
+
+    <p>Retailer's profit: £{{ retailerprofit }}</p>
+    <p>Wholesaler's profit: £{{ wholesalerprofit }}</p>
+
+{% endblock %}

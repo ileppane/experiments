@@ -47,7 +47,7 @@ class Results(Page):
         if (correct == ""):
             correct = "You did not have any correct matches."
 
-        if points > 1:
+        if points > 0:
             beforetext = "You correctly matched: "
 
         return {

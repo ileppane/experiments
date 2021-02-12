@@ -12,7 +12,7 @@ import csv
 author = 'IL'
 
 doc = """
-Stock Control Game for 19BSB100 & 19BSB580 students to be used to teach EOQ model and ABC classification
+Stock Control Game to teach EOQ principles and ABC classification
 """
 
 
@@ -37,7 +37,7 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
 
-    def before_session_starts(self):
+    def creating_session(self):
 
         if self.session.config['randomdemandgame'] == 'no':
             self.session.vars['demandA'] = [1095/365] * Constants.num_rounds  # ave daily demand 3
