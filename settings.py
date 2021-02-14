@@ -178,6 +178,13 @@ SESSION_CONFIGS = [
         'app_sequence': ['bachallenge','influencers','datingapp','moonrover'],
     },
 
+    {
+        'name': 'nvcomp',
+        'display_name': 'NV comp',
+        'num_demo_participants': 2,
+        'app_sequence': ['nvcomp'],
+    },
+
 ]
 
 # anything you put after the below line will override

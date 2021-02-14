@@ -71,8 +71,9 @@ class Constants(BaseConstants):
     instructions_template = 'supplychain/Instructions.html'
     retailerinfo_template = 'supplychain/Retailerinfo.html'
     wholesalerinfo_template = 'supplychain/Wholesalerinfo.html'
+    retailerprofitcalculator = 'supplychain/profitcalculatorR.html'
+    wholesalerprofitcalculator = 'supplychain/profitcalculatorW.html'
 
-    demand = [750,2000,750,1500]
     rholdingcost = 3
     rordercost = 2000
     rprice = 60

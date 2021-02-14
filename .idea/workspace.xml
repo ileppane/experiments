@@ -15,11 +15,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/supplychain/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+            <state relative-caret-position="453">
+              <caret line="82" column="21" lean-forward="true" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
               <folding>
                 <element signature="e#0#159#0" expanded="true" />
               </folding>
@@ -27,21 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Wholesalerinfo.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/Wholesalerinfo.html">
+      <file leaf-file-name="profitcalculatorW.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/profitcalculatorW.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Retailerinfo.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/Retailerinfo.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="42" column="31" lean-forward="false" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+            <state relative-caret-position="576">
+              <caret line="266" column="59" lean-forward="false" selection-start-line="266" selection-start-column="59" selection-end-line="266" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -50,8 +40,8 @@
       <file leaf-file-name="pages.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/supplychain/pages.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+            <state relative-caret-position="248">
+              <caret line="59" column="48" lean-forward="false" selection-start-line="59" selection-start-column="47" selection-end-line="59" selection-end-column="48" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -59,35 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RetailerAccept.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/RetailerAccept.html">
+      <file leaf-file-name="Introduction.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/Introduction.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding>
-                <element signature="e#1148#1154#0" expanded="true" />
-                <element signature="e#1155#1161#0" expanded="true" />
-                <element signature="e#1162#1168#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RetailerRFQ.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/RetailerRFQ.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Supplier.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/Supplier.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="58" column="21" lean-forward="false" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
+            <state relative-caret-position="90">
+              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -112,6 +78,10 @@
       <find>hiddenin</find>
       <find>Constants.demand</find>
       <find>wholdingocost</find>
+      <find>mayslider</find>
+      <find>1500</find>
+      <find>maypoutput</find>
+      <find>mayp</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -120,8 +90,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/cognitivenoise/templates/cognitivenoise/DecisionPage.html" />
-        <option value="$PROJECT_DIR$/eoq/templates/eoq/Instructions.html" />
         <option value="$PROJECT_DIR$/eoq/templates/eoq/Results.html" />
         <option value="$PROJECT_DIR$/BDMauction/templates/BDMauction/Auction.html" />
         <option value="$PROJECT_DIR$/BDMauction/models.py" />
@@ -155,29 +123,31 @@
         <option value="$PROJECT_DIR$/moonrover/templates/moonrover/Results.html" />
         <option value="$PROJECT_DIR$/funnel/templates/funnel/MyPage.html" />
         <option value="$PROJECT_DIR$/eoq/pages.py" />
-        <option value="$PROJECT_DIR$/settings.py" />
         <option value="$PROJECT_DIR$/eoq/models.py" />
         <option value="$PROJECT_DIR$/supplychain/templates/supplychain/InitialRetailer.html" />
         <option value="$PROJECT_DIR$/supplychain/templates/supplychain/Retailer.html" />
         <option value="$PROJECT_DIR$/supplychain/templates/supplychain/Results.html" />
         <option value="$PROJECT_DIR$/supplychain/templates/supplychain/GameEnd.html" />
-        <option value="$PROJECT_DIR$/supplychain/templates/supplychain/Introduction.html" />
-        <option value="$PROJECT_DIR$/supplychain/templates/supplychain/Instructions.html" />
-        <option value="$PROJECT_DIR$/supplychain/templates/supplychain/RetailerRFQ.html" />
         <option value="$PROJECT_DIR$/supplychain/templates/supplychain/Supplierinfo.html" />
-        <option value="$PROJECT_DIR$/supplychain/templates/supplychain/Supplier.html" />
-        <option value="$PROJECT_DIR$/supplychain/templates/supplychain/RetailerAccept.html" />
         <option value="$PROJECT_DIR$/supplychain/templates/supplychain/Wholesalerinfo.html" />
         <option value="$PROJECT_DIR$/supplychain/pages.py" />
         <option value="$PROJECT_DIR$/supplychain/templates/supplychain/Retailerinfo.html" />
+        <option value="$PROJECT_DIR$/settings.py" />
+        <option value="$PROJECT_DIR$/supplychain/templates/supplychain/RetailerRFQ.html" />
+        <option value="$PROJECT_DIR$/supplychain/templates/supplychain/profitcalculator2.html" />
+        <option value="$PROJECT_DIR$/supplychain/templates/supplychain/Introduction.html" />
+        <option value="$PROJECT_DIR$/supplychain/templates/supplychain/Instructions.html" />
         <option value="$PROJECT_DIR$/supplychain/models.py" />
+        <option value="$PROJECT_DIR$/supplychain/templates/supplychain/RetailerAccept.html" />
+        <option value="$PROJECT_DIR$/supplychain/templates/supplychain/Supplier.html" />
+        <option value="$PROJECT_DIR$/supplychain/templates/supplychain/profitcalculatorW.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="237" />
-    <option name="y" value="23" />
-    <option name="width" value="1025" />
+    <option name="x" value="512" />
+    <option name="y" value="59" />
+    <option name="width" value="869" />
     <option name="height" value="787" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -384,7 +354,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="237" y="23" width="1025" height="787" extended-state="0" />
+    <frame x="512" y="59" width="869" height="787" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24410933" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -416,69 +386,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/neuronewsvendor/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1095">
-          <caret line="80" column="17" lean-forward="true" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/datingapp/pages.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testform/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="47" column="17" lean-forward="false" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testform/pages.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="27" column="42" lean-forward="false" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testform/templates/testform/MyPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cognitivenoise/pages.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cognitivenoise/templates/cognitivenoise/FixationPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BDMauction/templates/BDMauction/Initial.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BDMauction/templates/BDMauction/Auction.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="11" lean-forward="true" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cognitivenoise/templates/cognitivenoise/DecisionPage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1635">
@@ -621,14 +528,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="175" column="56" lean-forward="false" selection-start-line="175" selection-start-column="56" selection-end-line="175" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eoq/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -693,42 +592,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/Introduction.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/Instructions.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="68" column="12" lean-forward="true" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/Supplierinfo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/Supplier.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="58" column="21" lean-forward="false" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/Wholesalerinfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -751,51 +618,163 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/RetailerAccept.html">
+    <entry file="file://$PROJECT_DIR$/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="585">
+          <caret line="183" column="34" lean-forward="false" selection-start-line="183" selection-start-column="34" selection-end-line="183" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvcomp/templates/nvcomp/Instructions.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-504">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvcomp/templates/nvcomp/Introduction.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvcomp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1148#1154#0" expanded="true" />
-            <element signature="e#1155#1161#0" expanded="true" />
-            <element signature="e#1162#1168#0" expanded="true" />
+            <element signature="e#0#134#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/RetailerRFQ.html">
+    <entry file="file://$PROJECT_DIR$/nvcomp/templates/nvcomp/TestQuestions.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+        <state relative-caret-position="210">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvcomp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1365">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#20#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/Wholesalerinfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="17" lean-forward="true" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/Retailerinfo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
+        <state relative-caret-position="-60">
           <caret line="42" column="31" lean-forward="false" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvcomp/templates/nvcomp/profitcalculator2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2880">
+          <caret line="192" column="13" lean-forward="false" selection-start-line="192" selection-start-column="13" selection-end-line="192" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/supplychain/pages.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+        <state relative-caret-position="248">
+          <caret line="59" column="48" lean-forward="false" selection-start-line="59" selection-start-column="47" selection-end-line="59" selection-end-column="48" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/Instructions.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/Introduction.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/profitcalculator2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="35" lean-forward="true" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/RetailerRFQ.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="77" column="60" lean-forward="true" selection-start-line="77" selection-start-column="60" selection-end-line="77" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/Supplier.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="90" column="8" lean-forward="true" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/RetailerAccept.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="47" column="10" lean-forward="false" selection-start-line="47" selection-start-column="10" selection-end-line="47" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/profitcalculatorR.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="76" lean-forward="true" selection-start-line="11" selection-start-column="76" selection-end-line="11" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/supplychain/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+        <state relative-caret-position="453">
+          <caret line="82" column="21" lean-forward="true" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
           <folding>
             <element signature="e#0#159#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supplychain/templates/supplychain/profitcalculatorW.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="266" column="59" lean-forward="false" selection-start-line="266" selection-start-column="59" selection-end-line="266" selection-end-column="59" />
+          <folding />
         </state>
       </provider>
     </entry>
