@@ -29,11 +29,11 @@ SECRET_KEY = 'g#^90ip)&$$q-q!4@sv90@r%if&a5*%zhye*@s75t7s&80z@2q'
 
 SENTRY_DSN = 'http://7bba1340f6ba4cdea4a43db7cdede209:e1ce95d7ef444299bbac99164877f292@sentry.otree.org/140'
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-    )
-}
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+#     )
+# }
 
 # AUTH_LEVEL:
 # this setting controls which parts of your site are freely accessible,
