@@ -32,7 +32,7 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
 
-    def before_session_starts(self):
+    def creating_session(self):
         self.session.vars['demand'] = 40 # demand over all rounds
 
 

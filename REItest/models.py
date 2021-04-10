@@ -29,7 +29,7 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    def before_session_starts(self):
+    def creating_session(self):
         if self.round_number == 1:
             for p in self.get_players():
                 t = 1000 * time.time() # current time in milliseconds

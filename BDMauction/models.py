@@ -95,7 +95,7 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    def before_session_starts(self):
+    def creating_session(self):
         if self.round_number == 1:
             # self.session.vars['endowment'] = 25 # $ assigned in one part
             # self.session.vars['exchange'] = 5 # $/£

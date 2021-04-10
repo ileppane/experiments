@@ -57,7 +57,7 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
 
-    def before_session_starts(self):
+    def creating_session(self):
 
         ifile = open('randomdemand.csv', 'rt')
         dema = []

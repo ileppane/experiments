@@ -66,7 +66,7 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
 
-    def before_session_starts(self):
+    def creating_session(self):
 
         # demand must be uniform between 1 and 300
         ifile = open('randomdemand2.csv', 'rt')
