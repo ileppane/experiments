@@ -6,9 +6,7 @@ import random, time, numpy as np
 from timeit import default_timer as timer
 
 doc = """
-This is a repeated "Prisoner's Dilemma". Two players are asked separately
-whether they want to cooperate or defect. Their choices directly determine the
-payoffs.
+Repeated Prisoner's Dilemma
 """
 
 

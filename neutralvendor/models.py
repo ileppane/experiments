@@ -9,9 +9,7 @@ from timeit import default_timer as timer
 author = 'IL'
 
 doc = """
-Decision making between lotteries
-Parameters as in low margin Newsvendor
-This app is made from the Newsvendor app with words such as demand and order masked to state of the world and decision
+Decision making between lotteries, parameters as in the Newsvendor game
 """
 
 

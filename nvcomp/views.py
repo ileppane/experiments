@@ -106,20 +106,7 @@ class Decide(Page):
 
 class FinalPage(Page):
 
-    def vars_for_template(self):
-
-        rew2 = self.participant.vars['part2rew']
-#        rew3 = self.participant.vars['part3rew']
-
-#        rew = (rew2+rew3)/200
-
-        return {
-            'rew2': int(rew2),
-#            'rew3': int(rew3),
-#            'rew': rew,
-            'prolificurl': self.session.config['prolificurl']
-        }
-
+    pass
 
 page_sequence = [
     Introduction,

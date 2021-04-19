@@ -1,6 +1,6 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
-from .models import Constants
+from .models import Constants, optimalcost
 
 
 class StartPage(Page):
@@ -22,7 +22,7 @@ class StartPage(Page):
 
 class MyPage(Page):
 
-#    timeout_seconds = 10
+    timeout_seconds = 30
 
     form_model = 'player'
 
@@ -73,6 +73,10 @@ class MyPage(Page):
             tbcC += self.player.in_round(i).bcC
             i += 1
 
+        costscoreA = optimalcost(0, self.round_number - 1)
+        costscoreB = optimalcost(1, self.round_number - 1)
+        costscoreC = optimalcost(2, self.round_number - 1)
+
         return { # these are list variables that are accessed by index 0,1,2
             'simple': self.session.config['simple'],
             'prevQ': prevQ,
@@ -95,7 +99,10 @@ class MyPage(Page):
                                str(tocC / (thcC + tocC + tbcC) * 100) + "%"],
             'backlogcostpx': [str(tbcA / (thcA + tocA + tbcA) * 100) + "%",
                               str(tbcB / (thcB + tocB + tbcB) * 100) + "%",
-                              str(tbcC / (thcC + tocC + tbcC) * 100) + "%"]
+                              str(tbcC / (thcC + tocC + tbcC) * 100) + "%"],
+            'costscoreA': costscoreA / (thcA + tocA + tbcA),
+            'costscoreB': costscoreB / (thcB + tocB + tbcB),
+            'costscoreC': costscoreC / (thcC + tocC + tbcC)
         }
 
     def before_next_page(self):
@@ -138,59 +145,64 @@ class MyPage(Page):
 
 class Results(Page):
 
-    form_model = 'player'
-    form_fields = ['freeform']
+#    form_model = 'player'
+#    form_fields = ['freeform']
 
     def is_displayed(self):
-        return self.round_number == Constants.num_rounds
+        return not bool(self.round_number % 7)
 
     def vars_for_template(self):
 
-        i = 1
         [thcA, tocA, tbcA] = [(Constants.holdingcost[0] / 365) * (Constants.initialinventory), 0, 0]  # tot. costs
         [thcB, tocB, tbcB] = [(Constants.holdingcost[1] / 365) * (Constants.initialinventory), 0, 0]  # tot. costs
         [thcC, tocC, tbcC] = [(Constants.holdingcost[2] / 365) * (Constants.initialinventory), 0, 0]  # tot. costs
+
+        i = self.round_number - 6
         while i < self.round_number:
             thcA += self.player.in_round(i).hcA
-            tocA += self.player.in_round(i).ocA
             tbcA += self.player.in_round(i).bcA
             thcB += self.player.in_round(i).hcB
-            tocB += self.player.in_round(i).ocB
             tbcB += self.player.in_round(i).bcB
             thcC += self.player.in_round(i).hcC
-            tocC += self.player.in_round(i).ocC
             tbcC += self.player.in_round(i).bcC
             i += 1
 
+        i = self.round_number - 6
+        while i < self.round_number + 1:
+            tocA += self.player.in_round(i).ocA
+            tocB += self.player.in_round(i).ocB
+            tocC += self.player.in_round(i).ocC
+            i += 1
+
         if thcA / (thcA + tocA) > 0.65 or thcA / (thcA + tocA) < 0.35:
-            text1A = 'Gold item: try to balance the holding and ordering costs better.'
+            text1A = '<font color=red>Balance the holding and ordering costs</font>'
         else:
-            text1A = 'Gold item: holding and ordering costs are in good balance.'
+            text1A = '<font color=green>Holding and ordering costs are in balance</font>'
 
         if thcB / (thcB + tocB) > 0.65 or thcB / (thcB + tocB) < 0.35:
-            text1B = 'Silver item: try to balance the holding and ordering costs better.'
+            text1B = '<font color=red>Balance the holding and ordering costs</font>'
         else:
-            text1B = 'Silver item: holding and ordering costs are in good balance.'
+            text1B = '<font color=green>Holding and ordering costs are in balance</font>'
 
         if thcC / (thcC + tocC) > 0.65 or thcC / (thcC + tocC) < 0.35:
-            text1C = 'Bronze item: try to balance the holding and ordering costs better.'
+            text1C = '<font color=red>Balance the holding and ordering costs</font>'
         else:
-            text1C = 'Bronze item: holding and ordering costs are in good balance.'
+            text1C = '<font color=green>Holding and ordering costs are in balance</font>'
 
         if tbcA > 0:
-            text2A = ' Try to eliminate the backlogs. '
+            text2A = '<font color=red>Eliminate backlogs</font>'
         else:
-            text2A = ' Well done with avoiding backlogs. '
+            text2A = '<font color=green>Well done with avoiding backlogs</font>'
 
         if tbcB > 0:
-            text2B = ' Try to eliminate the backlogs. '
+            text2B = '<font color=red>Eliminate backlogs</font>'
         else:
-            text2B = ' Well done with avoiding backlogs. '
+            text2B = '<font color=green>Well done with avoiding backlogs</font>'
 
         if tbcC > 0:
-            text2C = ' Try to eliminate the backlogs. '
+            text2C = '<font color=red>Eliminate backlogs</font>'
         else:
-            text2C = ' Well done with avoiding backlogs. '
+            text2C = '<font color=green>Well done with avoiding backlogs</font>'
 
         return { # these are list variables that are accessed by index 0,1,2
             'simple': self.session.config['simple'],
@@ -199,7 +211,7 @@ class Results(Page):
             'tbc': [tbcA, tbcB, tbcC],
             'total': [thcA+tocA+tbcA, thcB+tocB+tbcB, thcC+tocC+tbcC],
             'text1': [text1A, text1B, text1C],
-            'text2': [text2A, text2B, text2C]
+            'text2': [text2A, text2B, text2C],
         }
 
 

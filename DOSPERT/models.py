@@ -5,7 +5,7 @@ from otree.api import (
 
 author = 'IL'
 
-doc = """DOSPERT"""
+doc = """DOSPERT survey (risk preferences)"""
 
 
 class Constants(BaseConstants):

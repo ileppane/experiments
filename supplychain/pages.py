@@ -46,7 +46,10 @@ class Supplier(Page):
 
 
 class WaitForSupplier(WaitPage):
-    pass
+
+    template_name = 'supplychain/waitpage.html'
+    title_text = 'Wait for the other player'
+    body_text = ''
 
 
 class RetailerAccept(Page):
@@ -91,6 +94,9 @@ class RetailerRFQ(Page):
 
 class ResultsWaitPage(WaitPage):
 
+    template_name = 'supplychain/waitpage.html'
+    title_text = 'Wait for the other player'
+    body_text = ''
     def after_all_players_arrive(self):
         pass
 
@@ -100,9 +106,13 @@ class GameEnd(Page):
     def vars_for_template(self):
 
         return {
+            'retailerloss': -self.group.rprofit,
+            'wholesalerloss': -self.group.wprofit,
             'retailerprofit': self.group.rprofit,
             'wholesalerprofit': self.group.wprofit,
-            'roundnumber': self.round_number - 1
+            'roundnumber': self.round_number - 1,
+            'roundnumberp1': self.round_number,
+            'roundnumbers': range(self.round_number)
         }
 
     def is_displayed(self):

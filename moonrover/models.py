@@ -7,7 +7,7 @@ import math
 author = 'I Leppanen'
 
 doc = """
-BA challenge: Moonrover
+Drone delivery challenge -- a traveling salesman problem
 """
 
 def moonroverfun(startx,starty,first,second,third,fourth,fifth):

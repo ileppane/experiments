@@ -9,9 +9,7 @@ from timeit import default_timer as timer
 author = 'IL'
 
 doc = """
-Two party newsvendor game where customer-side is represented by another passive player
-Payoffs given in a payoff table
-High and low margin treatments
+Two party newsvendor game
 """
 
 

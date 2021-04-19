@@ -8,7 +8,7 @@ import numpy, pandas, csv
 author = 'IL'
 
 doc = """
-For 19BSC068
+The Foundation Task -- determines a fuzzy consensus matrix for a group task
 """
 
 # RETURN GROUP CONSENSUS ON A GIVEN PREFERENCE MATRIX

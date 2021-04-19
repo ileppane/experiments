@@ -96,7 +96,7 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
 
-    retaileraccept = models.StringField(choices=['Accept', 'Reject'], widget=widgets.RadioSelect, label="")
+    retaileraccept = models.StringField(choices=['Accept', 'Reject'], initial='', widget=widgets.RadioSelect, label='')
 
     # retailer order quantities in the Request for Quotation form
     orderQ_May = models.IntegerField(min=0, label="")

@@ -45,7 +45,7 @@
             </tr>
         </table>
         <br>
-        <p>Wholesale price: {{ group.wholesaleprice }}</p>
+        <p>Wholesale price: {{ group.wholesaleprice | to0 }}</p>
 
         <p>The Wholesaler has also attached the following comments:</p>
         <ul><i>{{ group.wholesalercomment }}</i></ul>
@@ -114,6 +114,10 @@
     background-color: #eee;
     padding: 10px;
 }
+
+body {
+    background-color: #e6f2ff;
+  }
 
 </style>
 

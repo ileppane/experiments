@@ -6,8 +6,8 @@
 {% endblock %}
 
 {% block content %}
-    <p>Your cumulative score is {{ cumulativescore | floatformat:"0" }}. Our simulations show that the lowest
-        score could be as low as {{ lowscore | floatformat:"0" }}. {{ lowscoretext }}</p>
+    <p>Your cumulative score is {{ cumulativescore | to0 }}. Our simulations show that the lowest
+        score could be as low as {{ lowscore | to0 }}. {{ lowscoretext }}</p>
     <p>{{ controllimitbreachtext }}</p>
 
     <center>

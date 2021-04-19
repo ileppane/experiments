@@ -13,13 +13,13 @@
 <section>
     <nav>
         <b>Silver item (value £{{ Constants.price.1 }})</b><br>
-        Stock: {{ I.1 | floatformat:"0"}}<br>
+        Stock: {{ I.1 | to0}}<br>
         Previous order: {{ prevQ.1 }}<br>
-        Previous demand: {{ prevD.1 | floatformat:"0" }}<br>
+        Previous demand: {{ prevD.1 | to0 }}<br>
         Expected demand for next day: 3<br>
         Annual holding cost: £{{ Constants.holdingcost.1 }} / item<br>
         Annual backlog cost: £{{ Constants.backlogcost.1 }} / item<br>
-        <table><tr><td>Your order:</td><td>{% formfield player.QB with label=""%}</td></tr></table>
+        <table><tr><td>Your order:</td><td>{% formfield player.QB %}</td></tr></table>
     </nav>
     <article>
         <div id="chartContainerB" style="height: 200px; width: 100%;"></div>
@@ -27,9 +27,11 @@
     </article>
     <nav>
         <b>Total costs</b><br><br>
-        Holding costs<br><div class="div_holdingcost" style="width: {{ holdingcostpx.1 }};"> £{{ thc.1 | floatformat:"2" }}</div>
-        Order costs<br><div class="div_orderingcost" style="width: {{ orderingcostpx.1 }};">£{{ toc.1 | floatformat:"2" }}</div>
-        Backlog costs<br><div class="div_backlogcost" style="width: {{ backlogcostpx.1 }};">£{{ tbc.1 | floatformat:"2" }}</div>
+        Holding costs<br><div class="div_holdingcost" style="width: {{ holdingcostpx.1 }};"> £{{ thc.1 | to2 }}</div>
+        Order costs<br><div class="div_orderingcost" style="width: {{ orderingcostpx.1 }};">£{{ toc.1 | to2 }}</div>
+        Backlog costs<br><div class="div_backlogcost" style="width: {{ backlogcostpx.1 }};">£{{ tbc.1 | to2 }}</div>
+        <br>
+        Cost efficiency score: {{ costscoreB | to2 }}
     </nav>
 </section>
 
@@ -49,13 +51,13 @@
 <section>
     <nav>
         <b>Gold item (value £{{ Constants.price.0 }})</b><br>
-        Stock: {{ I.0 | floatformat:"0"}}<br>
+        Stock: {{ I.0 | to0}}<br>
         Previous order: {{ prevQ.0 }}<br>
-        Previous demand: {{ prevD.0 | floatformat:"0" }}<br>
+        Previous demand: {{ prevD.0 | to0 }}<br>
         Expected demand for next day: 3<br>
         Annual holding cost: £{{ Constants.holdingcost.0 }} / item<br>
         Annual backlog cost: £{{ Constants.backlogcost.0 }} / item<br>
-        <table><tr><td>Your order:</td><td>{% formfield player.QA with label=""%}</td></tr></table>
+        <table><tr><td>Your order:</td><td>{% formfield player.QA %}</td></tr></table>
     </nav>
     <article>
         <div id="chartContainerA" style="height: 200px; width: 100%;"></div>
@@ -63,9 +65,11 @@
     </article>
     <nav>
         <b>Total costs</b><br><br>
-        Holding costs<br><div class="div_holdingcost" style="width: {{ holdingcostpx.0 }};"> £{{ thc.0 | floatformat:"2" }}</div>
-        Order costs<br><div class="div_orderingcost" style="width: {{ orderingcostpx.0 }};">£{{ toc.0 | floatformat:"2" }}</div>
-        Backlog costs<br><div class="div_backlogcost" style="width: {{ backlogcostpx.0 }};">£{{ tbc.0 | floatformat:"2" }}</div>
+        Holding costs<br><div class="div_holdingcost" style="width: {{ holdingcostpx.0 }};"> £{{ thc.0 | to2 }}</div>
+        Order costs<br><div class="div_orderingcost" style="width: {{ orderingcostpx.0 }};">£{{ toc.0 | to2 }}</div>
+        Backlog costs<br><div class="div_backlogcost" style="width: {{ backlogcostpx.0 }};">£{{ tbc.0 | to2 }}</div>
+        <br>
+        Cost efficiency score: {{ costscoreA | to2 }}
     </nav>
 </section>
 
@@ -85,13 +89,13 @@
 <section>
     <nav>
         <b>Bronze item (value £{{ Constants.price.2 }})</b><br>
-        Stock: {{ I.2 | floatformat:"0"}}<br>
+        Stock: {{ I.2 | to0}}<br>
         Previous order: {{ prevQ.2 }}<br>
-        Previous demand: {{ prevD.2 | floatformat:"0" }}<br>
+        Previous demand: {{ prevD.2 | to0 }}<br>
         Expected demand for next day: 3<br>
         Annual holding cost: £{{ Constants.holdingcost.2 }} / item<br>
         Annual backlog cost: £{{ Constants.backlogcost.2 }} / item<br>
-        <table><tr><td>Your order:</td><td>{% formfield player.QC with label=""%}</td></tr></table>
+        <table><tr><td>Your order:</td><td>{% formfield player.QC %}</td></tr></table>
     </nav>
     <article>
         <div id="chartContainerC" style="height: 200px; width: 100%;"></div>
@@ -99,9 +103,11 @@
     </article>
     <nav>
         <b>Total costs</b><br><br>
-        Holding costs<br><div class="div_holdingcost" style="width: {{ holdingcostpx.2 }};"> £{{ thc.2 | floatformat:"2" }}</div>
-        Order costs<br><div class="div_orderingcost" style="width: {{ orderingcostpx.2 }};">£{{ toc.2 | floatformat:"2" }}</div>
-        Backlog costs<br><div class="div_backlogcost" style="width: {{ backlogcostpx.2 }};">£{{ tbc.2 | floatformat:"2" }}</div>
+        Holding costs<br><div class="div_holdingcost" style="width: {{ holdingcostpx.2 }};"> £{{ thc.2 | to2 }}</div>
+        Order costs<br><div class="div_orderingcost" style="width: {{ orderingcostpx.2 }};">£{{ toc.2 | to2 }}</div>
+        Backlog costs<br><div class="div_backlogcost" style="width: {{ backlogcostpx.2 }};">£{{ tbc.2 | to2 }}</div>
+        <br>
+        Cost efficiency score: {{ costscoreC | to2 }}
     </nav>
 </section>
 

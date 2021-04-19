@@ -11,13 +11,13 @@ import otree.settings
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+
 # the environment variable OTREE_PRODUCTION controls whether Django runs in
 # DEBUG mode. If OTREE_PRODUCTION==1, then DEBUG=False
 if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
     DEBUG = False
 else:
     DEBUG = True
-
 
 # don't share this with anybody.
 SECRET_KEY = 'g#^90ip)&$$q-q!4@sv90@r%if&a5*%zhye*@s75t7s&80z@2q'
@@ -150,25 +150,43 @@ SESSION_CONFIGS = [
 
     {
         'name': 'supplychain',
-        'display_name': 'Supply Chain Sourcing Game',
+        'display_name': 'Supply Chain Contracting Game (for 2 players)',
         'num_demo_participants': 2,
         'app_sequence': ['supplychain'],
     },
 
     {
         'name': 'funnel',
-        'display_name': 'Deming funnel experiment',
+        'display_name': 'Deming Funnel experiment',
         'num_demo_participants': 1,
         'app_sequence': ['funnel'],
     },
 
     {
-        'name': 'eoq',
-        'display_name': 'Stock Control Game',
+        'name': 'eoq1',
+        'display_name': 'Stock Control Game (one product)',
         'num_demo_participants': 1,
         'app_sequence': ['eoq'],
         'simple': 'yes',
         'randomdemandgame': 'no'
+    },
+
+    {
+        'name': 'eoq2',
+        'display_name': 'Stock Control Game (three products)',
+        'num_demo_participants': 1,
+        'app_sequence': ['eoq'],
+        'simple': 'no',
+        'randomdemandgame': 'no'
+    },
+
+    {
+        'name': 'eoq3',
+        'display_name': 'Stock Control Game (three products and demand uncertainty)',
+        'num_demo_participants': 1,
+        'app_sequence': ['eoq'],
+        'simple': 'no',
+        'randomdemandgame': 'yes'
     },
 
     {
@@ -179,14 +197,29 @@ SESSION_CONFIGS = [
     },
 
     {
-        'name': 'nvcomp',
-        'display_name': 'NV comp',
-        'num_demo_participants': 2,
-        'app_sequence': ['nvcomp'],
+        'name': 'slider',
+        'display_name': 'Newsvendor',
+        'num_demo_participants': 1,
+        'app_sequence': ['slider'],
+        'margin': 'high'
     },
+
+#    {
+#        'name': 'public_goods',
+#        'display_name': 'Public Goods Game (for 3 players)',
+#        'num_demo_participants': 3,
+#        'app_sequence': ['public_goods'],
+#    },
+
+#    {
+#        'name': 'ultimatum',
+#        'display_name': 'Ultimatum Game (for 2 players)',
+#        'num_demo_participants': 2,
+#        'app_sequence': ['ultimatum'],
+#    }
 
 ]
 
 # anything you put after the below line will override
 # oTree's default settings. Use with caution.
-otree.settings.augment_settings(globals())
+#otree.settings.augment_settings(globals())

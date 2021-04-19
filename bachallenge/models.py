@@ -7,7 +7,7 @@ from otree.api import (
 author = 'Ilkka Leppanen'
 
 doc = """
-Challenges for prospective BA students
+This is the landing page for Business Analytics Challenges
 """
 
 

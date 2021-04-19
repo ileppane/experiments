@@ -53,7 +53,7 @@
 
     // THIS SETS THE SCORE UPDATE WITH 2 SECOND DELAY
     setTimeout(function(){
-        document.getElementById("score").innerHTML = {{ cumulativescore | floatformat:"0" }};
+        document.getElementById("score").innerHTML = {{ cumulativescore | to0 }};
     }, 2000);
 
     // THIS MAKES THE ANIMATE EFFECT OF THE CURRENT BALL DROPPING FROM THE FUNNEL

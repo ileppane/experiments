@@ -7,7 +7,7 @@ from otree.api import (
 author = 'Ilkka Leppanen'
 
 doc = """
-Challenges for prospective BA students: Digital Marketing
+Digital Marketing -- 0/1 Knapsack problem
 """
 
 

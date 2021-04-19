@@ -7,7 +7,7 @@ from otree.api import (
 author = 'Ilkka Leppanen'
 
 doc = """
-Challenges for prospective BA students: Dating App
+Dating App -- Matching problem
 """
 
 

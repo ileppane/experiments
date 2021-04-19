@@ -15,7 +15,7 @@ import re
 author = 'Your name here'
 
 doc = """
-Your app description
+Becker-DeGroot-Marschak auction
 """
 
 def lottery_generator(scaler, min_reward, min_risk, reward_lev, risk_lev):

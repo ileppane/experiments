@@ -16,10 +16,41 @@ Stock Control Game to teach EOQ principles and ABC classification
 """
 
 
+def optimalcost(itemtype, d):
+    # itemtype = 0 for Gold, 1 for silver, 2 for Bronze
+    # d = day
+
+    EOQ = [10, 47, 74]
+    H = [120/365, 5/365, 2/365]
+
+    stock = 10
+    TC = []
+    cumulTC = 0
+#    for i in range(50): # this counts 49 days
+    for i in range(d+1):
+        day = i + 1
+
+        HC = H[itemtype] * stock  # holding cost of the gold item
+
+        if stock < 3:
+            order = EOQ[itemtype]  # EOQ of the gold item
+            OC = 5
+        else:
+            order = 0
+            OC = 0
+
+        TC.append(OC + HC)
+        cumulTC += HC + OC
+
+        stock = stock + order - 3  # demand
+
+    return cumulTC - OC # TC[d-1]
+
+
 class Constants(BaseConstants):
     name_in_url = 'eoq'
     players_per_group = None
-    num_rounds = 50  # days, MAX=364
+    num_rounds = 49  # days, MAX=364
     instructions_template = 'eoq/Instructions.html'
     price = [300, 12.5, 5] # value of the item, only needed for reference to the holding cost
     ordercost = 5  # per batch
@@ -69,9 +100,9 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
-    QA = models.PositiveIntegerField(choices=range(101), initial=0) # order quantity
-    QB = models.PositiveIntegerField(choices=range(101), initial=0) # order quantity
-    QC = models.PositiveIntegerField(choices=range(101), initial=0) # order quantity
+    QA = models.PositiveIntegerField(choices=range(101), initial=0, label="") # order quantity
+    QB = models.PositiveIntegerField(choices=range(101), initial=0, label="") # order quantity
+    QC = models.PositiveIntegerField(choices=range(101), initial=0, label="") # order quantity
     IA = models.FloatField()     # onhand inventory
     IB = models.FloatField()     # onhand inventory
     IC = models.FloatField()     # onhand inventory
