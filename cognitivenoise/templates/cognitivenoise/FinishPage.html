@@ -2,63 +2,68 @@
 {% load otree static %}
 
 {% block title %}
-<h1>This is the end of the experiment</h1>
-<h2>For your finnal payoff:</h2>
+Your Payment
 
 {% endblock %}
 
 {% block content %}
+<h1 style="font-size: 35px;">This is the end of the experiment</h1>
 
-{% if scenario == 1 %}
-<p>Your final payoff is decided based on the round {{pick_round}} in the treatment 1. In that round your faced a lottery with {{risk}}% of chance winning £{{reward}}. Your biding price for this lottery is £{{WTP}}.</p>
+<div>
+<h4>For your payment from the Part 2:</h4>
+<p>Your payoff is decided based on the trial {{pick_round_auc}}. In that trial your faced a lottery with {{risk_auc}}% of chance winning ${{reward_auc}}. Your bidding price for this lottery is ${{WTP_auc}}.</p>
 
-<p>The generated selling price is £{{selling_price}}, which is greater than your biding price. Therefore, you did not purchase the lottery. Your finnal payoff from this experiment is £{{endowment}}</p>
-
-<p>Thank you very much for participation!</p>
+{% if scenario_auc == 1 %}
+<p>The generated selling price is ${{selling_price_auc}}, which is greater than your bidding price. Therefore, you did not purchase the lottery. Your payoff from this part is ${{endowment_auc}}</p>
 {% endif %}
 
-{% if scenario == 2 %}
-<p>Your final payoff is decided based on the round {{pick_round}} in the treatment 1. In that round your faced a lottery with {{risk}}% of chance winning £{{reward}}. Your biding price for this lottery is £{{WTP}}.</p>
-
-<p>The generated selling price is £{{selling_price}}, which is less than your biding price. Therefore, you purchased the lottery at the selling price. Unfortunately, you did not win the reward. Your finnal payoff from this experiment is £{{endowment}}</p>
-
-<p>Thank you very much for participation!</p>
+{% if scenario_auc == 2 %}
+<p>The generated selling price is ${{selling_price_auc}}, which is less than your bidding price. Therefore, you purchased the lottery at the selling price. Unfortunately, you did not win the reward. Your payoff from this part is ${{payoff_auc}}</p>
 {% endif %}
 
-{% if scenario == 3 %}
-<p>Your final payoff is decided based on the round {{pick_round}} in the treatment 1. In that round your faced a lottery with {{risk}}% of chance winning £{{reward}}. Your biding price for this lottery is £{{WTP}}.</p>
-
-<p>The generated selling price is £{{selling_price}}, which is less than your biding price. Therefore, you purchased the lottery at the selling price. Congradulation! you won the reward. Your finnal payoff from this experiment is £{{payoff}}</p>
-
-<p>Thank you very much for participation!</p>
+{% if scenario_auc == 3 %}
+<p>The generated selling price is ${{selling_price_auc}}, which is less than your bidding price. Therefore, you purchased the lottery at the selling price. Congradulation! you won the reward. Your payoff from this part is ${{payoff_auc}}</p>
 {% endif %}
 
-{% if scenario == 4 %}
-<p>Your final payoff is decided based on the round {{pick_round}} in the treatment 2. In that round you were asked if you would like to spend £{{certainty}} to purcahse a lottery with {{risk}}% of chance winning £{{reward}}.</p>
+<h4>For your payment from the Part 3:</h4>
+<p>Your payoff is decided based on the trial {{pick_round_ddm}}. In that trial, you were asked if you would like to trade ${{certainty_ddm}} for a lottery with {{risk_ddm}}% of chance winning ${{reward_ddm}}.</p>
 
-<p>You did not buy the lottery. Your final payoff from this experiment is £{{endowment}}</p>
-
-<p>Thank you very much for participation!</p>
+{% if scenario_ddm == 1 %}
+<p>You decided to keep the money and declined the trade. Your payoff from this part is ${{endowment_ddm}}</p>
 {% endif %}
 
-{% if scenario == 5 %}
-<p>Your final payoff is decided based on the round {{pick_round}} in the treatment 2. In that round you were asked if you would like to spend £{{certainty}} to purcahse a lottery with {{risk}}% of chance winning £{{reward}}.</p>
-
-<p>You bought the lottery. Unfortunately, you did not win the reward. Your final payoff from this experiment is £{{payoff}}</p>
-
-<p>Thank you very much for participation!</p>
+{% if scenario_ddm == 2 %}
+<p>You approved the trade and received the lottery. Unfortunately, you did not win the reward. Your payoff from this part is ${{payoff_ddm}}</p>
 {% endif %}
 
-{% if scenario == 6 %}
-<p>Your final payoff is decided based on the round {{pick_round}} in the treatment 2. In that round you were asked if you would like to spend £{{certainty}} to purcahse a lottery with {{risk}}% of chance winning £{{reward}}.</p>
-
-<p>You bought the lottery. Congradulation! you won the reward. Your finnal payoff from this experiment is £{{payoff}}</p>
-
-<p>Thank you very much for participation!</p>
+{% if scenario_ddm == 3 %}
+<p>You approved the trade and received the lottery. Congratulations! you won the reward. Your payoff from this part is ${{payoff_ddm}}</p>
 {% endif %}
 
+</div>
 
-{% next_button %}
+<div>
+  <h4>Final payment:</h4>
+  <p>The sum of payment from this experiment is ${{pay_sum}}, which is equal to £{{pay_pound}}.</p>
+</div>
 
+
+<div>
+<p>Thank you for your participation! Please click the link below to move back to Prolific Academic and receive your payment.</p>
+<p><a href=" {{ prolificurl }} ">Click here</a></p>
+</div>
+
+
+<!-- <br>
+<button class="btn btn-primary btn-large">
+  Please give us some feedback
+</button> -->
+
+<style>
+.otree-title {
+  font-size: 0;
+}
+
+</style>
 
 {% endblock %}

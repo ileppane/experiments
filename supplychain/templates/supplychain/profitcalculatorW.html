@@ -113,6 +113,8 @@
     </table>
 </center>
 
+</div>
+
 
 {% block scripts %}
 <script>
@@ -220,10 +222,10 @@ update = function(d1,d2,d3,d4,d5) {
     var julfoc = 0;
     var augfoc = 0;
 
-    if (d1 > 0) { mayfoc = {{ Constants.wordercost }}; }
-    if (d2 > 0) { junfoc = {{ Constants.wordercost }}; }
-    if (d3 > 0) { julfoc = {{ Constants.wordercost }}; }
-    if (d4 > 0) { augfoc = {{ Constants.wordercost }}; }
+    if (d1 > 0) { mayfoc = {{ Constants.wordercost|json }}; }
+    if (d2 > 0) { junfoc = {{ Constants.wordercost|json }}; }
+    if (d3 > 0) { julfoc = {{ Constants.wordercost|json }}; }
+    if (d4 > 0) { augfoc = {{ Constants.wordercost|json }}; }
 
     mayfocoutput.innerHTML = mayfoc;
     junfocoutput.innerHTML = junfoc;
@@ -231,10 +233,10 @@ update = function(d1,d2,d3,d4,d5) {
     augfocoutput.innerHTML = augfoc;
 
     // variable order costs
-    mayvoc = {{ Constants.wunitcost }}*d1;
-    junvoc = {{ Constants.wunitcost }}*d2;
-    julvoc = {{ Constants.wunitcost }}*d3;
-    augvoc = {{ Constants.wunitcost }}*d4;
+    mayvoc = {{ Constants.wunitcost|json }}*d1;
+    junvoc = {{ Constants.wunitcost|json }}*d2;
+    julvoc = {{ Constants.wunitcost|json }}*d3;
+    augvoc = {{ Constants.wunitcost|json }}*d4;
 
     mayvocoutput.innerHTML = mayvoc;
     junvocoutput.innerHTML = junvoc;
@@ -242,10 +244,10 @@ update = function(d1,d2,d3,d4,d5) {
     augvocoutput.innerHTML = augvoc;
 
     // inventory holding costs
-    mayhc = {{ Constants.wholdingcost }}*d1;
-    junhc = {{ Constants.wholdingcost }}*d2;
-    julhc = {{ Constants.wholdingcost }}*d3;
-    aughc = {{ Constants.wholdingcost }}*d4;
+    mayhc = {{ Constants.wholdingcost|json }}*d1;
+    junhc = {{ Constants.wholdingcost|json }}*d2;
+    julhc = {{ Constants.wholdingcost|json }}*d3;
+    aughc = {{ Constants.wholdingcost|json }}*d4;
 
     mayhcoutput.innerHTML = mayhc;
     junhcoutput.innerHTML = junhc;
@@ -271,7 +273,6 @@ update = function(d1,d2,d3,d4,d5) {
 </script>
 {% endblock %}
 
-</div>
 
 
 {% block styles %}

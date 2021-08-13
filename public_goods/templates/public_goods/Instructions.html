@@ -9,11 +9,11 @@
     <p>
         You will be in a randomly formed group
         of {{ Constants.players_per_group }} participants. Each participant in
-        the group is given {{ Constants.endowment | floatformat:0 }} monetary units. The group
+        the group is given {{ Constants.endowment | to0 }} monetary units. The group
         has the opportunity to undertake a joint project. Each participant in
         the group decides how much from the endowment she or he is going to contribute to
         the project. Contribution can be any integer from 0
-        to {{ Constants.endowment | floatformat:0 }}.
+        to {{ Constants.endowment | to0 }}.
     </p>
     <p>
         The earnings from the project are calculated as follows: The

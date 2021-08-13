@@ -181,6 +181,8 @@
     </table>
 </center>
 
+</div>
+
 
 {% block scripts %}
 <script>
@@ -296,10 +298,10 @@ update = function(d1,d2,d3,d4,d5) {
 
     // inventories
     var mayinventory = d1;
-    var juninventory = d2 + Math.max(mayinventory - {{ demand.0 }}, 0);
-    var julinventory = d3 + Math.max(juninventory - {{ demand.1 }}, 0);
-    var auginventory = d4 + Math.max(julinventory - {{ demand.2 }}, 0);
-    var salinventory = Math.max(auginventory - {{ demand.3 }}, 0);
+    var juninventory = d2 + Math.max(mayinventory - {{ demand.0|json }}, 0);
+    var julinventory = d3 + Math.max(juninventory - {{ demand.1|json }}, 0);
+    var auginventory = d4 + Math.max(julinventory - {{ demand.2|json }}, 0);
+    var salinventory = Math.max(auginventory - {{ demand.3|json }}, 0);
 
     mayinvoutput.innerHTML = mayinventory;
     juninvoutput.innerHTML = juninventory;
@@ -307,10 +309,10 @@ update = function(d1,d2,d3,d4,d5) {
     auginvoutput.innerHTML = auginventory;
 
     // sales
-    var maysales = Math.min(mayinventory, {{ demand.0 }});
-    var junsales = Math.min(juninventory, {{ demand.1 }});
-    var julsales = Math.min(julinventory, {{ demand.2 }});
-    var augsales = Math.min(auginventory, {{ demand.3 }});
+    var maysales = Math.min(mayinventory, {{ demand.0|json }});
+    var junsales = Math.min(juninventory, {{ demand.1|json }});
+    var julsales = Math.min(julinventory, {{ demand.2|json }});
+    var augsales = Math.min(auginventory, {{ demand.3|json }});
 
     maysalesoutput.innerHTML = maysales;
     junsalesoutput.innerHTML = junsales;
@@ -323,10 +325,10 @@ update = function(d1,d2,d3,d4,d5) {
     var julfoc = 0;
     var augfoc = 0;
 
-    if (d1 > 0) { mayfoc = {{ Constants.rordercost }}; }
-    if (d2 > 0) { junfoc = {{ Constants.rordercost }}; }
-    if (d3 > 0) { julfoc = {{ Constants.rordercost }}; }
-    if (d4 > 0) { augfoc = {{ Constants.rordercost }}; }
+    if (d1 > 0) { mayfoc = {{ Constants.rordercost|json }}; }
+    if (d2 > 0) { junfoc = {{ Constants.rordercost|json }}; }
+    if (d3 > 0) { julfoc = {{ Constants.rordercost|json }}; }
+    if (d4 > 0) { augfoc = {{ Constants.rordercost|json }}; }
 
     mayfocoutput.innerHTML = mayfoc;
     junfocoutput.innerHTML = junfoc;
@@ -340,10 +342,10 @@ update = function(d1,d2,d3,d4,d5) {
     augvocoutput.innerHTML = d5*d4;
 
     // inventory holding costs
-    mayhc = {{ Constants.rholdingcost }}*mayinventory;
-    junhc = {{ Constants.rholdingcost }}*juninventory;
-    julhc = {{ Constants.rholdingcost }}*julinventory;
-    aughc = {{ Constants.rholdingcost }}*auginventory;
+    mayhc = {{ Constants.rholdingcost|json }}*mayinventory;
+    junhc = {{ Constants.rholdingcost|json }}*juninventory;
+    julhc = {{ Constants.rholdingcost|json }}*julinventory;
+    aughc = {{ Constants.rholdingcost|json }}*auginventory;
 
     mayhcoutput.innerHTML = mayhc;
     junhcoutput.innerHTML = junhc;
@@ -351,10 +353,10 @@ update = function(d1,d2,d3,d4,d5) {
     aughcoutput.innerHTML = aughc;
 
     // monthly profits
-    var maypr = {{ Constants.rprice }}*maysales - mayfoc - d5*d1 - mayhc;
-    var junpr = {{ Constants.rprice }}*junsales - junfoc - d5*d2 - junhc;
-    var julpr = {{ Constants.rprice }}*julsales - julfoc - d5*d3 - julhc;
-    var augpr = {{ Constants.rprice }}*augsales - augfoc - d5*d4 - aughc;
+    var maypr = {{ Constants.rprice|json }}*maysales - mayfoc - d5*d1 - mayhc;
+    var junpr = {{ Constants.rprice|json }}*junsales - junfoc - d5*d2 - junhc;
+    var julpr = {{ Constants.rprice|json }}*julsales - julfoc - d5*d3 - julhc;
+    var augpr = {{ Constants.rprice|json }}*augsales - augfoc - d5*d4 - aughc;
 
     maypoutput.innerHTML = maypr;
     junpoutput.innerHTML = junpr;
@@ -362,7 +364,7 @@ update = function(d1,d2,d3,d4,d5) {
     augpoutput.innerHTML = augpr;
 
     // salvage revenue
-    var salpr = {{ Constants.salvageprice }}*salinventory;
+    var salpr = {{ Constants.salvageprice|json }}*salinventory;
     salvagepoutput.innerHTML = salpr;
 
     // total profit
@@ -373,7 +375,6 @@ update = function(d1,d2,d3,d4,d5) {
 </script>
 {% endblock %}
 
-</div>
 
 
 {% block styles %}
@@ -381,7 +382,7 @@ update = function(d1,d2,d3,d4,d5) {
 <style type="text/css">
 
 .slider {
-    -webkit-appearance: none;  /* Override default CSS styles */
+    -webkit-appearance: none;  /* Override default CSS styles
     appearance: none;
     width: 100%; /* Full-width */
     height: 25px; /* Specified height */

@@ -2,13 +2,23 @@
 {% load otree static %}
 
 {% block title %}
-    <h1>Thank you, this is the end of this section</h1>
-
+Part 2: End
 {% endblock %}
 
 {% block content %}
-    <p>Please contact the experimenter for the next Step.</p>
+<h1 style="font-size: 35px;">Part 2</h1>
 
-    {% next_button %}
+<br>
+<p>Now you have completed the Part 2. The outcome of this auction and your payment from this part will be revealed at the end of the experiment. Click the button below to proceed to the Part 3.</p>
+
+<br>
+{% next_button %}
+
+<style>
+.otree-title {
+  font-size: 0;
+}
+
+</style>
 
 {% endblock %}

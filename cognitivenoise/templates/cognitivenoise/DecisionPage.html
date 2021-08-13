@@ -1,13 +1,19 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
 
+{% block title %}
+Choice Page
+{% endblock %}
+
 {% block content %}
 
-{% if display == 0 %}
-<!-- lottery shown on the right hand side -->
-<body>
+<body onload="setStartTime()">
+  <br><br>
+  {% if display == 0 %}
+  <!-- lottery shown on the right hand side -->
+  <br>
   <section>
-    <article>
+    <article id="option_left">
 
       <div class="certainty_div">
         <p class = "certainty_txt">{{ certainty }}</p>
@@ -16,7 +22,7 @@
 
     </article>
 
-    <article>
+    <article id="option_right">
       <div class="risk_up_div" style="height: {{ risk_up_px }};">
         <p class="risk_up_txt">{{ risk_up }}</p>
       </div>
@@ -29,13 +35,12 @@
 
     </article>
   </section>
-</body>
 
-{% else %}
-<!-- lottery shown on the left hand side -->
-<body>
+  {% else %}
+  <!-- lottery shown on the left hand side -->
+  <br>
   <section>
-    <article>
+    <article id="option_left">
       <div class="risk_up_div" style="height: {{ risk_up_px }};">
         <p class="risk_up_txt">{{ risk_up }}</p>
       </div>
@@ -48,7 +53,7 @@
 
     </article>
 
-    <article>
+    <article id="option_right">
 
       <div class="certainty_div">
         <p class = "certainty_txt">{{ certainty }}</p>
@@ -57,10 +62,18 @@
 
     </article>
   </section>
+  {% endif %}
+
+  <!-- This is just to push away the debug table, should be commented off in actual deploy -->
+  <!-- <div style="height: 600px;">
+  </div> -->
+
 </body>
-{% endif %}
 
 <input type="hidden" name="choice" id="id_choice" value='nothing'>
+<input type="hidden" name="jsdectime_start" id="id_jsdectime_start" value=0>
+<input type="hidden" name="jsdectime_end" id="id_jsdectime_end" value=0>
+<!-- <input type="hidden" name="jsdectime" value=0> -->
 
 <!-- <center>(Press left or right arrow)</center> -->
 
@@ -69,14 +82,27 @@
 {% block scripts %}
 
 <script>
+  // document.documentElement.style.cursor = 'none';
+  // This is to hide the cursor, work the same as the CSS method.
+
+  function setStartTime() {
+    var d = new Date();
+    document.getElementById('id_jsdectime_start').value = d.getTime();
+  }
 
   document.addEventListener('keydown', function(event) {
+    var d = new Date();
+
     if(event.keyCode === 37) {
       document.getElementById('id_choice').value = 'left';
+      document.getElementById('id_jsdectime_end').value = d.getTime();
+      document.getElementById("option_left").style.border = "5px solid white";
       document.getElementById('form').submit();
     }
     if(event.keyCode === 39) {
       document.getElementById('id_choice').value = 'right';
+      document.getElementById('id_jsdectime_end').value = d.getTime();
+      document.getElementById("option_right").style.border = "5px solid white";
       document.getElementById('form').submit();
     }
   });
@@ -88,13 +114,19 @@
 {% block styles %}
 <style type="text/css">
 
+  .otree-title {
+    font-size: 0;
+  }
+
   article {
     float: left;
     width: 50%;
     background-color: black;
     padding: 20px;
     vertical-align: middle;
-    height: 500px;
+    height: 450px;
+    box-sizing: border-box;
+    border: 5px solid transparent;
   }
 
   /* Clear floats after the columns */
@@ -155,9 +187,11 @@
   }
 
   .certainty_txt {
-    font-family: "Times New Roman", Times, serif;
+    /* font-family: "Times New Roman", Times, serif;
     font-weight: normal;
-    font-size: 90px;
+    font-size: 90px; */
+    font-weight: 300;
+    font-size: 85px;
     position: relative;
     top: 120px;
   }

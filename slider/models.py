@@ -59,9 +59,9 @@ def set_time():
 class Constants(BaseConstants):
     name_in_url = 'slider'
     players_per_group = None
-    num_rounds = 5
+    num_rounds = 30 # 15 high margin and 15 low margin
     instructions_template = 'slider/Instructions.html'
-    profitcalculator = 'slider/profitcalculator2.html'
+    profitcalculator_template = 'slider/profitcalculator2.html'
 
 
 class Subsession(BaseSubsession):

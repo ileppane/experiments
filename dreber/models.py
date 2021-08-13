@@ -22,7 +22,7 @@ class Constants(BaseConstants):
     name_in_url = 'dreber'
     players_per_group = 2
 
-    num_rounds = 100
+    num_rounds = 12
 
     instructions_template = 'prisoner/Instructions.html'
 
@@ -71,6 +71,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect()
     )
 
+    payoffi = models.IntegerField()
     othpayoff = models.IntegerField()
 
     starttime = models.FloatField()
@@ -108,9 +109,7 @@ class Player(BasePlayer):
                 }
         }
 
-        self.payoff = (points_matrix[self.decision]
-                       [self.other_player().decision])
+        self.payoffi = int(points_matrix[self.decision][self.other_player().decision])
 
-        self.othpayoff = (points_matrix[self.other_player().decision]
-                       [self.decision])
+        self.othpayoff = int(points_matrix[self.other_player().decision][self.decision])
 

@@ -64,7 +64,7 @@ AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
 
 # e.g. EUR, CAD, GBP, CHF, CNY, JPY
 REAL_WORLD_CURRENCY_CODE = ''
-USE_POINTS = True
+USE_POINTS = False
 REAL_WORLD_CURRENCY_DECIMAL_PLACES = 5
 POINTS_CUSTOM_NAME = ''
 POINTS_DECIMAL_PLACES = 2
@@ -197,11 +197,17 @@ SESSION_CONFIGS = [
     },
 
     {
-        'name': 'slider',
-        'display_name': 'Newsvendor',
+        'name': 'newsvendorgame',
+        'display_name': 'Newsvendor (first high margin then low margin)',
         'num_demo_participants': 1,
-        'app_sequence': ['slider'],
-        'margin': 'high'
+        'app_sequence': ['slider']
+    },
+
+    {
+        'name': 'dreber',
+        'display_name': 'Repeated PD',
+        'num_demo_participants': 2,
+        'app_sequence': ['dreber'],
     },
 
 #    {
@@ -211,12 +217,78 @@ SESSION_CONFIGS = [
 #        'app_sequence': ['public_goods'],
 #    },
 
-#    {
+    {
+        'name': 'binarynv',
+        'display_name': 'Binary Newsvendor (first high then low margin)',
+        'num_demo_participants': 1,
+        'app_sequence': ['binarynv'],
+    },
+
+    #    {
 #        'name': 'ultimatum',
 #        'display_name': 'Ultimatum Game (for 2 players)',
 #        'num_demo_participants': 2,
 #        'app_sequence': ['ultimatum'],
 #    }
+
+
+
+    {
+        'name':'ECI_survey',
+        'display_name':'Emotional and Cognitive Ability Survey',
+        'num_demo_participants':5,
+        'app_sequence':['ECI_survey', 'even_gamble_practice', 'even_gamble'],
+        'gender':'unspecified',
+        'prolificurl':'http://www.google.com',
+    },
+
+    {
+        'name':'even_gamble_practice',
+        'display_name':'Even Gamble Game Instruction',
+        'num_demo_participants':5,
+        'app_sequence':['even_gamble_practice', 'even_gamble'],
+        'prolificurl':'http://www.google.com',
+    },
+
+    {
+        'name':'even_gamble',
+        'display_name':'Even Gamble Game',
+        'num_demo_participants':5,
+        'app_sequence':['even_gamble'],
+        'prolificurl':'http://www.google.com',
+    },
+
+    {
+        'name':'REItest',
+        'display_name':'CA Tests',
+        'num_demo_participants':1,
+        'app_sequence':['REItest', 'BDMauction', 'choice_practice', 'cognitivenoise'],
+        'endowment':25,
+        'exchange':5,
+        'prolificurl':'http://www.google.com',
+    },
+
+    {
+        'name':'BDMauction',
+        'display_name':'Preference Elicitation in Cognitive Noise Study',
+        'num_demo_participants':1,
+        # app_sequence = ['BDMauction', 'choice_practice', 'cognitivenoise'],
+        'app_sequence':['BDMauction', 'cognitivenoise'],
+    },
+
+    {
+        'name':'choice_practice',
+        'display_name':'Practice Session for the Binary Choices',
+        'num_demo_participants':1,
+        'app_sequence':['choice_practice', 'cognitivenoise'],
+    },
+
+    {
+        'name':'cognitivenoise',
+        'display_name':'Decision Task in Cognitive Noise Study',
+        'num_demo_participants':1,
+        'app_sequence':['cognitivenoise'],
+    }
 
 ]
 
