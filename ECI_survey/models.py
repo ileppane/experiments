@@ -44,78 +44,7 @@ class Player(BasePlayer):
 
     prolific_code = models.CharField()
 
-    ### Remanufaturing survey
-    # test score ranges from ...
-    """ Please specify variables for the Remanufaturing survey here """
-
-    # How likely are you to consider buying the remanufactured iPhone 12 described above on a scale from very unlikely (1) to very likely (7)?
-    RM_likelytobuy = models.IntegerField(
-        choices=[[1, '1 = Very Unlikely'], [2, '2'], [3, '3'], [4, '4 = Neutral'], [5, '5'], [6, '6'], [7, '7 = Very Likely']], widget=widgets.RadioSelect()
-    )
-
-    # WTP slider for iPhone 12
-    WTP_iPhone = models.FloatField() #  SLIDER???
-
-    # The remanufactured product will be less reliable than a comparable new product
-    RM_reliable = models.IntegerField(
-        choices=[[1, '1 = Very Unlikely'], [2, '2'], [3, '3'], [4, '4 = Neutral'], [5, '5'], [6, '6'], [7, '7 = Very Likely']], widget=widgets.RadioSelect()
-    )
-    # The remanufactured product will fail more often than a comparable new product
-    RM_fail = models.IntegerField(
-        choices=[[1, '1 = Very Unlikely'], [2, '2'], [3, '3'], [4, '4 = Neutral'], [5, '5'], [6, '6'], [7, '7 = Very Likely']], widget=widgets.RadioSelect()
-    )
-    # The remanufactured product is more likely to need to be returned than a comparable new product
-    RM_returned = models.IntegerField(
-        choices=[[1, '1 = Very Unlikely'], [2, '2'], [3, '3'], [4, '4 = Neutral'], [5, '5'], [6, '6'], [7, '7 = Very Likely']], widget=widgets.RadioSelect()
-    )
-    # The remanufactured product will cause me problems that a comparable new product would not cause
-    RM_problems = models.IntegerField(
-        choices=[[1, '1 = Very Unlikely'], [2, '2'], [3, '3'], [4, '4 = Neutral'], [5, '5'], [6, '6'], [7, '7 = Very Likely']], widget=widgets.RadioSelect()
-    )
-    # The remanufactured product will have cosmetic flaws
-    RM_cosmetic = models.IntegerField(
-        choices=[[1, '1 = Very Unlikely'], [2, '2'], [3, '3'], [4, '4 = Neutral'], [5, '5'], [6, '6'], [7, '7 = Very Likely']], widget=widgets.RadioSelect()
-    )
-    # The remanufactured product will have scratches on the screen or case
-    RM_scratches = models.IntegerField(
-        choices=[[1, '1 = Very Unlikely'], [2, '2'], [3, '3'], [4, '4 = Neutral'], [5, '5'], [6, '6'], [7, '7 = Very Likely']], widget=widgets.RadioSelect()
-    )
-    # The remanufactured product will look worn
-    RM_worn = models.IntegerField(
-        choices=[[1, '1 = Very Unlikely'], [2, '2'], [3, '3'], [4, '4 = Neutral'], [5, '5'], [6, '6'], [7, '7 = Very Likely']], widget=widgets.RadioSelect()
-    )
-
-    # functionality score as in Abbey et al. POM paper Table 1
-    RM_funcscore = models.IntegerField(initial=0)
-    # cosmetic score as in Abbey et al. POM paper Table 1
-    RM_cosmeticscore = models.IntegerField(initial=0)
-
-
-    ### Mask-usage survey
-    # Mask Usage Frequency (MUF), test score ranges from 4-20
-    MUF_score = models.IntegerField(initial=0)
-
-    MU1 = models.IntegerField(
-        choices = [[1, 'Yes (at least one dose)'], [0,'No']], widget=widgets.RadioSelect()
-        )
-    MU2 = models.PositiveIntegerField(
-        choices=[[1, '1 = Very Unlikely'], [2, '2'], [3, '3'], [4, '4 = Neutral'], [5, '5'], [6, '6'], [7, '7 = Very Likely']], widget=widgets.RadioSelect()
-        )
-    MU3 = models.PositiveIntegerField(
-        choices=[[1, '1 = Very Unlikely'], [2, '2'], [3, '3'], [4, '4 = Neutral'], [5, '5'], [6, '6'], [7, '7 = Very Likely']], widget=widgets.RadioSelect()
-        )
-    MU4 = models.PositiveIntegerField(
-        choices=[[1, '1 = Very Unlikely'], [2, '2'], [3, '3'], [4, '4 = Neutral'], [5, '5'], [6, '6'], [7, '7 = Very Likely']], widget=widgets.RadioSelect()
-        )
-    MU5 = models.PositiveIntegerField(
-        choices=[[1, '1 = Very Unlikely'], [2, '2'], [3, '3'], [4, '4 = Neutral'], [5, '5'], [6, '6'], [7, '7 = Very Likely']], widget=widgets.RadioSelect()
-        )
-    MU6 = models.PositiveIntegerField(
-        choices=[[1, '1 = Very Unlikely'], [2, '2'], [3, '3'], [4, '4 = Neutral'], [5, '5'], [6, '6'], [7, '7 = Very Likely']], widget=widgets.RadioSelect()
-        )
-
-
-    ### PANAS survey
+    ### PANAS survey (10 items)
     # test scores ranges from 5-25
 
     PA_score = models.IntegerField(initial=0)
@@ -152,6 +81,110 @@ class Player(BasePlayer):
     NA5 = models.PositiveIntegerField(
         choices = [[1,'1 = Never'],[2, '2 = Rarely'],[3,'3 = Sometimes'],[4,'4 = Often'],[5,'5 = Always']], widget=widgets.RadioSelect()
         )
+
+    ### DOSPERT survey
+    # test scores: RTP (Risk-Taking Propensity), E (Ethical), F (Financial), FI (Financial Investment), FG (Financial Gambling), HS (Health/Safty), R (Recreational), S (Social)
+    RTP_E = models.IntegerField(initial=0)
+    RTP_F = models.IntegerField(initial=0)
+    RTP_FI = models.IntegerField(initial=0)
+    RTP_FG = models.IntegerField(initial=0)
+    RTP_HS = models.IntegerField(initial=0)
+    RTP_R = models.IntegerField(initial=0)
+    RTP_S = models.IntegerField(initial=0)
+    RTP_average = models.FloatField(initial=0)
+
+    # questions (30 items)
+    dq1 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq2 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq3 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq4 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq5 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq6 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq7 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq8 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq9 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq10 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq11 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq12 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq13 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq14 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq15 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq16 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq17 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq18 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq19 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq20 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq21 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq22 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq23 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq24 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq25 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq26 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq27 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq28 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq29 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+    dq30 = models.PositiveIntegerField(
+        choices = [[1,'1 = Extremely Unlikely'],[2,'2 = Moderately Unlikely'],[3,'3 = Somewhat Unlikely'],[4,'4 = Not Sure'],[5,'5 = Somewhat Likely'],[6,'6 = Moderately Likely'],[7,'7 = Extremely Likely']], widget=widgets.RadioSelect()
+        )
+
 
     ### The following section contians variables the CRT:
     reflectiveness_score = models.IntegerField(initial=0)
@@ -218,8 +251,7 @@ class Player(BasePlayer):
     dt_end = models.FloatField()
     # the two timers above are for recording the start and end of all other RT measurements.
 
-    dt_mask = models.FloatField()
-    dt_remanufac = models.FloatField()
+    dt_dospert = models.FloatField()
     dt_panas = models.FloatField()
 
     dt_crt1 = models.FloatField()

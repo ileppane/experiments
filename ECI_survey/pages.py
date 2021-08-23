@@ -23,32 +23,6 @@ class Introduction(Page):
     pass
 
 
-class Mask(Page):
-    form_model = 'player'
-
-    form_fields = ['MU1', 'MU2', 'MU3', 'MU4', 'MU5', 'MU6',
-                   'dt_start', 'dt_end']
-
-    def before_next_page(self):
-        self.player.MUF_score = self.player.MU3 + self.player.MU4 + self.player.MU5 + self.player.MU6
-
-        self.player.dt_mask = (self.player.dt_end - self.player.dt_start) / 1000
-
-
-class Remanufac(Page):
-    form_model = 'player'
-    form_fields = ['RM_likelytobuy', 'WTP_iPhone',
-                   'RM_reliable', 'RM_fail', 'RM_returned', 'RM_problems', 'RM_cosmetic', 'RM_scratches', 'RM_worn', 'dt_start', 'dt_end']
-
-
-
-    def before_next_page(self):
-
-        self.player.RM_funcscore = self.player.RM_reliable + self.player.RM_fail + self.player.RM_returned + self.player.RM_problems
-        self.player.RM_cosmeticscore = self.player.RM_cosmetic + self.player.RM_scratches + self.player.RM_worn
-        self.player.dt_remanufac = (self.player.dt_end - self.player.dt_start) / 1000
-
-
 class PANASpage(Page):
     form_model = 'player'
     form_fields = ['PA1', 'PA2', 'PA3', 'PA4', 'PA5',
@@ -63,6 +37,34 @@ class PANASpage(Page):
         (6 - self.player.NA3) + (6 - self.player.NA4) + (6 - self.player.NA5)
 
         self.player.dt_panas = (self.player.dt_end - self.player.dt_start) / 1000
+
+
+class DOSPERT(Page):
+    form_model = 'player'
+    form_fields = ['dq1', 'dq2', 'dq3', 'dq4', 'dq5', 'dq6', 'dq7', 'dq8', 'dq9', 'dq10',
+                   'dq11', 'dq12', 'dq13', 'dq14', 'dq15', 'dq16', 'dq17', 'dq18', 'dq19', 'dq20',
+                   'dq21', 'dq22', 'dq23', 'dq24', 'dq25', 'dq26', 'dq27', 'dq28', 'dq29', 'dq30',
+                   'dt_start', 'dt_end']
+
+    def before_next_page(self):
+
+        self.player.RTP_E = self.player.dq6 + self.player.dq9 + self.player.dq10 + self.player.dq16 + self.player.dq29 + self.player.dq30
+
+        self.player.RTP_F = self.player.dq3 + self.player.dq4 + self.player.dq8 + self.player.dq12 + self.player.dq14 + self.player.dq18
+
+        self.player.RTP_FI = self.player.dq12 + self.player.dq4 + self.player.dq18
+
+        self.player.RTP_FG = self.player.dq3 + self.player.dq14 + self.player.dq8
+
+        self.player.RTP_HS = self.player.dq5 + self.player.dq15 + self.player.dq17 + self.player.dq20 + self.player.dq23 + self.player.dq26
+
+        self.player.RTP_R = self.player.dq2 + self.player.dq11 + self.player.dq13 + self.player.dq19 + self.player.dq24 + self.player.dq25
+
+        self.player.RTP_S = self.player.dq1 + self.player.dq7 + self.player.dq21 + self.player.dq22 + self.player.dq27 + self.player.dq28
+
+        self.player.RTP_average = (self.player.RTP_E + self.player.RTP_F + self.player.RTP_HS + self.player.RTP_R + self.player.RTP_S) / 5
+
+        self.player.dt_dospert = (self.player.dt_end - self.player.dt_start) / 1000
 
 
 """ CRT """
@@ -217,9 +219,8 @@ CRT_seq = [CRT1page, CRT2page, CRT3page, CRT4page, CRT5page, CRT6page, CRT7page]
 page_sequence = [
 Consent,
 Introduction,
-Mask,
-Remanufac,
 PANASpage,
+DOSPERT,
 CRT1page,
 CRT2page,
 CRT3page,
@@ -235,9 +236,8 @@ End
 # page_sequence = [
 # Consent,
 # Introduction,
-# Mask,
-# Remanufac,
 # PANASpage,
+# DOSPERT,
 # CRT_seq[0],
 # CRT_seq[1],
 # CRT_seq[2],
