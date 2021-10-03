@@ -2,7 +2,11 @@
 {% load otree static %}
 
 {% block title %}
-    Round {{ round }} results
+    {% if practice == 'yes' %}
+        Practice round {{ practiceround }} results
+    {% else %}
+        Round {{ round }} results
+    {% endif %}
 {% endblock %}
 
 {% block content %}
@@ -10,10 +14,10 @@
     {% if nvframe == 'yes' %}
         <table border="0" cellpadding="0" cellspacing="0">
             <tr>
-                <td width="150px"><b>Inventory: {{ q }}</b></td><td><b>Total cost: {{ costi }}</b></td>
+                <td width="150px">Inventory: {{ q }}</td><td>Total cost: {{ costi }}</td>
             </tr>
             <tr>
-                <td><b>Demand: {{ d }}</b></td><td><b>Revenue: {{ reve }}</b></td>
+                <td>Demand: {{ d }}</td><td>Revenue: {{ reve }}</td>
             </tr>
             <tr>
                 <td colspan="2"><b>{{ profitloss }}</b></td>
@@ -35,7 +39,7 @@
 
     <center>
 
-        <br><p>{{ demandtext }}</p>
+        <br><p><b>{{ demandtext }}</b></p>
         <button class="btn btn-primary btn-large">Start new round</button>
         <button class="btn btn-primary btn-large" type="button" onclick="instructions()">Instructions</button>
 
@@ -43,8 +47,11 @@
     <br>
     <div class="instr">
 
-        <h3>History</h3>
-
+        {% if practice == 'yes' %}
+            <h3>Practice round history</h3>
+        {% else %}
+            <h3>History</h3>
+        {% endif %}
         <center>
             <table width="260px">
                 <tr valign="bottom" align="center">
@@ -54,14 +61,32 @@
                         <th>Rnd</th><th>Blue circle</th><th>Red circle</th><th>Profit</th>
                     {% endif %}
                 </tr>
-                {% for p in player_in_all_rounds %}
-                <tr align="center">
-                    <td>{{ p.round_number }}</td>
-                    <td>{{ p.q }}</td>
-                    <td>{{ p.d }}</td>
-                    <td>{{ p.payoff|to0 }}</td>
-                </tr>
-                {% endfor %}
+
+                {% if practice == 'yes' %}
+
+                    {% for p in player_in_all_rounds %}
+                    <tr align="center">
+                        <td>{{ p.round_number }}</td>
+                        <td>{{ p.q }}</td>
+                        <td>{{ p.d }}</td>
+                        <td>{{ p.payoff|to0 }}</td>
+                    </tr>
+                    {% endfor %}
+
+                {% else %}
+
+                    {% for p in roundlist %}
+                    <tr align="center">
+                        {% if p.fakeround_number > 0 %}
+                            <td>{{ p.fakeround_number }}</td>
+                            <td>{{ p.q }}</td>
+                            <td>{{ p.d }}</td>
+                            <td>{{ p.payoff|to0 }}</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+
+                {% endif %}
             </table>
         </center>
 

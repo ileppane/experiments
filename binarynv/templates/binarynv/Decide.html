@@ -3,14 +3,19 @@
 
 {% block title %}
 
-    Round {{ round }}
+    {% if practice == 'yes' %}
+        Practice round {{ practiceround }}
+    {% else %}
+        Round {{ round }}
 
-    {% if nvframe == 'yes' %}
-        {% if margin == 'high' %}
-            (low cost product)
-        {% else %}
-            (high cost product)
+        {% if nvframe == 'yes' %}
+            {% if margin == 'high' %}
+                (low cost product)
+            {% else %}
+                (high cost product)
+            {% endif %}
         {% endif %}
+
     {% endif %}
 
 {% endblock %}
@@ -19,7 +24,14 @@
 
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <br><br><br>
+    {% if practice == 'yes' %}
+        The decisions you make during the practice rounds do not count for your monetary reward.<br><br><br>
+    {% else %}
+
+
+        <br><br><br>
+
+    {% endif %}
 
     <div id="wrapper" align="center">
 

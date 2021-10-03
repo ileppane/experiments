@@ -233,30 +233,30 @@ SESSION_CONFIGS = [
 
 
 
-    {
-        'name':'ECI_survey',
-        'display_name':'Emotional and Cognitive Ability Survey',
-        'num_demo_participants':5,
-        'app_sequence':['ECI_survey', 'even_gamble_practice', 'even_gamble'],
-        'gender':'unspecified',
-        'prolificurl':'http://www.google.com',
-    },
+#    {
+#        'name':'ECI_survey',
+#        'display_name':'Emotional and Cognitive Ability Survey',
+#        'num_demo_participants':5,
+#        'app_sequence':['ECI_survey', 'even_gamble_practice', 'even_gamble'],
+#        'gender':'unspecified',
+#        'prolificurl':'http://www.google.com',
+#    },
 
-    {
-        'name':'even_gamble_practice',
-        'display_name':'Even Gamble Game Instruction',
-        'num_demo_participants':5,
-        'app_sequence':['even_gamble_practice', 'even_gamble'],
-        'prolificurl':'http://www.google.com',
-    },
+#    {
+#        'name':'even_gamble_practice',
+#        'display_name':'Even Gamble Game Instruction',
+#        'num_demo_participants':5,
+#        'app_sequence':['even_gamble_practice', 'even_gamble'],
+#        'prolificurl':'http://www.google.com',
+#    },
 
-    {
-        'name':'even_gamble',
-        'display_name':'Even Gamble Game',
-        'num_demo_participants':5,
-        'app_sequence':['even_gamble'],
-        'prolificurl':'http://www.google.com',
-    },
+#    {
+#        'name':'even_gamble',
+#        'display_name':'Even Gamble Game',
+#        'num_demo_participants':5,
+#        'app_sequence':['even_gamble'],
+#        'prolificurl':'http://www.google.com',
+#    },
 
     {
         'name':'REItest',

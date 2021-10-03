@@ -3,19 +3,43 @@ from ._builtin import Page, WaitPage
 from .models import Constants, set_time, profit, revenue, cost
 
 
-class StartPage(Page):
+class WelcomePage(Page):
 
     def is_displayed(self):
         return self.round_number == 1
 
+    form_model = 'player'
+    form_fields = ['prolificcode']
+
+
+class StartPage(Page):
+
+    def is_displayed(self):
+        return self.round_number == 1 or self.round_number == 21
+
     def vars_for_template(self):
+        if self.player.round_number < 21:
+            partnumber = 'one'
+            costparam = 3 # ASSUME HIGH MARGIN (LOW COST PRODUCT) FIRST
+            optq = 225
+
+        else:
+            partnumber = 'two'
+            costparam = 9
+            optq = 75
 
         return {
-            'margin': 'high',
-            'costparam': 3, # high margin is first then low margin
+            'costparam': costparam,
+            'part': partnumber,
             'nvframe': Constants.nvframe,
-            'optq': 75
+            'optq': optq # not needed if profitcalculator commented off
         }
+
+
+class Practice(Page): # page that tells that practice rounds are over
+
+    def is_displayed(self):
+        return self.round_number == 6
 
 
 class PreDecision(Page):
@@ -33,7 +57,12 @@ class Decide(Page):
 
     def vars_for_template(self):
 
-        if self.player.round_number < 16: # high margin is first
+        if self.player.round_number < 6:
+            practice = 'yes'
+        else:
+            practice = 'no'
+
+        if self.player.round_number < 21: # high margin is first
             costparam = 3
             margin = 'high'
 
@@ -47,7 +76,9 @@ class Decide(Page):
             optq = 75
 
         return {
-            'round': self.player.round_number,
+            'practice': practice,
+            'practiceround': self.player.round_number,
+            'round': self.player.round_number-5,
             'margin': margin,
             'costparam': costparam,
             'inittotalcost': 150 * costparam,
@@ -58,7 +89,7 @@ class Decide(Page):
         }
 
     def before_next_page(self):
-        if self.player.round_number < 16:
+        if self.player.round_number < 21:
             margin = 'high'
         else:
             margin = 'low'
@@ -68,13 +99,27 @@ class Decide(Page):
         self.player.revenue = revenue(self.player.d, self.player.q)
         self.player.cost = cost(self.player.q, margin)
         self.player.endtime = set_time()
+        self.player.fakeround_number = self.player.round_number-5
 
 
 class Results(Page):
 
     def vars_for_template(self):
 
-        if self.player.round_number < 16: # high margin is first
+        if self.player.round_number < 6:
+            practice = 'yes'
+        else:
+            practice = 'no'
+
+        if self.player.round_number > 6:
+            actualroundlist = self.player.in_rounds(6, self.player.round_number)
+        else:
+            actualroundlist = range(1,2)
+
+        if self.player.round_number < 6:
+            practice = 'yes'
+
+        if self.player.round_number < 21: # high margin is first
             costparam = 3
             margin = 'high'
         else:
@@ -110,7 +155,11 @@ class Results(Page):
             profitloss = 'You made a loss of ' + str(-round(self.player.payoff,0))
 
         return {
-            'round': self.player.round_number,
+            'practice': practice,
+            'practiceround': self.player.round_number,
+            'round': self.player.round_number-5,
+            'actualroundlist': actualroundlist,
+            'roundlist': self.player.in_all_rounds,
             'margin': margin,
             'q': self.player.q,
             'd': d,
@@ -127,5 +176,34 @@ class Results(Page):
         }
 
 
+class FinalPage(Page):
 
-page_sequence = [StartPage, Decide, Results]
+    def is_displayed(self):
+        return self.round_number == 35
+
+    form_model = 'player'
+    form_fields = ['pecu', 'nonpecu', 'conflict']
+
+    def vars_for_template(self):
+
+        totpay = 0
+        for p in self.player.in_rounds(6,35):
+            totpay += p.payoff
+
+        return {
+            'averagepay': totpay/30,
+            'monetary': 0,
+        }
+
+
+class FinalFinalPage(Page):
+
+    def is_displayed(self):
+        return self.round_number == 35
+
+    def vars_for_template(self):
+        return {
+            'prolificurl': self.session.config['prolificurl']
+        }
+
+page_sequence = [WelcomePage, StartPage, Practice, PreDecision, Decide, Results, FinalPage, FinalFinalPage]

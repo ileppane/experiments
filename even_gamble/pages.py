@@ -7,13 +7,13 @@ import time
 
 # # The import code below does not work here becasue psycopg2 is not istalled,
 # # However these codes are necessary to ensure the program to run on servers.
-# from psycopg2.extensions import register_adapter, AsIs
-# def addapt_numpy_float64(numpy_float64):
-#     return AsIs(numpy_float64)
-# def addapt_numpy_int64(numpy_int64):
-#     return AsIs(numpy_int64)
-# register_adapter(np.float64, addapt_numpy_float64)
-# register_adapter(np.int64, addapt_numpy_int64)
+from psycopg2.extensions import register_adapter, AsIs
+def addapt_numpy_float64(numpy_float64):
+    return AsIs(numpy_float64)
+def addapt_numpy_int64(numpy_int64):
+    return AsIs(numpy_int64)
+register_adapter(np.float64, addapt_numpy_float64)
+register_adapter(np.int64, addapt_numpy_int64)
 
 
 class InitialPage(Page):

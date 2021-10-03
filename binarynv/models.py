@@ -66,7 +66,7 @@ def set_time():
 class Constants(BaseConstants):
     name_in_url = 'binarynv'
     players_per_group = None
-    num_rounds = 30
+    num_rounds = 35
     nvframe = 'yes' # yes = newsvendor, no = neutral framing
 
 
@@ -94,6 +94,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
+    prolificcode = models.CharField()
     starttime = models.FloatField()
     endtime = models.FloatField()
     jsdectime_start = models.FloatField()
@@ -102,3 +103,10 @@ class Player(BasePlayer):
     d = models.IntegerField()
     revenue = models.IntegerField()
     cost = models.IntegerField()
+    fakeround_number = models.IntegerField()
+    pecu = models.PositiveIntegerField(
+        choices=[[1, '1 = Not at all'], [2, '2'], [3, '3'], [4, '4'], [5, '5'], [6, '6'], [7, '7'], [8, '8'], [9, '9 = As much as possible']], widget=widgets.RadioSelect())
+    nonpecu = models.PositiveIntegerField(
+        choices=[[1, '1 = Not at all'], [2, '2'], [3, '3'], [4, '4'], [5, '5'], [6, '6'], [7, '7'], [8, '8'], [9, '9 = As much as possible']], widget=widgets.RadioSelect())
+    conflict = models.PositiveIntegerField(
+        choices=[[1, '1 = Least conflicted'], [2, '2'], [3, '3'], [4, '4'], [5, '5'], [6, '6'], [7, '7'], [8, '8'], [9, '9 = Most conflicted']], widget=widgets.RadioSelect())
